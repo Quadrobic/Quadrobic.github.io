@@ -246,12 +246,14 @@ def render_nav(doc, lang):
         roman = manifesto.book_roman(book, bi, lang)
         name = manifesto.book_name(book, lang)
         items.append(
-            f'<a href="#book-{bi}" class="nav-dot" data-target="book-{bi}" title="{html.escape(name)}"><span>{roman}</span></a>'
+            f'<a href="#book-{bi}" class="nav-dot" data-target="book-{bi}" title="{html.escape(name)}">'
+            f'<span class="nav-glyph">{roman}</span><span class="nav-label">{html.escape(name)}</span></a>'
         )
     for kind, (target, glyph) in TRAILING_NAV.items():
         title = trailing.get(kind, target)
         items.append(
-            f'<a href="#{target}" class="nav-dot" data-target="{target}" title="{html.escape(title)}"><span>{glyph}</span></a>'
+            f'<a href="#{target}" class="nav-dot" data-target="{target}" title="{html.escape(title)}">'
+            f'<span class="nav-glyph">{glyph}</span><span class="nav-label">{html.escape(title)}</span></a>'
         )
     return "\n".join(items)
 

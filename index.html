@@ -67,52 +67,72 @@
 
 <div id="progress-rail" aria-hidden="true"><div id="progress-fill"></div></div>
 
-<nav id="side-nav" aria-label="Книги трактата">
-  <a href="#book-1" class="nav-dot" data-target="book-1" title="Исток и Русло"><span>I</span></a>
-<a href="#book-2" class="nav-dot" data-target="book-2" title="Хридая и три знака"><span>II</span></a>
-<a href="#book-3" class="nav-dot" data-target="book-3" title="Тело как основание"><span>III</span></a>
-<a href="#book-4" class="nav-dot" data-target="book-4" title="Помутнение и цельность"><span>IV</span></a>
-<a href="#book-5" class="nav-dot" data-target="book-5" title="Ахимса"><span>V</span></a>
-<a href="#book-6" class="nav-dot" data-target="book-6" title="Проект Комплементации Квадроберов"><span>VI</span></a>
-<a href="#book-7" class="nav-dot" data-target="book-7" title="Империя"><span>VII</span></a>
-<a href="#book-8" class="nav-dot" data-target="book-8" title="Ритм"><span>VIII</span></a>
-<a href="#book-9" class="nav-dot" data-target="book-9" title="Звезда Смерти"><span>IX</span></a>
-<a href="#conclusion" class="nav-dot" data-target="conclusion" title="Заключение"><span>◆</span></a>
-<a href="#practices" class="nav-dot" data-target="practices" title="Садхана"><span>✦</span></a>
-<a href="#glossary" class="nav-dot" data-target="glossary" title="Словарь терминов"><span>§</span></a>
-</nav>
-
 <div id="lang-switch" aria-label="Язык / Language / ภาษา">
   <a href="index.html" data-lang="ru">RU</a>
   <a href="index.en.html" data-lang="en">EN</a>
   <a href="index.th.html" data-lang="th">TH</a>
 </div>
 
-<button id="sound-toggle" aria-label="Переключить фоновый звук" title="Звук">
-  <svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="currentColor"/></svg>
-</button>
-
-<div id="tts-wrap">
-  <button id="tts-toggle" aria-label="Слушать трактат вслух" title="Слушать">
-    <svg class="tts-icon-play" viewBox="0 0 24 24" width="16" height="16"><path d="M6 4l14 8-14 8V4z" fill="currentColor"/></svg>
-    <svg class="tts-icon-pause" viewBox="0 0 24 24" width="16" height="16"><path d="M5 4h4v16H5V4zm10 0h4v16h-4V4z" fill="currentColor"/></svg>
-  </button>
-  <button id="tts-voice-btn" aria-label="Выбрать голос чтеца" title="Голос" aria-haspopup="true" aria-expanded="false" hidden>
-    <svg viewBox="0 0 24 24" width="9" height="9"><path d="M4 3l9 9-9 9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
-  <div id="tts-voice-panel" role="menu" aria-label="Голос" hidden></div>
-</div>
-
-<a id="pdf-download" href="IQJ-manifest.pdf" download aria-label="Скачать PDF" title="Скачать PDF">
-  <svg viewBox="0 0 24 24" width="16" height="16">
-    <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1z" fill="currentColor"/>
-    <path d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z" fill="currentColor"/>
+<!-- On a narrow screen these same elements stop being individually fixed
+     and become normal content inside #mobile-sheet instead (see the
+     max-width:720px rules in style.css) - one menu button replaces four
+     buttons sitting on top of the text, and the table of contents that's
+     desktop-only otherwise becomes reachable too. Nothing here is
+     duplicated: it is the same nav and the same controls, just laid out
+     differently depending on viewport width. -->
+<button id="mobile-menu-btn" aria-label="Меню" aria-expanded="false" aria-controls="mobile-sheet">
+  <svg viewBox="0 0 24 24" width="18" height="18">
+    <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
   </svg>
-</a>
+</button>
+<div id="mobile-sheet-backdrop"></div>
 
-<div id="text-size-controls">
-  <button id="text-size-dec" aria-label="Уменьшить размер текста" title="Меньше текста">A</button>
-  <button id="text-size-inc" aria-label="Увеличить размер текста" title="Больше текста">A</button>
+<div id="mobile-sheet" role="dialog" aria-label="Меню">
+  <div id="mobile-sheet-handle" aria-hidden="true"></div>
+
+  <nav id="side-nav" aria-label="Книги трактата">
+    <a href="#book-1" class="nav-dot" data-target="book-1" title="Исток и Русло"><span class="nav-glyph">I</span><span class="nav-label">Исток и Русло</span></a>
+<a href="#book-2" class="nav-dot" data-target="book-2" title="Хридая и три знака"><span class="nav-glyph">II</span><span class="nav-label">Хридая и три знака</span></a>
+<a href="#book-3" class="nav-dot" data-target="book-3" title="Тело как основание"><span class="nav-glyph">III</span><span class="nav-label">Тело как основание</span></a>
+<a href="#book-4" class="nav-dot" data-target="book-4" title="Помутнение и цельность"><span class="nav-glyph">IV</span><span class="nav-label">Помутнение и цельность</span></a>
+<a href="#book-5" class="nav-dot" data-target="book-5" title="Ахимса"><span class="nav-glyph">V</span><span class="nav-label">Ахимса</span></a>
+<a href="#book-6" class="nav-dot" data-target="book-6" title="Проект Комплементации Квадроберов"><span class="nav-glyph">VI</span><span class="nav-label">Проект Комплементации Квадроберов</span></a>
+<a href="#book-7" class="nav-dot" data-target="book-7" title="Империя"><span class="nav-glyph">VII</span><span class="nav-label">Империя</span></a>
+<a href="#book-8" class="nav-dot" data-target="book-8" title="Ритм"><span class="nav-glyph">VIII</span><span class="nav-label">Ритм</span></a>
+<a href="#book-9" class="nav-dot" data-target="book-9" title="Звезда Смерти"><span class="nav-glyph">IX</span><span class="nav-label">Звезда Смерти</span></a>
+<a href="#conclusion" class="nav-dot" data-target="conclusion" title="Заключение"><span class="nav-glyph">◆</span><span class="nav-label">Заключение</span></a>
+<a href="#practices" class="nav-dot" data-target="practices" title="Садхана"><span class="nav-glyph">✦</span><span class="nav-label">Садхана</span></a>
+<a href="#glossary" class="nav-dot" data-target="glossary" title="Словарь терминов"><span class="nav-glyph">§</span><span class="nav-label">Словарь терминов</span></a>
+  </nav>
+
+  <div id="controls-row">
+    <button id="sound-toggle" aria-label="Переключить фоновый звук" title="Звук">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="currentColor"/></svg>
+    </button>
+
+    <div id="tts-wrap">
+      <button id="tts-toggle" aria-label="Слушать трактат вслух" title="Слушать">
+        <svg class="tts-icon-play" viewBox="0 0 24 24" width="16" height="16"><path d="M6 4l14 8-14 8V4z" fill="currentColor"/></svg>
+        <svg class="tts-icon-pause" viewBox="0 0 24 24" width="16" height="16"><path d="M5 4h4v16H5V4zm10 0h4v16h-4V4z" fill="currentColor"/></svg>
+      </button>
+      <button id="tts-voice-btn" aria-label="Выбрать голос чтеца" title="Голос" aria-haspopup="true" aria-expanded="false" hidden>
+        <svg viewBox="0 0 24 24" width="9" height="9"><path d="M4 3l9 9-9 9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="tts-voice-panel" role="menu" aria-label="Голос" hidden></div>
+    </div>
+
+    <a id="pdf-download" href="IQJ-manifest.pdf" download aria-label="Скачать PDF" title="Скачать PDF">
+      <svg viewBox="0 0 24 24" width="16" height="16">
+        <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1z" fill="currentColor"/>
+        <path d="M5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <div id="text-size-controls">
+      <button id="text-size-dec" aria-label="Уменьшить размер текста" title="Меньше текста">A</button>
+      <button id="text-size-inc" aria-label="Увеличить размер текста" title="Больше текста">A</button>
+    </div>
+  </div>
 </div>
 
 <main id="scroll-container">

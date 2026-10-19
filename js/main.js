@@ -34,6 +34,57 @@
     });
   })();
 
+  /* ---------------- mobile menu sheet ---------------- */
+  /* Below the 720px breakpoint, style.css turns the side nav and the four
+     utility buttons from individually fixed elements into normal content
+     inside #mobile-sheet - this just drives opening and closing it. The
+     nav links and buttons inside keep working exactly as they already
+     did (their own listeners are set up elsewhere in this file and don't
+     care where in the DOM their element currently sits). */
+  (function setupMobileSheet() {
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const sheet = document.getElementById("mobile-sheet");
+    const backdrop = document.getElementById("mobile-sheet-backdrop");
+    if (!menuBtn || !sheet || !backdrop) return;
+
+    function isOpen() {
+      return sheet.classList.contains("open");
+    }
+    function open() {
+      sheet.classList.add("open");
+      backdrop.classList.add("open");
+      menuBtn.setAttribute("aria-expanded", "true");
+      document.addEventListener("keydown", onEsc);
+    }
+    function close() {
+      sheet.classList.remove("open");
+      backdrop.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.removeEventListener("keydown", onEsc);
+    }
+    function onEsc(e) {
+      if (e.key === "Escape") close();
+    }
+
+    menuBtn.addEventListener("click", () => (isOpen() ? close() : open()));
+    backdrop.addEventListener("click", close);
+
+    // Picking a book from the list is a "navigate away" action - closing
+    // the sheet so the reader actually sees the section scroll into view.
+    // The utility buttons (sound/voice/pdf/text size) stay open on click:
+    // those are often pressed more than once in a row (A- / A+ especially),
+    // and closing on every tap would mean reopening the sheet each time.
+    sheet.addEventListener("click", (e) => {
+      if (e.target.closest(".nav-dot")) close();
+    });
+
+    // A rotation or a resize across the 720px breakpoint shouldn't leave
+    // the sheet stuck open underneath the now-desktop layout.
+    window.addEventListener("resize", () => {
+      if (isOpen() && window.innerWidth > 720) close();
+    });
+  })();
+
   gsap.registerPlugin(ScrollTrigger);
 
   /* ---------------- Lenis smooth scroll ---------------- */
