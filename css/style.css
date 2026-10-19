@@ -802,6 +802,13 @@ body {
   letter-spacing: 0.05em;
 }
 .site-footer .glyph-line { color: rgba(232, 200, 138, 0.5); }
+.footer-updated {
+  margin-top: 0.8em;
+  font-size: 0.7rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  color: rgba(253, 250, 243, 0.25);
+}
 
 /* ---------- small screens ---------- */
 

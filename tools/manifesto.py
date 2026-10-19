@@ -13,6 +13,7 @@ If README.md's formatting ever changes shape (a new kind of block), this is
 the only file that needs to learn about it — both build.py scripts consume
 the same `parse()` output and stay untouched.
 """
+import datetime
 import html
 import re
 from pathlib import Path
@@ -41,6 +42,33 @@ KIND_WORDS = {
     "en": {"conclusion": "Conclusion", "glossary": "Glossary", "axioms": "Axiomatics", "practices": "Practices"},
     "th": {"conclusion": "บทส่งท้าย", "glossary": "อภิธานศัพท์", "axioms": "สูตรสัจธรรม", "practices": "การฝึกฝน"},
 }
+
+# "Last updated" colophon, shown on the site footer and in the PDF. Dated
+# from each source file's own filesystem mtime — the moment the text itself
+# was last edited, not when the site/PDF happened to be rebuilt from it.
+MONTHS = {
+    "ru": ["января", "февраля", "марта", "апреля", "мая", "июня", "июля",
+           "августа", "сентября", "октября", "ноября", "декабря"],
+    "en": ["January", "February", "March", "April", "May", "June", "July",
+           "August", "September", "October", "November", "December"],
+    "th": ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+           "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"],
+}
+
+UPDATED_LABEL = {"ru": "Обновлено", "en": "Updated", "th": "อัปเดตล่าสุด"}
+
+
+def format_updated(path: Path, lang: str = "ru") -> str:
+    """'<label>: <day> <month> <year>, <HH:MM>' in the source file's own
+    last-modified local time, with month names spelled in `lang`."""
+    dt = datetime.datetime.fromtimestamp(path.stat().st_mtime).astimezone()
+    month = MONTHS.get(lang, MONTHS["ru"])[dt.month - 1]
+    if lang == "en":
+        date_part = f"{month} {dt.day}, {dt.year}"
+    else:
+        date_part = f"{dt.day} {month} {dt.year}"
+    label = UPDATED_LABEL.get(lang, UPDATED_LABEL["ru"])
+    return f"{label}: {date_part}, {dt.hour:02d}:{dt.minute:02d}"
 
 
 def inline(text: str) -> str:

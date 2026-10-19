@@ -261,6 +261,7 @@ def render_nav(doc, lang):
 def build(lang: str, tpl: str):
     meta = LANGS[lang]
     doc = manifesto.load(meta["readme"], lang=lang)
+    updated = manifesto.format_updated(meta["readme"], lang)
 
     preamble_html = "\n".join(f'<p class="reveal">{p}</p>' for p in doc["preamble"])
 
@@ -283,6 +284,7 @@ def build(lang: str, tpl: str):
     out = out.replace("<!--HERO_SUBTITLE-->", html.escape(meta["hero_subtitle"]))
     out = out.replace("<!--SCROLL_CUE-->", html.escape(meta["scroll_cue"]))
     out = out.replace("<!--FOOTER-->", html.escape(meta["footer"]))
+    out = out.replace("<!--UPDATED-->", html.escape(updated))
     out = out.replace("<!--NAV_ARIA-->", html.escape(meta["nav_aria"]))
     out = out.replace("<!--SOUND_ARIA-->", html.escape(meta["sound_aria"]))
     out = out.replace("<!--SOUND_TITLE-->", html.escape(meta["sound_title"]))

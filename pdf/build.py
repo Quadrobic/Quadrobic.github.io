@@ -97,7 +97,7 @@ def render_book(book, book_index) -> str:
                 elif kind == "invocation":
                     invocation_lines.append(f"△ <em>{payload}</em>")
         if invocation_lines:
-            parts.append("<p>" + "<br />\n".join(invocation_lines) + "</p>")
+            parts.append('<p class="invocation-block">' + "<br />\n".join(invocation_lines) + "</p>")
 
     elif book["kind"] == "glossary":
         parts.append(f"<h2>{book_heading(book)}</h2>")
@@ -109,7 +109,7 @@ def render_book(book, book_index) -> str:
     return "\n".join(parts)
 
 
-def build_html(doc) -> str:
+def build_html(doc, updated: str) -> str:
     parts = [f"<h1>{doc['title']}</h1>"]
     for p in doc["preamble"]:
         parts.append(f"<p>{p}</p>")
@@ -122,6 +122,7 @@ def build_html(doc) -> str:
         parts.append("<hr />")
     if parts and parts[-1] == "<hr />":
         parts.pop()
+    parts.append(f'<p class="colophon">{updated}</p>')
 
     body = "\n".join(parts)
     tpl = TEMPLATE.read_text(encoding="utf-8")
@@ -137,7 +138,8 @@ def build_html(doc) -> str:
 def main():
     chrome = find_chrome()
     doc = manifesto.load()
-    html_out = build_html(doc)
+    updated = manifesto.format_updated(manifesto.README)
+    html_out = build_html(doc, updated)
 
     with tempfile.TemporaryDirectory() as tmp:
         html_path = Path(tmp) / "manifesto.html"
