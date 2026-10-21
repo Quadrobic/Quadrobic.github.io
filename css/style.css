@@ -510,20 +510,21 @@ body {
   z-index: 40;
   display: flex;
   align-items: center;
-  height: 26px;
-  padding: 0 10px;
-  border-radius: 13px;
+  height: 28px;
+  padding: 0 11px;
+  border-radius: 14px;
   border: 1px solid rgba(201, 168, 106, 0.55);
-  background: rgba(14, 9, 6, 0.35);
+  background: rgba(14, 9, 6, 0.6);
   backdrop-filter: blur(3px);
-  color: rgba(232, 200, 138, 0.75);
+  color: var(--gold-bright);
   font-family: var(--serif-display);
-  font-size: 11px;
+  font-size: 12.5px;
   letter-spacing: 0.03em;
   text-decoration: none;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
 }
-.corner-link:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+.corner-link:hover { border-color: var(--gold-bright); color: var(--parchment); background: rgba(14, 9, 6, 0.8); }
 
 /* ---------- layout scaffolding ---------- */
 
