@@ -41,6 +41,8 @@ LANGS = {
         "dec_aria": "Уменьшить размер текста", "dec_title": "Меньше текста",
         "inc_aria": "Увеличить размер текста", "inc_title": "Больше текста",
         "font_links": "",
+        # Bonus story is Russian-only - the other two builds get nothing here.
+        "bonus_html": '<p class="footer-bonus"><a href="bird.html">△ Бонус: «Сухая грусть на дне очей»</a></p>',
     },
     "en": {
         "readme": ROOT / "README.en.md",
@@ -59,6 +61,7 @@ LANGS = {
         "dec_aria": "Decrease text size", "dec_title": "Smaller text",
         "inc_aria": "Increase text size", "inc_title": "Larger text",
         "font_links": "",
+        "bonus_html": "",
     },
     "th": {
         "readme": ROOT / "README.th.md",
@@ -81,6 +84,7 @@ LANGS = {
             'family=Noto+Serif+Thai:ital,wght@0,400;0,500;0,600;0,700;1,500'
             '&display=swap" rel="stylesheet">'
         ),
+        "bonus_html": "",
     },
 }
 
@@ -285,6 +289,7 @@ def build(lang: str, tpl: str):
     out = out.replace("<!--SCROLL_CUE-->", html.escape(meta["scroll_cue"]))
     out = out.replace("<!--FOOTER-->", html.escape(meta["footer"]))
     out = out.replace("<!--UPDATED-->", html.escape(updated))
+    out = out.replace("<!--BONUS-->", meta["bonus_html"])
     out = out.replace("<!--NAV_ARIA-->", html.escape(meta["nav_aria"]))
     out = out.replace("<!--SOUND_ARIA-->", html.escape(meta["sound_aria"]))
     out = out.replace("<!--SOUND_TITLE-->", html.escape(meta["sound_title"]))

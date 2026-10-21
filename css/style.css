@@ -679,6 +679,26 @@ body {
 
 .passage strong { color: var(--brown-mid); font-weight: 600; }
 .passage em { color: var(--brown-accent); font-style: italic; }
+
+/* ---------- bonus story (bird.html): continuous prose, not boxed
+   passage-cards - a short story reads as one flow, not a sequence of
+   self-contained arguments like the treatise's sections do. ---------- */
+.story-body p {
+  font-size: calc(clamp(1.02rem, 1.4vw, 1.12rem) * var(--text-scale));
+  line-height: 1.85;
+  margin: 0 0 1.3rem;
+  text-align: justify;
+  hyphens: none;
+}
+.story-body p:last-child { margin-bottom: 0; }
+.scene-break {
+  text-align: center;
+  color: var(--gold-bright);
+  filter: brightness(0.7);
+  letter-spacing: 0.4em;
+  margin: 2.4rem 0;
+  font-size: 0.9rem;
+}
 .ref {
   font-variant: small-caps;
   color: var(--brown-accent);
@@ -809,6 +829,19 @@ body {
   letter-spacing: 0.08em;
   color: rgba(253, 250, 243, 0.25);
 }
+.footer-bonus {
+  margin-top: 0.6em;
+  font-size: 0.78rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+.footer-bonus a {
+  color: rgba(232, 200, 138, 0.55);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232, 200, 138, 0.25);
+  transition: color 0.25s, border-color 0.25s;
+}
+.footer-bonus a:hover { color: var(--gold-bright); border-color: var(--gold-bright); }
 
 /* ---------- small screens ---------- */
 

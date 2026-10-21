@@ -11,4 +11,10 @@ python3 build.py
 echo "→ IQJ-manifest.pdf"
 python3 pdf/build.py
 
+echo "→ bird.html"
+python3 build_bird.py
+
+echo "→ bird.pdf"
+python3 bird_build.py
+
 echo "done."
