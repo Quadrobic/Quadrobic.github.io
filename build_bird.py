@@ -110,7 +110,7 @@ def main():
 
     out = TEMPLATE.read_text(encoding="utf-8")
     out = out.replace("<!--TITLE-->", title)
-    out = out.replace("<!--DESC-->", "Сухая грусть на дне очей — рассказ.")
+    out = out.replace("<!--DESC-->", "Сухая грусть на дне очей - рассказ.")
     out = out.replace("<!--HERO_TITLE-->", title)
     out = out.replace("<!--HERO_SUBTITLE-->", "Рассказ")
     out = out.replace("<!--CHAPTERS-->", chapters_html)
