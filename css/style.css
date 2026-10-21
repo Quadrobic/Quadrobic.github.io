@@ -252,7 +252,8 @@ body {
   #mobile-sheet #sound-toggle,
   #mobile-sheet #tts-wrap,
   #mobile-sheet #pdf-download,
-  #mobile-sheet #text-size-controls {
+  #mobile-sheet #text-size-controls,
+  #mobile-sheet #bonus-link {
     position: relative;
     left: auto; right: auto; top: auto; bottom: auto;
   }
@@ -495,6 +496,33 @@ body {
 #text-size-dec { font-size: 12px; }
 #text-size-inc { font-size: 17px; }
 
+/* ---------- bonus-story quick link ---------- */
+/* Stacked under the other utility buttons so the bonus text is reachable
+   from anywhere on the treatise in one click, instead of requiring a
+   scroll past Книга Девятая, Заключение, Садхана, Аксиоматика, Словарь
+   and the footer to find it. */
+#bonus-link {
+  position: fixed;
+  left: 18px;
+  bottom: 210px;
+  z-index: 40;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 106, 0.55);
+  background: rgba(14, 9, 6, 0.35);
+  color: rgba(232, 200, 138, 0.8);
+  backdrop-filter: blur(3px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+#bonus-link:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+#bonus-link svg { pointer-events: none; }
+
 /* ---------- layout scaffolding ---------- */
 
 #scroll-container {
@@ -689,8 +717,16 @@ body {
   margin: 0 0 1.3rem;
   text-align: justify;
   hyphens: none;
+  /* Unlike .passage, there's no light card behind this text - it sits
+     straight on the dark ink background, so it needs the same light
+     "parchment" treatment as .preamble/.book-title, not the default
+     dark body color meant for text inside a light card. */
+  color: var(--parchment);
+  text-shadow: 0 1px 20px rgba(0, 0, 0, 0.55);
 }
 .story-body p:last-child { margin-bottom: 0; }
+.story-body strong { color: var(--gold-bright); font-weight: 600; }
+.story-body em { color: var(--parchment-dim); font-style: italic; }
 .scene-break {
   text-align: center;
   color: var(--gold-bright);

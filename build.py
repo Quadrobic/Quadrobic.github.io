@@ -43,6 +43,15 @@ LANGS = {
         "font_links": "",
         # Bonus story is Russian-only - the other two builds get nothing here.
         "bonus_html": '<p class="footer-bonus"><a href="bird.html">△ Бонус: «Сухая грусть на дне очей»</a></p>',
+        "bonus_control_html": (
+            '<a id="bonus-link" href="bird.html" aria-label="Бонус: Сухая грусть на дне очей" '
+            'title="Бонус: Сухая грусть на дне очей">'
+            '<svg viewBox="0 0 24 24" width="16" height="16">'
+            '<path d="M12 6.2c-2.1-1.3-4.8-2-6.6-2-.9 0-1.7.13-2.4.35V18c.7-.22 1.5-.35 2.4-.35 1.8 0 4.5.7 6.6 2V6.2z" fill="currentColor"/>'
+            '<path d="M12 6.2c2.1-1.3 4.8-2 6.6-2 .9 0 1.7.13 2.4.35V18c-.7-.22-1.5-.35-2.4-.35-1.8 0-4.5.7-6.6 2V6.2z" fill="currentColor"/>'
+            "</svg>"
+            "</a>"
+        ),
     },
     "en": {
         "readme": ROOT / "README.en.md",
@@ -62,6 +71,7 @@ LANGS = {
         "inc_aria": "Increase text size", "inc_title": "Larger text",
         "font_links": "",
         "bonus_html": "",
+        "bonus_control_html": "",
     },
     "th": {
         "readme": ROOT / "README.th.md",
@@ -85,6 +95,7 @@ LANGS = {
             '&display=swap" rel="stylesheet">'
         ),
         "bonus_html": "",
+        "bonus_control_html": "",
     },
 }
 
@@ -290,6 +301,7 @@ def build(lang: str, tpl: str):
     out = out.replace("<!--FOOTER-->", html.escape(meta["footer"]))
     out = out.replace("<!--UPDATED-->", html.escape(updated))
     out = out.replace("<!--BONUS-->", meta["bonus_html"])
+    out = out.replace("<!--BONUS_CONTROL-->", meta["bonus_control_html"])
     out = out.replace("<!--NAV_ARIA-->", html.escape(meta["nav_aria"]))
     out = out.replace("<!--SOUND_ARIA-->", html.escape(meta["sound_aria"]))
     out = out.replace("<!--SOUND_TITLE-->", html.escape(meta["sound_title"]))
