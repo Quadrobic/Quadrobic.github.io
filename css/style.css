@@ -252,8 +252,7 @@ body {
   #mobile-sheet #sound-toggle,
   #mobile-sheet #tts-wrap,
   #mobile-sheet #pdf-download,
-  #mobile-sheet #text-size-controls,
-  #mobile-sheet #bonus-link {
+  #mobile-sheet #text-size-controls {
     position: relative;
     left: auto; right: auto; top: auto; bottom: auto;
   }
@@ -496,32 +495,35 @@ body {
 #text-size-dec { font-size: 12px; }
 #text-size-inc { font-size: 17px; }
 
-/* ---------- bonus-story quick link ---------- */
-/* Stacked under the other utility buttons so the bonus text is reachable
-   from anywhere on the treatise in one click, instead of requiring a
-   scroll past Книга Девятая, Заключение, Садхана, Аксиоматика, Словарь
-   and the footer to find it. */
-#bonus-link {
+/* ---------- corner cross-link (treatise <-> bonus story) ---------- */
+/* One pill, always fixed top-left on both pages, at every viewport width -
+   not swept into the mobile sheet with the reading-comfort controls,
+   since this is navigation to a different page, not a reading setting,
+   and it needs to stay out of reach while someone is busy tapping A-/A+
+   or picking a TTS voice in the bottom-left cluster. index.html links
+   forward to bird.html as "✦ Бонус"; bird.html links back as "△ Трактат"
+   from the same spot, so the way back is exactly where the way in was. */
+.corner-link {
   position: fixed;
   left: 18px;
-  bottom: 210px;
+  top: 18px;
   z-index: 40;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(201, 168, 106, 0.55);
-  background: rgba(14, 9, 6, 0.35);
-  color: rgba(232, 200, 138, 0.8);
-  backdrop-filter: blur(3px);
-  cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 13px;
+  border: 1px solid rgba(201, 168, 106, 0.55);
+  background: rgba(14, 9, 6, 0.35);
+  backdrop-filter: blur(3px);
+  color: rgba(232, 200, 138, 0.75);
+  font-family: var(--serif-display);
+  font-size: 11px;
+  letter-spacing: 0.03em;
   text-decoration: none;
   transition: all 0.3s ease;
 }
-#bonus-link:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
-#bonus-link svg { pointer-events: none; }
+.corner-link:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
 
 /* ---------- layout scaffolding ---------- */
 
