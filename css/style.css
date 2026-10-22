@@ -222,20 +222,20 @@ body {
   #mobile-sheet .nav-dot:hover { transform: none; }
   #mobile-sheet .nav-glyph {
     flex: 0 0 auto;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     border: 1px solid rgba(201, 168, 106, 0.4);
-    font-size: 10px;
+    font-size: 11px;
   }
   #mobile-sheet .nav-dot.active .nav-glyph { border-color: var(--ink-void); }
   #mobile-sheet .nav-label {
     display: inline;
     font-family: var(--serif-body);
-    font-size: 14.5px;
+    font-size: 16.5px;
     letter-spacing: 0;
   }
 
@@ -380,8 +380,8 @@ body {
   position: absolute;
   left: 46px;
   bottom: 0;
-  min-width: 170px;
-  max-width: min(240px, calc(100vw - 80px));
+  min-width: 190px;
+  max-width: min(280px, calc(100vw - 80px));
   max-height: 48vh;
   overflow-y: auto;
   background: rgba(14, 9, 6, 0.93);
@@ -408,10 +408,10 @@ body {
 .tts-panel-label {
   padding: 4px 10px 2px;
   font-family: var(--serif-display);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(232, 200, 138, 0.45);
+  color: rgba(232, 200, 138, 0.5);
 }
 .tts-panel-label:not(:first-child) {
   margin-top: 4px;
@@ -432,9 +432,9 @@ body {
   border: 1px solid rgba(201, 168, 106, 0.35);
   color: rgba(232, 200, 138, 0.85);
   font-family: var(--serif-display);
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.3;
-  padding: 5px 8px;
+  padding: 6px 9px;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
@@ -451,9 +451,9 @@ body {
   border: none;
   color: rgba(232, 200, 138, 0.85);
   font-family: var(--serif-display);
-  font-size: 12.5px;
+  font-size: 15px;
   line-height: 1.3;
-  padding: 7px 10px;
+  padding: 8px 10px;
   border-radius: 6px;
   cursor: pointer;
   white-space: nowrap;
@@ -551,15 +551,15 @@ body {
   z-index: 40;
   display: flex;
   align-items: center;
-  height: 28px;
-  padding: 0 11px;
-  border-radius: 14px;
+  height: 32px;
+  padding: 0 13px;
+  border-radius: 16px;
   border: 1px solid rgba(201, 168, 106, 0.55);
   background: rgba(14, 9, 6, 0.6);
   backdrop-filter: blur(3px);
   color: var(--gold-bright);
   font-family: var(--serif-display);
-  font-size: 12.5px;
+  font-size: 15px;
   letter-spacing: 0.03em;
   text-decoration: none;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
