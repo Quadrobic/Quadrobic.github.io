@@ -321,7 +321,10 @@ body {
 #tts-wrap {
   position: fixed;
   left: 18px;
-  bottom: 66px;
+  /* Topmost in the stack on purpose: the voice/speed panel below is
+     anchored to this element's bottom edge and only ever grows upward
+     from it, so nothing else in the column can be above it to overlap. */
+  bottom: 162px;
   z-index: 40;
   width: 40px;
   height: 40px;
@@ -500,7 +503,7 @@ body {
 #text-size-controls {
   position: fixed;
   left: 18px;
-  bottom: 162px;
+  bottom: 66px;
   z-index: 40;
   display: flex;
   gap: 8px;
