@@ -391,6 +391,23 @@
     let watchdog = null;
 
     const VOICE_KEY = "iqj-tts-voice-" + PAGE_LANG;
+    const RATE_KEY = "iqj-tts-rate";
+    // Language-neutral labels (×-multiplier) so this needs no translation
+    // table; 0.98 is the original hardcoded default, kept as the "normal" step.
+    const RATE_OPTIONS = [
+      { value: 0.8, label: "0.8×" },
+      { value: 0.98, label: "1×" },
+      { value: 1.15, label: "1.15×" },
+      { value: 1.35, label: "1.35×" },
+    ];
+    const PANEL_LABELS = PAGE_LANG === "en"
+      ? { speed: "Speed", voice: "Voice" }
+      : { speed: "Скорость", voice: "Голос" };
+    let rate = RATE_OPTIONS[1].value;
+    try {
+      const saved = parseFloat(localStorage.getItem(RATE_KEY));
+      if (RATE_OPTIONS.some((r) => r.value === saved)) rate = saved;
+    } catch (e) {}
 
     function pickVoice() {
       const voices = speechSynthesis.getVoices();
@@ -413,13 +430,46 @@
 
     function renderVoicePanel() {
       if (!voiceBtn || !voicePanel) return;
-      if (voiceOptions.length < 2) {
-        voiceBtn.hidden = true;
-        closeVoicePanel();
-        return;
-      }
+      // The button now always opens at least the speed control, regardless
+      // of how many voices this browser/OS happens to install.
       voiceBtn.hidden = false;
       voicePanel.innerHTML = "";
+
+      const speedLabel = document.createElement("div");
+      speedLabel.className = "tts-panel-label";
+      speedLabel.textContent = PANEL_LABELS.speed;
+      voicePanel.appendChild(speedLabel);
+
+      const speedRow = document.createElement("div");
+      speedRow.className = "tts-speed-row";
+      RATE_OPTIONS.forEach((opt) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "tts-speed-option";
+        b.setAttribute("role", "menuitemradio");
+        b.textContent = opt.label;
+        const isActive = opt.value === rate;
+        b.setAttribute("aria-checked", isActive ? "true" : "false");
+        b.classList.toggle("active", isActive);
+        b.addEventListener("click", () => {
+          rate = opt.value;
+          try { localStorage.setItem(RATE_KEY, String(rate)); } catch (e) {}
+          renderVoicePanel();
+          // Rate only takes effect on the utterance that's about to start,
+          // so restart the current block to make the change audible right away.
+          if (state === "reading") speakFrom(idx);
+        });
+        speedRow.appendChild(b);
+      });
+      voicePanel.appendChild(speedRow);
+
+      if (voiceOptions.length < 2) return;
+
+      const voiceLabel = document.createElement("div");
+      voiceLabel.className = "tts-panel-label";
+      voiceLabel.textContent = PANEL_LABELS.voice;
+      voicePanel.appendChild(voiceLabel);
+
       voiceOptions.forEach((v) => {
         const row = document.createElement("button");
         row.type = "button";
@@ -483,6 +533,9 @@
       });
     }
 
+    // Render immediately so the speed control is usable right away, without
+    // waiting on the (sometimes slow/async) voice list to resolve first.
+    renderVoicePanel();
     pickVoice();
     if ("onvoiceschanged" in speechSynthesis) {
       speechSynthesis.onvoiceschanged = pickVoice;
@@ -541,7 +594,7 @@
       const utter = new SpeechSynthesisUtterance(item.text);
       utter.lang = BCP47;
       if (voice) utter.voice = voice;
-      utter.rate = 0.98;
+      utter.rate = rate;
       // Firefox is known to garbage-collect SpeechSynthesisUtterance objects
       // that nothing in JS still references, cutting speech off mid-queue.
       // Keeping this assignment alive for the duration is the standard fix.
