@@ -16,6 +16,7 @@ the same `parse()` output and stay untouched.
 import datetime
 import html
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -44,8 +45,9 @@ KIND_WORDS = {
 }
 
 # "Last updated" colophon, shown on the site footer and in the PDF. Dated
-# from each source file's own filesystem mtime — the moment the text itself
-# was last edited, not when the site/PDF happened to be rebuilt from it.
+# from the moment the source text itself last changed (its last git commit,
+# or mtime while it has uncommitted edits), not when the site/PDF happened
+# to be rebuilt from it.
 MONTHS = {
     "ru": ["января", "февраля", "марта", "апреля", "мая", "июня", "июля",
            "августа", "сентября", "октября", "ноября", "декабря"],
@@ -58,10 +60,35 @@ MONTHS = {
 UPDATED_LABEL = {"ru": "Обновлено", "en": "Updated", "th": "อัปเดตล่าสุด"}
 
 
+def _git(*args: str) -> str:
+    return subprocess.run(
+        ["git", "-C", str(ROOT), *args],
+        check=True, capture_output=True, text=True,
+    ).stdout.strip()
+
+
+def source_datetime(path: Path) -> datetime.datetime:
+    """When the text in `path` last changed. A file committed as-is is dated
+    by its last commit (author date, with the author's own UTC offset), so
+    every checkout - on any machine, at any time - renders the same date and
+    a rebuild without a text edit produces no diff. A file with uncommitted
+    edits (or outside git) falls back to its filesystem mtime: that is the
+    edit in progress."""
+    try:
+        if not _git("status", "--porcelain", "--", str(path)):
+            stamp = _git("log", "-1", "--format=%aI", "--", str(path))
+            if stamp:
+                return datetime.datetime.fromisoformat(stamp)
+    except (OSError, subprocess.CalledProcessError):
+        pass
+    return datetime.datetime.fromtimestamp(path.stat().st_mtime).astimezone()
+
+
 def format_updated(path: Path, lang: str = "ru") -> str:
-    """'<label>: <day> <month> <year>, <HH:MM>' in the source file's own
-    last-modified local time, with month names spelled in `lang`."""
-    dt = datetime.datetime.fromtimestamp(path.stat().st_mtime).astimezone()
+    """'<label>: <day> <month> <year>, <HH:MM>' at the moment the source
+    file's text last changed (see source_datetime), with month names
+    spelled in `lang`."""
+    dt = source_datetime(path)
     month = MONTHS.get(lang, MONTHS["ru"])[dt.month - 1]
     if lang == "en":
         date_part = f"{month} {dt.day}, {dt.year}"
