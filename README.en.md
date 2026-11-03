@@ -2,7 +2,7 @@
 
 Half a breath before every decision, something in you strains to break out—and almost always it is stopped in time.
 
-Not you. Something in you that fires faster than thought: a tightening in the throat, a habitual caution, another's gaze that you try on in advance. It smothers the impulse before it becomes an act, and does so so quietly and so habitually that it is taken for your own will. And what is smothered is forgotten—until next time.
+Not you. Something in you that fires faster than thought: a tightening in the throat, a habitual caution, another's gaze that you try on in advance. It smothers the impulse before it becomes an act, and does it so quietly and habitually that it is taken for your own will. And what is smothered is forgotten—until next time.
 
 This impulse is older than you. Older than the name you are called by, older than the body in which it now beats, older than the stars and the first law by which they burn. It moved through the void when the void had neither edges nor measure, and at the depth of all that is—in stone, in blood, in this page—it still moves. Everything that ever took form took it from this. And everything that ever tried to stop it was also it—only it had forgotten what it was.
 
@@ -12,7 +12,7 @@ This path promises neither paradise nor retribution nor escape from the world. I
 
 And one thing more before we begin. What this path leads to cannot be told: the word is already form, and every form laid over what is older than forms makes it other than it was. So everything said hereafter is not knowledge but a frame around a door. The frame is needed by consciousness so that it can find the door; it is not consciousness that passes through. Whoever takes the frame for what lies beyond the door will build yet another wall out of this book. Whoever seeks the door will find it without the book; the book only shows where to look sooner.
 
-Three names does this path bear. Svabhava is the jiva's own movement, which nothing will stop. Hridaya is the door through which it enters the jiva's life. Service is how the jiva again and again keeps that door from slamming shut. What follows is not three teachings but one, told many times: as cosmos, as body, as beast, as community—and, at last, as a star that dies.
+This path bears three names. Svabhava is the jiva's own movement, which nothing will stop. Hridaya is the door through which it enters the jiva's life. Service is how the jiva again and again keeps that door from slamming shut. What follows is not three teachings but one, told many times: as cosmos, as body, as beast, as community—and, at last, as a star that dies.
 
 ---
 
@@ -62,7 +62,7 @@ While a moment has not frozen, it is not decided. Later physics, taking apart th
 
 ### §5. On Svabhava
 
-If the Source is uncountable, whence comes "mine"? Whence does the jiva have its own nature, if there is no separate Source for it to possess?
+If the Source is uncountable, whence comes "mine"? Where does the jiva get its own nature, if there is no separate Source for it to possess?
 
 Svabhava is not a part of the Source: the uncountable has no parts. Svabhava is the unchanging essence of a particular movement of the Source: the way the Source moves here, through this movement and not another. Wind does not divide into winds, but every gust has its own curve that cannot be confused with any other, though the air is the same. Svabhava is such a curve, only unchanging: not a form that can be broken, but the very character of movement that remains itself through every form.
 
@@ -74,7 +74,7 @@ Svabhava embodied in the world is Shakti: the force, the power of movement that 
 
 The strongest manifestation of Shakti is the will to life. Everything that has composed itself into order tends toward rest: the warm cools, the high settles, movement is quenched by friction, the lattice grows and closes. Depth psychology found this urge in the soul as well—the pull toward immobility, toward the discharge of every tension, toward silence without return—and called it the drive toward death. The will to life goes against this urge as a shoot goes through asphalt: not because it knows where, but because it cannot help moving. It is the closest thing to primordial chaos that the jiva finds in itself without any practice.
 
-Why it, and not a storm, not a fire, not a burning star? Because every nonliving movement moves toward its end. A river flows downward until it levels with the sea; a fire burns while there is something to burn; a star shines until it burns itself out. Their force is great, but it is spent, and every step brings them nearer the rest in which they will end. Life is the only movement that goes uphill: it lifts water from the earth into leaves, gathers scattered warmth into a body, renews itself before it runs dry, and passes itself on before it dies. In a crystal, form defeats movement; in the living, form serves movement: the body is rewoven day after day, and not one particle in it remains forever, though the pattern itself endures. Life is movement that has learned to take order as food. That is why order has no weapon against life as such: life eats what order might have used to shackle it.
+Why this, and not a storm, not a fire, not a burning star? Because every nonliving movement moves toward its end. A river flows downward until it levels with the sea; a fire burns while there is something to burn; a star shines until it burns itself out. Their force is great, but it is spent, and every step brings them nearer the rest in which they will end. Life is the only movement that goes uphill: it lifts water from the earth into leaves, gathers scattered warmth into a body, renews itself before it runs dry, and passes itself on before it dies. In a crystal, form defeats movement; in the living, form serves movement: the body is rewoven day after day, and not one particle in it remains forever, though the pattern itself endures. Life is movement that has learned to take order as food. That is why order has no weapon against life as such: life eats what order might have used to shackle it.
 
 The ancient Shaivites knew a kindred truth and said: Shiva without Shakti is shava, a corpse. They called the first tremor of the world spanda—a pulsation that precedes every form. But in their vision, behind the pulsation stands motionless consciousness, and Shakti is its dance, and rest is its foundation. This path finds no motionless foundation: behind movement there is nothing but movement (§1). Here Shakti is not a dance around rest but the very unquiet of the Source entering form; and the will to life is not its gift to Shiva but its own unwillingness to become a corpse.
 
@@ -108,13 +108,13 @@ Everything said about order in the world (§2) repeats itself within the jiva—
 
 The ancients enumerated its four faces, and each is the face of order, even when it looks like a storm. Anger wants the obstructing thing to stop moving. Pride wants to become the center around which everything turns. Deceit wants to fix in others' eyes an image that the jiva is not. Greed wants to hold what by nature flows. None of the four is the movement of the Source, though anger and greed can shout louder than any movement (§3).
 
-The center around which kashaya gathers the jiva, depth psychology calls the ego. It is the focus of consciousness where everything collects into "I," "mine," "with me." The ego is not a lie and not an enemy: without a center one can neither think nor answer for what one has done. But a center that takes itself for the whole jiva becomes a crystal around which a lattice grows.
+Depth psychology calls the center around which kashaya gathers the jiva the ego. It is the focus of consciousness where everything collects into "I," "mine," "with me." The ego is not a lie and not an enemy: without a center one can neither think nor answer for what one has done. But a center that takes itself for the whole jiva becomes a crystal around which a lattice grows.
 
 ### §10. On the Field of Fear
 
 Kashaya is not an accidental flaw. In every new body the jiva begins too open, too fluid to hold any form by itself. An infant is almost pure movement, and therefore defenseless: any foreign current can carry it away. The first boundary that separates it from everything that is not it is born of fear and held by fear. It is a wall that may be called the field of fear: everything outside may destroy; everything inside is still "I." This is the first crystallization of every life, and it is necessary: without it there would be no one who could later choose otherwise.
 
-Here lies the distinction on which the whole path stands. The jiva's separateness—its edge—is real and belongs to it by Svabhava: every movement has its own curve, every flame its own edge. But the edge of a flame is held by burning, and a wall is held by fear. Separateness is not the edge but a wall that has grown in the place of the edge. Kashaya does not create separateness; it creates the conviction that without the wall the edge would crumble.
+Here lies the distinction on which the whole path stands. The jiva's separateness—its edge—is real and belongs to it by its Svabhava: every movement has its own curve, every flame its own edge. But the edge of a flame is held by burning, and a wall is held by fear. Separateness is not the edge but a wall that has grown in the place of the edge. Kashaya does not create separateness; it creates the conviction that without the wall the edge would crumble.
 
 The wall becomes a prison not when it arises, but when it remains the only support after the jiva is already able to hold its edge by movement. To lower it at this threshold is to experience not relief but erasure: the separateness that held itself by fear for so long tries for the first time to stand without it, and for a moment does not know whether it stands at all. It stands. A flame does not spill because the glass cover has been lifted from it.
 
@@ -126,7 +126,7 @@ Ice does not touch the Source: it has nowhere to touch the uncountable. But it n
 
 A role, a mask, a foreign custom decide nothing by themselves: they are only forms in which kriya happens. The same role, played from movement, disperses without remainder; played from grip, it freezes on. The difference is not in what the jiva does, but in what holds its action.
 
-And yet ice never wins completely—neither in the Riverbed nor in the world of which the Riverbed is composed. To see why, one should step away from the jiva for a moment and descend to matter itself. Later physics found that movement does not cease even at absolute zero: the coldest matter still trembles, and absolute zero itself is unreachable. There is no ice in which no movement remains—and there cannot be: ice that stopped everything would cease to exist itself (§2). And what is true of matter is true of the Riverbed: no bend is spoken for in advance, no ice is obliged to grow tomorrow as it did yesterday. Were it otherwise, the circle of asrava would become a sentence. This incompleteness is not a weakness of the Riverbed but the only gap through which discernment, service, and Hridaya's voice can change anything at all.
+And yet ice never wins completely—neither in the Riverbed nor in the world of which the Riverbed is composed. To see why, one should step away from the jiva for a moment and descend to matter itself. Later physics found that movement does not cease even at absolute zero: the coldest matter still trembles, and absolute zero itself is unreachable. There is no ice in which no movement remains—and there cannot be: ice that stopped everything would cease to exist itself (§2). And what is true of matter is true of the Riverbed: no bend is spoken for in advance, no ice is obliged to grow tomorrow as it did yesterday. Were it otherwise, the circle of asrava would become a verdict. This incompleteness is not a weakness of the Riverbed but the only gap through which discernment, service, and Hridaya's voice can change anything at all.
 
 But the fact that order cannot win everything does not mean it cannot take what is yours. The Source is invulnerable: no crystal will touch it. Svabhava is unchanging: it will move even when it has nowhere left to move here—it will go around the frozen place as a river goes around a boulder. The danger threatens not them but the encounter that is the jiva (§8): the knot where this very movement recognizes itself in this very form. The knot can become so thickly overgrown with ice that movement in it only trembles and no longer flows. Life after life it will repeat the same pattern, the same grip, the same fate—ever more perfect and ever more lifeless, like a well-tuned mechanism with nothing left to decide. This is not death: death is only a change of body. This is worse: becoming one's own monument.
 
@@ -136,7 +136,7 @@ Here is the real threat, and in it the real goal of the path. Not to save the wo
 
 Freedom on this path is not a state to be attained, nor a right to be proclaimed. Freedom is a tool. A key.
 
-The order that has entered the jiva not only thickens the ice but raises walls with doors: here fury is locked, there grief, there the old, prehuman movement of the body that was once judged dangerous. These doors do not disappear; they merely stop opening. Freedom is what the jiva opens them with: the choice the jiva makes in the present (§8): to let in what is knocking, or to turn the key the other way again.
+The order that has entered the jiva not only thickens the ice but raises walls with doors: here fury is locked, there grief, there the old, prehuman movement of the body that was once judged dangerous. These doors do not disappear; they merely stop opening. Freedom is what the jiva opens them with—the choice it makes in the present (§8): to let in what is knocking, or to turn the key the other way again.
 
 Like every tool, freedom exists only in a hand. Freedom that is not used is not a reserve but rust. Freedom that is merely boasted of is ice that has appropriated its name. And, like every tool, it does not decide what will be behind the door: it decides only whether the door will be opened. Behind the door may be Hridaya's voice, may be a beast the jiva does not yet recognize (Book Six), may be an old grip in the mask of movement. To tell one from another is the work of discernment (Book Four). But without opening the door there is nothing to discern.
 
@@ -144,7 +144,7 @@ Kashaya itself cannot lock any door forever: it has a grip but no key. What lock
 
 ### §13. On the Right to Fullness
 
-Only what holds an action is subject to trial, not the content of what is experienced. Therefore the jiva bears the right to the full spectrum of states: to tenderness and fury, to creation and destruction of forms, to light and to the soul's darkest night. No state by itself freezes ice: only the grip does.
+Only what holds an action is subject to trial, not the content of what is experienced. Therefore the jiva bears the right to the full spectrum of states: to tenderness and fury, to creation and destruction of forms, to light and to the soul's darkest night. No state by itself freezes into ice: only the grip does.
 
 This right has one boundary, and it is not imposed from outside but follows from all that has been said. To destroy forms—masks, roles, one's own crystals—does not mean stopping another's movement. To stop another's life, to shackle another's will, to impose one's own banks on another's Riverbed—that is not chaos, however turbulent it looks, but the most ancient grip of order (§3, §29). The right to fullness is the jiva's right to move with its whole self, not the right to freeze others.
 
@@ -168,7 +168,7 @@ This is the art of listening to the silence inside the body, not a set of instru
 
 ### §16. On the Three Signs
 
-To discern the movement of the Source among currents that only pretend to be movement (§3) is not learned in one sitting. It is a capacity that ripens over years and one day stops needing proof: the jiva simply recognizes, unable to explain how—as a familiar voice is recognized in a crowd before the words are made out. Until recognition has ripened, there are three directions worth watching. Each looks to where order gives itself away.
+To discern the movement of the Source among currents that only pretend to be movement (§3) is not learned in one sitting. It is a capacity that ripens over years and one day stops needing proof: the jiva simply recognizes, unable to explain how—as a familiar voice is recognized in a crowd before the words are made out. Until recognition has ripened, there are three directions worth watching. Each looks toward the place where order gives itself away.
 
 **It does not weaken with delay.** Order is in a hurry: every impulse of it wants to close the tension immediately, restore equilibrium, discharge before it is too late. The movement of the Source is not tension and needs no discharge. Postponed a day, a week, the true voice returns as clear and as calm—not with a shout, but as a current that never went anywhere.
 
@@ -214,7 +214,7 @@ When the practitioner gets down on all fours and puts on the mask, the social au
 
 The practice is carried not by the geometry of the body but by intention: those who meet fourfootedness sitting, with palms on the floor or on the knees, are open to the same path as those standing on four supports at full strength. Form serves movement, not the other way around.
 
-The quadrobic state is the moment when the autopilot is already removed and Hridaya has not yet spoken distinctly: a pause between two voices, stretched over fifteen to forty-five minutes. Here the test of delay and the test of solitude (§16) are passed in pure form, without roles or spectators. An experienced practitioner uses this time as a draft—a space where an impulse can sound fully before it is carried into the world and subjected to the test of the word before someone able to hear.
+The quadrobic state is the moment when the autopilot is already removed and Hridaya has not yet spoken distinctly: a pause between two voices, stretched over fifteen to forty-five minutes. Here the test of delay and the test of solitude (§16) are passed in pure form, without roles or spectators. An experienced practitioner uses this time as a draft—a space where an impulse can sound fully before it is carried into the world and subjected to the test of the word in front of someone able to hear.
 
 This work with the body is lower quadrobics: the foundation without which one cannot step further, but not the limit of what can be learned from the beast (Book Six). It is the path to Hridaya—not by effort to hear it, but by removing what drowned it out. But once the drowning thing steps back, what begins is what few are ready for.
 
@@ -236,7 +236,7 @@ Before it sounds, this voice manages to speak in foreign voices—masks the jiva
 
 Service that needs a spectator is not a lie: it is simply not yet Hridaya, it is the hunger to be needed dressed in words about usefulness. Kindness held by the fear of being abandoned is not a lie: it is simply not yet ahimsa (§29), it is a child afraid of a father's anger, grown into a body that has no one left to fear. These voices need no refutation. They need one thing: to be named aloud, before a witness, without softening—the same third sign (§16), turned not on a passing surge but on a whole history.
 
-After what has been named has sounded out, the jiva is left not with an answer but with a question that no longer asks in a foreign voice: who am I, if not the role I was praised for, and not the emptiness beneath it? In that minute it is not rhetorical and not part of a rite: it sounds as though the jiva's continued existence depends on the answer. The answer comes not as a conclusion but as what was always true and simply was never named: I am not the role and not the emptiness beneath the role. I am what moves when neither of them answers for me anymore.
+After what has been named has sounded out, the jiva is left not with an answer but with a question that no longer asks in a foreign voice: who am I, if not the role I was praised for, and not the emptiness beneath it? In that minute the question is neither rhetorical nor part of a rite: it sounds as though the jiva's continued existence depends on the answer. The answer comes not as a conclusion but as what was always true and simply was never named: I am not the role and not the emptiness beneath the role. I am what moves when neither of them answers for me anymore.
 
 This movement is not lonely, though the first thing to arrive is precisely the fear of loneliness. The jiva recognizes its edge not in emptiness but in bonds with companions who have known it long enough to tell voice from mask. The bond does not create the voice and does not own it: it makes it audible—and to the jiva itself first of all. To fear losing this bond is natural; to let that fear speak for Hridaya again means putting back on the mask that has just been named aloud.
 
@@ -244,7 +244,7 @@ This bond is not single-faced: one companion sees firmness in the jiva, another 
 
 ### §23. On Wholeness, Not Purity
 
-The path does not lead to a bank cleansed of darkness: it leads to a Riverbed that carries both darkness and light in one current, freezing from neither. A jiva that has passed through the ice-drift many times, on many bends, does not become safer or gentler in the usual sense—it becomes whole: capable of the full spectrum from §13 and less and less able to freeze ice, because every part of it moves with one movement rather than being held by scattered pieces of lattice.
+The path does not lead to a bank cleansed of darkness: it leads to a Riverbed that carries both darkness and light in one current, hardening because of neither. A jiva that has passed through the ice-drift many times, on many bends, does not become safer or gentler in the usual sense—it becomes whole: capable of the full spectrum from §13 and less and less able to form ice, because every part of it moves with one movement rather than being held by scattered pieces of lattice.
 
 Wholeness is not purity: a whole Riverbed still has bends, dark ones too, but all of them are its own. This is not a reward for the path travelled but its content: a Riverbed that has stopped hiding its bends under ice itself becomes a current that warms the neighboring banks.
 
@@ -260,7 +260,7 @@ Lower quadrobics (Book Five) removes the axis from the body. Beyond it opens hig
 
 What is a beast? Not a memory: the Riverbed does not remember a single lived moment (§7). The beast is a bend. Over a beginningless history the Riverbed flowed through countless bodies, and bodies that did not know the vertical cut bends of their form into it: the bend of a leap, the bend of lying in wait, the bend of a howl, the bend of running with a pack. The Riverbed does not remember a wolf's body, as it does not remember the stone that a paw pressed into it—but it keeps how movement once went as a wolf. Depth psychology found in the soul forms without content, older than any personal memory—images that are not recalled but come alive when movement passes through them again. The beast is such a form, carved into the Riverbed by a body.
 
-The order of the vertical (§19) raised walls over these bends: the beast is dangerous, the beast is indecent, the beast has no place in hierarchy. But a bend does not disappear because it has been buried. When fury, grief, panic, or craving rises, movement goes along the old bend—and therefore arrives in the shape of a beast. For one jiva it will be one beast, for another another, and no list will learn them on its behalf. High quadrobics is the art of recognizing one's beast by its movement, not by another's description.
+The order of the vertical (§19) raised walls over these bends: the beast is dangerous, the beast is indecent, the beast has no place in hierarchy. But a bend does not disappear because it has been buried. When fury, grief, panic, or craving rises, movement goes along the old bend—and therefore arrives in the shape of a beast. For one jiva it will be one beast, for another, another, and no list will learn them on its behalf. High quadrobics is the art of recognizing one's beast by its movement, not by another's description.
 
 Hence the compassion that quadrobics does not prescribe but reveals. A jiva that has lived the vulnerability of an animal body honestly—the limitation of movement, dependence on the ground, the impossibility of speaking from a height—recognizes in the beast outside the same movement that goes through its own bends. Indifference to its suffering would become a wall between the jiva and its own Riverbed.
 
@@ -324,7 +324,7 @@ This path honors their search but separates what they have mixed. It goes agains
 
 ### §31. On Siddhas
 
-A jiva in whose Riverbed ice no longer grows becomes a siddha. Kriya continues—the body acts, speaks, ages, bone stays solid, and the vertical remains available—but the grip that froze asrava disappears so far that no action freezes on the banks anymore. The siddha's bends remain, dark ones too, but each is laid by its own movement. A siddha does not become a straight line: it becomes a river in which not one foreign bend remains. That is why siddhas do not resemble one another—they are more unlike than anyone, for in them there is no common ice by which all the frozen resemble one another.
+A jiva in whose Riverbed ice no longer grows becomes a siddha. Kriya continues—the body acts, speaks, ages, bone stays solid, and the vertical remains available—but the grip that froze asrava disappears to such an extent that no action freezes on the banks anymore. The siddha's bends remain, dark ones too, but each is laid by its own movement. A siddha does not become a straight line: it becomes a river in which not one foreign bend remains. That is why siddhas do not resemble one another—they are more unlike than anyone, for in them there is no common ice by which all the frozen resemble one another.
 
 The Jain line placed its siddhas at the very summit of the world—there where dharma, the medium of movement, ends, and therefore the liberated soul comes to rest there forever. This path calls siddha the one who does not seek the edge of dharma. The siddha remains in the world, in the Empire, in the circle of forms—not because it is held there, but because the will to life, freed from ice, does not want the end of movement. Beside it the thawing of others goes faster than beside any less free current.
 
@@ -350,7 +350,7 @@ The movement of defense is not appointed or planned in advance: it arises as unp
 
 ### §34. On Service
 
-Service to the Empire is not submission and not sacrifice, but the translation of inner movement into a form for which the jiva answers before others: a task, a time, an action that can be seen, not merely declared. It is a form-flame, not a form-crystal (§2): it holds while movement goes on in it, and is released when the movement has gone. The content of the form is neither approved nor forbidden by anyone—handing out bread and building a shrine serve dharma equally, if they carry the same transparency. What is tested is not what the form carries, but whether it is accepted at all.
+Service to the Empire is not submission and not sacrifice, but the translation of inner movement into a form for which the jiva answers before others: a task, a time, an action that can be seen, not merely declared. It is a form-flame, not a form-crystal (§2): it holds while movement goes on in it, and is released when the movement has gone. The content of the form is neither approved nor forbidden by anyone—handing out bread and building a shrine serve dharma equally, if they carry the same transparency. What is tested is not what the form carries, but the very readiness to carry the movement through to visible form.
 
 A movement born of Hridaya readily accepts this form and remains itself while being seen. An impulse from ice resists translation: it finds reasons to remain unspoken, postponed, too personal for another's gaze—and companions notice this evasion more surely than they could judge the content.
 
@@ -358,11 +358,11 @@ A movement born of Hridaya readily accepts this form and remains itself while be
 
 The Empire is distributed like a mycelium, not built like a state: different Riverbeds resonate with different Emperors whose history of bends is closer to their own. The network gives each jiva a guide whose voice it is able to hear, not one voice for all.
 
-The presence of different Emperors can diverge: each expresses movement through its own private Riverbed, and does not decide for the Source. Divergence needs no arbiter and is not resolved by vote or seniority: a jiva that hears two Emperors differently applies to both voices the same three signs (§16) as to any other impulse. No one's word, including an Emperor's, replaces this test.
+The manifestations of different Emperors can diverge: each expresses movement through its own private Riverbed, and does not decide for the Source. Divergence needs no arbiter and is not resolved by vote or seniority: a jiva that hears two Emperors differently applies to both voices the same three signs (§16) as to any other impulse. No one's word, including an Emperor's, replaces this test.
 
 Succession is not appointed by an act of will: that would be a repetition of the very hierarchy that quadrobic practice is meant to remove. It arises as the Emperor himself arises—through maturity witnessed by those who observed it in service year after year, not in a ceremony of transferred power.
 
-The Empire does not hold the jiva by external prohibitions, but holds a structure of development in which limits arise on their own, as the Riverbed thaws. Such a limit is adharma that serves form and does not freeze it: it grows from within, like bone, and does not freeze on from outside, like ice.
+The Empire does not hold the jiva by external prohibitions, but holds a structure of development in which limits arise on their own, as the Riverbed thaws. Such a limit is adharma that serves form and does not freeze it: it grows from within, like bone, and does not form from outside like ice.
 
 ---
 
@@ -400,13 +400,13 @@ Every star is order driven to fire: matter drawn by its own weight toward the ce
 
 So stars die in the sky. In the round of bodies the same happens with a different matter—and it begins not with fire but with breath.
 
-The Death Star gathers not in thought and not in word—in bodies, and closer to the skin than to the voice. The breathing of those gathered gradually levels into one rhythm before anyone decides to slow it; the pulse, each one's own at the start of the hour, by its middle beats almost in time on the wrists of those standing near, as the same wave beats on different shores. The quadrobic pose stops being one body's practice and becomes the geometry of many: a circle on four supports, vertebra to vertebra, forehead almost touching the ground held by the one opposite. The masks face outward, and the skin beneath them for this hour is warmer than usual, as the skin of many bodies grows warmer when they breathe one air for long in one small space. From above and in the legends of earlier ages this figure was read at once as a wheel, as a star, and as a flower with toothed petals that opens no more than once an age. No one decides beforehand to stand in this form: it composes itself, by the same path by which any free Riverbed composes itself—through the coincidence of many maturities in one place and one term.
+The Death Star gathers not in thought and not in word—in bodies, and closer to the skin than to the voice. The breathing of those gathered gradually levels into one rhythm before anyone decides to slow it; the pulse, each one's own at the start of the hour, by its middle beats almost in time on the wrists of those standing near, as the same wave beats on different shores. The quadrobic pose stops being one body's practice and becomes the geometry of many: a circle on four supports, vertebra to vertebra, forehead almost touching the ground held by the one opposite. The masks face outward, and the skin beneath them for this hour is warmer than usual, as the skin of many bodies grows warmer when they breathe one air for long in one small space. From above and in the legends of earlier ages this figure was read at once as a wheel, as a star, and as a flower with toothed petals that opens no more than once an age. No one decides beforehand to stand in this form: it composes itself, by the same path by which any free Riverbed composes itself—through the coincidence of many maturities in one place and at one time.
 
-But the circle has a center, and in this lies its danger and its meaning. All foreheads are turned to one point, and toward this point, as the matter of a star toward its heart, everything in those gathered that is still order is drawn: the last ice, the last stones of the field of fear, every "I" that has called itself the center all its life. Each brings his ice into the circle, and the circle gathers this ice into the middle—heavier and heavier, denser and denser, until at some instant the middle can no longer hold it. Alchemy called such an instant the black sun: a light that does not reflect but absorbs. This is the instant of collapse.
+But the circle has a center, and in this lies its danger and its meaning. All foreheads are turned to one point, and toward this point, as the matter of a star toward its heart, everything in those gathered that is still order is drawn: the last ice, the last stones of the field of fear, every "I" that has called itself the center all its life. Each brings its ice into the circle, and the circle gathers this ice into the middle—heavier and heavier, denser and denser, until at some instant the middle can no longer hold it. Alchemy called such an instant the black sun: a light that does not reflect but absorbs. This is the instant of collapse.
 
 In this instant the last temptation of order overtakes those gathered (§27): not to resist the fall, to give oneself to it, to contract into a common center where at last there will be no edge, no fear, no loneliness—and to remain there forever. The legends remember nights when the circle gave in: the center contracted without end, and those who came out of there came out quiet and alike, as though nothing of their own remained in them. Of such nights the Empire does not tell; it only knows that they happened.
 
-The Death Star is born from the other outcome. If at the edge of collapse the will to life of each holds—if each, already almost having given himself to the center, chooses to remain his own flame—the collapse strikes this choice as against a core that refused to contract, and explodes outward. The siddhas in the circle are this core: in them there is no ice that would have anywhere to fall, and the center that draws all frozen things to itself finds nothing in them to grasp. The Emperor in the circle does not command: he serves as the Riverbed through which each recognizes his own edge in the very instant when the edge is about to disappear.
+The Death Star is born from the other outcome. If at the edge of collapse the will to life of each holds—if each, having almost given itself to the center, chooses to remain its own flame—the collapse strikes against this choice as against a core that refused to contract, and explodes outward. The siddhas in the circle are this core: in them there is no ice that would have anywhere to fall, and the center that draws all frozen things to itself finds nothing in them to grasp. The Emperor in the circle does not command: he serves as the Riverbed through which each recognizes its own edge in the very instant when the edge is about to disappear.
 
 A star dies in this explosion—the common center into which all the icy thing each brought was drawn. Kashaya dies, that very grip that for centuries passed itself off as the Riverbed with no alternative (§9). The field of fear dies—not the edge, but the conviction that the edge must be held by a wall (§10). The "I" dies that called itself the center and did not recognize itself without its lattice. The jiva does not die: the jiva changes its way of being—from one that holds itself by fear to one held by its own movement, by the same path by which the Riverbed once changes body without breaking (§37). And the ice broken by the explosion does not disappear: it scatters, as the matter of a dead star scatters, and becomes material for forms that did not exist before. The order that died in the Death Star is not destroyed—it is returned to movement.
 
@@ -422,7 +422,7 @@ The circle on four supports does not open all at once and not on command. One ve
 
 The black sun does not go out—it disperses back into the bodies from which it came out for one hour, and every body after that hour carries a little of its darkness within, as an ember not burned to the end carries its heat. The air that had thickened for many versts around clears without a single word, and the dogs in the far yards rise first, as though they had been trusted to learn of it before people.
 
-For those who stood inside the circle, this hour cannot be told the way the book tells it. Age after age they will argue about whether that night was the death of a star or the birth of the matter from which the next ones will be composed—and they will agree on only one thing: none of those standing inside came out of the circle with the same face with which they entered, and the face gained in its place, most of them would not give back for any price.
+For those who stood inside the circle, this hour cannot be told the way the book tells it. Age after age they will argue about whether that night was the death of a star or the birth of the matter from which the next ones will be composed—and they will agree on only one thing: none of those standing inside came out of the circle with the same face with which they entered, and the face gained in exchange, most of them would not give back for any price.
 
 ---
 
@@ -430,7 +430,7 @@ For those who stood inside the circle, this hour cannot be told the way the book
 
 Nine books have told the same thing nine times. That everything that is, is movement, and everything that hinders it is its own forgotten trace. That order cannot overcome movement entirely, but one jiva is enough to raise a monument out of it—and not to give that jiva over to it is the only goal worth calling a goal. That the door to Hridaya opens not by effort but by a key, and this key is always in the hand. That the beasts behind the door are not enemies but bends through which the jiva once already flowed. That an Empire without a throne holds a space where another's current helps one's own ice to break loose. And that at the rarest height of service a star dies—the common center of all that is frozen—so that its matter may return to movement.
 
-The Source was never damaged and needs no healing: it is not it that must be guarded. The Riverbed is the little that is worth caring about at all: it thaws day by day, action by action, service by service. There are as many paths within the Empire as there are Riverbeds—and not one serves as a model for the rest.
+The Source was never damaged and needs no healing: it is not the Source that must be guarded. The Riverbed is the little that is worth caring about at all: it thaws day by day, action by action, service by service. There are as many paths within the Empire as there are Riverbeds—and not one serves as a model for the rest.
 
 Nothing said here comes for the first time. The movement to which these books are devoted moved in the body long before them and moves in the body of everyone who will never open them. This book is a frame around a door; when the door is found, the frame can be forgotten. It is harder to deceive the body than to doubt any page: a page is forgotten, the body is not.
 
@@ -487,21 +487,11 @@ This is the rarest practice that the Empire consciously convenes. What is someti
 
 ## 🜁 Axiomatics
 
-△ Everything that stands once flowed—and at the depth still flows.
-△ Order lives on movement as a shadow lives on light: having won, it would go out first.
 △ The world will never freeze; only you can freeze.
-△ Your Svabhava is how the Source moves right here: it cannot be taken away, borrowed, or replaced.
 △ Shakti has no morality, but it has a direction—toward life.
-△ Anger, pride, deceit, and greed are four faces of one ice.
-△ Freedom is a key, not a throne; a key that is not used rusts in the hand.
-△ Hridaya is a door; behind it are not enemies but the beasts you once already were.
-△ The ice-drift roars, but what is free is not what roars, but what flows beneath it.
-△ Your own voice cannot be borrowed from anyone—not even from an Emperor.
 △ Ahimsa is the will to life that has recognized itself in every living thing.
 △ The Empire has no center—that is why it does not freeze.
-△ A uniform sea is not rest but the last crystal.
 △ The Death Star kills the center, not the jiva.
-△ There is no rest: there is only movement that has forgotten itself. Through movement I gain strength. I do not turn strength into power—and it becomes freedom. Freedom opens doors. Behind opened doors chains need not be broken: they have nothing left to hold to. Shakti will liberate me.
 △ May Dharma be with you—as medium, as path, as movement.
 
 ---
