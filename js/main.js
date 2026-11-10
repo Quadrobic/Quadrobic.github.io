@@ -106,6 +106,7 @@
   function scrollToTarget(id) {
     const el = document.getElementById(id);
     if (!el) return;
+    window.dispatchEvent(new Event("reading:jump"));
     if (lenis) lenis.scrollTo(el, { offset: 0, duration: 1.3 });
     else el.scrollIntoView({ behavior: "smooth" });
   }
@@ -332,10 +333,12 @@
     }
 
     dec.addEventListener("click", () => {
+      window.dispatchEvent(new Event("reading:jump"));
       scale = Math.max(MIN, Math.round((scale - STEP) * 100) / 100);
       apply();
     });
     inc.addEventListener("click", () => {
+      window.dispatchEvent(new Event("reading:jump"));
       scale = Math.min(MAX, Math.round((scale + STEP) * 100) / 100);
       apply();
     });
@@ -573,6 +576,7 @@
       if (reduceMotion) return;
       const rect = el.getBoundingClientRect();
       if (rect.top > 80 && rect.bottom < window.innerHeight - 80) return;
+      window.dispatchEvent(new Event("reading:jump"));
       if (lenis) lenis.scrollTo(el, { offset: -window.innerHeight * 0.35, duration: 1.0 });
       else el.scrollIntoView({ behavior: "smooth", block: "center" });
     }

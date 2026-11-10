@@ -22,6 +22,9 @@
   --nav-w: 56px;
 
   --text-scale: 1;
+  --reading-ice: 0;
+  --reading-stroke: 0px;
+  --reading-softness: 0.32px;
 }
 
 * { box-sizing: border-box; }
@@ -54,6 +57,37 @@ body {
   height: 100vh;
   z-index: 0;
   display: block;
+}
+
+#frost-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* The outlines change; glyph widths and line breaks do not. */
+.passage p, .passage-list li, .gloss-entry dd, .preamble p {
+  -webkit-text-stroke: var(--reading-stroke) currentColor;
+  text-shadow: 0 0 var(--reading-softness) rgba(122, 59, 18, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #frost-canvas { display: none; }
+  .passage p, .passage-list li, .gloss-entry dd, .preamble p {
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+  }
+}
+
+@media print {
+  #frost-canvas { display: none; }
+  .passage p, .passage-list li, .gloss-entry dd, .preamble p {
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+  }
 }
 
 .grain {

@@ -90,7 +90,10 @@
 
     p.draw = () => {
       lerpMood();
-      t += 0.0016 * cur.speed;
+      const ice = Math.max(0, Math.min(1, window.readingIce || 0));
+      const spacing = Math.max(48, Math.min(78, p.width / 16));
+      const rowHeight = spacing * Math.sqrt(3) / 2;
+      t += 0.0016 * cur.speed * (1 - ice * 0.85);
 
       // fade-to-void wash instead of clear() -> trailing ink streaks
       p.noStroke();
@@ -99,17 +102,34 @@
 
       const scale = cur.scale;
       const chaos = cur.chaos;
+      // Blend the warm ink into pale ice in RGB; interpolating the hue
+      // would pass through a conspicuous green halfway through freezing.
+      const warm = p.color(cur.hue, cur.sat, cur.bri);
+      const red = p.red(warm) * (1 - ice) + 198 * ice;
+      const green = p.green(warm) * (1 - ice) + 220 * ice;
+      const blue = p.blue(warm) * (1 - ice) + 227 * ice;
+      p.colorMode(p.RGB, 255, 255, 255, 100);
 
       for (let i = 0; i < particles.length; i++) {
         const pt = particles[i];
         pt.px = pt.x;
         pt.py = pt.y;
 
-        const angle =
+        let angle =
           p.noise(pt.x * scale, pt.y * scale, t) * Math.PI * 2 * 2.2 * chaos;
-        const speed = cur.speed * 1.6;
+        const crystalAngle = Math.round(angle / (Math.PI / 3)) * Math.PI / 3;
+        angle += (crystalAngle - angle) * ice;
+        const speed = cur.speed * 1.6 * (1 - ice * 0.9);
         pt.x += Math.cos(angle) * speed;
         pt.y += Math.sin(angle) * speed;
+        if (ice > 0.01) {
+          const row = Math.round(pt.y / rowHeight);
+          const offset = (row % 2) * spacing / 2;
+          const gx = Math.round((pt.x - offset) / spacing) * spacing + offset;
+          const gy = row * rowHeight;
+          pt.x += (gx - pt.x) * ice * 0.055;
+          pt.y += (gy - pt.y) * ice * 0.055;
+        }
         pt.life -= 1;
 
         if (
@@ -124,9 +144,25 @@
         }
 
         const alphaJ = cur.alpha * (0.5 + 0.5 * Math.sin(i * 12.9898 + t * 3));
-        p.stroke(cur.hue, cur.sat, cur.bri, alphaJ);
-        p.strokeWeight(cur.size);
+        p.stroke(red, green, blue, alphaJ);
+        p.strokeWeight(cur.size * (1 - ice * 0.3));
         p.line(pt.px, pt.py, pt.x, pt.y);
+      }
+
+      p.colorMode(p.HSB, 360, 100, 100, 100);
+
+      if (ice > 0.02) {
+        p.stroke(195, 22, 85, ice * 2.2);
+        p.strokeWeight(0.55);
+        for (let row = 0; row < p.height / rowHeight; row++) {
+          const offset = (row % 2) * spacing / 2;
+          for (let x = offset; x < p.width; x += spacing) {
+            const y = row * rowHeight;
+            p.line(x, y, x + spacing, y);
+            p.line(x, y, x + spacing / 2, y + rowHeight);
+            p.line(x, y, x - spacing / 2, y + rowHeight);
+          }
+        }
       }
 
       if (cur.link > 0.3) {
