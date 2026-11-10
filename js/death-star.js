@@ -32,6 +32,7 @@
       released = false;
       section.classList.remove("star-released");
     } else {
+      root.classList.remove("star-at-threshold");
       if (cancelBurst) cancelBurst();
       root.removeAttribute("data-star-phase");
     }
@@ -118,10 +119,14 @@
     if (returning) return;
     const height = window.innerHeight;
     const rect = section.getBoundingClientRect();
+    const buttonRect = button.getBoundingClientRect();
+    const atThreshold = buttonRect.top < height * 0.95 && buttonRect.bottom > 0;
     const inside = rect.top < height * 0.65 && rect.bottom > height * 0.25;
     if (!inside) dismissed = false;
+    if (atThreshold && window.scrollY > previousY) dismissed = false;
     const entering = !active && inside && !dismissed;
     setActive(inside && !dismissed);
+    root.classList.toggle("star-at-threshold", active && atThreshold);
     if (active) {
       let next = "gather";
       for (const group of phases) {
@@ -197,6 +202,9 @@
     }
     dismissed = true;
     setActive(false);
+    root.classList.remove("star-sealed");
+    window.__lenis?.resize();
+    window.ScrollTrigger?.refresh();
     window.dispatchEvent(new Event("reading:jump"));
     if (window.__lenis) window.__lenis.scrollTo(conclusion, { offset: -40, immediate: true });
     else window.scrollTo({ top: scrollY + conclusion.getBoundingClientRect().top - 40, behavior: "instant" });

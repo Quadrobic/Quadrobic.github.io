@@ -104,7 +104,9 @@
   window.__lenis = lenis;
 
   function scrollToTarget(id) {
-    const el = document.getElementById(id);
+    const sealed = document.documentElement.classList.contains("star-sealed");
+    const el = sealed && (id === "conclusion" || id === "practices")
+      ? document.querySelector(".star-return") : document.getElementById(id);
     if (!el) return;
     window.dispatchEvent(new Event("reading:jump"));
     if (lenis) lenis.scrollTo(el, { offset: 0, duration: 1.3 });
@@ -602,6 +604,7 @@
 
     function buildItems() {
       items = Array.from(document.querySelectorAll(SELECTOR))
+        .filter((el) => el.getClientRects().length > 0)
         .map((el) => ({ el, text: extractText(el) }))
         .filter((it) => it.text.length > 0);
     }
