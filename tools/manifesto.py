@@ -119,12 +119,13 @@ def parse(md: str, lang: str = "ru") -> dict:
     Each section is:
       {"num": "1"|None, "title": str|None,
        "blocks": [("p", html), ("ol", [html,...]), ("dt", (term_html, def_html)),
-                  ("axiom", html), ("invocation", html), ...]}
+                  ("axiom", html), ("invocation", html), ("h4", html), ...]}
 
     Recognised line shapes:
       # Title                      -> doc title
       ## 🜁 Книга X. Название       -> new book (glyph + rest)
       ### §N. Название              -> new section within the current book
+      #### Название                -> quiet subheading inside the same section
       1. text                       -> numbered list item (accumulated into "ol")
       - **Term** — definition       -> glossary entry ("dt")
       △ text                        -> axiom line
@@ -194,6 +195,13 @@ def parse(md: str, lang: str = "ru") -> dict:
             doc["books"].append(current_book)
             current_section = {"num": None, "title": None, "blocks": []}
             current_book["sections"].append(current_section)
+            i += 1
+            continue
+
+        if stripped.startswith("#### "):
+            flush_para()
+            flush_list()
+            current_section["blocks"].append(("h4", inline(stripped[5:].strip())))
             i += 1
             continue
 

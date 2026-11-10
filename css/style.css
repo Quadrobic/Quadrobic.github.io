@@ -738,6 +738,15 @@ body {
   border-bottom: 1px solid rgba(201, 168, 106, 0.5);
 }
 
+.passage .flow-heading {
+  font-family: var(--serif-display);
+  font-size: calc(1.1rem * var(--text-scale));
+  font-weight: 400;
+  font-style: italic;
+  color: var(--brown-accent);
+  margin: 1.4rem 0 0.55rem;
+}
+
 .sec-num {
   color: var(--gold-bright);
   filter: brightness(0.75);

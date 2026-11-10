@@ -42,13 +42,15 @@ def find_chrome() -> str:
 
 
 def render_blocks(blocks) -> list[str]:
-    """Flat HTML for one section's blocks — <p>/<ol> only; axioms and the
+    """Flat HTML for one section's blocks; axioms and the
     closing invocation lines are collected separately by the caller so they
     can be joined into the single <p> the print CSS keys off of."""
     out = []
     for kind, payload in blocks:
         if kind == "p":
             out.append(f"<p>{payload}</p>")
+        elif kind == "h4":
+            out.append(f'<h4 class="flow-heading">{payload}</h4>')
         elif kind == "ol":
             items = "".join(f"<li>{it}</li>" for it in payload)
             out.append(f"<ol>{items}</ol>")

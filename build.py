@@ -100,6 +100,8 @@ def render_blocks(blocks):
     for kind, payload in blocks:
         if kind == "p":
             out.append(f'<p class="reveal">{payload}</p>')
+        elif kind == "h4":
+            out.append(f'<h4 class="flow-heading reveal">{payload}</h4>')
         elif kind == "ol":
             items = "".join(f'<li class="reveal">{it}</li>' for it in payload)
             out.append(f'<ol class="passage-list">{items}</ol>')
