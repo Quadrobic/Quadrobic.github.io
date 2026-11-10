@@ -348,7 +348,7 @@
 
   /* ---------------- text-to-speech: "listen to the treatise" ---------------- */
   /* Walks the content in document order, queues one SpeechSynthesisUtterance
-     per block (paragraph, axiom, glossary entry...), highlights whichever
+     per block (paragraph, axiom...), highlights whichever
      one is currently being read, and gently scrolls it into view if it has
      drifted off-screen. No audio files, no server: the browser's own
      speechSynthesis API, chunked per-block so long sections don't hit the
@@ -379,7 +379,6 @@
       "li.axiom",
       ".book-body p",
       "p.invocation",
-      ".gloss-entry",
     ].join(", ");
 
     const BCP47 = { ru: "ru-RU", en: "en-US", th: "th-TH" }[PAGE_LANG] || "ru-RU";
@@ -552,13 +551,6 @@
       clone.querySelectorAll("br").forEach((br) => br.replaceWith(" "));
       let text = clone.textContent.replace(/\s+/g, " ").trim();
       if (el.classList.contains("axiom")) text = text.replace(/^△\s*/, "");
-      if (el.classList.contains("gloss-entry")) {
-        const dt = el.querySelector("dt");
-        const dd = el.querySelector("dd");
-        const term = dt ? dt.textContent.trim() : "";
-        const def = dd ? dd.textContent.trim() : "";
-        text = def ? `${term}. ${def}` : term;
-      }
       return text;
     }
 

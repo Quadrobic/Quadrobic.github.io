@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT / "tools"))
 import manifesto  # noqa: E402
+from web_glossary import glossary_json  # noqa: E402
 
 TEMPLATE = ROOT / "template.html"
 
@@ -105,11 +106,6 @@ def render_blocks(blocks):
         elif kind == "ol":
             items = "".join(f'<li class="reveal">{it}</li>' for it in payload)
             out.append(f'<ol class="passage-list">{items}</ol>')
-        elif kind == "dt":
-            term, definition = payload
-            out.append(
-                f'<div class="gloss-entry reveal"><dt>{term}</dt><dd>{definition}</dd></div>'
-            )
         elif kind == "axiom":
             out.append(f'<li class="axiom reveal"><span class="axiom-glyph">△</span>{payload}</li>')
         elif kind == "invocation":
@@ -184,7 +180,7 @@ def render_book(book, book_index, lang):
     elif book["kind"] == "axioms":
         # Not a numbered "Книга" (it's a crystallization of the preceding
         # books, not a narrated one) - no roman-numeral badge, same as
-        # conclusion/glossary/practices.
+        # conclusion/practices.
         book_title = manifesto.book_name(book, lang)
         axioms = []
         for sec in book["sections"]:
@@ -217,30 +213,15 @@ def render_book(book, book_index, lang):
   <div class="book-body">{''.join(blocks)}</div>
 </section>
 """
-    elif book["kind"] == "glossary":
-        book_title = manifesto.book_name(book, lang)
-        blocks = []
-        for sec in book["sections"]:
-            blocks.append(render_blocks(sec["blocks"]))
-        return f"""
-<section class="glossary" id="glossary" data-mood="still">
-  <div class="book-divider">
-    <span class="glyph-line" aria-hidden="true">△</span>
-    <h2 class="book-title reveal-title">{book_title}</h2>
-  </div>
-  <dl class="gloss-grid">{''.join(blocks)}</dl>
-</section>
-"""
     return ""
 
 
-#  kind         id            glyph  (conclusion/practices/glossary aren't
+#  kind         id            glyph  (conclusion/practices aren't
 #                                      numbered "books", so each gets a
 #                                      fixed glyph instead of a roman numeral)
 TRAILING_NAV = {
     "conclusion": ("conclusion", "◆"),
     "practices": ("practices", "✦"),
-    "glossary": ("glossary", "§"),
 }
 
 
@@ -290,6 +271,7 @@ def build(lang: str, tpl: str):
     out = out.replace("<!--PREAMBLE-->", preamble_html)
     out = out.replace("<!--BOOKS-->", "\n".join(books_html))
     out = out.replace("<!--NAV-->", nav_html)
+    out = out.replace("<!--GLOSSARY_DATA-->", glossary_json(doc, lang))
     out = out.replace("<!--LANG_ATTR-->", meta["lang_attr"])
     out = out.replace("<!--DESC-->", html.escape(meta["desc"]))
     out = out.replace("<!--HERO_TITLE-->", meta["hero_title"])
