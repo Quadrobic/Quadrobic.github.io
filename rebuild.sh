@@ -43,7 +43,7 @@ needs_rebuild() {
   [ -n "$(git rev-list -1 "$built..HEAD" -- "$@")" ]
 }
 
-SITE_DEPS=(README.md README.en.md README.th.md build.py template.html tools/manifesto.py)
+SITE_DEPS=(README.md README.en.md README.th.md build.py template.html tools/manifesto.py tools/web_glossary.py)
 if needs_rebuild index.html "${SITE_DEPS[@]}" \
   || needs_rebuild index.en.html "${SITE_DEPS[@]}" \
   || needs_rebuild index.th.html "${SITE_DEPS[@]}"; then

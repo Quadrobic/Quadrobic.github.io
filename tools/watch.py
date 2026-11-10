@@ -26,6 +26,7 @@ WATCHED = [
     ROOT / "template.html",
     ROOT / "pdf" / "template.html",
     ROOT / "tools" / "manifesto.py",
+    ROOT / "tools" / "web_glossary.py",
 ]
 
 
