@@ -957,6 +957,34 @@ body {
 
 /* ---------- §38: enter the star, then return ---------- */
 
+.star-explosion {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: none;
+}
+.star-explosion-core {
+  position: absolute;
+  width: 240vmax;
+  height: 240vmax;
+  left: calc(50% - 120vmax);
+  top: calc(50% - 120vmax);
+  border-radius: 50%;
+  background: radial-gradient(circle, #eddfc6 0%, #dfc49d 26%, rgba(191, 128, 77, .65) 46%, transparent 70%);
+}
+.star-explosion-spark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f4dab1;
+  box-shadow: 0 0 12px #d99a62;
+}
+.star-return:disabled { cursor: default; }
+
 #ink-canvas { transition: opacity 2.4s ease; }
 #star-veil, #star-heart {
   position: fixed;

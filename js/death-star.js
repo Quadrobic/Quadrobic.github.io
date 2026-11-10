@@ -9,7 +9,9 @@
   const lines = [...section.querySelectorAll(".star-line")];
   const button = section.querySelector(".star-return");
   const heading = section.querySelector("h3");
+  const conclusion = document.getElementById("conclusion");
   let active = false, dismissed = false, released = false;
+  let returning = false;
   let scheduled = false, previousY = window.scrollY;
   let cancelBurst = null;
   window.deathStarActive = false;
@@ -113,6 +115,7 @@
 
   function update() {
     scheduled = false;
+    if (returning) return;
     const height = window.innerHeight;
     const rect = section.getBoundingClientRect();
     const inside = rect.top < height * 0.65 && rect.bottom > height * 0.25;
@@ -155,14 +158,63 @@
     heading.focus({ preventScroll: true });
   }
 
-  button.addEventListener("click", () => {
-    // Keep playback inside the original click's user activation (also on
-    // mobile). Escape returns quietly; only this button starts the music.
+  async function leaveStar() {
+    if (returning || !conclusion) return;
+    returning = true;
+    button.disabled = true;
+    // Playback stays inside the click's user activation, including on mobile.
     window.dispatchEvent(new Event("reading:return"));
-    returnToPage();
+    let explosion = null;
+    let animations = [];
+    if (!motion.matches) {
+      explosion = document.createElement("div");
+      explosion.className = "star-explosion";
+      explosion.setAttribute("aria-hidden", "true");
+      const core = document.createElement("div");
+      core.className = "star-explosion-core";
+      explosion.append(core);
+      for (let i = 0; i < 48; i++) {
+        const spark = document.createElement("i");
+        const angle = i * Math.PI * 2 / 48;
+        const distance = Math.max(innerWidth, innerHeight) * (0.45 + (i % 5) * 0.08);
+        spark.className = "star-explosion-spark";
+        explosion.append(spark);
+        animations.push(spark.animate([
+          { transform: "translate(-50%, -50%) scale(0)", opacity: 0 },
+          { opacity: 0.9, offset: 0.18 },
+          { transform: `translate(calc(-50% + ${Math.cos(angle) * distance}px), calc(-50% + ${Math.sin(angle) * distance}px)) scale(0.2)`, opacity: 0 },
+        ], { duration: 1200, easing: "cubic-bezier(.12,.65,.25,1)", fill: "forwards" }));
+      }
+      document.body.append(explosion);
+      animations.push(core.animate([
+        { transform: "scale(0.015)", opacity: 0 },
+        { opacity: 1, offset: 0.3 },
+        { transform: "scale(1)", opacity: 1, offset: 0.45 },
+        { transform: "scale(1.15)", opacity: 0 },
+      ], { duration: 1400, easing: "ease-out", fill: "forwards" }));
+      // Cross to the conclusion behind the expanding light, then let it clear.
+      await new Promise((resolve) => setTimeout(resolve, 520));
+    }
+    dismissed = true;
+    setActive(false);
+    window.dispatchEvent(new Event("reading:jump"));
+    if (window.__lenis) window.__lenis.scrollTo(conclusion, { offset: -40, immediate: true });
+    else window.scrollTo({ top: scrollY + conclusion.getBoundingClientRect().top - 40, behavior: "instant" });
+    const title = conclusion.querySelector("h2") || conclusion;
+    title.tabIndex = -1;
+    title.focus({ preventScroll: true });
+    await Promise.all(animations.map((animation) => animation.finished.catch(() => {})));
+    explosion?.remove();
+    button.disabled = false;
+    returning = false;
+    schedule();
+  }
+
+  button.addEventListener("click", () => {
+    leaveStar();
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape" || !active) return;
+    if (e.key !== "Escape" || !active || returning) return;
     // Let a definition, mobile menu or voice panel consume its own Escape.
     if (document.querySelector('#term-tooltip:not([hidden]), #mobile-sheet.open, #tts-voice-panel.open')) return;
     e.preventDefault();
