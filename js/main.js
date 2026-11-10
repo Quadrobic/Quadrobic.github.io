@@ -114,6 +114,7 @@
   /* ---------------- paragraph / list reveals ---------------- */
 
   gsap.utils.toArray(".reveal").forEach((el) => {
+    const inStar = !!el.closest("[data-star-reading]");
     if (reduceMotion) {
       el.style.opacity = 1;
       el.style.transform = "none";
@@ -125,7 +126,7 @@
       {
         opacity: 1,
         y: 0,
-        duration: 0.9,
+        duration: inStar ? 2.1 : 0.9,
         ease: "power2.out",
         scrollTrigger: {
           trigger: el,
@@ -226,10 +227,9 @@
   }
 
   /* ---------------- ambient sound toggle ---------------- */
-  /* A small generated drone + filtered noise standing in for the sound of
-     water over a riverbed. No audio file: two oscillators, filtered noise,
-     and a slow LFO on the filter cutoff. Created lazily on first click,
-     since browsers require a user gesture before audio can start. */
+  /* A generated drone + filtered noise for the riverbed. After §38's
+     Return button, the same sound control pauses/resumes alquadro.mp3.
+     Both sources start only inside a click, never on page load. */
 
   (function setupSound() {
     const btn = document.getElementById("sound-toggle");
@@ -237,6 +237,52 @@
     let ctx = null;
     let nodes = null;
     let on = false;
+    const music = document.getElementById("return-music");
+    let musicMode = false;
+    const originalTitle = btn.title;
+    const originalLabel = btn.getAttribute("aria-label");
+    const musicLabels = {
+      ru: ["Продолжить музыку", "Приостановить музыку"],
+      en: ["Resume music", "Pause music"],
+      th: ["เล่นเพลงต่อ", "หยุดเพลงชั่วคราว"],
+    }[document.documentElement.lang] || ["Resume music", "Pause music"];
+
+    function setSoundState(playing) {
+      btn.classList.toggle("on", playing);
+      btn.setAttribute("aria-pressed", String(playing));
+      btn.title = musicMode ? musicLabels[playing ? 1 : 0] : originalTitle;
+      btn.setAttribute("aria-label", musicMode ? btn.title : originalLabel);
+    }
+
+    function fadeAmbient(target) {
+      if (!ctx || !nodes) return;
+      nodes.master.gain.cancelScheduledValues(ctx.currentTime);
+      nodes.master.gain.linearRampToValueAtTime(target, ctx.currentTime + 1.2);
+    }
+
+    function playMusic() {
+      if (music.ended) music.currentTime = 0;
+      const attempt = music.play();
+      if (attempt) attempt.catch(() => setSoundState(false));
+    }
+
+    if (music) {
+      music.volume = 0.65;
+      music.addEventListener("play", () => { if (musicMode) setSoundState(true); });
+      music.addEventListener("pause", () => { if (musicMode) setSoundState(false); });
+      music.addEventListener("error", () => { if (musicMode) setSoundState(false); });
+      music.addEventListener("ended", () => {
+        musicMode = false;
+        setSoundState(false);
+      });
+      window.addEventListener("reading:return", () => {
+        musicMode = true;
+        on = false;
+        fadeAmbient(0);
+        // Repeated returns use this same player; no overlapping copies.
+        playMusic();
+      });
+    }
 
     function build() {
       ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -292,15 +338,15 @@
     }
 
     btn.addEventListener("click", () => {
+      if (musicMode) {
+        if (music.paused) playMusic();
+        else music.pause();
+        return;
+      }
       if (!ctx) build();
       on = !on;
-      btn.classList.toggle("on", on);
-      const target = on ? 0.55 : 0;
-      nodes.master.gain.cancelScheduledValues(ctx.currentTime);
-      nodes.master.gain.linearRampToValueAtTime(
-        target,
-        ctx.currentTime + 1.2
-      );
+      setSoundState(on);
+      fadeAmbient(on ? 0.55 : 0);
       if (ctx.state === "suspended") ctx.resume();
     });
   })();

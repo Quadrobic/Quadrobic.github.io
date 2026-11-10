@@ -151,7 +151,7 @@
   }
 
   function wake() {
-    if (motion.matches || document.hidden || frame) return;
+    if (motion.matches || document.hidden || window.deathStarActive || frame) return;
     previousTime = performance.now() - 16;
     frame = requestAnimationFrame(tick);
   }
@@ -169,6 +169,9 @@
   window.addEventListener("reading:jump", () => {
     ignoreUntil = performance.now() + 1800;
     velocity = 0;
+  });
+  window.addEventListener("reading:star-mode", (e) => {
+    if (e.detail.active) reset();
   });
   document.addEventListener("visibilitychange", reset);
   motion.addEventListener("change", reset);

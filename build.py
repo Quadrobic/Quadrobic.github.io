@@ -126,7 +126,48 @@ BOOK_MOODS = {
 }
 
 
-def render_sections(sections):
+def render_star_blocks(blocks, lang):
+    """Stage markers are web presentation; the prose and PDF stay intact."""
+    phase_order = ("gather", "collapse", "choice", "after")
+    has_headings = any(kind == "h4" for kind, _ in blocks)
+    # Older translations have the same scene without the four subheadings.
+    anchors = {
+        "en": {"But the circle has a center": "collapse",
+               "The Death Star is born from the other outcome": "choice",
+               "The circle on four supports": "after"},
+        "th": {"แต่วงมีศูนย์กลาง": "collapse", "ดาวมรณะเกิดจากทางออกอีกอย่าง": "choice",
+               "วงบนสี่ฐาน": "after"},
+    }.get(lang, {})
+    parts = ['<div class="star-phase" data-star-phase="gather">']
+    line = 0
+    heading_index = 0
+    for kind, payload in blocks:
+        phase = None
+        if kind == "h4":
+            # Renaming a scene heading doesn't change its role in the story.
+            phase = phase_order[min(heading_index, len(phase_order) - 1)]
+            heading_index += 1
+        elif kind == "p" and not has_headings:
+            phase = next((value for prefix, value in anchors.items() if payload.startswith(prefix)), None)
+        if phase:
+            parts.append(f'</div><div class="star-phase" data-star-phase="{phase}">')
+        if kind == "p":
+            offset = (-5, 3, -2, 5)[line % 4]
+            lean = -1 if line % 2 else 1
+            parts.append(
+                f'<p class="reveal star-line" style="--star-offset:{offset}px;--star-lean:{lean}">'
+                f'<span class="star-voice">{payload}</span></p>'
+            )
+            line += 1
+        else:
+            parts.append(render_blocks([(kind, payload)]))
+    parts.append('</div><div class="star-return-wrap">')
+    label = {"ru": "Вернуться", "en": "Return", "th": "กลับ"}[lang]
+    parts.append(f'<button class="star-return" type="button">{label}</button></div>')
+    return "\n".join(parts)
+
+
+def render_sections(sections, lang="ru"):
     """Shared by "book" and "practices": a list of .passage articles, each
     with an optional heading (numbered "§N. Title" or, for a titled-but-
     unnumbered subsection, just "Title") and its blocks."""
@@ -141,8 +182,11 @@ def render_sections(sections):
         else:
             header = ""
         id_attr = f' id="p{sec["num"]}"' if sec["num"] else ""
+        star = sec["num"] == "38"
+        mode_attr = ' data-star-reading="true"' if star else ""
+        body = render_star_blocks(sec["blocks"], lang) if star else render_blocks(sec["blocks"])
         sections_html.append(
-            f'<article class="passage"{id_attr}>{header}{render_blocks(sec["blocks"])}</article>'
+            f'<article class="passage"{id_attr}{mode_attr}>{header}{body}</article>'
         )
     return "".join(sections_html)
 
@@ -160,7 +204,7 @@ def render_book(book, book_index, lang):
     <span class="glyph-line" aria-hidden="true">△</span>
   </div>
   <div class="book-body">
-    {render_sections(book["sections"])}
+    {render_sections(book["sections"], lang)}
   </div>
 </section>
 """
@@ -173,7 +217,7 @@ def render_book(book, book_index, lang):
     <h2 class="book-title reveal-title">{book_title}</h2>
   </div>
   <div class="book-body">
-    {render_sections(book["sections"])}
+    {render_sections(book["sections"], lang)}
   </div>
 </section>
 """

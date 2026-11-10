@@ -91,9 +91,10 @@
     p.draw = () => {
       lerpMood();
       const ice = Math.max(0, Math.min(1, window.readingIce || 0));
+      const starSpeed = window.deathStarActive ? 0.22 : 1;
       const spacing = Math.max(48, Math.min(78, p.width / 16));
       const rowHeight = spacing * Math.sqrt(3) / 2;
-      t += 0.0016 * cur.speed * (1 - ice * 0.85);
+      t += 0.0016 * cur.speed * (1 - ice * 0.85) * starSpeed;
 
       // fade-to-void wash instead of clear() -> trailing ink streaks
       p.noStroke();
@@ -119,7 +120,7 @@
           p.noise(pt.x * scale, pt.y * scale, t) * Math.PI * 2 * 2.2 * chaos;
         const crystalAngle = Math.round(angle / (Math.PI / 3)) * Math.PI / 3;
         angle += (crystalAngle - angle) * ice;
-        const speed = cur.speed * 1.6 * (1 - ice * 0.9);
+        const speed = cur.speed * 1.6 * (1 - ice * 0.9) * starSpeed;
         pt.x += Math.cos(angle) * speed;
         pt.y += Math.sin(angle) * speed;
         if (ice > 0.01) {
