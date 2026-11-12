@@ -73,6 +73,7 @@ RU_FORMS = {
 }
 
 EN_FORMS = {
+    "Standing wave": "Standing waves",
     "Riverbed": "Riverbeds", "Jiva": "Jivas", "Beast": "Beasts",
     "Companions": "Companion", "Emperor": "Emperors", "Siddha": "Siddhas",
     "Avashyakas": "Avashyaka", "Chakravartin": "Chakravartins",
@@ -112,6 +113,19 @@ def glossary_json(doc, lang):
                 "а не на его отсутствии."
             ),
             "forms": [title, *RU_FORMS[title].split("|")],
+        })
+    elif lang == "en":
+        title = "Standing wave"
+        entries.append({
+            "title": title,
+            "definition": (
+                "Forms when identical waves traveling in opposite directions overlap. "
+                "The pattern stays in place: at some points the oscillations cancel, "
+                "at others they reinforce one another. A taut string vibrates this way. "
+                "In §2 this is an image of order: the pattern's stillness depends on "
+                "movement, not on its absence."
+            ),
+            "forms": [title, *EN_FORMS[title].split("|")],
         })
     # Data, never executable markup. Also safe for a literal </script> in
     # a future glossary definition.
