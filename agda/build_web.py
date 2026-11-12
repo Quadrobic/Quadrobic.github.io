@@ -87,16 +87,16 @@ def code_panel(module, start, end, folded, raw, lang):
 
 def flow(lang):
     if lang == 'ru':
-        return '''<div class="proof-flow" aria-label="Два возможных исхода">
-<div class="flow-origin">Край обрушения <span>выбор каждого</span></div>
-<div class="flow-branches"><div class="flow-return"><code>reclaim</code><strong>Вернуться к себе</strong><p>Выход остаётся возможным.</p></div>
-<div class="flow-capture"><code>surrender</code><strong>Отдать себя центру</strong><p>Для оставшегося выход закрывается. Инвариант нарушен.</p></div></div>
-<p class="flow-note">Это возможные исходы. Протокол допускает только сохраняющие выход; само переживание он не описывает.</p></div>'''
-    return '''<div class="proof-flow" aria-label="Two possible outcomes">
-<div class="flow-origin">The brink of collapse <span>each participant chooses</span></div>
-<div class="flow-branches"><div class="flow-return"><code>reclaim</code><strong>Return to oneself</strong><p>The possibility of leaving remains.</p></div>
-<div class="flow-capture"><code>surrender</code><strong>Yield to the center</strong><p>For a participant still inside, the exit closes. The invariant fails.</p></div></div>
-<p class="flow-note">These are possible outcomes. The protocol admits only those preserving an exit; it does not describe the experience itself.</p></div>'''
+        return '''<div class="proof-flow" aria-label="Два общих исхода">
+<div class="flow-origin">Край обрушения <span>личные выборы и вклады → общий ответ круга</span></div>
+<div class="flow-branches"><div class="flow-return"><code>explosion</code><strong>Взрыв для всех</strong><p>Действенная Шакти одной Дживы способна освободить всех оставшихся.</p></div>
+<div class="flow-capture"><code>enclosure</code><strong>Заточение всего круга</strong><p>Кашая одной способна закрыть выход всем, не только ей самой.</p></div></div>
+<p class="flow-note">Кто стал катализатором, задаёт отдельный контракт. Общие последствия не отнимают у Джив собственного выбора. Единодушие не требуется.</p></div>'''
+    return '''<div class="proof-flow" aria-label="Two shared outcomes">
+<div class="flow-origin">The brink of collapse <span>individual choices and contributions → the circle’s shared response</span></div>
+<div class="flow-branches"><div class="flow-return"><code>explosion</code><strong>An explosion for everyone</strong><p>One jiva’s effective Shakti can free everyone still participating.</p></div>
+<div class="flow-capture"><code>enclosure</code><strong>Captivity of the whole circle</strong><p>One jiva’s kashaya can close every exit, not just their own.</p></div></div>
+<p class="flow-note">A separate contract identifies the effective catalyst. Shared consequences do not take away each jiva’s own choice. Unanimity is not required.</p></div>'''
 
 
 def render(lang, raw, version, manifest):

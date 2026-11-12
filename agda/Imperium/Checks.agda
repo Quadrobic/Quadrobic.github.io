@@ -10,6 +10,7 @@ open import Imperium.Roles
 open import Imperium.Protection
 open import Imperium.Structure
 open import Imperium.DeathStar
+open import Imperium.CollectiveExamples
 open import Data.Empty using (⊥)
 open import Data.Unit using (⊤; tt)
 open import Data.Nat using (ℕ; zero; suc; z≤n; s≤s)
@@ -39,151 +40,105 @@ many-windows = calm-gripping-sustained 0 12 10 (s≤s z≤n) (s≤s z≤n)
 transitive-model : Empire
 transitive-model = allSupportEmpire
 
--- Один и тот же круг допускает два разных хода событий.
-three-equality : DecidableEquality Three
-three-equality a a = yes refl
-three-equality a b = no (λ ())
-three-equality a c = no (λ ())
-three-equality b a = no (λ ())
-three-equality b b = yes refl
-three-equality b c = no (λ ())
-three-equality c a = no (λ ())
-three-equality c b = no (λ ())
-three-equality c c = yes refl
-
-circle : Circle
-circle = record
-  { Person = Three ; BedIdentity = Three ; Shape = ℕ ; member = a
-  ; person-equality = three-equality
-  ; riverbed = λ p → p ; initial-outline = λ _ → 0
-  }
-
-at-edge : Gathering circle
-at-edge = approach (initial circle)
-
-edge-safe : EscapeInvariant at-edge
-edge-safe = admissible-preserves (approach-step refl) allow-approach (initial-escape circle)
-
+-- Локальный выход до общего решения по-прежнему возможен.
 a-left : Gathering circle
 a-left = leave at-edge a
 
 a-exits-before-choice : Exit at-edge a a-left
 a-exits-before-choice = depart refl refl
 
--- Чужой выход не выносит b из круга и не лишает его возможности выйти.
 b-stays-inside : Gathering.position a-left b ≡ inside
 b-stays-inside = refl
 
 a-already-outside : Gathering.position a-left a ≡ outside
 a-already-outside = exit-arrives-outside a-exits-before-choice
 
-individual-ballot : Three → Choice
-individual-ballot a = surrender -- уже ушедшему это разрешено
-individual-ballot b = reclaim
-individual-ballot c = reclaim
-
-remaining-return : ReturningChoices a-left individual-ballot
-remaining-return a ()
-remaining-return b _ = refl
-remaining-return c _ = refl
-
-returned-state : Gathering circle
-returned-state = resolve a-left individual-ballot (λ _ → 2)
-
-successful-trace : Trace (initial circle) returned-state
+-- Одной действенной Шакти a достаточно для общего возвращения b и c,
+-- хотя они не сделали того же личного выбора. Это конкретный свидетель,
+-- а не универсальное правило победы любой Шакти над любой кашаей.
+successful-trace : Trace (initial circle) shared-return
 successful-trace = then-step (approach-step refl) allow-approach
-  (then-step (exit-step a-exits-before-choice) allow-exit
-    (then-step (resolve-step refl individual-ballot (λ _ → 2))
-      (allow-resolve remaining-return) done))
+  (then-step single-shakti-step single-shakti-admissible done)
 
-successful-still-free : EscapeInvariant returned-state
+successful-still-free : EscapeInvariant shared-return
 successful-still-free = trace-preserves successful-trace (initial-escape circle)
 
-can-leave : MayLeave returned-state b
+can-leave : MayLeave shared-return b
 can-leave = successful-still-free b
 
-same-riverbed-identity : bed returned-state b ≡ bed (initial circle) b
-same-riverbed-identity = bed-by-representation returned-state (initial circle) b
+same-riverbed-identity : bed shared-return b ≡ bed (initial circle) b
+same-riverbed-identity = bed-by-representation shared-return (initial circle) b
 
-changed-riverbed : Gathering.outline returned-state b ≡ 2
+changed-riverbed : Gathering.outline shared-return b ≡ 2
 changed-riverbed = refl
 
--- Не только отказ признать плохой шаг допустимым: он существует как RawStep.
-bad-step : RawStep at-edge (compress at-edge)
-bad-step = compression-step at-edge refl
+bad-step : RawStep at-edge shared-capture
+bad-step = single-kashaya-step
 
-bad-is-not-safe : ¬ EscapeInvariant (compress at-edge)
+bad-is-not-safe : ¬ EscapeInvariant shared-capture
 bad-is-not-safe = compression-violates at-edge b refl
 
 bad-is-not-admissible : ¬ Admissible bad-step
-bad-is-not-admissible = compression-not-admissible at-edge b refl refl
+bad-is-not-admissible = single-kashaya-inadmissible
 
--- Смешанный исход: один вернулся к себе, другой отдал себя центру.
--- Никакой общий голос не заменяет их разные решения.
-mixed-ballot : Three → Choice
-mixed-ballot a = reclaim
-mixed-ballot b = surrender
-mixed-ballot c = reclaim
+-- Даже своё reclaim не защищает a от общего заточения, вызванного b.
+a-wanted-return : Contribution.intention (one-kashaya a) ≡ reclaim
+a-wanted-return = refl
 
-mixed-state : Gathering circle
-mixed-state = resolve at-edge mixed-ballot (λ _ → 1)
+a-captured-by-b : Captured shared-capture a
+a-captured-by-b = compression-captures at-edge a refl
 
-mixed-step : RawStep at-edge mixed-state
-mixed-step = resolve-step refl mixed-ballot (λ _ → 1)
+-- Возможны разные наборы вкладов и конкурирующие силы, но не независимые
+-- исходы для участников одного и того же общего resolve.
+common-gates : ∀ p q → Gathering.gate shared-capture p ≡ Gathering.gate shared-capture q
+common-gates p q = shared-inside-gates at-edge enclosure (λ _ → 0) p q refl refl
 
-mixed-a-free : MayLeave mixed-state a
-mixed-a-free = inj₂ (leave mixed-state a , depart refl refl)
-
-mixed-a-own : Gathering.authority mixed-state a ≡ own
-mixed-a-own = refl
-
-mixed-b-center : Gathering.authority mixed-state b ≡ center
-mixed-b-center = refl
-
-mixed-b-captured : Captured mixed-state b
-mixed-b-captured = refl , refl , refl
-
-mixed-b-not-free : ¬ MayLeave mixed-state b
-mixed-b-not-free = blocked-cannot-leave b refl refl
-
--- Помощь после плохого исхода восстанавливает мой выход, но не соседский.
-recovery-step : RawStep mixed-state (recover mixed-state b)
-recovery-step = recover-step b refl
-
-recovery-allowed : Admissible recovery-step
-recovery-allowed = allow-recover
-
-recovered-b-free : MayLeave (recover mixed-state b) b
-recovered-b-free = recovery-reopens mixed-state b
-
--- После сжатия всего круга починить одну дверь недостаточно для всех.
+-- Отдельная местная помощь не тождественна общему взрыву.
 only-b-recovered : Gathering circle
-only-b-recovered = recover (compress at-edge) b
+only-b-recovered = recover shared-capture b
+
+local-recovery-step : RawStep shared-capture only-b-recovered
+local-recovery-step = recover-step b refl
+
+local-recovery-allowed : Admissible local-recovery-step
+local-recovery-allowed = allow-recover
+
+recovered-b-free : MayLeave only-b-recovered b
+recovered-b-free = recovery-reopens shared-capture b
 
 a-still-captured : Captured only-b-recovered a
 a-still-captured = refl , refl , refl
 
-one-recovery-not-all : ¬ EscapeInvariant only-b-recovered
-one-recovery-not-all safe = blocked-cannot-leave a refl refl (safe a)
+local-repair-not-all : ¬ EscapeInvariant only-b-recovered
+local-repair-not-all safe = blocked-cannot-leave a refl refl (safe a)
 
--- Произвольный общий плохой шаг нельзя объявить безопасным для всех.
+-- Но последующее действенное движение одной Дживы может освободить ВСЕХ.
+reopening-step : RawStep shared-capture rekindled
+reopening-step = rekindle-step refl
+
+reopening-allowed : Admissible reopening-step
+reopening-allowed = allow-rekindle
+
+later-all-free : EscapeInvariant later-shared-return
+later-all-free = later-explosion-frees-all
+
 not-every-raw-step-preserves : ¬ (∀ {g h : Gathering circle} →
   RawStep g h → EscapeInvariant g → EscapeInvariant h)
-not-every-raw-step-preserves = raw-preservation-false circle
+not-every-raw-step-preserves preserve =
+  raw-preservation-false at-edge refl one-kashaya kashaya-effective edge-safe preserve
 
--- Состав остаётся тем же, но все уже ушли: нельзя выдумывать захваченного.
+-- Уже покинувшие круг не захватываются обратно общим исходом.
 all-left : Gathering circle
 all-left = leave (leave a-left b) c
 
-no-one-active : ReturningChoices all-left (λ _ → surrender)
-no-one-active a ()
-no-one-active b ()
-no-one-active c ()
+no-outside-catalyst : ∀ input outcome → ¬ EffectiveOutcome all-left input outcome
+no-outside-catalyst input explosion (a , () , _)
+no-outside-catalyst input explosion (b , () , _)
+no-outside-catalyst input explosion (c , () , _)
+no-outside-catalyst input enclosure (a , () , _)
+no-outside-catalyst input enclosure (b , () , _)
+no-outside-catalyst input enclosure (c , () , _)
 
-empty-center-harms-no-one : Admissible (compression-step all-left refl)
-empty-center-harms-no-one = allow-resolve no-one-active
-
--- Бесконечный ход не обязан закончиться: безопасность не равна завершению.
 quiet-run : Run circle
 quiet-run = record
   { state = λ _ → initial circle
@@ -215,11 +170,8 @@ released-but-not-undone = sample-released
 damage-remains : Episode.damage sample 2 ≡ 1
 damage-remains = wound-not-erased
 
--- Общее возвращение снимает власть центра у каждого, включая ушедшего a.
-successful-own-center : ∀ p → Gathering.authority returned-state p ≡ own
+-- Общий взрыв снимает власть центра у всех, не переписывая их намерений.
+successful-own-center : ∀ p → Gathering.authority shared-return p ≡ own
 successful-own-center a = refl
 successful-own-center b = refl
 successful-own-center c = refl
-
-recovered-b-own : Gathering.authority (recover mixed-state b) b ≡ own
-recovered-b-own = refl

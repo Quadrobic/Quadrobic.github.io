@@ -1,7 +1,7 @@
 {-# OPTIONS --safe --without-K #-}
 module CompressionFree where
 open import Imperium.DeathStar
-open import Imperium.Checks using (at-edge)
+open import Imperium.CollectiveExamples using (at-edge)
 open import Imperium.Empire using (b)
 open import Data.Sum using (inj₂)
 open import Data.Product using (_,_)

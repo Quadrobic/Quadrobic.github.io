@@ -9,6 +9,7 @@ open import Imperium.Roles
 open import Imperium.Protection
 open import Imperium.Structure
 open import Imperium.DeathStar
+open import Imperium.CollectiveExamples using (circle; shared-return; shared-capture)
 open Gathering
 open import Data.Nat using (ℕ)
 open import Data.Product using (Σ; _×_; _,_)
@@ -23,14 +24,14 @@ open import Relation.Nullary using (¬_)
 record ModelContracts : Set₁ where
   field
     ct-initial-access : ∀ C → OpenAccess (initial C)
-    ct-decision-gate : ∀ {C} (g : Gathering C) ballot shape p → position g p ≡ inside →
-      gate (resolve g ballot shape) p ≡ choice-gate (ballot p)
-    ct-outside-gate : ∀ {C} (g : Gathering C) ballot shape p → position g p ≡ outside →
-      gate (resolve g ballot shape) p ≡ unlocked
-    ct-decision-authority : ∀ {C} (g : Gathering C) ballot shape p → position g p ≡ inside →
-      authority (resolve g ballot shape) p ≡ choice-authority (ballot p)
-    ct-outside-authority : ∀ {C} (g : Gathering C) ballot shape p → position g p ≡ outside →
-      authority (resolve g ballot shape) p ≡ own
+    ct-decision-gate : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
+      gate (resolve g outcome shape) p ≡ outcome-gate outcome
+    ct-outside-gate : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ outside →
+      gate (resolve g outcome shape) p ≡ unlocked
+    ct-decision-authority : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
+      authority (resolve g outcome shape) p ≡ outcome-authority outcome
+    ct-outside-authority : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ outside →
+      authority (resolve g outcome shape) p ≡ own
     ct-riverbed-by-representation : ∀ {C} (g h : Gathering C) p → bed g p ≡ bed h p
     ct-shadow-keeps-beast : ∀ b → Beast.identity (acknowledge b) ≡ Beast.identity b
     ct-wall-keeps-edge : ∀ {E W} (b : Boundary E W) →
@@ -63,13 +64,16 @@ record Theorems : Set₁ where
       ∀ t → EscapeInvariant (Run.state r t)
     thm-compression-violates : ∀ {C} (g : Gathering C) p → position g p ≡ inside →
       ¬ EscapeInvariant (compress g)
-    thm-compression-not-admissible : ∀ {C} (g : Gathering C) p (at : position g p ≡ inside) ready →
-      ¬ Admissible (compression-step g ready)
-    thm-raw-steps-can-fail : ∀ C → ¬ (∀ {g h : Gathering C} →
-      RawStep g h → EscapeInvariant g → EscapeInvariant h)
+    thm-compression-not-admissible : ∀ {C} (g : Gathering C) ready input
+      (effective : EffectiveOutcome g input enclosure) →
+      ¬ Admissible (compression-step g ready input effective)
+    thm-raw-steps-can-fail : ∀ {C} (g : Gathering C) (ready : phase g ≡ brink) input
+      (effective : EffectiveOutcome g input enclosure) → EscapeInvariant g →
+      ¬ (∀ {h} → RawStep g h → EscapeInvariant g → EscapeInvariant h)
     thm-recovery-reopens : ∀ {C} (g : Gathering C) p → MayLeave (recover g p) p
-    thm-individual-choice : ∀ {C} (g : Gathering C) first second shape p → first p ≡ second p →
-      gate (resolve g first shape) p ≡ gate (resolve g second shape) p
+    thm-explosion-frees-all : ∀ {C} (g : Gathering C) shape → EscapeInvariant (burst g shape)
+    thm-one-shakti-can-free-all : EscapeInvariant shared-return
+    thm-one-kashaya-can-trap-all : ∀ p → ¬ MayLeave shared-capture p
 
 record Doctrine : Set₁ where
   field
@@ -110,7 +114,9 @@ verified-theorems = record
   ; thm-compression-not-admissible = compression-not-admissible
   ; thm-raw-steps-can-fail = raw-preservation-false
   ; thm-recovery-reopens = recovery-reopens
-  ; thm-individual-choice = choice-locality
+  ; thm-explosion-frees-all = explosion-frees-all
+  ; thm-one-shakti-can-free-all = Imperium.CollectiveExamples.single-shakti-frees-all
+  ; thm-one-kashaya-can-trap-all = Imperium.CollectiveExamples.single-kashaya-traps
   }
 
 imperium : Doctrine

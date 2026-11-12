@@ -1,5 +1,5 @@
 {-# OPTIONS --safe --without-K #-}
-module OneRecoveryFreesAll where
+module LocalRepairIsNotBurst where
 open import Imperium.DeathStar
 open import Imperium.Checks using (only-b-recovered)
 open import Data.Sum using (inj₁)
