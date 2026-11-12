@@ -42,7 +42,7 @@ LANGS = {
         "dec_aria": "Уменьшить размер текста", "dec_title": "Меньше текста",
         "inc_aria": "Увеличить размер текста", "inc_title": "Больше текста",
         "font_links": "",
-        # Bonus story is Russian-only - the other two builds get nothing here.
+        # The bonus story has Russian and English editions.
         "bonus_html": '<p class="footer-bonus"><a href="bird.html">△ Бонус: «Сухая грусть на дне очей»</a></p>',
         "bonus_control_html": (
             '<a id="bonus-link" class="corner-link" href="bird.html" '
@@ -66,8 +66,11 @@ LANGS = {
         "dec_aria": "Decrease text size", "dec_title": "Smaller text",
         "inc_aria": "Increase text size", "inc_title": "Larger text",
         "font_links": "",
-        "bonus_html": "",
-        "bonus_control_html": "",
+        "bonus_html": '<p class="footer-bonus"><a href="bird.en.html">△ Bonus: “Dry Sorrow in the Depths of the Eyes”</a></p>',
+        "bonus_control_html": (
+            '<a id="bonus-link" class="corner-link" href="bird.en.html" '
+            'title="Bonus: Dry Sorrow in the Depths of the Eyes">✦ Bonus</a>'
+        ),
     },
     "th": {
         "readme": ROOT / "README.th.md",

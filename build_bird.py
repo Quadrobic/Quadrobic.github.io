@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Builds bird.html from bird.md — the "Сухая грусть на дне очей" bonus story,
+Builds bird.html / bird.en.html from bird.md / bird.en.md — the bonus story,
 reusing the treatise site's own look, scroll choreography, TTS reader and
 text-size controls (css/style.css, js/main.js, js/ink.js) via bird_template.html.
 
@@ -11,8 +11,7 @@ prose, with bare, untitled "### §N" scene markers rather than numbered,
 titled sections. Only manifesto.inline() (bold/italic/§-ref markup) and
 manifesto.format_updated() (the footer colophon) are borrowed from it.
 
-RU-only by design (no English/Thai translation of this text is planned),
-so unlike build.py there is no per-language loop here.
+The two editions share the presentation and localize their reading controls.
 
     python3 build_bird.py
 
@@ -26,11 +25,39 @@ ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT / "tools"))
 import manifesto  # noqa: E402  (inline() and format_updated() only)
 
-SOURCE = ROOT / "bird.md"
 TEMPLATE = ROOT / "bird_template.html"
-OUT = ROOT / "bird.html"
 
-CHAPTER_RE = re.compile(r"Глава (\S+)\.\s*(.+)")
+CHAPTER_RE = {
+    "ru": re.compile(r"Глава (\S+)\.\s*(.+)"),
+    "en": re.compile(r"Chapter ([IVX]+)\.\s*(.+)"),
+}
+
+LANGS = {
+    "ru": {
+        "source": "bird.md", "out": "bird.html", "treatise": "index.html",
+        "subtitle": "Рассказ", "menu": "Меню", "nav_aria": "Главы рассказа",
+        "back": "Трактат", "back_footer": "Вернуться к трактату",
+        "scroll": "прокрутите, чтобы начать",
+        "sound_aria": "Переключить фоновый звук", "sound_title": "Звук",
+        "tts_aria": "Слушать рассказ вслух", "tts_title": "Слушать",
+        "voice_aria": "Голос и скорость чтения", "voice_title": "Голос и скорость",
+        "pdf_aria": "Скачать PDF", "pdf_title": "Скачать PDF",
+        "dec_aria": "Уменьшить размер текста", "dec_title": "Меньше текста",
+        "inc_aria": "Увеличить размер текста", "inc_title": "Больше текста",
+    },
+    "en": {
+        "source": "bird.en.md", "out": "bird.en.html", "treatise": "index.en.html",
+        "subtitle": "A short story", "menu": "Menu", "nav_aria": "Story chapters",
+        "back": "Treatise", "back_footer": "Return to the treatise",
+        "scroll": "scroll to begin",
+        "sound_aria": "Toggle ambient sound", "sound_title": "Sound",
+        "tts_aria": "Listen to the story", "tts_title": "Listen",
+        "voice_aria": "Voice and reading speed", "voice_title": "Voice & speed",
+        "pdf_aria": "Download PDF in Russian", "pdf_title": "PDF (Russian)",
+        "dec_aria": "Decrease text size", "dec_title": "Smaller text",
+        "inc_aria": "Increase text size", "inc_title": "Larger text",
+    },
+}
 
 # Scene-setting for the ink background, one mood per chapter - see
 # js/ink.js for what each mood looks like. The arc runs from the ordinary
@@ -39,7 +66,7 @@ CHAPTER_RE = re.compile(r"Глава (\S+)\.\s*(.+)")
 CHAPTER_MOODS = ["flow", "murk", "murk", "calm"]
 
 
-def parse(md: str):
+def parse(md: str, lang="ru"):
     """-> (title, [{"title": str, "roman": str, "paragraphs": [html,...]}])"""
     title = None
     chapters = []
@@ -52,8 +79,10 @@ def parse(md: str):
         if block.startswith("# "):
             title = manifesto.inline(block[2:])
         elif block.startswith("## "):
-            m = CHAPTER_RE.match(block[3:].lstrip("🜁").strip())
-            roman = manifesto.BOOK_NUM_WORDS.get(m.group(1), str(len(chapters) + 1)) if m else str(len(chapters) + 1)
+            m = CHAPTER_RE[lang].match(block[3:].lstrip("🜁").strip())
+            roman = str(len(chapters) + 1)
+            if m:
+                roman = manifesto.BOOK_NUM_WORDS.get(m.group(1), roman) if lang == "ru" else m.group(1)
             chapter_title = manifesto.inline(m.group(2)) if m else manifesto.inline(block[3:])
             current = {"title": chapter_title, "roman": roman, "paragraphs": []}
             chapters.append(current)
@@ -101,25 +130,34 @@ def render_nav(chapters):
     return "\n".join(items)
 
 
-def main():
-    title, chapters = parse(SOURCE.read_text(encoding="utf-8"))
-    updated = manifesto.format_updated(SOURCE)
+def build(lang, meta):
+    source = ROOT / meta["source"]
+    title, chapters = parse(source.read_text(encoding="utf-8"), lang)
+    updated = manifesto.format_updated(source, lang=lang)
 
     chapters_html = "\n".join(render_chapter(ch, i) for i, ch in enumerate(chapters, start=1))
     nav_html = render_nav(chapters)
 
     out = TEMPLATE.read_text(encoding="utf-8")
     out = out.replace("<!--TITLE-->", title)
-    out = out.replace("<!--DESC-->", "Сухая грусть на дне очей - рассказ.")
+    out = out.replace("<!--DESC-->", f'{title} — {meta["subtitle"]}.')
     out = out.replace("<!--HERO_TITLE-->", title)
-    out = out.replace("<!--HERO_SUBTITLE-->", "Рассказ")
+    out = out.replace("<!--LANG-->", lang)
+    for key, value in meta.items():
+        out = out.replace(f"<!--{key.upper()}-->", value)
     out = out.replace("<!--CHAPTERS-->", chapters_html)
     out = out.replace("<!--NAV-->", nav_html)
     out = out.replace("<!--FOOTER-->", title)
     out = out.replace("<!--UPDATED-->", updated)
 
-    OUT.write_text(out, encoding="utf-8")
-    print(f"wrote {OUT} ({len(out)} bytes), {len(chapters)} chapters")
+    target = ROOT / meta["out"]
+    target.write_text(out, encoding="utf-8")
+    print(f"wrote {target} ({len(out)} characters), {len(chapters)} chapters")
+
+
+def main():
+    for lang, meta in LANGS.items():
+        build(lang, meta)
 
 
 if __name__ == "__main__":

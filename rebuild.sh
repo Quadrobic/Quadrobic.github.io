@@ -60,11 +60,13 @@ else
   echo "→ IQJ-manifest.pdf (up to date, skipped)"
 fi
 
-if needs_rebuild bird.html bird.md build_bird.py bird_template.html tools/manifesto.py; then
-  echo "→ bird.html"
+BIRD_DEPS=(bird.md bird.en.md build_bird.py bird_template.html tools/manifesto.py)
+if needs_rebuild bird.html "${BIRD_DEPS[@]}" \
+  || needs_rebuild bird.en.html "${BIRD_DEPS[@]}"; then
+  echo "→ bird.html / bird.en.html"
   python3 build_bird.py
 else
-  echo "→ bird.html (up to date, skipped)"
+  echo "→ bird.html / bird.en.html (up to date, skipped)"
 fi
 
 if needs_rebuild bird.pdf bird.md bird_build.py tools/manifesto.py; then
