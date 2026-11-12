@@ -1,0 +1,3 @@
+name: imperium
+include: . _build/stdlib
+flags: --safe --without-K --warning=noUnsupportedIndexedMatch

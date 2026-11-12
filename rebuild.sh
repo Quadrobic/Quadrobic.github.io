@@ -76,4 +76,17 @@ else
   echo "→ bird.pdf (up to date, skipped)"
 fi
 
+FORMAL_DEPS=(agda/build_web.py agda/web_content.py agda/web_template.html agda/check.py
+  agda/README.md agda/.gitignore agda/imperium.agda-lib agda/All.agda
+  agda/Imperium/*.agda agda/tests/reject/*.agda)
+if needs_rebuild formalization.html "${FORMAL_DEPS[@]}" \
+  || needs_rebuild formalization.en.html "${FORMAL_DEPS[@]}" \
+  || needs_rebuild formalization/verification.json "${FORMAL_DEPS[@]}" \
+  || needs_rebuild formalization/imperium-source.zip "${FORMAL_DEPS[@]}"; then
+  echo "→ formalization (Agda verification + highlighted HTML)"
+  python3 agda/build_web.py
+else
+  echo "→ formalization (up to date, skipped)"
+fi
+
 echo "done."

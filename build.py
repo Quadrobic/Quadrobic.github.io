@@ -328,6 +328,12 @@ def build(lang: str, tpl: str):
     out = out.replace("<!--UPDATED-->", html.escape(updated))
     out = out.replace("<!--BONUS-->", meta["bonus_html"])
     out = out.replace("<!--BONUS_BADGE-->", meta["bonus_control_html"])
+    formal_path = "formalization.html" if lang == "ru" else "formalization.en.html"
+    formal_label = {"ru": "Формализация", "en": "Formalization", "th": "Formalization · EN"}[lang]
+    out = out.replace("<!--FORMAL_BADGE-->",
+                      f'<a id="formalization-link" class="corner-link" href="{formal_path}">⊢ {formal_label}</a>')
+    out = out.replace("<!--FORMAL_LINK-->",
+                      f'<p class="footer-bonus"><a href="{formal_path}">⊢ {formal_label}</a></p>')
     out = out.replace("<!--NAV_ARIA-->", html.escape(meta["nav_aria"]))
     out = out.replace("<!--SOUND_ARIA-->", html.escape(meta["sound_aria"]))
     out = out.replace("<!--SOUND_TITLE-->", html.escape(meta["sound_title"]))

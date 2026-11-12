@@ -35,6 +35,7 @@ CHAPTER_RE = {
 LANGS = {
     "ru": {
         "source": "bird.md", "out": "bird.html", "treatise": "index.html",
+        "formal_path": "formalization.html", "formal_label": "Формализация",
         "subtitle": "Рассказ", "menu": "Меню", "nav_aria": "Главы рассказа",
         "back": "Трактат", "back_footer": "Вернуться к трактату",
         "scroll": "прокрутите, чтобы начать",
@@ -47,6 +48,7 @@ LANGS = {
     },
     "en": {
         "source": "bird.en.md", "out": "bird.en.html", "treatise": "index.en.html",
+        "formal_path": "formalization.en.html", "formal_label": "Formalization",
         "subtitle": "A short story", "menu": "Menu", "nav_aria": "Story chapters",
         "back": "Treatise", "back_footer": "Return to the treatise",
         "scroll": "scroll to begin",

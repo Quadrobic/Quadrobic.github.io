@@ -242,3 +242,18 @@ python3 -m http.server 8731
   `chromium` на PATH. Если у вас браузер называется иначе — впишите его в
   список `CHROME_CANDIDATES` в начале `pdf/build.py`.
 - `tools/watch.py` не требует ничего, кроме Python 3.
+
+## Публичная формализация
+
+Кнопка «Формализация» перед «Бонусом» ведёт на `formalization.html`;
+английская версия — `formalization.en.html`. Источники модели, тесты и
+проверяющий скрипт остаются в `agda/`. Пояснения по этапам редактируются
+в `agda/web_content.py`, шаблон — `agda/web_template.html`.
+
+`python3 agda/build_web.py` сначала проверяет модель и все отрицательные
+примеры, затем вызывает `agda --html` и экспортирует семантическую подсветку.
+В `formalization/code/` — полные модули с переходами к определениям;
+в `formalization/imperium-source.zip` — исходники и инструменты проверки;
+в `formalization/verification.json` — версия Agda, результаты и SHA-256
+исходников снимка. Фрагменты на странице сверяются с исходным текстом.
+`rebuild.sh` и `tools/watch.py` учитывают зависимости этой сборки.
