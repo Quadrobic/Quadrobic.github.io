@@ -22,6 +22,7 @@ def plain(fragment):
 # Explicit forms avoid guessing stems: e.g. «порядок» must not match
 # «порядочный», nor «тень» a piece of an unrelated word.
 RU_FORMS = {
+    "Стоячая волна": "стоячей волны|стоячей волне|стоячую волну|стоячей волной|стоячие волны|стоячих волн|стоячим волнам|стоячими волнами|стоячих волнах",
     "Исток": "Истока|Истоку|Истоком|Истоке",
     "Первородный хаос": "первородного хаоса|первородному хаосу|первородным хаосом|первородном хаосе",
     "Порядок": "порядка|порядку|порядком|порядке",
@@ -99,6 +100,19 @@ def glossary_json(doc, lang):
                     aliases.update(filter(None, forms.get(alias, "").split("|")))
                 entries.append({"title": title, "definition": definition,
                                 "forms": sorted(filter(None, aliases))})
+    if lang == "ru":
+        title = "Стоячая волна"
+        entries.append({
+            "title": title,
+            "definition": (
+                "Возникает при наложении одинаковых волн, идущих навстречу друг другу. "
+                "Узор остаётся на месте: в одних точках колебания гасят друг друга, "
+                "в других — усиливают. Так дрожит натянутая струна. "
+                "В §2 это образ порядка: неподвижность узора держится на движении, "
+                "а не на его отсутствии."
+            ),
+            "forms": [title, *RU_FORMS[title].split("|")],
+        })
     # Data, never executable markup. Also safe for a literal </script> in
     # a future glossary definition.
     return json.dumps(entries, ensure_ascii=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
