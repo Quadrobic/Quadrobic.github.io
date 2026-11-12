@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="108 62 296 296" width="64" height="64">
+  <!--Tab-size variant of quadrobic-logo-avatar.svg: figure only, transparent background.-->
+  <defs>
+    <g id="fig" stroke-linecap="round" stroke-linejoin="round">
+      <g transform="translate(0,18)">
+        <g id="backU">
+          <path d="M238 104 C206 116 200 176 212 222 L230 212 C224 172 228 138 246 116 Z" fill="#2f313a" />
+          <polygon points="196,98 214,112 224,190 206,204 190,176" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+          <path d="M204 120 L212 184" stroke="#c8102e" stroke-width="3" fill="none" />
+        </g>
+        <use xlink:href="#backU" transform="translate(512,0) scale(-1,1)" />
+      </g>
+      <g id="backL">
+        <polygon points="232.4,258.4 135.6,284.2 140.4,307.8 239.6,293.6" fill="#5b5e69" />
+        <circle cx="236" cy="276" r="18.0" fill="#5b5e69" />
+        <circle cx="138" cy="296" r="12.0" fill="#5b5e69" />
+        <polygon points="128.7,303.6 166.6,342.4 177.4,333.6 147.3,288.4" fill="#5b5e69" />
+        <circle cx="138" cy="296" r="12.0" fill="#5b5e69" />
+        <circle cx="172" cy="338" r="7.0" fill="#5b5e69" />
+        <polygon points="116,288 144,270 162,298 138,318" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+        <path d="M130 296 L146 290" stroke="#c8102e" stroke-width="3" fill="none" />
+        <polygon points="162,326 190,332 198,345 146,345 146,338" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+      </g>
+      <use xlink:href="#backL" transform="translate(512,0) scale(-1,1)" />
+      <g transform="translate(0,18)">
+        <polygon points="248,150 264,150 266,176 246,176" fill="#5b5e69" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+        <polygon points="228,174 284,174 280,206 268,238 244,238 232,206" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+        <path d="M240 190 L272 190" stroke="#c8102e" stroke-width="3" fill="none" />
+      </g>
+      <polygon points="236,278 276,278 282,300 256,304 230,300" fill="#5b5e69" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+      <polygon points="218,252 294,252 304,292 256,310 208,292" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+      <path d="M222 266 L290 266" stroke="#c8102e" stroke-width="3" fill="none" />
+      <polygon points="256,284 262,298 256,308 250,298" fill="#c8102e" stroke="none" stroke-width="1.5" stroke-linejoin="round" />
+      <g id="front">
+        <polygon points="215.9,203.5 197.8,268.1 210.2,271.9 232.1,208.5" fill="#5b5e69" />
+        <circle cx="224" cy="206" r="8.5" fill="#5b5e69" />
+        <circle cx="204" cy="270" r="6.5" fill="#5b5e69" />
+        <polygon points="197.5,269.6 195.0,333.7 205.0,334.3 210.5,270.4" fill="#5b5e69" />
+        <circle cx="204" cy="270" r="6.5" fill="#5b5e69" />
+        <circle cx="200" cy="334" r="5.0" fill="#5b5e69" />
+        <polygon points="198,266 212,272 208,318 194,312" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+        <polygon points="186,330 216,330 224,346 176,346" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+        <path d="M190 338 L214 338" stroke="#c8102e" stroke-width="3" fill="none" />
+      </g>
+      <use xlink:href="#front" transform="translate(512,0) scale(-1,1)" />
+      <g transform="translate(0,18)">
+        <g transform="translate(256 128) scale(1.2) translate(-256 -128)">
+          <polygon points="236,102 256,94 276,102 274,138 256,160 238,138" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+          <polygon points="250,96 256,66 262,96" fill="#e8e6e1" stroke="#0a0a0d" stroke-width="1.5" stroke-linejoin="round" />
+          <polygon points="240,116 254,121 252,126 240,122" fill="#c8102e" stroke="none" stroke-width="1.5" stroke-linejoin="round" />
+          <polygon points="272,116 258,121 260,126 272,122" fill="#c8102e" stroke="none" stroke-width="1.5" stroke-linejoin="round" />
+          <path d="M244 142 L268 142" stroke="#0a0a0d" stroke-width="2" fill="none" />
+        </g>
+      </g>
+    </g>
+  </defs>
+  <use xlink:href="#fig" opacity=".94" />
+</svg>
