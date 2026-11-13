@@ -25,7 +25,7 @@ three-equality c c = yes refl
 -- Intention and effective influence are distinct: grasping can act even in someone
 -- who intends to return. Effective influence confers no right to command others.
 data Influence : Set where
-  quiet life-force grasping-force : Influence
+  quiet shakti kashaya : Influence
 
 record Contribution : Set where
   constructor contribution
@@ -38,13 +38,13 @@ Profile = Three → Contribution
 
 ReturnPower : Profile → Three → Set
 ReturnPower input p = (Contribution.intention (input p) ≡ reclaim) ×
-  (Contribution.influence (input p) ≡ life-force)
+  (Contribution.influence (input p) ≡ shakti)
 
 GripPower : Profile → Three → Set
-GripPower input p = Contribution.influence (input p) ≡ grasping-force
+GripPower input p = Contribution.influence (input p) ≡ kashaya
 
 -- A demonstration instance, NOT a law asserted by the treatise:
--- an effective life-force contribution makes explosion possible; effective grasping
+-- effective Shakti makes explosion possible; effective kashaya
 -- makes enclosure possible. Competing contributions admit either outcome.
 -- CollectiveRule permits a more specific future arbitration rule.
 Possible : (Three → Position) → Profile → Outcome → Set
@@ -75,53 +75,53 @@ at-edge = approach (initial circle)
 edge-safe : EscapeInvariant at-edge
 edge-safe = admissible-preserves (approach-step refl) allow-approach (initial-escape circle)
 
--- Only a contributes life force. Neither b nor c must make the same choice.
-one-life-force : Profile
-one-life-force a = contribution reclaim life-force
-one-life-force b = contribution surrender quiet
-one-life-force c = contribution surrender quiet
+-- Only a contributes Shakti. Neither b nor c must make the same choice.
+one-shakti : Profile
+one-shakti a = contribution reclaim shakti
+one-shakti b = contribution surrender quiet
+one-shakti c = contribution surrender quiet
 
-life-force-effective : EffectiveOutcome at-edge one-life-force explosion
-life-force-effective = a , refl , (refl , refl)
+shakti-effective : EffectiveOutcome at-edge one-shakti explosion
+shakti-effective = a , refl , (refl , refl)
 
 shared-return : Gathering circle
 shared-return = burst at-edge (λ _ → 2)
 
-single-life-force-step : RawStep at-edge shared-return
-single-life-force-step = resolve-step refl one-life-force explosion life-force-effective (λ _ → 2)
+single-shakti-step : RawStep at-edge shared-return
+single-shakti-step = resolve-step refl one-shakti explosion shakti-effective (λ _ → 2)
 
-single-life-force-admissible : Admissible single-life-force-step
-single-life-force-admissible = allow-explosion
+single-shakti-admissible : Admissible single-shakti-step
+single-shakti-admissible = allow-explosion
 
-single-life-force-frees-all : EscapeInvariant shared-return
-single-life-force-frees-all = admissible-preserves single-life-force-step single-life-force-admissible edge-safe
+single-shakti-frees-all : EscapeInvariant shared-return
+single-shakti-frees-all = admissible-preserves single-shakti-step single-shakti-admissible edge-safe
 
--- Everyone intends to return, but only b contributes effective grasping force.
-one-grasping-force : Profile
-one-grasping-force a = contribution reclaim quiet
-one-grasping-force b = contribution reclaim grasping-force
-one-grasping-force c = contribution reclaim quiet
+-- Everyone intends to return, but only b contributes effective kashaya.
+one-kashaya : Profile
+one-kashaya a = contribution reclaim quiet
+one-kashaya b = contribution reclaim kashaya
+one-kashaya c = contribution reclaim quiet
 
-grasping-force-effective : EffectiveOutcome at-edge one-grasping-force enclosure
-grasping-force-effective = b , refl , refl
+kashaya-effective : EffectiveOutcome at-edge one-kashaya enclosure
+kashaya-effective = b , refl , refl
 
 shared-capture : Gathering circle
 shared-capture = compress at-edge
 
-single-grasping-force-step : RawStep at-edge shared-capture
-single-grasping-force-step = compression-step at-edge refl one-grasping-force grasping-force-effective
+single-kashaya-step : RawStep at-edge shared-capture
+single-kashaya-step = compression-step at-edge refl one-kashaya kashaya-effective
 
-single-grasping-force-traps : ∀ p → ¬ MayLeave shared-capture p
-single-grasping-force-traps p = compression-blocks at-edge p refl
+single-kashaya-traps : ∀ p → ¬ MayLeave shared-capture p
+single-kashaya-traps p = compression-blocks at-edge p refl
 
-single-grasping-force-inadmissible : ¬ Admissible single-grasping-force-step
-single-grasping-force-inadmissible = compression-not-admissible at-edge refl one-grasping-force grasping-force-effective
+single-kashaya-inadmissible : ¬ Admissible single-kashaya-step
+single-kashaya-inadmissible = compression-not-admissible at-edge refl one-kashaya kashaya-effective
 
 -- The same scene with competing contributions: this demonstration rule
 -- selects no winner. Both outcomes are SHARED, not separate personal doors.
 contested : Profile
-contested a = contribution reclaim life-force
-contested b = contribution reclaim grasping-force
+contested a = contribution reclaim shakti
+contested b = contribution reclaim kashaya
 contested c = contribution reclaim quiet
 
 contested-explosion : RawStep at-edge shared-return
@@ -132,14 +132,14 @@ contested-enclosure = resolve-step refl contested enclosure (b , refl , refl) (�
 
 -- The former outcome-independence theorem is false. Even c's complete
 -- contribution is identical in these profiles, yet the collective result differs.
-same-c-contribution : one-grasping-force c ≡ contested c
+same-c-contribution : one-kashaya c ≡ contested c
 same-c-contribution = refl
 
 c-free-from-another : MayLeave shared-return c
-c-free-from-another = single-life-force-frees-all c
+c-free-from-another = single-shakti-frees-all c
 
 c-trapped-by-another : ¬ MayLeave shared-capture c
-c-trapped-by-another = single-grasping-force-traps c
+c-trapped-by-another = single-kashaya-traps c
 
 shared-outcomes-differ : ¬ (Gathering.gate shared-return c ≡ Gathering.gate shared-capture c)
 shared-outcomes-differ ()
@@ -149,14 +149,14 @@ shared-outcomes-differ ()
 rekindled : Gathering circle
 rekindled = approach shared-capture
 
-later-life-force-effective : EffectiveOutcome rekindled one-life-force explosion
-later-life-force-effective = a , refl , (refl , refl)
+later-shakti-effective : EffectiveOutcome rekindled one-shakti explosion
+later-shakti-effective = a , refl , (refl , refl)
 
 later-shared-return : Gathering circle
 later-shared-return = burst rekindled (λ _ → 3)
 
 later-explosion-step : RawStep rekindled later-shared-return
-later-explosion-step = resolve-step refl one-life-force explosion later-life-force-effective (λ _ → 3)
+later-explosion-step = resolve-step refl one-shakti explosion later-shakti-effective (λ _ → 3)
 
 later-explosion-frees-all : EscapeInvariant later-shared-return
 later-explosion-frees-all = explosion-frees-all rekindled (λ _ → 3)

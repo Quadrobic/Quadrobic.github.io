@@ -41,14 +41,14 @@ record ModelContracts : Set₁ where
 -- Unlike ct-*, the target's safety is not a transition premise.
 record Theorems : Set₁ where
   field
-    ax1-thawing-extension : ∀ h n → Σ History (λ h′ → Agrees n h h′ × Liberated h′)
-    ax1-no-cert : ∀ h n → Σ History (λ h′ → Agrees n h h′ × ¬ Liberated h′)
+    ax1-thawing-extension : ∀ h n → Σ History (λ h′ → Agrees n h h′ × Siddha h′)
+    ax1-no-cert : ∀ h n → Σ History (λ h′ → Agrees n h h′ × ¬ Siddha h′)
     ax-no-finite-cert : ∀ h n → ¬ Certifies n h
     ax-no-finite-condemnation : ∀ h n → ¬ Refutes n h
-    ax-recognition-⇏-liberated : ¬ (∀ l s k → Recognized (Life.observed l) s k → Liberated (Life.acts l))
-    ax-liberated-⇏-recognition : ¬ (∀ l s k → Liberated (Life.acts l) → Recognized (Life.observed l) s k)
-    ax-emperor-⇏-liberated : ¬ (∀ E lives j s k → EmperorStatus E lives j s k → Liberated (Life.acts (lives j)))
-    ax-liberated-⇏-emperor : ¬ (∀ E lives j s k → Liberated (Life.acts (lives j)) → EmperorStatus E lives j s k)
+    ax-recognition-⇏-siddha : ¬ (∀ l s k → Recognized (Life.observed l) s k → Siddha (Life.acts l))
+    ax-siddha-⇏-recognition : ¬ (∀ l s k → Siddha (Life.acts l) → Recognized (Life.observed l) s k)
+    ax-emperor-⇏-siddha : ¬ (∀ E lives j s k → EmperorStatus E lives j s k → Siddha (Life.acts (lives j)))
+    ax-siddha-⇏-emperor : ¬ (∀ E lives j s k → Siddha (Life.acts (lives j)) → EmperorStatus E lives j s k)
     ax-recognition-revocable : Σ Observations (λ o → Recognized o 0 1 × ¬ Recognized o 1 1)
     ax-status-revocable : Σ (Three → Life) (λ lives →
       EmperorStatus threeEmpire lives a 0 1 × ¬ EmperorStatus threeEmpire lives a 1 1)
@@ -72,8 +72,8 @@ record Theorems : Set₁ where
       ¬ (∀ {h} → RawStep g h → EscapeInvariant g → EscapeInvariant h)
     thm-recovery-reopens : ∀ {C} (g : Gathering C) p → MayLeave (recover g p) p
     thm-explosion-frees-all : ∀ {C} (g : Gathering C) shape → EscapeInvariant (burst g shape)
-    thm-one-life-force-can-free-all : EscapeInvariant shared-return
-    thm-one-grasping-force-can-trap-all : ∀ p → ¬ MayLeave shared-capture p
+    thm-one-shakti-can-free-all : EscapeInvariant shared-return
+    thm-one-kashaya-can-trap-all : ∀ p → ¬ MayLeave shared-capture p
 
 record Doctrine : Set₁ where
   field
@@ -98,10 +98,10 @@ verified-theorems = record
   ; ax1-no-cert = gripping-extension
   ; ax-no-finite-cert = no-finite-certificate
   ; ax-no-finite-condemnation = no-finite-condemnation
-  ; ax-recognition-⇏-liberated = recognition-⇏-liberated
-  ; ax-liberated-⇏-recognition = liberated-⇏-recognition
-  ; ax-emperor-⇏-liberated = emperor-⇏-liberated
-  ; ax-liberated-⇏-emperor = liberated-⇏-emperor
+  ; ax-recognition-⇏-siddha = recognition-⇏-siddha
+  ; ax-siddha-⇏-recognition = siddha-⇏-recognition
+  ; ax-emperor-⇏-siddha = emperor-⇏-siddha
+  ; ax-siddha-⇏-emperor = siddha-⇏-emperor
   ; ax-recognition-revocable = revocable
   ; ax-status-revocable = revocable-status
   ; ax-no-empty-recognition = no-zero-window
@@ -115,8 +115,8 @@ verified-theorems = record
   ; thm-raw-steps-can-fail = raw-preservation-false
   ; thm-recovery-reopens = recovery-reopens
   ; thm-explosion-frees-all = explosion-frees-all
-  ; thm-one-life-force-can-free-all = Imperium.CollectiveExamples.single-life-force-frees-all
-  ; thm-one-grasping-force-can-trap-all = Imperium.CollectiveExamples.single-grasping-force-traps
+  ; thm-one-shakti-can-free-all = Imperium.CollectiveExamples.single-shakti-frees-all
+  ; thm-one-kashaya-can-trap-all = Imperium.CollectiveExamples.single-kashaya-traps
   }
 
 imperium : Doctrine

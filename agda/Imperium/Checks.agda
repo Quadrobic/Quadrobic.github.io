@@ -25,10 +25,10 @@ open import Relation.Nullary using (¬_; yes; no)
 future-free : History
 future-free = thaw 1 (λ _ → grip)
 
-later-free : EventuallyFree future-free
+later-free : EventuallySiddha future-free
 later-free = 1 , thaw-late 1 (λ _ → grip)
 
-not-free-now : ¬ FreeFrom future-free 0
+not-free-now : ¬ SiddhaFrom future-free 0
 not-free-now p = grip≢flow (p 0 z≤n)
 
 -- Many windows do not turn observation into knowledge of the entire history.
@@ -53,12 +53,12 @@ b-stays-inside = refl
 a-already-outside : Gathering.position a-left a ≡ outside
 a-already-outside = exit-arrives-outside a-exits-before-choice
 
--- One effective life-force contribution from a enables the shared return of b and c,
+-- One effective Shakti contribution from a enables the shared return of b and c,
 -- although their personal choices differ. This is a concrete witness,
--- not a universal priority of life force over grasping force.
+-- not a universal priority of Shakti over kashaya.
 successful-trace : Trace (initial circle) shared-return
 successful-trace = then-step (approach-step refl) allow-approach
-  (then-step single-life-force-step single-life-force-admissible done)
+  (then-step single-shakti-step single-shakti-admissible done)
 
 successful-still-free : EscapeInvariant shared-return
 successful-still-free = trace-preserves successful-trace (initial-escape circle)
@@ -73,16 +73,16 @@ changed-riverbed : Gathering.outline shared-return b ≡ 2
 changed-riverbed = refl
 
 bad-step : RawStep at-edge shared-capture
-bad-step = single-grasping-force-step
+bad-step = single-kashaya-step
 
 bad-is-not-safe : ¬ EscapeInvariant shared-capture
 bad-is-not-safe = compression-violates at-edge b refl
 
 bad-is-not-admissible : ¬ Admissible bad-step
-bad-is-not-admissible = single-grasping-force-inadmissible
+bad-is-not-admissible = single-kashaya-inadmissible
 
 -- Even a's own reclaim does not prevent collective captivity caused by b.
-a-wanted-return : Contribution.intention (one-grasping-force a) ≡ reclaim
+a-wanted-return : Contribution.intention (one-kashaya a) ≡ reclaim
 a-wanted-return = refl
 
 a-captured-by-b : Captured shared-capture a
@@ -125,7 +125,7 @@ later-all-free = later-explosion-frees-all
 not-every-raw-step-preserves : ¬ (∀ {g h : Gathering circle} →
   RawStep g h → EscapeInvariant g → EscapeInvariant h)
 not-every-raw-step-preserves preserve =
-  raw-preservation-false at-edge refl one-grasping-force grasping-force-effective edge-safe preserve
+  raw-preservation-false at-edge refl one-kashaya kashaya-effective edge-safe preserve
 
 -- The collective outcome does not recapture those who have already left.
 all-left : Gathering circle

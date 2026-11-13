@@ -95,7 +95,7 @@ def flow(lang):
     return '''<div class="proof-flow" aria-label="Two shared outcomes">
 <div class="flow-origin">The brink of collapse <span>individual choices and contributions → the circle’s shared response</span></div>
 <div class="flow-branches"><div class="flow-return"><code>explosion</code><strong>An explosion for everyone</strong><p>One jiva’s effective Shakti can free everyone still participating.</p></div>
-<div class="flow-capture"><code>enclosure</code><strong>Captivity of the whole circle</strong><p>One jiva’s grasping-force can close every exit, not just their own.</p></div></div>
+<div class="flow-capture"><code>enclosure</code><strong>Captivity of the whole circle</strong><p>One jiva’s kashaya can close every exit, not just their own.</p></div></div>
 <p class="flow-note">A separate contract identifies the effective catalyst. Shared consequences do not take away each jiva’s own choice. Unanimity is not required.</p></div>'''
 
 

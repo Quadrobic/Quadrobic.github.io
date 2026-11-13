@@ -33,7 +33,7 @@ data Outcome : Set where
 
 -- An open contract for competing forces. Input may encode personal decisions,
 -- abstract contribution measures, or qualitative evidence. The core postulates
--- neither arithmetic for life and grasping forces nor a universal winner.
+-- neither arithmetic for Shakti and kashaya nor a universal winner.
 record CollectiveRule (Person : Set) : Set₁ where
   field
     Input : Set
@@ -257,7 +257,7 @@ run-preserves r safe zero = safe
 run-preserves r safe (suc t) =
   admissible-preserves (Run.step r t) (Run.allowed r t) (run-preserves r safe t)
 
--- An actual compression step requires evidence of effective grasping force,
+-- An actual compression step requires evidence of effective kashaya,
 -- not a proof that EVERY participant chose surrender.
 compression-step : ∀ {C} (g : Gathering C) → phase g ≡ brink →
   (input : CollectiveRule.Input (Circle.rule C)) → EffectiveOutcome g input enclosure →

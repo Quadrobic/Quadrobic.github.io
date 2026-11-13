@@ -10,7 +10,7 @@ open import Data.Product using (Σ; _×_; _,_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (¬_)
 
--- Abstract ordinal scores, NOT measurements of intrinsic nature or the inner voice.
+-- Abstract ordinal scores, NOT measurements of Svabhava or the voice of Hridaya.
 record Obs : Set where
   constructor mkObs
   field
@@ -103,14 +103,14 @@ calm-gripping-sustained s k count k+ count+ = record
   ; windows = λ i _ → calm-gripping-recognized (s + i * k) k k+
   }
 
-calm-gripping-not-liberated : ¬ Liberated (Life.acts calm-gripping)
-calm-gripping-not-liberated (T , p) = grip≢flow (p T ≤-refl)
+calm-gripping-not-siddha : ¬ Siddha (Life.acts calm-gripping)
+calm-gripping-not-siddha (T , p) = grip≢flow (p T ≤-refl)
 
 free-unseen : Life
 free-unseen = record { acts = λ _ → flow ; observed = λ t → mkObs t 0 0 }
 
-free-unseen-liberated : Liberated (Life.acts free-unseen)
-free-unseen-liberated = 0 , (λ _ _ → refl)
+free-unseen-siddha : Siddha (Life.acts free-unseen)
+free-unseen-siddha = 0 , (λ _ _ → refl)
 
 free-unseen-not-recognized : ¬ Recognized (Life.observed free-unseen) 0 1
 free-unseen-not-recognized r with Improving.gap-narrows (Recognized.steps r {0} (s≤s z≤n))
@@ -118,9 +118,9 @@ free-unseen-not-recognized r with Improving.gap-narrows (Recognized.steps r {0} 
 
 -- This does NOT equate the Emperor with scores. It proves predicate independence
 -- under unconstrained observations, not a psychological claim about liberation.
-recognition-⇏-liberated : ¬ (∀ l s k → Recognized (Life.observed l) s k → Liberated (Life.acts l))
-recognition-⇏-liberated f = calm-gripping-not-liberated
+recognition-⇏-siddha : ¬ (∀ l s k → Recognized (Life.observed l) s k → Siddha (Life.acts l))
+recognition-⇏-siddha f = calm-gripping-not-siddha
   (f calm-gripping 0 1 (calm-gripping-recognized 0 1 (s≤s z≤n)))
 
-liberated-⇏-recognition : ¬ (∀ l s k → Liberated (Life.acts l) → Recognized (Life.observed l) s k)
-liberated-⇏-recognition f = free-unseen-not-recognized (f free-unseen 0 1 free-unseen-liberated)
+siddha-⇏-recognition : ¬ (∀ l s k → Siddha (Life.acts l) → Recognized (Life.observed l) s k)
+siddha-⇏-recognition f = free-unseen-not-recognized (f free-unseen 0 1 free-unseen-siddha)

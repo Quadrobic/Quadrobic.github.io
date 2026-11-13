@@ -3,9 +3,9 @@
 -- Empire / Quadrobic Jainism: the formal core, stage 0.
 --
 -- What is modeled here (section references point to the treatise):
--- * an action at a given time (§11), with or without grasping (§9);
--- * a participant's history: an infinite sequence of such actions;
--- * liberation (§31): ice stops accumulating; eventually no action involves grasping;
+-- * kriya: an action at a given time (§11), with or without kashaya (§9);
+-- * a jiva's history: an infinite sequence of such actions;
+-- * siddha (§31): ice stops accumulating; eventually no action involves grasping;
 -- * finite observation (companions observe for years, not forever, §31–32).
 --
 -- What is proved:
@@ -31,25 +31,25 @@ open import Relation.Nullary using (yes; no; ¬_)
 
 data Act : Set where
   flow : Act      -- movement leaves experience without binding the next action
-  grip : Act      -- grasping hardens the trace and accumulates ice
+  grip : Act      -- kashaya hardens the trace and accumulates ice (asrava)
 
 History : Set
 History = ℕ → Act
 
 -- Distinguish freedom from T onward from eventual permanent freedom.
 -- The latter does not assert liberation at the time of observation.
-FreeFrom : History → ℕ → Set
-FreeFrom h T = ∀ t → T ≤ t → h t ≡ flow
+SiddhaFrom : History → ℕ → Set
+SiddhaFrom h T = ∀ t → T ≤ t → h t ≡ flow
 
-EventuallyFree : History → Set
-EventuallyFree h = Σ ℕ (FreeFrom h)
+EventuallySiddha : History → Set
+EventuallySiddha h = Σ ℕ (SiddhaFrom h)
 
--- Compatibility alias for the original theorems; its precise meaning is EventuallyFree.
-Liberated : History → Set
-Liberated = EventuallyFree
+-- Compatibility alias for the original theorems; its precise meaning is EventuallySiddha.
+Siddha : History → Set
+Siddha = EventuallySiddha
 
-liberated-from-later : ∀ h T U → T ≤ U → FreeFrom h T → FreeFrom h U
-liberated-from-later h T U T≤U p t U≤t = p t (≤-trans T≤U U≤t)
+siddha-from-later : ∀ h T U → T ≤ U → SiddhaFrom h T → SiddhaFrom h U
+siddha-from-later h T U T≤U p t U≤t = p t (≤-trans T≤U U≤t)
 
 -- Two histories agree on the finite past, strictly before n.
 Agrees : ℕ → History → History → Set
@@ -96,17 +96,17 @@ grip≢flow ()
 
 -- §11: even the tightest repetition leaves an opening.
 -- Every finite past has an extension in which ice stops accumulating.
-thawing-extension : ∀ h n → Σ History (λ h' → Agrees n h h' × Liberated h')
+thawing-extension : ∀ h n → Σ History (λ h' → Agrees n h h' × Siddha h')
 thawing-extension h n = thaw n h , agrees-thaw n h , (n , thaw-late n h)
 
 -- §31: no certificate can be issued from within a single day.
 -- Every finite past has an extension without eventual liberation.
 -- Thus no finite observation certifies eventual liberation.
-gripping-extension : ∀ h n → Σ History (λ h' → Agrees n h h' × ¬ Liberated h')
-gripping-extension h n = freeze n h , agrees-freeze n h , not-liberated
+gripping-extension : ∀ h n → Σ History (λ h' → Agrees n h h' × ¬ Siddha h')
+gripping-extension h n = freeze n h , agrees-freeze n h , not-siddha
   where
-    not-liberated : ¬ Liberated (freeze n h)
-    not-liberated (T , p) = grip≢flow (trans (sym (freeze-late n h t n≤t)) (p t T≤t))
+    not-siddha : ¬ Siddha (freeze n h)
+    not-siddha (T , p) = grip≢flow (trans (sym (freeze-late n h t n≤t)) (p t T≤t))
       where
         t : ℕ
         t = T ⊔ n
@@ -119,10 +119,10 @@ gripping-extension h n = freeze n h , agrees-freeze n h , not-liberated
 -- Consequences about certificates, beyond individual extension witnesses.
 
 Certifies : ℕ → History → Set
-Certifies n h = ∀ h′ → Agrees n h h′ → Liberated h′
+Certifies n h = ∀ h′ → Agrees n h h′ → Siddha h′
 
 Refutes : ℕ → History → Set
-Refutes n h = ∀ h′ → Agrees n h h′ → ¬ Liberated h′
+Refutes n h = ∀ h′ → Agrees n h h′ → ¬ Siddha h′
 
 no-finite-certificate : ∀ h n → ¬ Certifies n h
 no-finite-certificate h n cert with gripping-extension h n

@@ -57,17 +57,21 @@ This project does not claim Cubical Agda compatibility.
 | `Imperium/Checks.agda` | Positive examples and checks of theorem boundaries. |
 | `All.agda` | The single entry point for all valid modules. |
 
-All source identifiers and code comments are in English. Descriptive names are
-used instead of Russian transliteration. The public explanation remains bilingual.
+Code comments and technical documentation are in English. Russian transliterations
+in identifiers are replaced with descriptive English names. Sanskrit and Jain terms
+retain their established spellings: `Siddha`, `SiddhaFrom`, `EventuallySiddha`,
+`shakti`, and `kashaya`. A jiva is a participant; Shakti and kashaya denote the
+returning and grasping influences represented by the example labels. These terms
+are not replaced by English approximations. The public explanation remains bilingual.
 
 ## Corrections to the initial model
 
 1. Module names such as `Imperium.Core` require files under `Imperium/`, rather
    than directly under `agda/`. Once relocated, the original five modules passed
    type checking; their main weaknesses concerned interpretation, not proof terms.
-2. `Liberated h = ∃ T. ∀ t ≥ T. h t = flow` means eventual permanent freedom
-   from grasping, not freedom now. `FreeFrom h T` and `EventuallyFree h` make
-   the distinction explicit; `Liberated` is a documented alias for the latter.
+2. `Siddha h = ∃ T. ∀ t ≥ T. h t = flow` means eventual permanent freedom
+   from grasping, not freedom now. `SiddhaFrom h T` and `EventuallySiddha h` make
+   the distinction explicit; `Siddha` is a documented alias for the latter.
 3. The original zero-length recognition window accepted every observation.
    `Recognized` now requires positive length and checks every adjacent sample,
    preventing equal endpoints from hiding regression. `Sustained` joins windows.
@@ -103,7 +107,7 @@ exclude future actions. The extension theorems therefore establish possibilities
 in this model, not the immediate accessibility of any future to a real person.
 A constrained dynamical model would require new admissibility proofs.
 
-`FreeFrom` also quantifies over an infinite future. It is neither a computable
+`SiddhaFrom` also quantifies over an infinite future. It is neither a computable
 present state nor evidence obtainable from today's experience.
 `Checks.not-free-now` exhibits eventual freedom alongside present grasping.
 
@@ -268,7 +272,7 @@ The following results are checked:
   the invariant when someone remains and cannot be an admissible step.
 - `raw-preservation-false`: effective grasping can produce a safety violation
   from a safe starting circle.
-- `single-life-force-step` and `single-grasping-force-step`: one participant's
+- `single-shakti-step` and `single-kashaya-step`: one participant's
   effective contribution can affect everyone immediately.
 - `same-c-contribution` and `shared-outcomes-differ`: another person's contribution
   can change the shared result while one's own complete contribution stays fixed.

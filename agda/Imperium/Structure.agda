@@ -10,7 +10,7 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (¬_)
 
 -- §8: only the three-thread structure. Connection is an external witness parameter
--- for the presence of a connection, NOT a Source type or the content of the inner voice.
+-- for a connection, NOT a Source type or the content of the voice of Hridaya.
 -- The Source is deliberately absent from the model's language.
 record Encounter (Riverbed Present Connection : Set) : Set where
   constructor encounter
