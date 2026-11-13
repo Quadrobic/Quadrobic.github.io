@@ -3,15 +3,18 @@ STAGES = [
     {
         "id": "history", "roman": "I", "refs": "§§8, 11, 31",
         "ru": ("Прошлое не выносит приговора", "Доказанные следствия",
-               "Любое конечное прошлое имеет два продолжения: в одном хватка иссякает, в другом — нет. Поэтому конечное наблюдение не выдаёт ни грамоты об окончательном оттаивании, ни окончательного приговора.",
-               "History допускает любое продолжение. Это допущение модели, не доказательство доступности каждого будущего реальной Дживе. Siddha здесь — совместимое имя EventuallySiddha: «когда-нибудь», а не «уже сейчас»."),
+               "Любое конечное прошлое имеет два продолжения: в одном прекращаются хватка и прамада, в другом связанность продолжается. Поэтому конечное наблюдение не выдаёт ни грамоты об окончательном оттаивании, ни окончательного приговора.",
+               "History допускает любое продолжение. Это допущение модели, не доказательство доступности каждого будущего реальной Дживе. Единичный шаг роста или таяния в IceDynamics — контракт, а многократное накопление и очищение — его доказанные следствия. Ни психология привычки, ни переход между воплощениями ими не доказаны. Siddha здесь — совместимое имя EventuallySiddha: «когда-нибудь», а не «уже сейчас»."),
         "en": ("The past passes no final sentence", "Proved consequences",
-               "Every finite past has two continuations: in one the grip ends, in the other it does not. A finite observation therefore certifies neither final thawing nor final condemnation.",
-               "History permits every continuation. This is a modelling assumption, not proof that every future is available to a real jiva. Siddha is a compatibility alias for EventuallySiddha: eventually, not already now."),
+               "Every finite past has two continuations: in one grasping and pramada end, in the other binding repetition continues. A finite observation therefore certifies neither final thawing nor final condemnation.",
+               "History permits every continuation. This is a modelling assumption, not proof that every future is available to a real jiva. IceDynamics supplies a unit update contract; repeated accretion and clearing are proved consequences. Neither habit psychology nor passage between incarnations is proved by them. Siddha is a compatibility alias for EventuallySiddha: eventually, not already now."),
         "blocks": [
             ("Core", "SiddhaFrom :", "-- Compatibility alias", False),
             ("Core", "thawing-extension :", "-- §31", False),
             ("Core", "Certifies :", None, True),
+            ("IceDynamics", "step :", "-- A finite run", False),
+            ("IceDynamics", "pramada-grows :", "grip-grows :", True),
+            ("IceDynamics", "flow-clears :", "pramada≢flow :", True),
         ],
     },
     {
@@ -108,6 +111,10 @@ STAGES = [
 ]
 
 REJECTIONS = {
+    "NegligenceIsSiddha": ("Отсутствие хватки при бесконечной прамаде, выданное за сиддху", "Endless pramada without grasping presented as siddhahood"),
+    "NoNegligentAccretion": ("Небрежность, объявленная неспособной закрепить след", "Heedlessness declared unable to bind a trace"),
+    "OneFlowErasesIce": ("Одно живое действие, выданное за полное очищение", "One flow action presented as complete clearing"),
+    "FlowHasNoEffect": ("Отрицание таяния при последовательности flow", "Denying erosion through a sequence of flow actions"),
     "UnsupportedRecovery": ("Восстановление с опорой на запертого", "Recovery supported by another captive"),
     "SelfSupport": ("Самоподдержка вместо чужой опоры", "Self-support substituted for another companion"),
     "ChoiceIgnored": ("Взрыв без личного шага катализатора", "Explosion without the catalyst’s personal reclaim"),

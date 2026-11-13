@@ -46,6 +46,7 @@ This project does not claim Cubical Agda compatibility.
 | Module | Content |
 | --- | --- |
 | `Imperium/Core.agda` | Histories, two extensions of any finite past, and impossibility of finite certification or condemnation. |
+| `Imperium/IceDynamics.agda` | An explicit unit accretion/erosion contract, multi-step consequences, and the distinction between absent grasping and absent heedlessness. |
 | `Imperium/Signs.agda` | Nonempty observation windows, adjacent-sample trends, consecutive windows, revocable recognition, and observational independence. |
 | `Imperium/Empire.agda` | A nonempty Empire; distinct support, appropriated authority, and voice relations; three concrete networks. |
 | `Imperium/Roles.agda` | The Emperor's role combines actual support with observed recognition; neither direction implies eventual liberation. |
@@ -70,7 +71,7 @@ are not replaced by English approximations. The public explanation remains bilin
    than directly under `agda/`. Once relocated, the original five modules passed
    type checking; their main weaknesses concerned interpretation, not proof terms.
 2. `Siddha h = ∃ T. ∀ t ≥ T. h t = flow` means eventual permanent freedom
-   from grasping, not freedom now. `SiddhaFrom h T` and `EventuallySiddha h` make
+   from grasping and heedless repetition, not freedom now. `SiddhaFrom h T` and `EventuallySiddha h` make
    the distinction explicit; `Siddha` is a documented alias for the latter.
 3. The original zero-length recognition window accepted every observation.
    `Recognized` now requires positive length and checks every adjacent sample,
@@ -111,6 +112,44 @@ A constrained dynamical model would require new admissibility proofs.
 present state nor evidence obtainable from today's experience.
 `Checks.not-free-now` exhibits eventual freedom alongside present grasping.
 
+## Ice dynamics and the pramada refinement
+
+`Act` now has `flow`, `grip`, and `pramada`. The last denotes heedless binding
+repetition, not every missed perception, tired state, or unintended outcome.
+`flow` means an attentive open response. It need not be infallible or harmless:
+physical consequences remain separate data in `Protection`. Absence of grip
+alone no longer suffices for `SiddhaFrom`, which still requires eventual `flow`.
+All finite-prefix extension and non-certification proofs remain valid for this
+larger action alphabet. The absence of pramada is NOT the absence of all mistakes.
+
+`IceDynamics.step` is a representation contract: grip and pramada add one unit;
+flow takes a predecessor, bounded below by zero. This models binding ice rather
+than all memory or learning. Unit rates are chosen conventions, not psychological
+measurements or a reproduction of the full classical karmic taxonomy.
+
+`grip-grows` and `pramada-grows` derive exact growth under repeated binding
+acts. `flow-clears` derives clearing of finite ice through sufficiently many flow
+steps; `flow-keeps-clear` derives persistence of a clear state under flow.
+`heedless-not-siddha` excludes the shortcut from absence of kashaya to liberation.
+The update rules are collected under `ModelContracts`; their multi-step results
+are collected under `Theorems`. No empirical rate, universal human recovery
+schedule, real accessibility of every flow action, or repair of external harm
+is established by these proofs. Histories still admit arbitrary future actions;
+ice is accumulated state, not a new restriction on which actions are possible.
+
+The revised prose separates an observable account of repeated responses within
+one life from a metaphysical claim about karmic traces between incarnations.
+Neither that empirical account nor rebirth is established by type checking.
+Hridaya remains the mystical heart and an intentional boundary of the model;
+its voice is not encoded as data.
+
+The classical distinctions were checked against the translated primary text and
+commentary: [Tattvartha-sutra VI.4](https://www.wisdomlib.org/jainism/book/tattvartha-sutra-with-commentary/d/doc1084801.html)
+for samparayika/iryapatha influx, and [VIII.1](https://www.wisdomlib.org/jainism/book/tattvartha-sutra-with-commentary/d/doc1084866.html)
+for the five causes of bondage, including pramada. The book's account of binding
+ice is its own adaptation, not a claim that the whole classical taxonomy reduces
+to two causes. Fear as a subsidiary passion is listed in the [translation of VIII.9](https://jainqq.org/pagetext/Tattvartha_Sutram/011035/149).
+
 ## Observation and the Emperor's role
 
 `Obs` uses three natural numbers as abstract ordinal scores. Neither these
@@ -135,7 +174,7 @@ liberated people. Observation may be incomplete.
 
 `EmperorStatus` adds actual support for someone else to the observable criterion.
 The reverse counterexample does not depend on deteriorating scores: a person
-without grasping, whose scores meet the criterion, receives support but provides
+with neither grasping nor heedless repetition, whose scores meet the criterion, receives support but provides
 none. Every participant still has another supporter. Liberation and the Emperor's
 role do not form a hierarchy. `revocable-status` also shows recognition of the
 whole role being withdrawn while the capacity to support remains.
@@ -361,7 +400,7 @@ labels describe neither the complete nature of the forces nor their magnitude.
 
 ## Negative checks
 
-The script requires Agda to reject **all twenty-one** intentionally invalid files.
+The script requires Agda to reject **all twenty-five** intentionally invalid files.
 It checks the error category, so a missing import or typo cannot count as success.
 
 | Fixture | Claim that must remain rejected |
@@ -370,6 +409,10 @@ It checks the error category, so a missing import or typo cannot count as succes
 | `SelfSupport` | Supplying oneself as the required other companion. |
 | `ChoiceIgnored` | Ignoring the returning catalyst's personal choice. |
 | `ExplosionIsDeparture` | Treating an open passage as an already completed return. |
+| `NegligenceIsSiddha` | Mistaking endless pramada without grasping for siddhahood. |
+| `NoNegligentAccretion` | Denying accretion caused by pramada. |
+| `OneFlowErasesIce` | Erasing arbitrary old ice with one flow action. |
+| `FlowHasNoEffect` | Denying erosion through repeated flow actions. |
 | `ZeroWindow` | Recognition from a zero-length window. |
 | `FiniteCertificate` | Certification of all futures from a finite past. |
 | `HiddenRegression` | Equal endpoints hiding an intermediate regression. |
@@ -432,3 +475,10 @@ not logical implication or formal proof dependencies.
 
 `rebuild.sh` verifies and exports the model before rebuilding the main site.
 The print edition is unchanged by these web-only annotations.
+
+The embodied transition from listening to lower and higher quadrobics, and from
+shared practice to the Empire, is a philosophical account in the treatise.
+`Empire` represents obligations of a union, not a derivation of its social
+emergence from posture. Annotations for §§20, 25, and 30 mark these practical
+claims as not covered rather than presenting them as model theorems. The Source
+and Hridaya are not made consequences of bodily geometry.

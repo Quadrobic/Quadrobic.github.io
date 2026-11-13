@@ -3,6 +3,7 @@
 module Imperium.Axioms where
 
 open import Imperium.Core
+open import Imperium.IceDynamics as Ice using ()
 open import Imperium.Signs
 open import Imperium.Empire
 open import Imperium.Roles
@@ -11,9 +12,9 @@ open import Imperium.Structure
 open import Imperium.DeathStar
 open import Imperium.CollectiveExamples using (circle; shared-return; shared-capture)
 open Gathering
-open import Data.Nat using (ℕ)
+open import Data.Nat using (ℕ; suc; pred; _+_)
 open import Data.Product using (Σ; _×_; _,_)
-open import Relation.Binary.PropositionalEquality using (_≡_)
+open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (¬_)
 
 -- A collection of obligations and a constructive instance, not a proof that
@@ -23,6 +24,10 @@ open import Relation.Nullary using (¬_)
 -- Agda checks them, but they are not conclusions about the gathering's dynamics.
 record ModelContracts : Set₁ where
   field
+    -- Unit accretion/erosion rates are representation contracts.
+    ct-ice-flow : ∀ ice → Ice.step ice flow ≡ pred ice
+    ct-ice-grip : ∀ ice → Ice.step ice grip ≡ suc ice
+    ct-ice-pramada : ∀ ice → Ice.step ice pramada ≡ suc ice
     ct-initial-access : ∀ C → OpenAccess (initial C)
     ct-decision-passage : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
       passage (resolve g outcome shape) p ≡ outcome-passage outcome
@@ -39,6 +44,10 @@ record ModelContracts : Set₁ where
 -- Unlike ct-*, the target's safety is not a transition premise.
 record Theorems : Set₁ where
   field
+    thm-ice-grip-growth : ∀ count ice → Ice.run count ice (λ _ → grip) ≡ count + ice
+    thm-ice-pramada-growth : ∀ count ice → Ice.run count ice (λ _ → pramada) ≡ count + ice
+    thm-ice-flow-clears : ∀ ice → Ice.run ice ice (λ _ → flow) ≡ 0
+    thm-pramada-not-siddha : ¬ Siddha (λ _ → pramada)
     ax1-thawing-extension : ∀ h n → Σ History (λ h′ → Agrees n h h′ × Siddha h′)
     ax1-no-cert : ∀ h n → Σ History (λ h′ → Agrees n h h′ × ¬ Siddha h′)
     ax-no-finite-cert : ∀ h n → ¬ Certifies n h
@@ -89,7 +98,10 @@ record Doctrine : Set₁ where
 
 model-contracts : ModelContracts
 model-contracts = record
-  { ct-initial-access = initial-access
+  { ct-ice-flow = λ _ → refl
+  ; ct-ice-grip = λ _ → refl
+  ; ct-ice-pramada = λ _ → refl
+  ; ct-initial-access = initial-access
   ; ct-decision-passage = resolve-inside-passage
   ; ct-outside-passage = resolve-outside-passage
   ; ct-resolution-keeps-position = resolve-preserves-position
@@ -100,7 +112,11 @@ model-contracts = record
 
 verified-theorems : Theorems
 verified-theorems = record
-  { ax1-thawing-extension = thawing-extension
+  { thm-ice-grip-growth = Ice.grip-grows
+  ; thm-ice-pramada-growth = Ice.pramada-grows
+  ; thm-ice-flow-clears = Ice.flow-clears
+  ; thm-pramada-not-siddha = Ice.heedless-not-siddha
+  ; ax1-thawing-extension = thawing-extension
   ; ax1-no-cert = gripping-extension
   ; ax-no-finite-cert = no-finite-certificate
   ; ax-no-finite-condemnation = no-finite-condemnation

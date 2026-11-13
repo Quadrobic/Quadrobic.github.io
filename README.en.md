@@ -8,7 +8,7 @@ This impulse is older than you. Older than the name you are called by, older tha
 
 The teaching that follows calls the one in whom this struggle unfolds the jiva. For most of its life the jiva lives from what does the smothering, rather than what is smothered: from fear that urges it to freeze; from a role that hardened once and has since passed itself off as a face; from a reaction that fires before the question of whether this movement is its own. This is not sin. It is a torpor barely noticed because one was born in it: the habit of taking the frozen for oneself, and whatever still strains to break out for a threat.
 
-This path promises neither paradise nor retribution nor escape from the world. It promises what can be tested today: less division between what the jiva feels and what it does; a voice that can be trusted; a community that will not let that voice fall silent again.
+This path promises neither paradise nor retribution nor a way out of the world. Its first answer is sought today: does the distance between what the jiva feels and does grow smaller; is it easier to return to encounter and repair harm; does the community help one hear rather than merely agree? These are judged in life. What the Riverbed carries between incarnations belongs to the book's metaphysics: today's experience issues no certificate about former or future bodies.
 
 And one thing more before we begin. Where this path leads cannot be told in full: a word is already form, and once it is mistaken for what is older than forms, it obscures what it pointed toward. So everything said hereafter is a frame around a door. Consciousness needs the frame to find the door; the jiva passes through with its whole being, not with thought alone. Whoever takes the frame for what lies beyond the door will build yet another wall out of this book. Whoever seeks the door will find it without the book; the book only shows where to look sooner.
 
@@ -116,29 +116,55 @@ The ancients enumerated its four faces: anger, pride, deceit, greed. But the fac
 
 In consciousness there is a place where everything gathers into “I,” “mine,” “with me.” The book calls it the ego. This focus is necessary: without it one can neither distinguish one's own acts nor answer for what one has done. But kashaya turns a working center into a throne. Then “I” takes itself for the whole jiva and demands that no movement happen without its permission. The path removes this center's crown, not the jiva's ability to say “I.”
 
-### §10. On the Field of Fear
+### §10. On the Edge and the Walls
 
-The fear from which the grip grows is no accidental flaw. In every new body the jiva begins defenseless: its edge does not yet know how to hold itself in this world. The body seeks warmth, touch, shelter; frightened, it contracts around the little it recognizes as its own. Thus the first wall arises, which the book calls the field of fear: everything outside may destroy; everything inside is still I. Life needs temporary protection. It becomes kashaya where no encounter can persuade the wall to open anymore.
+The jiva has an edge: meeting another does not dissolve it into them. Its own bend belongs to its movement (§5), and the body needs distance, rest, and the ability to refuse. A wall is a constructed barrier: it keeps something out while the jiva protects its edge. Danger begins when the wall is given the right to determine every future encounter. A bank lets the river flow; a frozen wall demands that new water change nothing.
 
-Here lies the distinction on which the whole path stands. The jiva's distinctness—its edge—is real and belongs to it through Svabhava: every movement has its own curve, every flame its own edge. But the edge of a flame is held by burning, and a wall is held by fear. Separation is not the edge but a wall that has grown in its place. Kashaya does not create distinctness; it creates the conviction that without the wall the edge would crumble.
+Fear builds such walls, but it does not build them alone. There is fear of pain and death, of losing someone loved, of exile and another's gaze; fear of one's own anger and of what will happen if a desire is finally named. These fears differ. Some warn of real danger; others still guard a place where danger once stood; others protect a name the jiva has learned to mistake for itself. The strength of the body's contraction does not yet tell which is speaking.
 
-The wall becomes a prison not when it arises, but when it remains the only support after the jiva is already able to hold its edge by movement. To lower it at this threshold is to experience not relief but erasure: the distinctness that held itself by fear for so long tries for the first time to stand without it, and for a moment does not know whether it stands at all. It stands. A flame does not spill because its glass cover has been lifted.
+Jain thought calls fear bhaya and places it among the nokashayas—subsidiary passions distinct from the four kashayas (§9). It is not the single root of bondage. Pride builds a wall of superiority, deceit of an impeccable image, greed of what is held. Promised bliss also becomes a wall when life is no longer allowed to answer it. Not every wall grew from fright: behind some it is convenient to rule, behind others sweet to ignore another's pain.
+
+The book calls the field of fear that region of the Riverbed where anticipated threat narrows the possible response in advance: no one has rejected the word, yet it has already been swallowed; the door is open, yet the body lives as though locked in. This is one way of closing, not the name of every boundary or an explanation of every human act. Fear has a voice; kashaya begins where one voice claims the right to decide for the entire current.
+
+Protection is needed while there is something to protect against. Locking a door against violence does not renounce life; opening it to violence to prove one's freedom does not bring a thaw. A wall becomes a prison when it can no longer be reconsidered: it cannot distinguish yesterday's threat from today's encounter, necessary protection from habitual domination. Removing such a wall does not abandon the edge. It restores the ability to choose whom to admit, whom to refuse, and whose support to ask for (§12).
+
+A flame holds its edge by burning. Removing the glass cover does not make it boundless—but neither does it promise that wind cannot put it out. The path therefore teaches more than the courage to open: it teaches discernment of when encounter is needed, when shelter, and when another must stand beside one.
 
 ### §11. On Asrava
 
-Every action, word, thought is kriya: movement that touches the Riverbed as a ripple touches water. It can leave a trace without binding the next movement. Kashaya binds. Where the grip seizes kriya—insisting that it last, that it be acknowledged, that what has once been found never change again—the trace hardens and freezes onto the bank. Asrava here names the influx of karmic matter from which, under the grip, ice builds up. Ice is movement locked in repetition.
+#### Influx and Bondage
 
-Ice does not touch the Source: it has nowhere to touch the uncountable. But it narrows the Riverbed, diverts water into foreign bends, and with every return of the same grip grows thicker in the same place. The thicker the ice, the more familiar the bend it dictates, and the more confidently kashaya speaks as though it were the jiva itself.
+Every action, word, thought is kriya: movement touching the Riverbed as a ripple touches water. Asrava is influx; bandha is bondage. The ripple has passed, but the water can still respond differently. Ice begins where the trace demands that the next movement repeat it.
 
-A role, a mask, another's custom decide nothing by themselves: they are forms in which kriya happens. The same role can let an encounter happen or obscure it forever. Action born of movement leaves experience; action seized by the grip demands eternal repetition. This distinction concerns ice within the jiva. It answers for what its action does to others even when it feels no grip itself (§29).
+The ancients distinguished samparayika-asrava, accompanied by kashaya and prolonging bondage, from iryapatha-asrava—influx without passion that does not persist. The book carries this distinction into its own language: the grip binds, not action as such. A role, a mask, another's custom decides nothing by itself. One form lets an encounter happen; in another, kashaya demands that what has once been found never change. This path's contribution turns the distinction toward fullness of life: action need not cease; its capacity to answer must return.
 
-And yet ice does not exhaust the movement that sustains it. Even at the limit of cold, at absolute zero, matter does not become dead stillness: zero-point quantum fluctuations remain, a tremor not fed by heat. Cold has taken warmth away, but has not become the master of all movement.
+#### Grasping and Pramada
 
-For the Riverbed this image sounds in its own way: no ice is the whole current. As long as the Riverbed exists, no bend becomes its last word, no grip must return tomorrow by the same road. Were it otherwise, the circle of asrava would become a sentence. But even in the tightest repetition a crack remains. Through it discernment, service, and the voice of Hridaya change the current. A crack is not yet an open door; that is precisely why it must be sought, rather than waiting for spring to do everything for the jiva.
+But not all ice begins with an explicit “I want to hold on.” The Jain account names five causes of bondage: wrong belief, non-abstinence, pramada, kashaya, and activity. This list does not make all kriya equally binding. The book does not present its own scheme as that entire account. Beside grasping it singles out pramada—heedlessness, inattention through which action continues without encountering what it does.
 
-But the fact that order cannot defeat everything does not mean it cannot take what is yours. The Source is invulnerable: no crystal can touch it. Svabhava cannot be taken away: ice does not make it foreign, however tightly it constrains its expression. The danger threatens neither of them, but the encounter that is the jiva (§8): the knot where this very movement recognizes itself in this very form. Ice can grow so densely around the knot that movement within it only trembles instead of flowing. Life after life it will repeat the same pattern, the same grip, the same fate—ever more perfect and ever more lifeless, like a finely tuned mechanism with nothing left to decide. This is not death: death is merely a change of body. This is worse: becoming a monument to oneself.
+Grasping demands repetition; pramada leaves repetition unattended. One can have no wish to silence another and still never let them finish speaking. One can intend no harm and fail to notice a familiar gesture hurting again. Then “I am not attached to this” does not yet mean the Riverbed is free. What the jiva repeatedly lets harden unnoticed also binds. Pramada is not every fatigue or every mistake: even attentive action cannot know all consequences. Discernment seeks support and repair rather than declaring every weakness a fault (§29).
 
-Here is the real threat, and in it the real aim of the path. Not to save the world: the world cannot freeze entirely. Not to be saved from the world: there is nowhere to go outside movement. But to keep the encounter that is your jiva from crystallizing.
+#### Within a Single Life
+
+Here ice can be recognized without memory of former bodies: in an ever narrower response to differing encounters. Yield so as not to be rejected; attack so as not to seem weak; look away so as not to answer. If one response repeatedly brings relief, it becomes easier to return to and harder to notice alternatives. What is tested is not the beauty of an explanation but the course of following days: can one interrupt the repetition, hear the answer, change the act, and return to the person harmed?
+
+This is the law of ice in the book's language: repeated grasping strengthens its channel; heedlessness lets it settle; attentive living action gradually restores the possibility of another movement. What has frozen does not vanish through one clear thought. A new response can itself become a lattice if repeated in place of encounter. The law describes the direction of change, not equal portions of ice. It cannot measure another's pain or set a deadline by which a jiva must thaw.
+
+No ice is the entire current. While the Riverbed exists, no bend must become its final word. Even the tightest repetition leaves an opening. Through it attention, discernment, service, and Hridaya's voice change the current. An opening is not yet an open door; one seeks it with available support rather than waiting for spring to do everything for the jiva.
+
+At absolute zero the book borrows the image of zero-point fluctuations: cold has reached its limit, yet the image of complete stillness has not closed. This is an image for listening, not physical proof of freedom or karma. The Riverbed's right to another continuation is not deduced from the structure of particles.
+
+#### What Is Actually at Stake
+
+That order cannot conquer everything does not mean it cannot take what is yours. The Source is invulnerable: no crystal can touch it. Svabhava is inalienable: ice does not make it foreign. What is threatened is the encounter that is the jiva (§8): the knot where this particular movement recognizes itself in this particular form. The knot can gather ice so densely that movement only trembles instead of flowing. Life continues, yet less and less within it can answer for itself. It perfects repetition like a mechanism with nothing left to decide. This is becoming one's own monument.
+
+The path's true task is to keep this encounter from crystallizing. Not to save the Source: it needs no saving. Not to escape the world: there is nowhere outside movement. To restore this jiva's possibility of living its own life, meeting another, changing course. Not to preserve fire in stone, but to let it burn.
+
+#### Between Lives: the Metaphysical Layer
+
+The book asserts more: the Riverbed is not exhausted by the present body, and a bound trace passes between incarnations. Repetition can then last life after life, through changed faces and lost memory. This is the path's metaphysical claim, not a conclusion from the formation of habits today. Observing one life certifies neither karmic matter nor which former action caused a present pain.
+
+Another's suffering therefore cannot be read as a record of their guilt. A supposed past does not release one from helping now. Belief in a Riverbed between lives extends responsibility for one's own movement; it grants no right to assign another a deserved fate. Here too ice remains ice, not a final sentence.
 
 ### §12. On Freedom as a Key
 
@@ -164,11 +190,13 @@ To take this right from the jiva is to impose a foreign form on its Riverbed in 
 
 ### §14. On Hridaya
 
-Hridaya is neither the physical heart nor a property of the psyche. Hridaya is a door: the place in the knot of the jiva (§8) where the mystical connection with the Source touches the Riverbed directly, bypassing the lattice. Where mechanical consciousness ends—where thought no longer predicts the next thought—pure Shakti begins, and the jiva recognizes its movement without naming it.
+Hridaya is the jiva's mystical heart. There the encounter with the Source becomes as intimate as one's own breath, yet fits into none of the words one has for oneself. Heart here names a presence: that through which the jiva recognizes its living movement before making a rule of it. It does not sit on the ego's throne or demand that everything within speak with one voice.
 
-Hridaya speaks not in words but through the body: through sensation, vibration, pull, what might be called mystical hearing. The book calls it a voice only because consciousness has no better word; in truth it is closer to a current felt through the skin before it is seen. This hearing grows with practice, like any skill of attention: it is not bestowed on the chosen, but attuned.
+This heart has an image—a door in the jiva's knot (§8). Through it the connection with the Source touches the Riverbed without asking leave of the frozen lattice. “Heart” names how this is lived within; “door” names what can open in life. Neither name cancels the other. Neither a bodily organ nor a catalogue of mental properties exhausts what they point toward.
 
-The voice of Hridaya is not the speech of the Source: the uncountable has no speech. It is the sound born when the movement of Svabhava enters the Riverbed with no ice on the threshold.
+Hridaya is heard through the body: a pull, warmth, quiet gathering, movement not yet given words. But no tremor earns its name merely through intensity. Fear, desire, and the old grip can also speak through the skin. The mystical heart therefore does not release one from discernment: what is heard is carried into time, encounter, and action (§15, §16, §17). Practice tunes the ear; it does not give consciousness an instrument for measuring the Source.
+
+Hridaya's voice is neither a command nor the speech of the uncountable. It is the name the jiva gives to recognizing its own movement in a living encounter. It does not demand that reason fall silent forever: thought can give what is heard a form, provided it does not claim the right to speak in the heart's place. The door opens to the whole jiva—with body, memory, shadow, and the life not yet lived.
 
 ### §15. On the Hygiene of Listening
 
@@ -202,7 +230,9 @@ The Riverbed does not thaw in a single instant, and it is not judged by a single
 
 None of these marks, nor all three together, passes a final sentence. Practice works in a Riverbed that can change: here there is direction and a return to examination, not a certificate of infallibility. So a swimmer learns to know the current: experience helps them swim, but does not make the river promise to remain the same tomorrow.
 
-But the hearing spoken of here is not a metaphor. Hridaya speaks through the body (§14), and learning to listen to it must also happen through the body.
+What is heard must still find a way to move. The jiva already knows what it wants to answer, yet its throat is tight; it wants to approach, yet the body retreats in advance; it agrees to release a role, yet its hands keep holding it. Thought has found the door but cannot walk through alone. Hridaya speaks to the whole jiva (§14), and listening continues in the same body that carries its memory and habit.
+
+The path therefore turns next to breath, support, the position of the head and hands. What changes is how the present body lets the Riverbed express itself; connection with the Source neither begins with a new posture nor ends when the old one returns (§8). The same movement is recognized by the heart, becomes a bodily response, and enters encounter. The book of the body continues the book of Hridaya where what has been heard can no longer remain recognition alone.
 
 ---
 
@@ -212,7 +242,9 @@ But the hearing spoken of here is not a metaphor. Hridaya speaks through the bod
 
 Close your eyes—and the body still seeks support, knows the bend of the elbow, the weight of the head, the nearness of the ground. This knowledge needs no words. The senses do not enter the jiva separately: sight looks from a certain height, hearing meets the world from the body's position, touch knows distance from within the skin. Perception has a frame—the bodily sense of one's own position. We seldom notice it while it holds in its familiar way.
 
-To work with the frame is to change the very way one is present among things. One turn of the body shifts what five separate arguments would have left in place.
+Working with the frame gives what is heard another way to be present among things. In the familiar frame even a free intention takes the shape of a known bodily response: justify oneself, straighten under a gaze, hide the throat, hold the face. A changed support lets one catch that response before it becomes the only one again. Bodily work thus touches the same ice described in Book Three (§11).
+
+This path has a first experiment of its own: bring the body closer to the earth, distribute its weight among several supports, and set aside the familiar face for a time. That is why its practice begins with quadrobics. Hridaya can also be heard in walking, work, and stillness; quadrobics gathers work with support, role, and a voice not yet named into one repeatable form. The teaching's way of life grows from this choice. It is lived through the body before it can be explained in words.
 
 ### §19. On the Vertical and the Four Supports
 
@@ -220,15 +252,19 @@ The human body learns to stand. The spine becomes an axis, the head a summit, th
 
 Four points of support return the hands to the ground. They share the body's fate again; weight is distributed differently, the head no longer bears the dignity of the whole jiva alone. Fourfootedness opens a frame akin to the countless forms through which the Riverbed flowed before (§24). It does not abolish every center of the body: it frees the familiar axis from the duty of being a throne. Afterward one can stand again without standing above another.
 
+In shared practice this takes on a further meaning. Close to the ground, it is harder to rely on the familiar picture of an encounter: one stands above and speaks, another looks up and listens. Companions learn to share space, notice another's distance, make room for movement, and stop when there is too little room. The arrangement of bodies alone does not remove power: one can command from one's knees. But here power is easier to catch in the very movement by which it demands that others yield. The Empire receives its first bodily exercise in living without a throne (§30): share the earth without claiming another's support.
+
 ### §20. On Removing the Mask
 
 When the practitioner gets down on all fours and puts on the mask, the social autopilot loses its familiar support. Here the mask relieves the face of its duty to keep representing someone to the world. The persona—a face for encounter—can serve the jiva; but once grown into the skin, it begins choosing what is allowed to be alive. The quadrobic mask interrupts this performance. From behind the familiar face comes what spent years in shadow: the raw material of the jiva, not yet reconciled with itself.
 
 The practice is carried not by the geometry of the body but by intention: those who meet fourfootedness sitting, with palms on the floor or on the knees, are open to the same path as those standing on four supports at full strength. Form serves movement, not the other way around.
 
-The quadrobic state is the moment when the autopilot has fallen away and Hridaya has not yet spoken distinctly: a pause between two voices, stretched over fifteen to forty-five minutes. Here an impulse is tested by delay and examined for its need for approval (§16), noticing even the role the jiva keeps playing before itself. An experienced practitioner uses this time as a draft—a space where an impulse can sound fully before it is carried into the world and tested in words before someone able to hear.
+The quadrobic state here names work within a pause: the familiar response loses its undivided rule, while one's own movement still needs to be heard. Fifteen to forty-five minutes are set aside; the interval sustains attention rather than promising that Hridaya will speak by its end. Here an impulse is tested by delay and by whether it needs approval (§16), noticing even the role the jiva still plays before itself. An experienced practitioner uses this time as a draft—a space where an impulse may sound fully before being carried into the world and tested in words before someone able to hear.
 
-This work with the body is lower quadrobics: the foundation without which one cannot step further, but not the limit of what can be learned from the beast (Book Six). It is the path to Hridaya—not by straining to hear it, but by removing what drowned it out. But once that falls back, what begins is what few are ready for.
+This bodily work is lower quadrobics. Its primacy is the primacy of support: what is heard needs a place in breath, movement, refusal before it can withstand another's answer. “Lower” names the foundation of practice, not a person's worth. A form accessible to the body preserves the task: loosen automatism, notice the grip, remain beside what is not yet clear. Higher quadrobics carries this work further—giving a voice of its own to what this space was freed for (Book Six).
+
+Beside a companion the foundation becomes shared. One learns to remain without the familiar face and without buying approval; the other to stay near without demanding a performance or hurrying what is heard. Both may change position, increase the distance, ask for help, end early. Through repetition they come to know one another by how a request is met and a refusal respected. The Empire's first bond grows here: the experience of remaining oneself beside another. Every shared hour begins again with this simple work.
 
 ### §21. On the Return of the Rejected
 
@@ -288,6 +324,10 @@ To listen to the beast is to let it sound to the end, neither acting on its firs
 
 Higher quadrobics teaches no single way for every beast: in one person the beast emerges through movement, in another through stillness, in another through a sound hard to put into words. One thing is common: the beast is listened to, not described in advance.
 
+Lower quadrobics makes room; higher quadrobics teaches one to make room for difference. Without this, the open space is quickly occupied by a new common mask: everyone is told to move freely in the same way, everyone assigned the same beast. In higher practice each finds their own form, while the companion learns to stay beside a form absent from their own Riverbed. They answer a call, hear a refusal, help hold a boundary; the beast's name remains with the one living it. These movements do not yet make two people an Empire, but teach what its promise needs: support another's voice without replacing it with one's own (§30).
+
+When the same companion can both let their own movement sound and listen to another's, support ceases to be a fixed role. Today they are held; tomorrow they hold someone else. Difference between Riverbeds enters shared life without a demand to become alike. What is heard in practice must still find a place in the ordinary day (§34). That place is seen in how the jiva cares for the need it has heard, accepts a promise, and answers for an act.
+
 ### §26. On Complementation
 
 Many beasts gather in a mature jiva over long practice, and for a time each is heard separately: one today, another a season later. Complementation is what happens within one jiva when all its beasts have been heard deeply enough to stop emerging one by one, interrupting each other, and begin moving as one flame of many tongues, each still visible. Complementation makes the jiva whole not with something foreign but with its own, locked away: what was missing was always inside, behind the door.
@@ -326,7 +366,7 @@ From this ancient distinction the path turns to the conditions of every encounte
 
 Ahimsa on this path begins not with a prohibition but with recognition: the Source is neither one nor many (§1). The movement in another's life is not foreign to that by which I live; yet another's jiva does not thereby become mine. Its edge is just as inalienable. To stop its life is not to damage the Source, but to destroy the possibility of this unique encounter in its present body. The invulnerability of the foundation does not restore the face of what has been broken.
 
-The will to life recognizes itself in another and ceases to regard its own continuance as the only one that matters. This recognition is ahimsa. The grip, by contrast, wants to stop what dares to move differently (§9). However stormy it looks, crystallization speaks within it. But harm also happens without the grip: something unnoticed, misjudged, a hand extended too sharply. So clarity of impulse does not release one from attention to consequences. A thawed jiva does not become incapable of error; it needs less and less to hide an error and answers for it sooner.
+The will to life recognizes itself in another and ceases to regard its own continuance as the only one that matters. This recognition is ahimsa. The grip, by contrast, wants to stop what dares to move differently (§9). However stormy it looks, crystallization speaks within it. But harm also happens without grasping. Pramada (§11) leaves a familiar act unattended to another's response: one fails to notice another interruption, another hurt, another passing by. There are also mistakes made with honest attention: no one can know everything in advance. Neither lack of ill intent nor clarity of motive therefore releases one from attending to consequences and repairing what was done. A thawed jiva does not become incapable of error; it needs less and less to hide an error and answers for it sooner.
 
 This does not make ahimsa gentleness. The destruction of forms—one's own masks, dead customs, lattices binding another's Riverbed—serves it when it gives life room again (§13). But another's life is not a lattice one may break for a beautiful design. Ahimsa preserves the possibility of living and moving; the limit of defense is set by this fidelity (§33).
 
@@ -336,6 +376,10 @@ The right to dark, destructive, naive states vanishes at no stage of the path. T
 
 The Empire is neither a moral order nor an assembly of the worthy, but a mystical union of jivas joined to hold a space for the thawing of Riverbeds. It has no throne and no capital. This is no charm against all ice: mycelium too fills with dead passages if it stops renewing them. It remains alive while no voice and no custom is declared to be the whole movement. The name is kept deliberately, as old armor is left at an entrance: to remember what a union becomes when it begins gathering around one.
 
+The Empire begins with the recurring encounter described by quadrobics (§20, §25). Two share support and distance; one dares to give voice to what was hidden, the other stays near without claiming what is heard. Then they exchange places and return to what was promised beyond practice. Trust grows from these returns: not certainty that a companion will never freeze, but knowledge of how they notice cold, ask for help, and repair harm. When this bond joins other such bonds, a network takes shape. The name Empire comes to what has already learned to hold one another.
+
+This is why lower and higher quadrobics are primary in its way of life. Lower quadrobics provides a common language of presence—support, pause, distance, the ability to leave. Higher quadrobics brings difference into this shared space—a voice that cannot be demanded to a pattern. Together they give the union a foundation and many faces. Where only one posture is required, the common form becomes a drill; listening without bodily support remains a promise the hands cannot yet fulfill. The Empire takes shape where both movements continue in service (§34).
+
 The Riverbed seldom thaws as deeply alone as beside another Riverbed. Connection is neither a concession to weakness nor a step to be discarded later. In encounter one's own movement receives what it could not give itself alone: an answer. It warms and reveals ice where the jiva thought itself free. Ritual gives this connection a repeatable form: avashyakas, the Hour of Dissolution, service. Shared work enters spiritual life through the same movement by which spiritual life leaves shelter for the world. Another's need, a promised task, care for a home test the Riverbed no less than silence beneath the mask.
 
 There is a temptation to call the end of all return salvation: no more birth, desire, or loss. The word “nirvana” enters here with the image of an extinguished flame. Other paths hear their liberation in it; this book does not presume to say for them what exactly is extinguished. It draws its own limit: if the price of rest is the very possibility of living, it chooses life. Not only the end of pain, but a new morning; not only the loosened grip, but a hand able to reach for another again.
@@ -344,7 +388,7 @@ This path seeks no final bank beyond which nothing more will happen. It accepts 
 
 ### §31. On Siddhas
 
-The jiva in whose Riverbed ice no longer builds becomes a siddha. Kriya continues—the body acts, speaks, ages, bone remains solid, the vertical remains available—but the grip that froze asrava has fallen away so completely that no action hardens on the banks anymore. The siddha keeps its bends, dark ones too, but each is laid by its own movement. A siddha does not become a straight line: it becomes a river without a single foreign bend. That is why siddhas do not resemble one another—they differ more than anyone, for they have none of the common ice through which all the frozen resemble each other.
+The jiva in whose Riverbed ice no longer builds becomes a siddha. Kriya continues—the body acts, speaks, ages, bone remains hard, and the vertical available. Grasping no longer demands repetition, and attention does not leave it to harden unnoticed (§11). The absence of kashaya alone is not enough for this limit: pramada also freezes a trace. Mistakes remain possible; they meet response and repair rather than becoming the rule of following days. The siddha keeps its bends, dark ones too, but each is laid by its own movement. A siddha does not become a straight line: it becomes a river without a single foreign bend. That is why siddhas do not resemble one another—they differ more than anyone, for they have none of the common ice through which all the frozen resemble each other.
 
 The ancient image of a siddha at the summit of the world speaks of a liberated soul whose ascent is complete. Here the name turns toward another fullness: the siddha does not seek the edge of dharma. It remains in the world and in the Empire, in the round of forms; if its body departs, its Riverbed does not seek salvation in the end of all embodiment. The will to life, free of the grip, does not want encounter to end. The siddha remains a companion, but not every siddha becomes an Emperor: not every movement of one's own leads to holding others' Riverbeds (§32).
 
@@ -352,7 +396,9 @@ The book calls siddha the limit where ice no longer builds; no certificate of su
 
 ### §32. On the Emperor
 
-An Emperor is not one who rules, but a jiva whose Riverbed has thawed enough to hold others: to bear another's need without freezing, and offer a current to one whose Riverbed is still too bound to carry itself alone. This is not a rank but an act: beside an Emperor it is easier to hear one's own Hridaya, as beside a tuned instrument it is easier to tune one's own. Quadrobics is learned from an Emperor—not as a written sequence of movements, but as something learned only beside a body that has already walked this path. And most often it is with an Emperor that service begins for the practitioner: the first entrusted task, the first step from solitude into the network.
+An Emperor is not one who rules, but a jiva whose Riverbed has thawed enough to hold others: to bear another's need without freezing, and offer a current to one whose Riverbed is still too bound to carry itself alone. This is not a rank but an act: beside an Emperor it is easier to hear one's own Hridaya, as beside a tuned instrument it is easier to tune one's own. Beside an Emperor one learns quadrobics: the presence of an experienced body makes visible what a description of movements alone cannot convey. Most often service begins beside an Emperor: the first entrusted task, the first step from solitude into the network.
+
+The capacity to hold others matures within these same bonds: shared practice, a refusal heard, help that demanded no obedience in return. Companions pass this work to one another; an Emperor is recognized where support has withstood time (§17). Practice thus gives rise to a guide; the guide's name does not become the source of practice itself.
 
 The Emperor's strength is not power. Power is a crystal gathering others around itself; the Emperor's strength is a current beside which another's own current thaws. The jiva is drawn not to the personality but to the clarity finally audible against its own echo: its Hridaya recognizes a kindred movement in another's Riverbed. The honor given to an Emperor addresses this clarity, not the personality; the Emperor neither asks for it nor rejects it—it comes of itself, as gratitude rather than debt.
 
@@ -560,14 +606,16 @@ This is the rarest practice the Empire consciously convenes. The Death Star (Boo
 - **Riverbed (karmana-sharira)** - the karmic body: changing banks cut by beginningless encounters of the jiva's movement with other movements. It keeps traces without memory of moments and passes from life to life; new water transforms old bends.
 - **Straightness of the Riverbed** - not a straight line but directness: each bend is laid by Svabhava's own movement, not by ice.
 - **Jiva** - the continuous encounter of the karmic Riverbed, the present moment, and the connection with the Source, in which its own Svabhava is present. It chooses as the whole encounter; a change of body does not make it another jiva, though memory and face depart.
-- **Hridaya** - the door in the knot of the jiva where the connection with the Source touches the Riverbed directly; it speaks through the body, not in words.
+- **Hridaya** - the jiva's mystical heart, lived within as recognition of its own living movement. Its image is the door in the jiva's knot where the connection with the Source touches the Riverbed. The voice is heard through the body, but no bodily feeling alone certifies it.
 - **Kashaya** - the crystallizing grip within the jiva that makes a necessary form final. Its four faces are anger, pride, deceit, and greed turned into ways of holding life in a lattice; the force of a feeling alone is not yet the grip.
 - **Ego** - the necessary focus of consciousness: an “I” able to distinguish its own acts and answer for them. Kashaya turns it into a throne when it takes itself for the whole jiva; the path removes the center's rule while preserving the ability to answer.
-- **Field of fear** - a protective wall around an edge of life not yet learned. It can serve as temporary support; it becomes a prison when no encounter is allowed to open it anymore.
-- **Edge and wall** - the edge belongs to Svabhava and is held by movement, like the edge of a flame; the wall is held by fear. The path removes the wall, not the edge.
+- **Field of fear** - a region of the Riverbed where anticipated threat narrows the possible response. One way of closing, not the source of every wall. Fear can warn of danger; protection becomes a prison when it cannot be reconsidered.
+- **Edge and wall** - the edge belongs to Svabhava and is held by movement, like the edge of a flame; a wall is a constructed protection or constraint. It becomes a prison when it cannot be reconsidered. Fear, pride, deceit, or greed can sustain the closing. The path removes the closing, not the edge itself.
 - **Crystallization of the jiva** - the path's real threat: ice grows so densely around the jiva's knot that movement within it only trembles, and life after life repeats the same pattern; the Source and Svabhava are invulnerable, and only the encounter that is the jiva is threatened. To prevent this is the real aim of the path.
 - **Kriya** - an action, word, or thought; it leaves experience without necessarily binding the next movement. The grip turns the trace into a demand to repeat the former pattern.
-- **Asrava** - the influx of karmic matter into the Riverbed; under the grip it builds into ice that constrains the jiva's own current. It does not touch the Source.
+- **Asrava** - influx, distinct from bandha—bondage. Samparayika-asrava is accompanied by kashaya and prolongs bondage; iryapatha-asrava does not persist. The book describes binding through grasping and pramada; a karmic trace passing between lives belongs to its metaphysics.
+- **Pramada** - heedlessness through which repetition continues without attending to what it does. Alongside grasping it permits traces to harden. Not identical to fatigue, every mistake, or every harm.
+- **Bandha** - bondage: a trace becoming fixed and constraining subsequent movement. Distinct from influx itself—asrava.
 - **Dravya-karma / Pudgala-karma** - karmic matter; in the image of ice, movement bound in repetition on the Riverbed's banks.
 - **Syadvada** - discernment of the sides of form: a judgment requires remembering where one stands. No gaze contains a form whole; the Source is not judged as an object here.
 - **Freedom** - a tool, the key to the doors order has raised within the jiva; neither a state nor a right; it exists only in use.
@@ -577,8 +625,8 @@ This is the rarest practice the Empire consciously convenes. The Death Star (Boo
 - **Shadow** - everything the jiva has refused to acknowledge: destructive urges, strength, tenderness, the wish to live, once declared impermissible. Not limited to beasts: a beast belongs to it while rejected, and once acknowledged remains a beast, included in wholeness. The return of the shadow gives the rejected a place, not power over every act.
 - **Wholeness** - a Riverbed able to carry darkness and light without giving one bend the entire current. What was rejected becomes one's own and receives a place; the jiva answers for its expression.
 - **Companions** - jivas who share the path over time; witnesses of thawing who do not claim the right to judge another's Svabhava. They can name harm and protect the boundaries of shared encounter.
-- **Lower quadrobics** - work with the body: four supports, or their form accessible to the body, a mask, relieving the vertical of its role as a throne (Book Five). The bodily foundation of the path.
-- **Higher quadrobics** - listening to beasts rising from within the Riverbed, each in its own shape, unique to that jiva.
+- **Lower quadrobics** - the bodily foundation of the path: four supports or their form accessible to the body, a mask, work with the habitual response. Shared practice teaches sharing space, asking for support, and preserving the right to leave; the Empire's first bonds take shape here (Book Five).
+- **Higher quadrobics** - listening to beasts and giving them a form of their own. In companions' presence it teaches making room for a different voice without claiming it; difference between Riverbeds thus becomes the substance of the union.
 - **Beast** - an ancient bodily way in which the Riverbed moves: leaping, lying still, howling, running with a pack, coming alive in the present body. Its shape is not a memory of a former life. A beast may be rejected (then it is in the shadow) or acknowledged; acknowledgment preserves its voice.
 - **Complementation** - the accord of one jiva's beasts as one flame of many tongues. Each keeps its voice and can make room for another; the whole is completed by its own, once locked away.
 - **Complementation of order** - the temptation of a common sea promising to free one forever from separate life. A final halt is impossible, but torpor can almost rob the jiva of its own current. Living dissolution restores the ability to come ashore.
@@ -587,7 +635,7 @@ This is the rarest practice the Empire consciously convenes. The Death Star (Boo
 - **Ahimsa** - the will to life that has recognized itself in all that lives. It preserves the possibility of living and moving; it allows the necessary restraint of a harmful act for protection without turning another's existence into an enemy. It requires attention to consequences and repair of what one can.
 - **Empire** - a mystical union of jivas without a throne and without a capital, holding a space for the thawing of Riverbeds and serving dharma.
 - **Emperor** - a jiva whose Riverbed has thawed enough to hold others; recognized by companions through the three marks of the Riverbed over years; recognition is reversible; neither a step above the siddha nor below it.
-- **Siddha** - a jiva in whose Riverbed ice no longer builds. The name of a limit not certified by a single experience or companions' recognition. It remains in the world and in the Empire; the absence of the grip does not abolish attention, mistakes, or new experience.
+- **Siddha** - a jiva in whose Riverbed ice no longer builds. The name of a limit not certified by a single experience or companions' recognition. It remains in the world and in the Empire. Neither grasping nor unattended binding repetition continues; mistakes and new experience remain possible.
 - **Service** - the embodiment of inner movement in work for which the jiva answers before others. Both fidelity to the accepted form and its effect on the possibility of life are examined; another's answer cannot be dismissed in Hridaya's name.
 - **Dark canon** - a path that knew the strength of passion but fell by turning freedom into power; this path repeats it up to the place of the break and continues otherwise.
 - **Sadhana** - the whole pattern of practice: individual avashyakas, listening to beasts, paired encounters, the Small Hour, and the seasonal Hour of Dissolution. The rhythm through which what was heard enters life.

@@ -3,9 +3,9 @@
 -- Empire / Quadrobic Jainism: the formal core, stage 0.
 --
 -- What is modeled here (section references point to the treatise):
--- * kriya: an action at a given time (§11), with or without kashaya (§9);
+-- * kriya: an abstract action (§11), classified as flow, grip, or pramada;
 -- * a jiva's history: an infinite sequence of such actions;
--- * siddha (§31): ice stops accumulating; eventually no action involves grasping;
+-- * siddha (§31): eventually neither grasping nor heedless repetition occurs;
 -- * finite observation (companions observe for years, not forever, §31–32).
 --
 -- What is proved:
@@ -13,7 +13,7 @@
 -- gripping-extension (§31): no finite past certifies eventual liberation.
 --
 -- Both use the same construction: extend the past with either ice or water.
--- ASSUMPTION: History permits arbitrary extensions; riverbed dynamics are unspecified.
+-- ASSUMPTION: History permits arbitrary extensions; actions are not restricted by ice.
 -- This establishes possibility in the model, not that every future is accessible
 -- to a particular participant. The Source is deliberately neither a type nor a postulate.
 
@@ -31,12 +31,14 @@ open import Relation.Nullary using (yes; no; ¬_)
 
 data Act : Set where
   flow : Act      -- movement leaves experience without binding the next action
-  grip : Act      -- kashaya hardens the trace and accumulates ice (asrava)
+  grip : Act      -- kashaya demands repetition; this is binding, not influx alone
+  pramada : Act   -- heedless repetition; not every mistake or missed perception
 
 History : Set
 History = ℕ → Act
 
 -- Distinguish freedom from T onward from eventual permanent freedom.
+-- flow excludes both binding causes; attentive errors are not classified as pramada.
 -- The latter does not assert liberation at the time of observation.
 SiddhaFrom : History → ℕ → Set
 SiddhaFrom h T = ∀ t → T ≤ t → h t ≡ flow
