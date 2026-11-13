@@ -72,20 +72,24 @@ STAGES = [
     {
         "id": "death-star", "roman": "VI", "refs": "§38",
         "ru": ("Каждый выбирает — круг отвечает вместе", "Общее действие и инвариант",
-               "Выбор принадлежит каждой Дживе, но действует на общий круг. Действенная Шакти одной способна открыть выход всем оставшимся; кашая другой — заточить всех, даже намеренных вернуться. После общего исхода участники не становятся одной Дживой.",
-               "CollectiveRule отдельно задаёт, какой вклад оказался действенным. Ядро не назначает универсального победителя Шакти или кашаи и не вводит числовую меру их силы. Демонстрационная инстанция допускает оба исхода при конкурирующих вкладах; это пример возможностей, а не закон их столкновения. Инвариант сохраняется на допустимых шагах; плохие шаги остаются возможными."),
+               "Выбор принадлежит каждой Дживе, но действует на общий круг. Действенная Шакти одной способна открыть выход всем оставшимся; кашая другой — заточить всех, даже намеренных вернуться. Личный шаг остаётся у каждого; общий исход один для всех внутри. Открытый проход ещё не есть личное возвращение: для выхода нужен собственный шаг. Восстановление после заточения требует опоры другого с открытым проходом; новый взрыв открывает его всем.",
+               "CollectiveRule отдельно задаёт, какой вклад оказался действенным. Ядро не назначает универсального победителя Шакти или кашаи и не вводит числовую меру их силы. Демонстрационная инстанция допускает оба исхода при конкурирующих вкладах; это пример возможностей, а не закон их столкновения. ReturningPower связан с собственным reclaim катализатора. Исключение смыкания из Admissible — нормативный выбор, а не доказанная невозможность. Теорема проверяет сохранение инварианта остальными допустимыми переходами; recovery-reopens условна относительно свидетельства опоры."),
         "en": ("Each chooses; the circle responds together", "Shared effects and the invariant",
-               "The choice belongs to each jiva, but acts on the common circle. One jiva’s effective Shakti can open an exit for everyone still participating; another’s kashaya can imprison them all, even those intending to return. The shared outcome does not merge them into one jiva.",
-               "CollectiveRule separately specifies which contribution is effective. The kernel assigns neither universal priority nor a numerical measure to Shakti and kashaya. The demonstration instance permits both outcomes when contributions conflict; it illustrates possibilities, not a law settling that conflict. Admissible steps preserve the invariant; harmful steps remain possible."),
+               "The choice belongs to each jiva, but acts on the common circle. One jiva’s effective Shakti can open an exit for everyone still participating; another’s kashaya can imprison them all, even those intending to return. Each retains their own choice; everyone inside shares one outcome. An open passage is not a completed return: departure takes a personal step. Local recovery requires another companion with an open passage; a new explosion opens it for everyone.",
+               "CollectiveRule separately specifies which contribution is effective. The kernel assigns neither universal priority nor a numerical measure to Shakti and kashaya. The demonstration instance permits both outcomes when contributions conflict; it illustrates possibilities, not a law settling that conflict. ReturningPower requires the catalyst’s own reclaim. Excluding enclosure from Admissible is a normative choice, not a proved impossibility. The preservation theorem checks the other admissible transitions; recovery-reopens is conditional on a support witness."),
         "blocks": [
             ("DeathStar", "record CollectiveRule", "-- Membership and riverbed", False),
             ("CollectiveExamples", "single-shakti-step :", "-- Everyone intends", False),
             ("CollectiveExamples", "single-kashaya-step :", "-- The same scene", False),
+            ("DeathStar", "record Support", "approach :", False),
+            ("DeathStar", "explosion-has-personal-step :", "-- Exit is an executable", True),
             ("DeathStar", "data Exit", "inside≢outside :", True),
             ("DeathStar", "data Admissible", "-- The exit proof", True),
             ("DeathStar", "admissible-preserves :", "-- An actual compression", True),
             ("CollectiveExamples", "contested-explosion :", "-- The former outcome", True),
-            ("DeathStar", "shared-inside-gates :", "raw-preservation-false :", True),
+            ("DeathStar", "shared-inside-passages :", "raw-preservation-false :", True),
+            ("DeathStar", "recovery-reopens :", None, True),
+            ("Checks", "explosion-is-not-departure :", None, True),
         ],
     },
     {
@@ -104,6 +108,10 @@ STAGES = [
 ]
 
 REJECTIONS = {
+    "UnsupportedRecovery": ("Восстановление с опорой на запертого", "Recovery supported by another captive"),
+    "SelfSupport": ("Самоподдержка вместо чужой опоры", "Self-support substituted for another companion"),
+    "ChoiceIgnored": ("Взрыв без личного шага катализатора", "Explosion without the catalyst’s personal reclaim"),
+    "ExplosionIsDeparture": ("Открытый проход, выданный за возвращение", "An open passage presented as a completed departure"),
     "ZeroWindow": ("Признание без окна наблюдений", "Recognition without an observation window"),
     "FiniteCertificate": ("Сертификат будущего из конечного прошлого", "A certificate of the future from a finite past"),
     "HiddenRegression": ("Скрытый регресс внутри окна", "A hidden regression within a window"),

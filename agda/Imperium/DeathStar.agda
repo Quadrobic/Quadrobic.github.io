@@ -17,11 +17,8 @@ data Phase : Set where
 data Position : Set where
   inside outside : Position
 
-data Gate : Set where
-  unlocked shut : Gate
-
-data Authority : Set where
-  own center : Authority
+data Passage : Set where
+  unlocked shut : Passage
 
 data Choice : Set where
   reclaim surrender : Choice
@@ -39,6 +36,9 @@ record CollectiveRule (Person : Set) : Set₁ where
     Input : Set
     choice : Input → Person → Choice
     ReturningPower GrippingPower : Input → Person → Set
+    -- A returning catalyst must make its own reclaim choice. Other participants
+    -- need not agree; kashaya may remain effective despite a reclaim intention.
+    returning-choice : ∀ input p → ReturningPower input p → choice input p ≡ reclaim
     Responds : (Person → Position) → Input → Outcome → Set
     explosion-origin : ∀ positions input → Responds positions input explosion →
       Σ Person (λ p → positions p ≡ inside × ReturningPower input p)
@@ -63,8 +63,7 @@ record Gathering (C : Circle) : Set where
   field
     phase : Phase
     position : Circle.Person C → Position
-    gate : Circle.Person C → Gate
-    authority : Circle.Person C → Authority
+    passage : Circle.Person C → Passage
     outline : Circle.Person C → Circle.Shape C
 open Gathering
 
@@ -77,7 +76,7 @@ bed-by-representation g h p = refl
 
 initial : (C : Circle) → Gathering C
 initial C = gathering assembling (λ _ → inside) (λ _ → unlocked)
-  (λ _ → own) (Circle.initial-outline C)
+  (Circle.initial-outline C)
 
 update : ∀ {C} {A : Set} → (Circle.Person C → A) → Circle.Person C → A → Circle.Person C → A
 update {C} f p value q with Circle.person-equality C p q
@@ -93,13 +92,21 @@ update-self {C} f p value with Circle.person-equality C p p
 leave : ∀ {C} → Gathering C → Circle.Person C → Gathering C
 leave {C} g p = record g { position = update {C} (position g) p outside }
 
--- After a harmful outcome, renewed movement with support can reopen an exit.
--- This does not retroactively make the earlier captivity admissible.
-recover : ∀ {C} → Gathering C → Circle.Person C → Gathering C
-recover {C} g p = record g
-  { gate = update {C} (gate g) p unlocked
-  ; authority = update {C} (authority g) p own
-  }
+-- Local reopening needs an explicitly identified OTHER companion whose passage
+-- is already open. This is an abstract support witness, not a guarantee that
+-- every real companion can supply all the assistance a particular person needs.
+record Support {C : Circle} (g : Gathering C) (p : Circle.Person C) : Set where
+  constructor supported-by
+  field
+    companion : Circle.Person C
+    other : ¬ (companion ≡ p)
+    available : passage g companion ≡ unlocked
+
+-- Reopening a passage does not take the participant outside. The witness is
+-- required by this operation itself, not only by the RawStep wrapper.
+recover : ∀ {C} (g : Gathering C) (p : Circle.Person C) → Support g p → Gathering C
+recover {C} g p support = record g
+  { passage = update {C} (passage g) p unlocked }
 
 approach : ∀ {C} → Gathering C → Gathering C
 approach g = record g { phase = brink }
@@ -107,29 +114,21 @@ approach g = record g { phase = brink }
 reframe : ∀ {C} → Gathering C → (Circle.Person C → Circle.Shape C) → Gathering C
 reframe g shape = record g { outline = shape }
 
-outcome-gate : Outcome → Gate
-outcome-gate explosion = unlocked
-outcome-gate enclosure = shut
-
-outcome-authority : Outcome → Authority
-outcome-authority explosion = own
-outcome-authority enclosure = center
+outcome-passage : Outcome → Passage
+outcome-passage explosion = unlocked
+outcome-passage enclosure = shut
 
 -- The collective response affects everyone still participating. Each choice remains
--- personal, but a gate is NOT computed independently from its owner's ballot.
+-- personal, but a passage is NOT computed independently from its owner's ballot.
 resolve : ∀ {C} → Gathering C → Outcome →
   (Circle.Person C → Circle.Shape C) → Gathering C
-resolve {C} g outcome shape = gathering aftermath (position g) gate′ authority′ shape
+resolve {C} g outcome shape = gathering aftermath (position g) passage′ shape
   where
-    gate′ : Circle.Person C → Gate
-    gate′ p with position g p
+    passage′ : Circle.Person C → Passage
+    passage′ p with position g p
     ... | outside = unlocked
-    ... | inside = outcome-gate outcome
+    ... | inside = outcome-passage outcome
 
-    authority′ : Circle.Person C → Authority
-    authority′ p with position g p
-    ... | outside = own
-    ... | inside = outcome-authority outcome
 
 compress : ∀ {C} → Gathering C → Gathering C
 compress g = resolve g enclosure (outline g)
@@ -142,10 +141,23 @@ EffectiveOutcome : ∀ {C} → Gathering C → CollectiveRule.Input (Circle.rule
 EffectiveOutcome {C} g input outcome =
   CollectiveRule.Responds (Circle.rule C) (position g) input outcome
 
+-- Every effective explosion has an internal catalyst who personally chose reclaim.
+-- This derived link uses the response-origin and returning-choice contracts; it
+-- neither requires unanimity nor asserts that the catalyst made others' choices.
+explosion-has-personal-step : ∀ {C} (g : Gathering C) input →
+  EffectiveOutcome g input explosion →
+  Σ (Circle.Person C) (λ p → position g p ≡ inside ×
+    CollectiveRule.choice (Circle.rule C) input p ≡ reclaim)
+explosion-has-personal-step {C} g input effective =
+  p , proj₁ (proj₂ origin) , CollectiveRule.returning-choice (Circle.rule C) input p (proj₂ (proj₂ origin))
+  where
+    origin = CollectiveRule.explosion-origin (Circle.rule C) (position g) input effective
+    p = proj₁ origin
+
 -- Exit is an executable local action by one participant. It requires neither
 -- a collective decision, central permission, nor completion of the ritual.
 data Exit {C : Circle} (g : Gathering C) (p : Circle.Person C) : Gathering C → Set where
-  depart : position g p ≡ inside → gate g p ≡ unlocked → Exit g p (leave g p)
+  depart : position g p ≡ inside → passage g p ≡ unlocked → Exit g p (leave g p)
 
 exit-arrives-outside : ∀ {C} {g h : Gathering C} {p} → Exit g p h → position h p ≡ outside
 exit-arrives-outside {C} {g} {p = p} (depart _ _) = update-self {C} (position g) p outside
@@ -158,7 +170,7 @@ EscapeInvariant : ∀ {C} → Gathering C → Set
 EscapeInvariant g = ∀ p → MayLeave g p
 
 OpenAccess : ∀ {C} → Gathering C → Set
-OpenAccess g = ∀ p → position g p ≡ inside → gate g p ≡ unlocked
+OpenAccess g = ∀ p → position g p ≡ inside → passage g p ≡ unlocked
 
 inside≢outside : ¬ (inside ≡ outside)
 inside≢outside ()
@@ -188,7 +200,8 @@ data RawStep {C : Circle} (g : Gathering C) : Gathering C → Set where
   approach-step : phase g ≡ assembling → RawStep g (approach g)
   exit-step : ∀ {p h} → Exit g p h → RawStep g h
   reframe-step : (shape : Circle.Person C → Circle.Shape C) → RawStep g (reframe g shape)
-  recover-step : (p : Circle.Person C) → phase g ≡ aftermath → RawStep g (recover g p)
+  recover-step : (p : Circle.Person C) → phase g ≡ aftermath →
+    (support : Support g p) → RawStep g (recover g p support)
   rekindle-step : phase g ≡ aftermath → RawStep g (approach g)
   resolve-step : phase g ≡ brink → (input : CollectiveRule.Input (Circle.rule C)) →
     (outcome : Outcome) → EffectiveOutcome g input outcome →
@@ -196,12 +209,15 @@ data RawStep {C : Circle} (g : Gathering C) : Gathering C → Set where
 
 -- Admissibility concerns the collective result, not unanimous personal decisions.
 -- An explosion enabled by one participant is admissible without unanimous reclaim.
--- Enclosure remains possible in RawStep without becoming admissible.
+-- Excluding enclosure is a NORMATIVE constructor choice, not a derived physical
+-- impossibility. Consequently compression-not-admissible is a definitional
+-- consequence of this policy. Preservation remains a proof about the other
+-- concrete transition constructors, not a theorem that all gatherings are safe.
 data Admissible {C : Circle} {g : Gathering C} : ∀ {h} → RawStep g h → Set where
   allow-approach : ∀ {ready} → Admissible (approach-step ready)
   allow-exit : ∀ {p h} {e : Exit g p h} → Admissible (exit-step e)
   allow-reframe : ∀ {shape} → Admissible (reframe-step shape)
-  allow-recover : ∀ {p ready} → Admissible (recover-step p ready)
+  allow-recover : ∀ {p ready support} → Admissible (recover-step p ready support)
   allow-rekindle : ∀ {ready} → Admissible (rekindle-step ready)
   allow-explosion : ∀ {ready input effective shape} →
     Admissible (resolve-step ready input explosion effective shape)
@@ -213,8 +229,8 @@ leave-access {C} {g} {p} access (depart at opened) q q-inside
 ... | yes _ = ⊥-elim (inside≢outside (sym q-inside))
 ... | no _ = access q q-inside
 
-recover-access : ∀ {C} {g : Gathering C} p → OpenAccess g → OpenAccess (recover g p)
-recover-access {C} {g} p access q at with Circle.person-equality C p q
+recover-access : ∀ {C} {g : Gathering C} p (support : Support g p) → OpenAccess g → OpenAccess (recover g p support)
+recover-access {C} {g} p support access q at with Circle.person-equality C p q
 ... | yes _ = refl
 ... | no _ = access q at
 
@@ -228,8 +244,8 @@ admissible-preserves : ∀ {C} {g h : Gathering C} (step : RawStep g h) →
 admissible-preserves (approach-step _) allow-approach safe = access⇒escape (escape⇒access safe)
 admissible-preserves (exit-step e) allow-exit safe = access⇒escape (leave-access (escape⇒access safe) e)
 admissible-preserves (reframe-step _) allow-reframe safe = access⇒escape (escape⇒access safe)
-admissible-preserves {C} {g} (recover-step p _) allow-recover safe =
-  access⇒escape (recover-access {C} {g} p (escape⇒access safe))
+admissible-preserves {C} {g} (recover-step p _ support) allow-recover safe =
+  access⇒escape (recover-access {C} {g} p support (escape⇒access safe))
 admissible-preserves (rekindle-step _) allow-rekindle safe = access⇒escape (escape⇒access safe)
 admissible-preserves {g = g} (resolve-step _ input explosion effective shape) allow-explosion safe =
   access⇒escape (burst-access g shape)
@@ -265,7 +281,7 @@ compression-step : ∀ {C} (g : Gathering C) → phase g ≡ brink →
 compression-step g ready input effective = resolve-step ready input enclosure effective (outline g)
 
 blocked-cannot-leave : ∀ {C} {g : Gathering C} p → position g p ≡ inside →
-  gate g p ≡ shut → ¬ MayLeave g p
+  passage g p ≡ shut → ¬ MayLeave g p
 blocked-cannot-leave p at closed (inj₁ gone) = inside≢outside (trans (sym at) gone)
 blocked-cannot-leave p at closed (inj₂ (_ , depart _ opened)) = shut≢open (trans (sym closed) opened)
 
@@ -273,42 +289,41 @@ blocked-cannot-leave p at closed (inj₂ (_ , depart _ opened)) = shut≢open (t
 compression-blocks : ∀ {C} (g : Gathering C) p → position g p ≡ inside → ¬ MayLeave (compress g) p
 compression-blocks g p at = blocked-cannot-leave p at closed
   where
-    closed : gate (compress g) p ≡ shut
+    closed : passage (compress g) p ≡ shut
     closed rewrite at = refl
 
 compression-violates : ∀ {C} (g : Gathering C) p → position g p ≡ inside → ¬ EscapeInvariant (compress g)
 compression-violates g p at safe = compression-blocks g p at (safe p)
 
+-- Direct consequence of the normative constructor policy above. The empty
+-- pattern does not establish a physical impossibility of collective enclosure.
 compression-not-admissible : ∀ {C} (g : Gathering C) ready input
   (effective : EffectiveOutcome g input enclosure) →
   ¬ Admissible (compression-step g ready input effective)
 compression-not-admissible g ready input effective ()
 
 -- Representation equalities: the outcome is shared despite distinct personal choices.
-resolve-inside-gate : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
-  gate (resolve g outcome shape) p ≡ outcome-gate outcome
-resolve-inside-gate g outcome shape p at rewrite at = refl
+resolve-inside-passage : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
+  passage (resolve g outcome shape) p ≡ outcome-passage outcome
+resolve-inside-passage g outcome shape p at rewrite at = refl
 
-resolve-outside-gate : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ outside →
-  gate (resolve g outcome shape) p ≡ unlocked
-resolve-outside-gate g outcome shape p gone rewrite gone = refl
+resolve-outside-passage : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ outside →
+  passage (resolve g outcome shape) p ≡ unlocked
+resolve-outside-passage g outcome shape p gone rewrite gone = refl
 
-resolve-inside-authority : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
-  authority (resolve g outcome shape) p ≡ outcome-authority outcome
-resolve-inside-authority g outcome shape p at rewrite at = refl
-
-resolve-outside-authority : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ outside →
-  authority (resolve g outcome shape) p ≡ own
-resolve-outside-authority g outcome shape p gone rewrite gone = refl
+-- The shared condition never substitutes for a personal departure.
+resolve-preserves-position : ∀ {C} (g : Gathering C) outcome shape p →
+  position (resolve g outcome shape) p ≡ position g p
+resolve-preserves-position g outcome shape p = refl
 
 -- A harmful outcome violates the invariant even from a safe initial circle.
--- One collective outcome cannot assign independent gates to those remaining inside.
-shared-inside-gates : ∀ {C} (g : Gathering C) outcome shape p q →
+-- One collective outcome cannot assign independent passage conditions to those remaining inside.
+shared-inside-passages : ∀ {C} (g : Gathering C) outcome shape p q →
   position g p ≡ inside → position g q ≡ inside →
-  gate (resolve g outcome shape) p ≡ gate (resolve g outcome shape) q
-shared-inside-gates g outcome shape p q p-at q-at =
-  trans (resolve-inside-gate g outcome shape p p-at)
-        (sym (resolve-inside-gate g outcome shape q q-at))
+  passage (resolve g outcome shape) p ≡ passage (resolve g outcome shape) q
+shared-inside-passages g outcome shape p q p-at q-at =
+  trans (resolve-inside-passage g outcome shape p p-at)
+        (sym (resolve-inside-passage g outcome shape q q-at))
 
 raw-preservation-false : ∀ {C} (g : Gathering C) ready input
   (effective : EffectiveOutcome g input enclosure) → EscapeInvariant g →
@@ -322,19 +337,29 @@ raw-preservation-false {C} g ready input effective safe preserve =
 
 -- Evidence of current captivity, NOT a final verdict on the future.
 Captured : ∀ {C} → Gathering C → Circle.Person C → Set
-Captured g p = (phase g ≡ aftermath) × (position g p ≡ inside) × (gate g p ≡ shut)
+Captured g p = (phase g ≡ aftermath) × (position g p ≡ inside) × (passage g p ≡ shut)
 
 compression-captures : ∀ {C} (g : Gathering C) p → position g p ≡ inside → Captured (compress g) p
 compression-captures g p at = refl , at , closed
   where
-    closed : gate (compress g) p ≡ shut
+    closed : passage (compress g) p ≡ shut
     closed rewrite at = refl
 
 -- Collective explosion also frees participants who were not its catalyst.
 explosion-frees-all : ∀ {C} (g : Gathering C) shape → EscapeInvariant (burst g shape)
 explosion-frees-all g shape = access⇒escape (burst-access g shape)
 
-recovery-reopens : ∀ {C} (g : Gathering C) p → MayLeave (recover g p) p
-recovery-reopens {C} g p with position g p in at
+-- Conditional consequence of the supported reopening operation, not a theorem
+-- that every captive can manufacture support or escape by effort alone.
+recovery-reopens : ∀ {C} (g : Gathering C) p (support : Support g p) →
+  MayLeave (recover g p support) p
+recovery-reopens {C} g p support with position g p in at
 ... | outside = inj₁ refl
-... | inside = inj₂ (leave (recover g p) p , depart at (update-self {C} (gate g) p unlocked))
+... | inside = inj₂ (leave (recover g p support) p , depart at (update-self {C} (passage g) p unlocked))
+
+-- With no open companion, there is no support witness for local reopening.
+-- Collective explosion is a separate transition and is not ruled out here.
+closed-circle-no-support : ∀ {C} (g : Gathering C) →
+  (∀ q → passage g q ≡ shut) → ∀ p → ¬ Support g p
+closed-circle-no-support g closed p support =
+  shut≢open (trans (sym (closed (Support.companion support))) (Support.available support))

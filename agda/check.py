@@ -94,8 +94,8 @@ def main():
             raise SystemExit(f"Unexpected negative-test result: {target.name}; see {log}")
         print(f"PASS: rejected {target.stem}", flush=True)
         count += 1
-    if count != 17:
-        raise SystemExit(f"Expected 17 negative tests, found {count}")
+    if count != 21:
+        raise SystemExit(f"Expected 21 negative tests, found {count}")
     print(f"OK: model + {count} expected rejections. Log: {log}", flush=True)
 
 

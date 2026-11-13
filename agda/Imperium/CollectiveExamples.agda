@@ -56,6 +56,7 @@ possibility-rule = record
   { Input = Profile
   ; choice = λ input p → Contribution.intention (input p)
   ; ReturningPower = ReturnPower ; GrippingPower = GripPower
+  ; returning-choice = λ _ _ power → Data.Product.proj₁ power
   ; Responds = Possible
   ; explosion-origin = λ _ _ effective → effective
   ; enclosure-origin = λ _ _ effective → effective
@@ -141,7 +142,7 @@ c-free-from-another = single-shakti-frees-all c
 c-trapped-by-another : ¬ MayLeave shared-capture c
 c-trapped-by-another = single-kashaya-traps c
 
-shared-outcomes-differ : ¬ (Gathering.gate shared-return c ≡ Gathering.gate shared-capture c)
+shared-outcomes-differ : ¬ (Gathering.passage shared-return c ≡ Gathering.passage shared-capture c)
 shared-outcomes-differ ()
 
 -- A later collective explosion can free the entire captive circle.

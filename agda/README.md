@@ -53,7 +53,7 @@ This project does not claim Cubical Agda compatibility.
 | `Imperium/Structure.agda` | Three threads, boundary versus wall, movement in both forms, beast identity, and shadow beyond beasts. |
 | `Imperium/DeathStar.agda` | Collective responses to personal contributions, a parameterized response rule, transitions, exit invariants, and recovery. |
 | `Imperium/CollectiveExamples.agda` | One participant freeing or trapping everyone, competing contributions, and later collective release. |
-| `Imperium/Axioms.agda` | Separate `ModelContracts` and `Theorems`, their constructive instances, and the enclosing `Doctrine`. This does not encode all six axioms of the treatise. |
+| `Imperium/Axioms.agda` | Separate `ModelContracts` and `Theorems`, their constructive instances, and the enclosing `Doctrine`. This does not encode every axiom of the treatise. |
 | `Imperium/Checks.agda` | Positive examples and checks of theorem boundaries. |
 | `All.agda` | The single entry point for all valid modules. |
 
@@ -201,45 +201,53 @@ structural distinction, not a physical model of crystals or biology.
 `ShadowItem` also includes a rejected human feeling, so shadow is not reduced
 to beasts. Removing a wall preserves the participant's own boundary.
 
-## Death Star dynamics: personal choices, collective effects
+## Death Star dynamics: three distinct levels
 
-Personal ownership of a choice does not imply independent consequences.
-The model distinguishes intention, effective contribution, and the shared
-`explosion` or `enclosure` outcome for everyone still inside. This is neither
-majority voting nor a right to choose another person's inner life. One person's
-life force can help destroy the common center; another's grasping force can trap
-even those who intended to return. Participants, identities, and intentions
+1. **Personal step at the brink:** `choice input p` belongs to that jiva. No
+   companion makes it for them.
+2. **Collective outcome:** `explosion` or `enclosure` determines the passage
+   condition shared by everyone still inside. One effective contribution can
+   change everyone's conditions without substituting for their personal choices.
+3. **Personal path afterward:** an open passage is not a completed departure.
+   Each participant must perform their own `Exit` transition.
+
+`Gathering.passage` stores an exit condition, not a decision. The former
+`authority` field has been removed: resolving the shared condition does not
+assign anyone's inner authority. Participants, riverbed identities, and intentions
 remain distinct.
 
-### The response contract
+### The response contract and personal choice
 
-`CollectiveRule` is an explicit circle parameter. It supplies `Input`, personal
-`choice`, evidence of `ReturningPower` and `GrippingPower`, the `Responds`
-relation, and an internal participant witnessing the effective contribution.
+`CollectiveRule` supplies `Input`, personal `choice`, evidence of
+`ReturningPower` and `GrippingPower`, and the `Responds` relation.
+Its origin fields require an internal participant whose contribution is effective.
+The `returning-choice` contract further requires that returning power belongs to
+someone who personally chose `reclaim`. `explosion-has-personal-step` derives an
+internal reclaim witness from any effective explosion. The choice field therefore
+constrains possible responses rather than existing alongside an unrelated dynamics.
+This connection is an explicit contract, not a proof of the forces' real efficacy.
 
-The core introduces neither numerical energy nor arithmetic for contributions
-nor a universal priority of life over grasping. An actual `resolve-step` needs
-`EffectiveOutcome` evidence under the chosen rule. A state update alone is not
-an executed transition.
+The core introduces neither numerical energy, arithmetic for contributions, nor a
+universal winner. A `resolve-step` requires `EffectiveOutcome` under the chosen
+rule. Computing a state with `burst` or `compress` alone does not execute a step.
 
-`CollectiveExamples` provides a **demonstration possibility instance**: a returning
-contribution permits explosion; a grasping contribution permits enclosure.
-When both are present, both outcomes are possible. This does not settle what
-actually happens when the forces compete. A balance, threshold, or priority rule
-can later replace this instance through `CollectiveRule` without changing the
-core or its general proofs.
+`CollectiveExamples` is a **demonstration possibility instance**. A returning
+contribution permits explosion; effective kashaya permits enclosure. Both
+outcomes are possible when both forces are present. A future arbitration rule
+can replace this instance through `CollectiveRule` without rewriting the core.
 
-In the return example, only `a` supplies effective life force; `b` and `c` choose
-differently. In the captivity example, all three intend to return, but `b` supplies
-effective grasping force and closes everyone's exit. These are concrete witnesses
-of the requested possibilities, not universal victory rules for either force.
+In `one-shakti`, only `a` provides Shakti and chooses `reclaim`; the others need
+not agree. Changing that contributor's choice to `surrender` removes this explosion
+witness. In `one-kashaya`, everyone intends to return, but `b` supplies effective
+kashaya and closes everyone's passage. Thus personal choice matters without
+making each participant's intention sovereign over the collective conditions.
+Neither example asserts a universal victory rule.
 
-### Exit and collective response
+### Passage and departure
 
-`Exit g p h` is an executable local action: `p` is inside with an unlocked gate
-and ends outside. `exit-arrives-outside` verifies that participant's position.
-A local departure does not automatically take a neighbor out. Collective explosion
-is a different transition, opening exits for everyone remaining inside.
+`Exit g p h` requires `p` to be inside with an unlocked passage and performs
+`leave g p`. `exit-arrives-outside` verifies that participant's resulting position.
+A local departure does not take a neighbor outside.
 
 `MayLeave g p` means that `p` is already outside or has an available `Exit`:
 
@@ -247,59 +255,80 @@ is a different transition, opening exits for everyone remaining inside.
 EscapeInvariant g = ∀ p → MayLeave g p
 ```
 
-`resolve g outcome shape` applies a shared outcome to those still inside.
-`shared-inside-gates` excludes independent gate results within one resolution.
-Those who left are not recaptured. An effective response needs an internal
-catalyst; a circle everyone has left has no such witness.
+`resolve` assigns one passage condition to everyone still inside;
+`shared-inside-passages` checks that they receive the same shared result.
+Those already outside are not recaptured. `resolve-preserves-position` is a
+representation contract: neither outcome moves anyone outside. In particular,
+`Checks.explosion-is-not-departure` leaves all participants inside after explosion;
+`Checks.b-leaves-in-own-step` supplies a subsequent personal departure.
 
-### Possible and admissible transitions
+An effective response requires an internal catalyst. A circle everyone has left
+has no such witness.
 
-`RawStep` includes approaching the brink, local exit, reshaping, local assistance,
-rekindling, and collective response under `CollectiveRule`. Harmful nights remain
-possible. `Admissible` does not require unanimous `reclaim`: explosion enabled by
-one participant is admissible; collective enclosure is possible but inadmissible.
-The target state's safety is not assumed in `Admissible`.
+### Supported recovery
 
-The following results are checked:
+`Support g p` names **another** companion, proves that they differ from `p`, and
+proves their passage is unlocked. This is an abstract witness of available support,
+not a full account of trust, effort, or practical assistance. It does not promise
+that every real companion can meet every need. A departed member can provide
+support: support does not require remaining captive alongside the recipient.
 
-- `admissible-preserves`: an admissible step preserves everyone's exit from a
-  safe starting state.
-- `trace-preserves` and `run-preserves`: preservation through finite traces and
-  at every step of an infinite admissible run.
-- `explosion-frees-all`: a collective explosion opens every remaining person's
-  exit, not only the catalyst's.
-- `compression-violates` and `compression-not-admissible`: enclosure violates
-  the invariant when someone remains and cannot be an admissible step.
-- `raw-preservation-false`: effective grasping can produce a safety violation
-  from a safe starting circle.
-- `single-shakti-step` and `single-kashaya-step`: one participant's
-  effective contribution can affect everyone immediately.
-- `same-c-contribution` and `shared-outcomes-differ`: another person's contribution
-  can change the shared result while one's own complete contribution stays fixed.
+Both `recover g p support` and `recover-step p ready support` require this witness.
+It is not possible to bypass it by calling the state transformation directly.
+`recovery-reopens` is explicitly conditional: given support, the modeled operation
+opens a passage for its recipient. It does not establish that support always exists,
+or that anyone can escape captivity through an unassisted effort.
 
-Contributions may be mixed; a single shared outcome does not create independent
-personal doors. Two resolutions of the contested demonstration input expose the
-response rule's explicitly unresolved arbitration rather than silently choosing
-a winner.
+`closed-circle-no-support` proves that when all passages are shut, no participant
+has this support witness. The wholly captured example therefore has no immediate
+local recovery. The positive recovery example uses a different history: `a` left
+before enclosure and supports `b` afterward; `c` remains captive. Local recovery
+opens `b`'s passage without moving `b` outside or freeing `c`.
 
-### After captivity
+A collective explosion is a separate way to reopen passages; it does not require
+an already open companion. `rekindle-step` alone does not lift captivity, but a
+subsequent effective explosion can open everyone's passage. This possibility is
+not a guarantee of eventual release and does not declare captivity eternal.
 
-`recover g p` is local assistance to one participant, not a collective explosion.
-This limits the particular action; it does not prohibit one person helping everyone.
+### Normative admissibility and derived preservation
 
-`rekindle-step` returns the circle to the brink without automatically lifting
-captivity. A later effective life-force contribution can then enable a collective
-explosion freeing everyone (`later-explosion-frees-all`). Captivity is not made
-an eternal verdict contradicting the opening described in §11.
+`RawStep` includes approach, personal exit, reshaping, supported local recovery,
+rekindling, and collective response. Harmful outcomes remain possible.
 
-Later release does not retroactively make a harmful transition admissible, nor
-turn the entire history into a safe trace. Safety also does not imply eventual
-completion: `quiet-run` may continue without a collective resolution while keeping
-exits available.
+`Admissible` is the Empire's **normative policy**. Its constructors permit the
+other transitions and exclude enclosure. Consequently `compression-not-admissible`
+is a direct consequence of that policy, proved by an empty pattern, not an
+independent discovery about what gatherings can do. The `Theorems` field exposing
+this result is retained as a checked policy consequence; it carries no additional
+dynamical content. This status is stated at the definitions and in `Axioms`.
 
-These theorems do not establish real efficacy of either force, lived experience,
-a specific arbitration law, or physical feasibility. They are conditional on the
-explicit model dynamics.
+`admissible-preserves` is substantive for the remaining constructors: it analyzes
+personal exits, supported recovery, collective explosion, and the transitions that
+leave passages unchanged. Target safety is not a premise of `Admissible`.
+No preservation guarantee is claimed for arbitrary `RawStep`.
+
+Checked results include:
+
+- `admissible-preserves`, `trace-preserves`, and `run-preserves`: preservation from
+  a safe initial state, through one step, finite traces, and infinite admissible runs.
+- `explosion-frees-all`: everyone remaining inside gains an available exit;
+  personal departure is still required.
+- `compression-violates`: enclosure violates the invariant if someone remains.
+- `raw-preservation-false`: an effective enclosure can violate safety from a safe
+  starting circle, despite the admissibility policy forbidding that step.
+- `closed-circle-no-support`: wholly shut passages provide no local recovery witness.
+- `explosion-has-personal-step`: an effective explosion has an internal catalyst
+  whose own choice is `reclaim`, without requiring unanimity.
+- `single-shakti-step`, `single-kashaya-step`, and `shared-outcomes-differ`: one
+  person's effective contribution can change the collective passage conditions.
+
+Later release does not retroactively make an enclosure admissible or turn a harmful
+history into a safe trace. Safety does not imply completion: `quiet-run` may continue
+without a collective resolution while preserving available exits.
+
+These theorems do not establish physical feasibility, lived experience, real force
+magnitudes, a specific arbitration law, or the availability of support. They are
+conditional on the explicit representation and transition contracts.
 
 ## Contracts and theorems
 
@@ -332,18 +361,22 @@ labels describe neither the complete nature of the forces nor their magnitude.
 
 ## Negative checks
 
-The script requires Agda to reject **all seventeen** intentionally invalid files.
+The script requires Agda to reject **all twenty-one** intentionally invalid files.
 It checks the error category, so a missing import or typo cannot count as success.
 
 | Fixture | Claim that must remain rejected |
 | --- | --- |
+| `UnsupportedRecovery` | Treating another captive as an available support witness. |
+| `SelfSupport` | Supplying oneself as the required other companion. |
+| `ChoiceIgnored` | Ignoring the returning catalyst's personal choice. |
+| `ExplosionIsDeparture` | Treating an open passage as an already completed return. |
 | `ZeroWindow` | Recognition from a zero-length window. |
 | `FiniteCertificate` | Certification of all futures from a finite past. |
 | `HiddenRegression` | Equal endpoints hiding an intermediate regression. |
 | `SupportTransitivity` | Unsupported transitivity of the circular support network. |
 | `ForcedRetention` | Captivity after a successful collective return. |
 | `CompressionAdmissible` | Treating enclosure with remaining participants as admissible. |
-| `CompressionFree` | Exiting through a gate closed by compression. |
+| `CompressionFree` | Exiting through a passage closed by compression. |
 | `NoPrivateExitDuringCapture` | Deriving exit from personal intention during shared captivity. |
 | `NeighbourExit` | A local departure automatically taking a neighbor outside. |
 | `LocalRepairIsNotBurst` | Equating local assistance with collective explosion. |

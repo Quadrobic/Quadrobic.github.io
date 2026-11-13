@@ -4,6 +4,6 @@ open import Imperium.DeathStar
 open import Imperium.CollectiveExamples using (at-edge; shared-capture)
 open import Imperium.Empire using (a)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
--- a's gate changes when b's grasping force captures the entire circle.
-bad : Gathering.gate shared-capture a ≡ Gathering.gate at-edge a
+-- a's passage changes when b's grasping force captures the entire circle.
+bad : Gathering.passage shared-capture a ≡ Gathering.passage at-edge a
 bad = refl

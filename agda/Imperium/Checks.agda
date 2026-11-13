@@ -90,27 +90,44 @@ a-captured-by-b = compression-captures at-edge a refl
 
 -- Contributions and competing forces may differ, but participants cannot receive
 -- independent outcomes from the same collective resolve.
-common-gates : ∀ p q → Gathering.gate shared-capture p ≡ Gathering.gate shared-capture q
-common-gates p q = shared-inside-gates at-edge enclosure (λ _ → 0) p q refl refl
+common-passages : ∀ p q → Gathering.passage shared-capture p ≡ Gathering.passage shared-capture q
+common-passages p q = shared-inside-passages at-edge enclosure (λ _ → 0) p q refl refl
 
--- Individual local assistance is not identical to a collective explosion.
+-- A wholly captured circle has no open companion and no local reopening witness.
+no-support-after-capture : ∀ p → ¬ Support shared-capture p
+no-support-after-capture = closed-circle-no-support shared-capture (λ { a → refl ; b → refl ; c → refl })
+
+-- A different history: a departed before enclosure and can support b afterward.
+-- c stays captive; local support and collective explosion are different operations.
+partly-captured : Gathering circle
+partly-captured = compress a-left
+
+partial-capture-step : RawStep a-left partly-captured
+partial-capture-step = compression-step a-left refl one-kashaya (b , refl , refl)
+
+support-for-b : Support partly-captured b
+support-for-b = supported-by a (λ ()) refl
+
 only-b-recovered : Gathering circle
-only-b-recovered = recover shared-capture b
+only-b-recovered = recover partly-captured b support-for-b
 
-local-recovery-step : RawStep shared-capture only-b-recovered
-local-recovery-step = recover-step b refl
+local-recovery-step : RawStep partly-captured only-b-recovered
+local-recovery-step = recover-step b refl support-for-b
 
 local-recovery-allowed : Admissible local-recovery-step
 local-recovery-allowed = allow-recover
 
 recovered-b-free : MayLeave only-b-recovered b
-recovered-b-free = recovery-reopens shared-capture b
+recovered-b-free = recovery-reopens partly-captured b support-for-b
 
-a-still-captured : Captured only-b-recovered a
-a-still-captured = refl , refl , refl
+recovered-b-still-inside : Gathering.position only-b-recovered b ≡ inside
+recovered-b-still-inside = refl
+
+c-still-captured : Captured only-b-recovered c
+c-still-captured = refl , refl , refl
 
 local-repair-not-all : ¬ EscapeInvariant only-b-recovered
-local-repair-not-all safe = blocked-cannot-leave a refl refl (safe a)
+local-repair-not-all safe = blocked-cannot-leave c refl refl (safe c)
 
 -- Later effective movement by one participant can nevertheless free EVERYONE.
 reopening-step : RawStep shared-capture rekindled
@@ -170,8 +187,9 @@ released-but-not-undone = sample-released
 damage-remains : Episode.damage sample 2 ≡ 1
 damage-remains = wound-not-erased
 
--- A collective explosion removes central authority without rewriting intentions.
-successful-own-center : ∀ p → Gathering.authority shared-return p ≡ own
-successful-own-center a = refl
-successful-own-center b = refl
-successful-own-center c = refl
+-- An open passage is not a completed personal return: everyone is still inside.
+explosion-is-not-departure : ∀ p → Gathering.position shared-return p ≡ inside
+explosion-is-not-departure p = resolve-preserves-position at-edge explosion (λ _ → 2) p
+
+b-leaves-in-own-step : Exit shared-return b (leave shared-return b)
+b-leaves-in-own-step = depart refl refl

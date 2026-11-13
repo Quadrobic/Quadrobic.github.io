@@ -24,14 +24,12 @@ open import Relation.Nullary using (¬_)
 record ModelContracts : Set₁ where
   field
     ct-initial-access : ∀ C → OpenAccess (initial C)
-    ct-decision-gate : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
-      gate (resolve g outcome shape) p ≡ outcome-gate outcome
-    ct-outside-gate : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ outside →
-      gate (resolve g outcome shape) p ≡ unlocked
-    ct-decision-authority : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
-      authority (resolve g outcome shape) p ≡ outcome-authority outcome
-    ct-outside-authority : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ outside →
-      authority (resolve g outcome shape) p ≡ own
+    ct-decision-passage : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
+      passage (resolve g outcome shape) p ≡ outcome-passage outcome
+    ct-outside-passage : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ outside →
+      passage (resolve g outcome shape) p ≡ unlocked
+    ct-resolution-keeps-position : ∀ {C} (g : Gathering C) outcome shape p →
+      position (resolve g outcome shape) p ≡ position g p
     ct-riverbed-by-representation : ∀ {C} (g h : Gathering C) p → bed g p ≡ bed h p
     ct-shadow-keeps-beast : ∀ b → Beast.identity (acknowledge b) ≡ Beast.identity b
     ct-wall-keeps-edge : ∀ {E W} (b : Boundary E W) →
@@ -64,13 +62,22 @@ record Theorems : Set₁ where
       ∀ t → EscapeInvariant (Run.state r t)
     thm-compression-violates : ∀ {C} (g : Gathering C) p → position g p ≡ inside →
       ¬ EscapeInvariant (compress g)
+    -- Definitional consequence of the admissibility policy, not an independent
+    -- dynamical theorem. Its empty-pattern proof has only normative content.
     thm-compression-not-admissible : ∀ {C} (g : Gathering C) ready input
       (effective : EffectiveOutcome g input enclosure) →
       ¬ Admissible (compression-step g ready input effective)
     thm-raw-steps-can-fail : ∀ {C} (g : Gathering C) (ready : phase g ≡ brink) input
       (effective : EffectiveOutcome g input enclosure) → EscapeInvariant g →
       ¬ (∀ {h} → RawStep g h → EscapeInvariant g → EscapeInvariant h)
-    thm-recovery-reopens : ∀ {C} (g : Gathering C) p → MayLeave (recover g p) p
+    thm-recovery-reopens : ∀ {C} (g : Gathering C) p (support : Support g p) →
+      MayLeave (recover g p support) p
+    thm-closed-circle-no-support : ∀ {C} (g : Gathering C) →
+      (∀ q → passage g q ≡ shut) → ∀ p → ¬ Support g p
+    thm-explosion-has-personal-step : ∀ {C} (g : Gathering C) input →
+      EffectiveOutcome g input explosion →
+      Σ (Circle.Person C) (λ p → position g p ≡ inside ×
+        CollectiveRule.choice (Circle.rule C) input p ≡ reclaim)
     thm-explosion-frees-all : ∀ {C} (g : Gathering C) shape → EscapeInvariant (burst g shape)
     thm-one-shakti-can-free-all : EscapeInvariant shared-return
     thm-one-kashaya-can-trap-all : ∀ p → ¬ MayLeave shared-capture p
@@ -83,10 +90,9 @@ record Doctrine : Set₁ where
 model-contracts : ModelContracts
 model-contracts = record
   { ct-initial-access = initial-access
-  ; ct-decision-gate = resolve-inside-gate
-  ; ct-outside-gate = resolve-outside-gate
-  ; ct-decision-authority = resolve-inside-authority
-  ; ct-outside-authority = resolve-outside-authority
+  ; ct-decision-passage = resolve-inside-passage
+  ; ct-outside-passage = resolve-outside-passage
+  ; ct-resolution-keeps-position = resolve-preserves-position
   ; ct-riverbed-by-representation = bed-by-representation
   ; ct-shadow-keeps-beast = beast-preserved
   ; ct-wall-keeps-edge = edge-preserved
@@ -114,6 +120,8 @@ verified-theorems = record
   ; thm-compression-not-admissible = compression-not-admissible
   ; thm-raw-steps-can-fail = raw-preservation-false
   ; thm-recovery-reopens = recovery-reopens
+  ; thm-closed-circle-no-support = closed-circle-no-support
+  ; thm-explosion-has-personal-step = explosion-has-personal-step
   ; thm-explosion-frees-all = explosion-frees-all
   ; thm-one-shakti-can-free-all = Imperium.CollectiveExamples.single-shakti-frees-all
   ; thm-one-kashaya-can-trap-all = Imperium.CollectiveExamples.single-kashaya-traps
