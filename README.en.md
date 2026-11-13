@@ -118,17 +118,13 @@ In consciousness there is a place where everything gathers into “I,” “mine
 
 ### §10. On the Edge and the Walls
 
-The jiva has an edge: meeting another does not dissolve it into them. Its own bend belongs to its movement (§5), and the body needs distance, rest, and the ability to refuse. A wall is a constructed barrier: it keeps something out while the jiva protects its edge. Danger begins when the wall is given the right to determine every future encounter. A bank lets the river flow; a frozen wall demands that new water change nothing.
+An edge makes it possible to meet another without disappearing into them. A wall demands more: that the encounter change nothing. It guards not only life but a way of being alive once adopted. Behind it the jiva still moves, yet everything new must be tested against an old answer.
 
-Fear builds such walls, but it does not build them alone. There is fear of pain and death, of losing someone loved, of exile and another's gaze; fear of one's own anger and of what will happen if a desire is finally named. These fears differ. Some warn of real danger; others still guard a place where danger once stood; others protect a name the jiva has learned to mistake for itself. The strength of the body's contraction does not yet tell which is speaking.
+Here lies its temptation: to be spared answering anew. Let the other already be an enemy, a petitioner, a possession, a reflection; before they have been heard, their place is assigned. The wall makes the future a repetition of the past (§4). Kashaya obtains what the edge could never give it: the right to remain untouched by what lies beyond.
 
-Jain thought calls fear bhaya and places it among the nokashayas - subsidiary passions distinct from the four kashayas (§9). It is not the single root of bondage. Pride builds a wall of superiority, deceit of an impeccable image, greed of what is held. Promised bliss also becomes a wall when life is no longer allowed to answer it. Not every wall grew from fright: behind some it is convenient to rule, behind others sweet to ignore another's pain.
+Fear provides one material for this work. In the Jain distinction, bhaya belongs to the nokashayas, not the four kashayas (§9). Danger can still be met and survived; the promise never to be vulnerable again demands mastery over everything that can touch. Pride, deceit, and greed reach the same end without fright: they need a world where another's answer no longer matters. A wall can look like a fortress, righteousness, or bliss.
 
-The book calls the field of fear that region of the Riverbed where anticipated threat narrows the possible response in advance: no one has rejected the word, yet it has already been swallowed; the door is open, yet the body lives as though locked in. This is one way of closing, not the name of every boundary or an explanation of every human act. Fear has a voice; kashaya begins where one voice claims the right to decide for the entire current.
-
-Protection is needed while there is something to protect against. Locking a door against violence does not renounce life; opening it to violence to prove one's freedom does not bring a thaw. A wall becomes a prison when it can no longer be reconsidered: it cannot distinguish yesterday's threat from today's encounter, necessary protection from habitual domination. Removing such a wall does not abandon the edge. It restores the ability to choose whom to admit, whom to refuse, and whose support to ask for (§12).
-
-A flame holds its edge by burning. Removing the glass cover does not make it boundless - but neither does it promise that wind cannot put it out. The path therefore teaches more than the courage to open: it teaches discernment of when encounter is needed, when shelter, and when another must stand beside one.
+The field of fear is a region of the Riverbed where what is expected already acts in place of what has happened. But taking down a wall does not declare danger imaginary. Life retains its right to distance, refusal, and protection (§33). What returns is the capacity to discern what stands before the edge now, rather than carry out a sentence against everything outside once again. Opening a passage and barring violence are two movements of the same hand (§12).
 
 ### §11. On Asrava
 
