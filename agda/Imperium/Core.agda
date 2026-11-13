@@ -1,21 +1,21 @@
 {-# OPTIONS --safe --without-K #-}
 
--- Империя / Квадроберский Джайнизм — формальное ядро, этап 0.
+-- Empire / Quadrobic Jainism: the formal core, stage 0.
 --
--- Что здесь моделируется (§-ссылки на трактат):
---   * крия (§11) — действие в момент времени; в нём есть хватка (кашая, §9) или её нет;
---   * история Дживы — бесконечная последовательность таких действий;
---   * сиддха (§31) — «в Русле больше не нарастает лёд»: с некоторого момента хватки нет вовсе;
---   * конечное наблюдение (спутники смотрят годами, но не вечно, §31–32).
+-- What is modeled here (section references point to the treatise):
+-- * an action at a given time (§11), with or without grasping (§9);
+-- * a participant's history: an infinite sequence of such actions;
+-- * liberation (§31): ice stops accumulating; eventually no action involves grasping;
+-- * finite observation (companions observe for years, not forever, §31–32).
 --
--- Что доказано:
---   щель             (§11) — никакое конечное прошлое не закрывает оттаивание;
---   нет-грамоты      (§31) — никакое конечное прошлое не удостоверяет сиддху.
+-- What is proved:
+-- thawing-extension (§11): no finite past rules out eventual thawing;
+-- gripping-extension (§31): no finite past certifies eventual liberation.
 --
--- Это одна и та же конструкция: прошлое можно продолжить и льдом, и водой.
--- ДОПУЩЕНИЕ: History допускает любое продолжение; динамика Русла пока не задана.
--- Поэтому это возможность в модели, а не доказательство доступности любого
--- будущего конкретной Дживе. Исток намеренно не вводится ни типом, ни постулатом.
+-- Both use the same construction: extend the past with either ice or water.
+-- ASSUMPTION: History permits arbitrary extensions; riverbed dynamics are unspecified.
+-- This establishes possibility in the model, not that every future is accessible
+-- to a particular participant. The Source is deliberately neither a type nor a postulate.
 
 module Imperium.Core where
 
@@ -27,43 +27,43 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl; sym; trans
 open import Relation.Nullary using (yes; no; ¬_)
 
 ------------------------------------------------------------------------
--- Крия и история
+-- Actions and histories
 
 data Act : Set where
-  flow : Act      -- действие из движения: оставляет опыт, не связывает следующее
-  grip : Act      -- действие из хватки: след твердеет, нарастает наледь (асрава)
+  flow : Act      -- movement leaves experience without binding the next action
+  grip : Act      -- grasping hardens the trace and accumulates ice
 
 History : Set
 History = ℕ → Act
 
--- Различаем «свободна начиная с T» и «когда-нибудь окончательно свободна».
--- Второе не говорит, что Джива уже сиддха в наблюдаемый момент.
-SiddhaFrom : History → ℕ → Set
-SiddhaFrom h T = ∀ t → T ≤ t → h t ≡ flow
+-- Distinguish freedom from T onward from eventual permanent freedom.
+-- The latter does not assert liberation at the time of observation.
+FreeFrom : History → ℕ → Set
+FreeFrom h T = ∀ t → T ≤ t → h t ≡ flow
 
-EventuallySiddha : History → Set
-EventuallySiddha h = Σ ℕ (SiddhaFrom h)
+EventuallyFree : History → Set
+EventuallyFree h = Σ ℕ (FreeFrom h)
 
--- Совместимое имя для исходных теорем; точный смысл — EventuallySiddha.
-Siddha : History → Set
-Siddha = EventuallySiddha
+-- Compatibility alias for the original theorems; its precise meaning is EventuallyFree.
+Liberated : History → Set
+Liberated = EventuallyFree
 
-siddha-from-later : ∀ h T U → T ≤ U → SiddhaFrom h T → SiddhaFrom h U
-siddha-from-later h T U T≤U p t U≤t = p t (≤-trans T≤U U≤t)
+liberated-from-later : ∀ h T U → T ≤ U → FreeFrom h T → FreeFrom h U
+liberated-from-later h T U T≤U p t U≤t = p t (≤-trans T≤U U≤t)
 
--- Две истории совпадают на конечном прошлом (до момента n, не включая).
+-- Two histories agree on the finite past, strictly before n.
 Agrees : ℕ → History → History → Set
 Agrees n h h' = ∀ t → t < n → h t ≡ h' t
 
 ------------------------------------------------------------------------
--- Два продолжения одного и того же прошлого
+-- Two extensions of the same past
 
-thaw : ℕ → History → History          -- после n всегда «flow»
+thaw : ℕ → History → History          -- always flow from n onward
 thaw n h t with t <? n
 ... | yes _ = h t
 ... | no  _ = flow
 
-freeze : ℕ → History → History        -- после n всегда «grip»
+freeze : ℕ → History → History        -- always grip from n onward
 freeze n h t with t <? n
 ... | yes _ = h t
 ... | no  _ = grip
@@ -92,21 +92,21 @@ grip≢flow : ¬ (grip ≡ flow)
 grip≢flow ()
 
 ------------------------------------------------------------------------
--- Теоремы
+-- Theorems
 
--- §11 «Даже в самом тесном повторении остаётся щель»:
--- каким бы ни было конечное прошлое, существует продолжение, где лёд перестаёт нарастать.
-shchel : ∀ h n → Σ History (λ h' → Agrees n h h' × Siddha h')
-shchel h n = thaw n h , agrees-thaw n h , (n , thaw-late n h)
+-- §11: even the tightest repetition leaves an opening.
+-- Every finite past has an extension in which ice stops accumulating.
+thawing-extension : ∀ h n → Σ History (λ h' → Agrees n h h' × Liberated h')
+thawing-extension h n = thaw n h , agrees-thaw n h , (n , thaw-late n h)
 
--- §31 «Изнутри одного дня не выдают грамоты»:
--- каким бы ни было конечное прошлое, существует продолжение, где Джива НЕ сиддха.
--- Значит, никакое конечное наблюдение не удостоверяет сиддху.
-net-gramoty : ∀ h n → Σ History (λ h' → Agrees n h h' × ¬ Siddha h')
-net-gramoty h n = freeze n h , agrees-freeze n h , not-siddha
+-- §31: no certificate can be issued from within a single day.
+-- Every finite past has an extension without eventual liberation.
+-- Thus no finite observation certifies eventual liberation.
+gripping-extension : ∀ h n → Σ History (λ h' → Agrees n h h' × ¬ Liberated h')
+gripping-extension h n = freeze n h , agrees-freeze n h , not-liberated
   where
-    not-siddha : ¬ Siddha (freeze n h)
-    not-siddha (T , p) = grip≢flow (trans (sym (freeze-late n h t n≤t)) (p t T≤t))
+    not-liberated : ¬ Liberated (freeze n h)
+    not-liberated (T , p) = grip≢flow (trans (sym (freeze-late n h t n≤t)) (p t T≤t))
       where
         t : ℕ
         t = T ⊔ n
@@ -116,18 +116,18 @@ net-gramoty h n = freeze n h , agrees-freeze n h , not-siddha
         n≤t = m≤n⊔m T n
 
 ------------------------------------------------------------------------
--- Следствия о сертификатах, не только примеры продолжений.
+-- Consequences about certificates, beyond individual extension witnesses.
 
 Certifies : ℕ → History → Set
-Certifies n h = ∀ h′ → Agrees n h h′ → Siddha h′
+Certifies n h = ∀ h′ → Agrees n h h′ → Liberated h′
 
 Refutes : ℕ → History → Set
-Refutes n h = ∀ h′ → Agrees n h h′ → ¬ Siddha h′
+Refutes n h = ∀ h′ → Agrees n h h′ → ¬ Liberated h′
 
 no-finite-certificate : ∀ h n → ¬ Certifies n h
-no-finite-certificate h n cert with net-gramoty h n
+no-finite-certificate h n cert with gripping-extension h n
 ... | h′ , same , never = never (cert h′ same)
 
 no-finite-condemnation : ∀ h n → ¬ Refutes n h
-no-finite-condemnation h n refute with shchel h n
+no-finite-condemnation h n refute with thawing-extension h n
 ... | h′ , same , eventually = refute h′ same eventually

@@ -6,6 +6,6 @@ open import Imperium.Empire using (a)
 open import Data.Sum using (inj₂)
 open import Data.Product using (_,_)
 open import Relation.Binary.PropositionalEquality using (refl)
--- Своё намерение reclaim не отменяет общего заточения от чужой кашаи.
+-- A personal reclaim intention does not cancel captivity caused by another's grasping.
 bad : MayLeave shared-capture a
 bad = inj₂ (leave shared-capture a , depart refl refl)

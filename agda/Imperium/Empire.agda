@@ -8,9 +8,9 @@ open import Data.Product using (Σ; _×_; _,_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (¬_)
 
--- Опора, власть над чужим Руслом и полнота голоса — РАЗНЫЕ отношения.
--- Rules означает присвоенное право решать за чужое Русло, а не временное
--- распределение задач общего дела (§35).
+-- Support, authority over another riverbed, and completeness of voice are DISTINCT.
+-- Rules means an appropriated right to decide for another riverbed, not temporary
+-- task coordination in a shared undertaking (§35).
 record Empire : Set₁ where
   field
     Jiva : Set
@@ -22,7 +22,7 @@ record Empire : Set₁ where
     heard : ∀ a → Σ Jiva (λ j → Voices j a)
     no-whole-voice : ∀ j → Σ Aspect (λ a → ¬ Voices j a)
 
--- Роль опоры не утверждает окончательного оттаивания (§32).
+-- A support role does not assert eventual liberation (§32).
 EmperorRole : (E : Empire) → Empire.Jiva E → Set
 EmperorRole E j = Σ (Empire.Jiva E) (λ k → ¬ (j ≡ k) × Empire.Holds E j k)
 
@@ -40,8 +40,8 @@ missing a = c , (λ ())
 missing b = a , (λ ())
 missing c = b , (λ ())
 
--- Эти поля задают обязательства модели. Конкретный экземпляр ниже
--- предъявляет доказательства их совместной выполнимости.
+-- These fields specify model obligations. The concrete instance below
+-- provides evidence that they can be satisfied together.
 empireWith : (Three → Three → Set) → Empire
 empireWith holds = record
   { Jiva = Three ; member = a ; Holds = holds
@@ -53,14 +53,14 @@ empireWith holds = record
 threeEmpire : Empire
 threeEmpire = empireWith H
 
--- Опора МОЖЕТ быть нетранзитивной. Это контрмодель универсальному
--- требованию транзитивности, а НЕ вывод нетранзитивности из отсутствия трона.
+-- Support MAY be nontransitive. This refutes a universal transitivity requirement;
+-- it does NOT derive nontransitivity from the absence of a throne.
 threeEmpire-not-transitive :
   ¬ (∀ x y z → Empire.Holds threeEmpire x y → Empire.Holds threeEmpire y z → Empire.Holds threeEmpire x z)
 threeEmpire-not-transitive tr = tr a b c tt tt
 
--- И транзитивная опора совместима с отсутствием власти и целого голоса.
--- Даже возможность держать всех не даёт права решать за них.
+-- Transitive support is also consistent with no authority and no complete voice.
+-- Even supporting everyone gives no right to decide for them.
 allSupportEmpire : Empire
 allSupportEmpire = empireWith (λ _ _ → ⊤)
 
@@ -74,8 +74,8 @@ supports-all _ _ = tt
 a-supports : EmperorRole threeEmpire a
 a-supports = b , (λ ()) , tt
 
--- Есть получатель опоры, который сам не держит других. Сеть при этом
--- не пуста и не распалась: у каждой из трёх Джив есть другая опора.
+-- One recipient supports no one else. The network is nevertheless nonempty
+-- and connected by support: each of the three participants has another supporter.
 ReceivingH : Three → Three → Set
 ReceivingH a b = ⊤
 ReceivingH a c = ⊤

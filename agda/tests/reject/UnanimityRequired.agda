@@ -1,9 +1,9 @@
 {-# OPTIONS --safe --without-K #-}
 module UnanimityRequired where
 open import Imperium.DeathStar
-open import Imperium.CollectiveExamples using (Contribution; one-shakti)
+open import Imperium.CollectiveExamples using (Contribution; one-life-force)
 open import Imperium.Empire using (b)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
--- Общий взрыв уже осуществлён; из этого нельзя вывести единодушие b.
-bad : Contribution.intention (one-shakti b) ≡ reclaim
+-- A collective explosion has occurred; this does not imply b's agreement.
+bad : Contribution.intention (one-life-force b) ≡ reclaim
 bad = refl

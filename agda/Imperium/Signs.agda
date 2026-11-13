@@ -10,7 +10,7 @@ open import Data.Product using (Σ; _×_; _,_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (¬_)
 
--- Условные порядковые оценки, НЕ измерение Свабхавы или голоса Хридаи.
+-- Abstract ordinal scores, NOT measurements of intrinsic nature or the inner voice.
 record Obs : Set where
   constructor mkObs
   field
@@ -26,10 +26,10 @@ record Improving (before after : Obs) : Set where
     recovery-shrinks : recovery after ≤ recovery before
     stakes-widen     : stakes before ≤ stakes after
 
--- Минимальное наблюдаемое основание признания, не полное определение
--- Императора. Не кодирует способность держать других или доверие спутников.
--- Положительная длина исключает «признание без наблюдения».
--- Проверяются ВСЕ соседние наблюдения окна, а не только его концы.
+-- A minimal observable basis for recognition, not a full definition of the Emperor.
+-- Neither the capacity to support others nor companions' trust is encoded here.
+-- Positive length excludes recognition without observation.
+-- EVERY adjacent observation is checked, not just the window's endpoints.
 record Recognized (o : Observations) (s k : ℕ) : Set where
   field
     duration : 0 < k
@@ -39,8 +39,8 @@ no-zero-window : ∀ o s → ¬ Recognized o s 0
 no-zero-window o s r with Recognized.duration r
 ... | ()
 
--- Последовательность положительного числа окон; k — длина каждого.
--- Это всё ещё конечное наблюдение, не знание бесконечного будущего.
+-- A positive number of consecutive windows; each has length k.
+-- Observation remains finite, not knowledge of the infinite future.
 record Sustained (o : Observations) (s k count : ℕ) : Set where
   field
     nonempty : 0 < count
@@ -50,7 +50,7 @@ record Life : Set where
   field
     acts : History
     observed : Observations
--- acts и observed пока независимы: верность наблюдения не постулируется.
+-- acts and observed are independent; observational accuracy is not postulated.
 
 flat : ∀ x → Improving x x
 flat x = record
@@ -76,7 +76,7 @@ revocable = o , initial , withdrawn
     withdrawn r with Improving.gap-narrows (Recognized.steps r {0} (s≤s z≤n))
     ... | ()
 
--- Регресс внутри окна больше нельзя спрятать равенством конечных оценок.
+-- Equal endpoint scores can no longer hide regression within a window.
 interior-regression : Observations
 interior-regression zero = mkObs 0 0 0
 interior-regression (suc zero) = mkObs 1 0 0
@@ -103,24 +103,24 @@ calm-gripping-sustained s k count k+ count+ = record
   ; windows = λ i _ → calm-gripping-recognized (s + i * k) k k+
   }
 
-calm-gripping-not-siddha : ¬ Siddha (Life.acts calm-gripping)
-calm-gripping-not-siddha (T , p) = grip≢flow (p T ≤-refl)
+calm-gripping-not-liberated : ¬ Liberated (Life.acts calm-gripping)
+calm-gripping-not-liberated (T , p) = grip≢flow (p T ≤-refl)
 
 free-unseen : Life
 free-unseen = record { acts = λ _ → flow ; observed = λ t → mkObs t 0 0 }
 
-free-unseen-siddha : Siddha (Life.acts free-unseen)
-free-unseen-siddha = 0 , (λ _ _ → refl)
+free-unseen-liberated : Liberated (Life.acts free-unseen)
+free-unseen-liberated = 0 , (λ _ _ → refl)
 
 free-unseen-not-recognized : ¬ Recognized (Life.observed free-unseen) 0 1
 free-unseen-not-recognized r with Improving.gap-narrows (Recognized.steps r {0} (s≤s z≤n))
 ... | ()
 
--- НЕ «Император = наблюдаемые числа». Это независимость двух предикатов
--- в модели со свободными наблюдениями, а не доказательство психологии сиддхи.
-recognition-⇏-siddha : ¬ (∀ l s k → Recognized (Life.observed l) s k → Siddha (Life.acts l))
-recognition-⇏-siddha f = calm-gripping-not-siddha
+-- This does NOT equate the Emperor with scores. It proves predicate independence
+-- under unconstrained observations, not a psychological claim about liberation.
+recognition-⇏-liberated : ¬ (∀ l s k → Recognized (Life.observed l) s k → Liberated (Life.acts l))
+recognition-⇏-liberated f = calm-gripping-not-liberated
   (f calm-gripping 0 1 (calm-gripping-recognized 0 1 (s≤s z≤n)))
 
-siddha-⇏-recognition : ¬ (∀ l s k → Siddha (Life.acts l) → Recognized (Life.observed l) s k)
-siddha-⇏-recognition f = free-unseen-not-recognized (f free-unseen 0 1 free-unseen-siddha)
+liberated-⇏-recognition : ¬ (∀ l s k → Liberated (Life.acts l) → Recognized (Life.observed l) s k)
+liberated-⇏-recognition f = free-unseen-not-recognized (f free-unseen 0 1 free-unseen-liberated)

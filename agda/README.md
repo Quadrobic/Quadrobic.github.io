@@ -1,332 +1,303 @@
-# Формальная модель трактата
+# Formal model of the treatise
 
-Проверено на Agda 2.8.0.2 с установленной Agda standard library. Исходники и инструменты
-хранятся здесь; публичные страницы собираются из проверенной версии модели.
+Checked with Agda 2.8.0.2 and the installed Agda standard library. This directory
+contains the model and verification tools. The public pages are generated from
+a verified snapshot of these sources.
 
-Из корня репозитория:
+## Verification
+
+From the repository root:
 
 ```sh
 python3 agda/check.py
 ```
 
-Из этого каталога:
+From this directory:
 
 ```sh
 python3 check.py
 ```
 
-Первая проверка компилирует нужные части библиотеки и занимает больше времени.
-Скрипт не скачивает зависимости и не меняет системную установку. Он копирует
-исходники standard library в игнорируемый `_build/stdlib`, куда Agda может
-писать свои интерфейсы. По умолчанию библиотека берётся из
-`/usr/share/agda-stdlib`; другой путь:
+The first run compiles the required library modules and takes longer. The script
+does not download dependencies or modify the system installation. It copies the
+standard library sources into the ignored `_build/stdlib` directory, where Agda
+can write interface files. The default source is `/usr/share/agda-stdlib`.
+To use another installation:
 
 ```sh
 python3 check.py --stdlib /path/to/agda-stdlib
-# Или: AGDA_STDLIB=/path/to/agda-stdlib python3 check.py
+# Alternatively: AGDA_STDLIB=/path/to/agda-stdlib python3 check.py
 ```
 
-`python3 check.py --fresh` удаляет только сгенерированные `.agdai` внутри
-этого каталога и проверяет всё заново. Полный журнал — `_build/check.log`.
-После подготовки библиотеки `All.agda` можно открывать в редакторе с Agda:
-`imperium.agda-lib` содержит локальные пути. Преднамеренно ошибочные файлы
-`tests/reject/` не входят в `All.agda`.
+`python3 check.py --fresh` removes only generated `.agdai` files under this
+directory and checks everything again. The complete log is `_build/check.log`.
+After library preparation, open `All.agda` in an Agda-enabled editor;
+`imperium.agda-lib` supplies the local include paths. The intentionally invalid
+files under `tests/reject/` are excluded from `All.agda`.
 
-Проверка запускается с `--safe --without-K`, без разрешения дыр, постулатов,
-отключения завершимости, позитивности или полноты сопоставления с образцом.
-Предупреждения считаются ошибками. Исключено только
-`UnsupportedIndexedMatch`: установленная standard library сама использует
-это исключение для предупреждения о вычислениях на транспортах в Cubical Agda.
-Здесь не утверждается поддержка Cubical Agda.
+Verification uses `--safe --without-K`. Unsolved holes, postulates, and bypasses
+for termination, positivity, or coverage checking are not permitted. Warnings
+are errors, with one exception: `UnsupportedIndexedMatch`, also suppressed by
+the installed standard library for its Cubical transport computation warning.
+This project does not claim Cubical Agda compatibility.
 
-## Что обнаружено в исходных файлах
+## Modules
 
-1. Модули назывались `Imperium.Core` и т. п., но лежали непосредственно в
-   `agda/`. Agda не могла их загрузить. Они перенесены в `Imperium/`.
-   После исправления расположения исходные пять модулей проходят проверку
-   типов. Главные проблемы были в смысле определений, не в термах доказательств.
-2. `Siddha h = ∃ T. ∀ t ≥ T. h t = flow` означает **когда-нибудь окончательно
-   свободна от хватки**, а не **уже сиддха сейчас**. Введены отдельные
-   `SiddhaFrom h T` и `EventuallySiddha h`. Совместимое имя `Siddha`
-   оставлено как явно документированный псевдоним `EventuallySiddha`.
-3. Исходное `Recognized o s 0` выполнялось для любых наблюдений. Теперь окно
-   обязано иметь положительную длину. Два конца окна также могли скрывать
-   промежуточный регресс. Для усиленного критерия проверяется каждый
-   соседний отсчёт, а `Sustained` объединяет последовательность окон.
-4. Отношение «держит» смешивалось с властью. Запрет одному держать всех
-   сильнее утверждения «нет трона»: помощь сама по себе не присваивает
-   чужого Русла. Теперь опора `Holds`, присвоенное право решать за другого
-   `Rules` и выражение сторон общего учения `Voices` различены.
-5. Нетранзитивность доказывалась для одного трёхэлементного примера. Из этого
-   не следует, что любая опора обязана быть нетранзитивной или что отсутствие
-   трона запрещает транзитивную помощь. Теперь предъявлены обе модели.
-6. В защите две противоположные числовые оценки сразу задавали равенство
-   ограничения угрозе. Теперь достаточность определяется остаточным вредом,
-   минимальность — сравнением с другими доступными достаточными действиями.
-7. «Не удалось построить экземпляр Doctrine» не означает автоматически
-   «найдено противоречие». Может недоставать лемм, предпосылок или найденного
-   доказательства. Для отрицания тезиса нужен соответствующий терм или
-   контрмодель. Комментарий к `Doctrine` исправлен.
-
-## Модули и точный смысл результатов
-
-| Модуль | Содержание |
+| Module | Content |
 | --- | --- |
-| `Imperium/Core.agda` | Истории, два продолжения конечного прошлого, невозможность конечного сертификата и конечного окончательного приговора. |
-| `Imperium/Signs.agda` | Ненулевые окна наблюдений, усиленный критерий тенденций, последовательности окон, отзыв признания, независимость наблюдения от скрытой истории. |
-| `Imperium/Empire.agda` | Непустая Империя; различение опоры, присвоенной власти и полноты голоса; три конкретных сети. |
-| `Imperium/Roles.agda` | Роль Императора включает способность поддержать другую Дживу и наблюдаемое основание признания; в обе стороны она не эквивалентна окончательному оттаиванию. |
-| `Imperium/Protection.agda` | Выбор достаточной минимальной защиты, учёт раны, снятие ограничения и прекращение новых ран при исчезновении угрозы, сохранение уже причинённого ущерба. |
-| `Imperium/Structure.agda` | Структура трёх нитей; снятие стены с сохранением края; обе формы нуждаются в движении; признание зверя сохраняет его идентичность; тень не исчерпывается зверями. |
-| `Imperium/DeathStar.agda` | Общий ответ круга на индивидуальные вклады; параметрический закон столкновения сил, возможные и допустимые переходы, инвариант выхода и восстановление. |
-| `Imperium/CollectiveExamples.agda` | Свидетели: Шакти одной освобождает всех; кашая одной заточает всех; конкурирующие вклады и позднейший общий взрыв. |
-| `Imperium/Axioms.agda` | `Doctrine` отдельно собирает `ModelContracts` и `Theorems`, с экземплярами обоих. Это не все шесть аксиом трактата. |
-| `Imperium/Checks.agda` | Положительные примеры и проверки границ утверждений. |
-| `All.agda` | Единая точка проверки всех корректных модулей. |
+| `Imperium/Core.agda` | Histories, two extensions of any finite past, and impossibility of finite certification or condemnation. |
+| `Imperium/Signs.agda` | Nonempty observation windows, adjacent-sample trends, consecutive windows, revocable recognition, and observational independence. |
+| `Imperium/Empire.agda` | A nonempty Empire; distinct support, appropriated authority, and voice relations; three concrete networks. |
+| `Imperium/Roles.agda` | The Emperor's role combines actual support with observed recognition; neither direction implies eventual liberation. |
+| `Imperium/Protection.agda` | Sufficient minimal protection, injury accounting, release when the threat ends, and persistence of recorded damage. |
+| `Imperium/Structure.agda` | Three threads, boundary versus wall, movement in both forms, beast identity, and shadow beyond beasts. |
+| `Imperium/DeathStar.agda` | Collective responses to personal contributions, a parameterized response rule, transitions, exit invariants, and recovery. |
+| `Imperium/CollectiveExamples.agda` | One participant freeing or trapping everyone, competing contributions, and later collective release. |
+| `Imperium/Axioms.agda` | Separate `ModelContracts` and `Theorems`, their constructive instances, and the enclosing `Doctrine`. This does not encode all six axioms of the treatise. |
+| `Imperium/Checks.agda` | Positive examples and checks of theorem boundaries. |
+| `All.agda` | The single entry point for all valid modules. |
 
-### Конечное прошлое: два продолжения
+All source identifiers and code comments are in English. Descriptive names are
+used instead of Russian transliteration. The public explanation remains bilingual.
 
-`Agrees n h h′` означает совпадение на `[0,n)`; момент `n` в прошлое не
-включён. `thaw n h` продолжает прошлое только `flow`, `freeze n h` — только
-`grip`. Отсюда конструктивно получены исходные `shchel` и `net-gramoty`.
-Теперь отдельно доказаны их эпистемические следствия:
+## Corrections to the initial model
 
-- `no-finite-certificate`: конечное прошлое не удостоверяет окончательное
-  оттаивание во всех совместимых продолжениях;
-- `no-finite-condemnation`: конечное прошлое не исключает окончательное
-  оттаивание во всех совместимых продолжениях.
+1. Module names such as `Imperium.Core` require files under `Imperium/`, rather
+   than directly under `agda/`. Once relocated, the original five modules passed
+   type checking; their main weaknesses concerned interpretation, not proof terms.
+2. `Liberated h = ∃ T. ∀ t ≥ T. h t = flow` means eventual permanent freedom
+   from grasping, not freedom now. `FreeFrom h T` and `EventuallyFree h` make
+   the distinction explicit; `Liberated` is a documented alias for the latter.
+3. The original zero-length recognition window accepted every observation.
+   `Recognized` now requires positive length and checks every adjacent sample,
+   preventing equal endpoints from hiding regression. `Sustained` joins windows.
+4. Support was conflated with authority. Prohibiting anyone from supporting
+   everyone is stronger than prohibiting a throne. `Holds`, `Rules`, and
+   `Voices` now describe distinct relations.
+5. A single nontransitive support example cannot establish that every network
+   must be nontransitive. Both transitive and nontransitive instances are supplied.
+6. Opposing numerical bounds originally made restriction equal threat by
+   definition. Sufficiency now concerns residual harm; minimality compares
+   available sufficient actions on the restriction scale.
+7. Failure to construct a `Doctrine` instance does not itself prove inconsistency.
+   A lemma, assumption, or proof strategy may be missing. Refutation requires
+   a corresponding proof term or countermodel.
+8. Personal choices originally produced independent gates. This excluded a
+   collective explosion or captivity caused by one participant. The corrected
+   model distinguishes personal contributions from shared outcomes.
 
-Здесь есть существенное **допущение**: `History = ℕ → Act` допускает любое
-продолжение. Не задана динамика, которая могла бы запрещать некоторые
-будущие действия. Поэтому `shchel` доказывает наличие продолжения в данной
-модели, а не способность любой реальной Дживы немедленно совершить его.
-Для модели с динамикой потребуются новые теоремы о допустимости продолжений.
+## Finite histories and liberation
 
-`SiddhaFrom` тоже касается бесконечного будущего. Его не следует принимать
-за вычислимое состояние или свидетельство, полученное из сегодняшнего
-переживания. `Checks.not-free-now` показывает: будущее окончательное
-оттаивание совместимо с нынешней хваткой.
+`Agrees n h h′` means agreement on `[0,n)`, excluding time `n`. `thaw n h`
+extends that past with `flow` forever; `freeze n h` extends it with `grip`.
+The constructive witnesses are named `thawing-extension` and
+`gripping-extension`. Their epistemic consequences are separate theorems:
 
-### Наблюдения и роль Императора
+- `no-finite-certificate`: a finite past cannot certify eventual liberation
+  across all compatible continuations.
+- `no-finite-condemnation`: a finite past cannot rule out eventual liberation
+  across all compatible continuations.
 
-`Obs` использует три натуральных числа как условные порядковые оценки.
-Ни числа, ни единица наблюдения, ни длина «года» не определены трактатом.
+**Assumption:** `History = ℕ → Act` permits arbitrary continuations. No dynamics
+exclude future actions. The extension theorems therefore establish possibilities
+in this model, not the immediate accessibility of any future to a real person.
+A constrained dynamical model would require new admissibility proofs.
 
-Усиленное `Recognized` — выбранный консервативный критерий **наблюдаемого
-основания** признания, а не полное определение зрелости. Стабильные оценки
-допускаются; строгого улучшения каждый раз не требуется. Проверка всех
-соседних отсчётов сильнее исходной проверки двух концов. Она не означает,
-что трактат запрещает временное замерзание или что всякое колебание оценки
-опровергает зрелость. Для более точного приближения понадобится модель
-сглаживания, погрешностей и восстановления после регресса. Пока такой
-статистики нет: это явный выбор конечного критерия, не новый тезис учения.
+`FreeFrom` also quantifies over an infinite future. It is neither a computable
+present state nor evidence obtainable from today's experience.
+`Checks.not-free-now` exhibits eventual freedom alongside present grasping.
 
-`Sustained` принимает положительное число последовательных окон. Пример
-`many-windows` удовлетворяет десяти окнам длины 12 и всё равно не удостоверяет
-сиддху. Единицы здесь условны, это не утверждение «120 месяцев достаточно».
+## Observation and the Emperor's role
 
-`Life.acts` и `Life.observed` независимы. Поэтому исходные контрпримеры
-доказывают независимость **предикатов в этой модели**, а не то, что у
-настоящей сиддхи обязан расти видимый зазор. Наблюдение может быть неполным.
+`Obs` uses three natural numbers as abstract ordinal scores. Neither these
+numbers, an observation unit, nor the duration of a year is specified by the
+treatise.
 
-Для роли добавлено `EmperorStatus`: реальная опора другой Дживе плюс
-наблюдаемый критерий. Контрпример в обратную сторону теперь не зависит от
-растущего зазора: Джива без хватки с подходящими видимыми оценками получает
-опору, но сама не держит других. Сеть не пуста: в этом примере у всех трёх
-участников есть другой поддерживающий участник. Ни свойство сиддхи, ни роль
-Императора не образуют шкалу старшинства. `revocable-status` отдельно
-предъявляет отзыв статуса целиком: опора другим сохранилась, но наблюдаемое
-основание признания перестало выполняться.
+`Recognized` is a deliberately conservative criterion for an **observable basis**
+of recognition, not a complete definition of maturity. Stable scores are allowed;
+strict improvement at every sample is unnecessary. Adjacent-sample checking is
+stronger than endpoint checking. This does not assert that the doctrine forbids
+temporary freezing or that every fluctuation refutes maturity. A closer model
+would need smoothing, observational error, and recovery after regression. None
+of that statistics is present: the finite criterion is an explicit modeling choice.
 
-### Опора, власть и полнота голоса
+`Sustained` requires a positive number of consecutive windows. The example
+`many-windows` satisfies ten windows of length 12 without certifying liberation.
+These units are abstract; this is not a claim that 120 months suffice.
 
-`Rules` означает **присвоенное право решать за чужое Русло**, а не временную
-координацию общего дела. `no-throne` запрещает именно это отношение; это
-нормативное обязательство экземпляра, а не факт, выведенный из структуры
-произвольного графа.
+`Life.acts` and `Life.observed` are independent. Counterexamples therefore prove
+independence of predicates **within this model**, not psychological facts about
+liberated people. Observation may be incomplete.
 
-`no-whole-voice` даёт каждому голосу сторону `Aspect`, которую этот голос
-не выражает. `heard` требует, чтобы каждая сторона была выражена кем-то.
-Вместе с `member` это исключает пустую модель и модель «есть лишь никем
-невыразимая сторона». `Aspect` — параметр формального представления,
-не тип Истока и не окончательная классификация всех его проявлений.
+`EmperorStatus` adds actual support for someone else to the observable criterion.
+The reverse counterexample does not depend on deteriorating scores: a person
+without grasping, whose scores meet the criterion, receives support but provides
+none. Every participant still has another supporter. Liberation and the Emperor's
+role do not form a hierarchy. `revocable-status` also shows recognition of the
+whole role being withdrawn while the capacity to support remains.
 
-Круг из трёх доказывает возможность нетранзитивной опоры. Модель, где все
-способны поддержать всех, доказывает совместимость транзитивной опоры с
-отсутствием присвоенной власти и единого полного голоса. Ретрансляция помощи
-сама по себе не становится подчинением.
+## Support, authority, and voice
 
-### Защита и её цена
+`Rules` means an **appropriated right to decide for another riverbed**, not
+temporary coordination of a shared task. `no-throne` prohibits this relation.
+It is a normative obligation of an instance, not a consequence of arbitrary
+graph structure.
 
-`Problem` задаёт набор доступных действий и отдельно для каждого действия:
+`no-whole-voice` gives each voice an `Aspect` it does not express. `heard`
+requires every aspect to be expressed by someone. Together with `member`,
+these exclude both an empty model and a model containing only an inexpressible
+aspect. `Aspect` is a representation parameter, not a Source type or a final
+classification of its manifestations.
 
-- `restriction` — ограничение;
-- `residual` — оставшуюся угрозу/вред;
-- `wound` — рану, причинённую самим вмешательством.
+The three-person circle witnesses possible nontransitive support. The network
+where everyone can support everyone witnesses transitive support without
+appropriated authority or a single complete voice. Relaying help does not itself
+create subordination.
 
-Покой `idle` не ограничивает, не наносит новой раны и оставляет исходную
-угрозу. Это явно заданные предпосылки. `Proportionate` требует достаточности,
-наименьшего ограничения среди достаточных действий и наименьшей раны среди
-равных по ограничению. Последнее — явная формальная политика выбора,
-согласующаяся с обязанностью не причинять лишнего вреда.
+## Protection and its cost
 
-Когда угроза нулевая, `idle` становится достаточным конкурентом. Отсюда
-выводятся `released-choice` и `released-no-new-wound`: выбираемое ограничение
-и новая рана равны нулю. Это снятие ограничения, **не отмена истории**.
+`Problem` specifies available actions and three separate quantities for each:
 
-В конкретном эпизоде угроза 3 останавливается ограничением 1; ограничение 2
-избыточно. Нужное действие наносит рану 1. На следующем шаге угрозы нет,
-ограничение снято, но учёт ущерба хранит 1. Новая рана прибавляется к уже учтённому ущербу;
-одна запись не может поглотить несколько последовательных ран. Так «защита была достаточной»
-не подменяется утверждениями «она равна угрозе», «она безвредна» или «всё
-уже исправлено». Монотонность `damage` относится к учёту причинённого,
-не запрещает заживление.
+- `restriction`: the imposed constraint;
+- `residual`: the remaining threat or harm;
+- `wound`: injury inflicted by the intervention itself.
 
-Это всё ещё условная модель выбора, а не определение вреда для конкретных
-живых существ. Она не доказывает, что любое реальное действие имеет верно
-известные последствия. Нужны модель взаимодействия Русел, неопределённость,
-соразмерность чужому краю и обязанность исправления. Сама `Proportionate`
-не содержит моральной оценки, и в модели нет вывода «необходимая рана — благо».
+The explicit `idle` assumptions say that inaction imposes no restriction,
+inflicts no new injury, and leaves the original threat unchanged.
+`Proportionate` requires sufficiency, least restriction among sufficient actions,
+and least injury among equally restrictive actions. The final tie-breaking rule
+is an explicit formal policy consistent with avoiding unnecessary harm.
 
-### Структура и Звезда Смерти
+When the threat is zero, `idle` is a sufficient competitor. `released-choice`
+and `released-no-new-wound` derive zero restriction and zero new injury.
+This releases constraints; it does not erase history.
 
-`Encounter` хранит три структурные компоненты. `Connection` передаётся как
-абстрактный внешний параметр наличия связи; это не моделирование Истока или
-содержимого голоса Хридаи. Типа Истока нет.
+In the concrete episode, restriction 1 stops threat 3; restriction 2 is excessive.
+The necessary action inflicts injury 1. At the next step the threat is gone and
+restriction is lifted, but recorded damage remains 1. Each new injury adds to
+previously recorded damage: one entry cannot absorb several successive injuries.
+Sufficiency thus means neither equality with threat nor harmlessness nor complete
+repair. Monotone `damage` records what was inflicted; it does not forbid healing.
 
-`MovingForm` требует носителя движения и для повторения, и для обновления.
-Это структурное различение, не модель физических кристаллов или биологии.
-`acknowledge` меняет статус признания зверя, сохраняя его идентичность.
-В `ShadowItem` есть также отвергнутое человеческое чувство: тень не сведена
-к зверю. Снятие стены не удаляет собственный край.
+This remains an abstract choice model, not a definition of harm to particular
+living beings. It does not establish that consequences are always accurately
+known. Interaction between riverbeds, uncertainty, respect for another's boundary,
+and duties of repair need further modeling. `Proportionate` contains no moral
+valuation; no theorem declares a necessary injury good.
 
-### Динамика Звезды Смерти: личный выбор, общее действие
+## Structural distinctions
 
-Личная принадлежность выбора не означает независимости его последствий.
-Прежняя модель вычисляла каждую дверь отдельно из собственного выбора
-участника и потому исключала саму возможность общего взрыва от Шакти одной
-Дживы или общего заточения от кашаи другой. Эта трактовка исправлена.
-`choice-locality`, утверждавшая независимость результатов, удалена.
+`Encounter` stores three structural components. `Connection` is an external
+parameter witnessing a connection, not a model of the Source or the content of
+the inner voice. There is no Source type.
 
-Теперь различены:
+`MovingForm` requires movement for both repetition and renewal. This is a
+structural distinction, not a physical model of crystals or biology.
+`acknowledge` changes a beast's recognition status while preserving its identity.
+`ShadowItem` also includes a rejected human feeling, so shadow is not reduced
+to beasts. Removing a wall preserves the participant's own boundary.
 
-- **личное намерение** каждой Дживы;
-- **её вклад в общее течение**, который не обязан совпадать с намерением:
-  можно намереваться вернуться, но действовать хваткой;
-- **действенность вклада** в общей реакции;
-- **общий исход** — `explosion` или `enclosure` для всех оставшихся внутри.
+## Death Star dynamics: personal choices, collective effects
 
-Это не голосование большинством и не право одной Дживы выбирать внутреннюю
-жизнь за остальных. Шакти одной может помочь взорвать общий центр; кашая
-другой — стянуть его так, что выход закрывается и для тех, кто этого не
-выбирал. Состав круга, идентичности Русел и личные намерения не сливаются
-в одну Дживу.
+Personal ownership of a choice does not imply independent consequences.
+The model distinguishes intention, effective contribution, and the shared
+`explosion` or `enclosure` outcome for everyone still inside. This is neither
+majority voting nor a right to choose another person's inner life. One person's
+life force can help destroy the common center; another's grasping force can trap
+even those who intended to return. Participants, identities, and intentions
+remain distinct.
 
-#### Контракт столкновения сил
+### The response contract
 
-`CollectiveRule` — явный параметр круга. Он задаёт:
+`CollectiveRule` is an explicit circle parameter. It supplies `Input`, personal
+`choice`, evidence of `ReturningPower` and `GrippingPower`, the `Responds`
+relation, and an internal participant witnessing the effective contribution.
 
-- тип входных данных `Input`;
-- личные выборы `choice`;
-- свидетельства возвращающего и сжимающего движения `ReturningPower` и
-  `GrippingPower`;
-- отношение `Responds`, определяющее возможный общий ответ;
-- свидетельство участника внутри круга, чей вклад стал действенным.
+The core introduces neither numerical energy nor arithmetic for contributions
+nor a universal priority of life over grasping. An actual `resolve-step` needs
+`EffectiveOutcome` evidence under the chosen rule. A state update alone is not
+an executed transition.
 
-Ядро намеренно не вводит числовую меру Шакти, не складывает её арифметически
-и не назначает универсальный приоритет жизни или хватки. Для настоящего
-`resolve-step` нужен `EffectiveOutcome` — свидетельство общего ответа по
-выбранному правилу. Нельзя просто вызвать обновление состояния и объявить
-его осуществлённым ходом.
+`CollectiveExamples` provides a **demonstration possibility instance**: a returning
+contribution permits explosion; a grasping contribution permits enclosure.
+When both are present, both outcomes are possible. This does not settle what
+actually happens when the forces compete. A balance, threshold, or priority rule
+can later replace this instance through `CollectiveRule` without changing the
+core or its general proofs.
 
-В `CollectiveExamples` предъявлена **демонстрационная инстанция возможностей**:
-если есть возвращающий вклад, общий взрыв возможен; если есть сжимающий —
-общее заточение возможно. При наличии обоих она допускает оба исхода.
-Это не закон о том, что в действительности происходит при столкновении сил.
-Более точное правило баланса, порога или приоритета можно подставить через
-`CollectiveRule`, не переписывая ядро и общие доказательства.
+In the return example, only `a` supplies effective life force; `b` and `c` choose
+differently. In the captivity example, all three intend to return, but `b` supplies
+effective grasping force and closes everyone's exit. These are concrete witnesses
+of the requested possibilities, not universal victory rules for either force.
 
-Примеры разделяют намерение и воздействие. При общем возвращении только
-`a` даёт действенную Шакти, а `b` и `c` не выбрали того же направления.
-При общем заточении все трое намерены вернуться, но действенная кашая `b`
-закрывает выход всем. Это не утверждения «всякая Шакти всегда побеждает» или
-«наличие любой кашаи гарантирует заточение»; это конкретные свидетельства
-требуемых возможностей.
+### Exit and collective response
 
-#### Действительный выход и общий ответ
+`Exit g p h` is an executable local action: `p` is inside with an unlocked gate
+and ends outside. `exit-arrives-outside` verifies that participant's position.
+A local departure does not automatically take a neighbor out. Collective explosion
+is a different transition, opening exits for everyone remaining inside.
 
-`Exit g p h` — самостоятельное действие конкретного участника: он внутри,
-его дверь открыта, и он оказывается снаружи. `exit-arrives-outside` проверяет
-именно его положение. Самостоятельный выход не выводит соседа автоматически,
-но **общий взрыв — иной переход**, открывающий выход всем оставшимся.
-
-`MayLeave g p` означает, что участник уже снаружи или ему доступен `Exit`.
-Инвариант по-прежнему имеет вид:
+`MayLeave g p` means that `p` is already outside or has an available `Exit`:
 
 ```agda
 EscapeInvariant g = ∀ p → MayLeave g p
 ```
 
-`resolve g outcome shape` применяет один общий исход ко всем, кто ещё
-участвует. `shared-inside-gates` подтверждает, что у оставшихся не может
-быть независимых результатов одного общего `resolve`. Уже ушедшие не
-захватываются обратно. Для действующей реакции нужен катализатор внутри;
-круг, который все покинули, не получает такого свидетеля извне.
+`resolve g outcome shape` applies a shared outcome to those still inside.
+`shared-inside-gates` excludes independent gate results within one resolution.
+Those who left are not recaptured. An effective response needs an internal
+catalyst; a circle everyone has left has no such witness.
 
-#### Допустимые и возможные переходы
+### Possible and admissible transitions
 
-`RawStep` включает приближение к краю, самостоятельный выход, изменение
-очертаний, местную помощь, повторное движение к общему краю и общую реакцию
-по `CollectiveRule`. Плохие ночи остаются возможными переходами.
+`RawStep` includes approaching the brink, local exit, reshaping, local assistance,
+rekindling, and collective response under `CollectiveRule`. Harmful nights remain
+possible. `Admissible` does not require unanimous `reclaim`: explosion enabled by
+one participant is admissible; collective enclosure is possible but inadmissible.
+The target state's safety is not assumed in `Admissible`.
 
-`Admissible` не требует единодушного `reclaim`. Общий взрыв с действенным
-вкладом одной Дживы допустим; общее заточение возможно, но недопустимо.
-Безопасность следующего состояния не записана полем в `Admissible`.
+The following results are checked:
 
-Доказаны:
+- `admissible-preserves`: an admissible step preserves everyone's exit from a
+  safe starting state.
+- `trace-preserves` and `run-preserves`: preservation through finite traces and
+  at every step of an infinite admissible run.
+- `explosion-frees-all`: a collective explosion opens every remaining person's
+  exit, not only the catalyst's.
+- `compression-violates` and `compression-not-admissible`: enclosure violates
+  the invariant when someone remains and cannot be an admissible step.
+- `raw-preservation-false`: effective grasping can produce a safety violation
+  from a safe starting circle.
+- `single-life-force-step` and `single-grasping-force-step`: one participant's
+  effective contribution can affect everyone immediately.
+- `same-c-contribution` and `shared-outcomes-differ`: another person's contribution
+  can change the shared result while one's own complete contribution stays fixed.
 
-- `admissible-preserves`: допустимый шаг сохраняет доступность выхода всем
-  из безопасного исходного состояния;
-- `trace-preserves` и `run-preserves`: свойство сохраняется в конечных
-  последовательностях и на каждом шаге бесконечного допустимого хода;
-- `explosion-frees-all`: общий взрыв открывает выход каждому оставшемуся,
-  а не только своему катализатору;
-- `compression-violates`: заточение нарушает инвариант, если внутри остался
-  участник; `compression-not-admissible` исключает этот шаг из допустимых;
-- `raw-preservation-false`: при наличии действенного сжимающего вклада из
-  безопасного круга возможен шаг, нарушающий безопасность;
-- конкретные свидетели `single-shakti-step` и `single-kashaya-step`:
-  действенный вклад одной Дживы действует сразу на всех;
-- `same-c-contribution` и `shared-outcomes-differ`: при неизменном собственном
-  вкладе общий исход может измениться из-за чужого движения. Прежний тезис
-  независимости результатов больше не утверждается.
+Contributions may be mixed; a single shared outcome does not create independent
+personal doors. Two resolutions of the contested demonstration input expose the
+response rule's explicitly unresolved arbitration rather than silently choosing
+a winner.
 
-Смешанными бывают **вклады**, а не независимые двери одного общего исхода.
-В демонстрационной инстанции один и тот же конкурирующий набор вкладов
-допускает два различных общих перехода; это явно помеченная
-недоопределённость правила, а не скрытый выбор победителя.
+### After captivity
 
-#### После плохой ночи
+`recover g p` is local assistance to one participant, not a collective explosion.
+This limits the particular action; it does not prohibit one person helping everyone.
 
-`recover g p` описывает отдельную местную помощь: она может открыть дверь
-этому участнику и не тождественна общему взрыву. Это ограничение конкретного
-локального действия, а не запрет одной Дживе помочь всем.
+`rekindle-step` returns the circle to the brink without automatically lifting
+captivity. A later effective life-force contribution can then enable a collective
+explosion freeing everyone (`later-explosion-frees-all`). Captivity is not made
+an eternal verdict contradicting the opening described in §11.
 
-`rekindle-step` возвращает круг к общему краю без автоматического снятия
-заточения. Затем действенная Шакти одной Дживы может дать новый общий взрыв,
-освобождающий весь круг (`later-explosion-frees-all`). Так плохой исход не
-становится вечным приговором, противоречащим «щели» из §11.
+Later release does not retroactively make a harmful transition admissible, nor
+turn the entire history into a safe trace. Safety also does not imply eventual
+completion: `quiet-run` may continue without a collective resolution while keeping
+exits available.
 
-Позднейшее освобождение не объявляет прошлое заточение допустимым задним
-числом. Полная история с плохим шагом не превращается в безопасную историю.
-Безопасность также не означает неизбежного завершения: `quiet-run` может
-продолжаться без общего решения, сохраняя доступность выхода.
+These theorems do not establish real efficacy of either force, lived experience,
+a specific arbitration law, or physical feasibility. They are conditional on the
+explicit model dynamics.
 
-Реальная действенность Шакти и кашаи, переживание Звезды Смерти, точное
-правило столкновения сил и физическая выполнимость отдельных шагов
-из этих теорем не выводятся. Все они относительны к явно заданной динамике.
-
-### Два раздела Doctrine
+## Contracts and theorems
 
 ```agda
 record Doctrine : Set₁ where
@@ -335,76 +306,74 @@ record Doctrine : Set₁ where
     theorems : Theorems
 ```
 
-`ModelContracts` явно собирает свойства, заданные выбором представления:
-начальную открытость, смысл общего ответа на индивидуальные вклады, сохранение идентичности
-Русла, края и зверя. Эти равенства проверены Agda, но не выдаются за новые
-знания о ходе собрания.
+`ModelContracts` collects representation properties: initial openness, shared
+responses, and preservation of riverbed, boundary, and beast identity. Agda checks
+these equalities, but they are not presented as discoveries about gathering dynamics.
 
-`Theorems` собирает доказанные следствия: невозможность конечного сертификата,
-обратимость признания, свойства соразмерной защиты, сохранение инварианта
-допустимыми переходами и контрпример со сжатием. Это **условные** теоремы
-внутри выбранной модели, а не доказательство, что реальные собрания всегда
-соблюдают протокол. Разделение не отменяет зависимость теорем от определений.
+`Theorems` collects derived consequences: no finite certificate, revocable
+recognition, protection results, invariant preservation, and the compression
+counterexample. They are conditional theorems in the chosen model, not proof
+that actual gatherings always follow the protocol. This distinction does not
+remove the dependence of theorems on definitions.
 
-Пример доступа к прежнему утверждению после изменения API:
+Example access:
 
 ```agda
 Theorems.ax-no-finite-cert (Doctrine.theorems imperium)
 ```
 
-Опыт Звезды Смерти, содержание Хридаи и природа Истока не превращены
-в данные или постулаты. Шакти и кашая в примерах имеют качественные метки
-направления вклада; эти метки не описывают всю их природу и не измеряют силу.
+The experience of the Death Star, the content of the inner voice, and the nature
+of the Source are not encoded as data or postulates. Qualitative contribution
+labels describe neither the complete nature of the forces nor their magnitude.
 
-## Отрицательные проверки
+## Negative checks
 
-Скрипт требует, чтобы Agda отвергла **все семнадцать** намеренно неверных файлов.
-Проверяется категория ошибки, чтобы отсутствие импорта или опечатка не
-засчитывались за успех:
+The script requires Agda to reject **all seventeen** intentionally invalid files.
+It checks the error category, so a missing import or typo cannot count as success.
 
-| Файл | Что нельзя незаметно разрешить |
+| Fixture | Claim that must remain rejected |
 | --- | --- |
-| `ZeroWindow` | Признание по окну нулевой длины. |
-| `FiniteCertificate` | Объявить любое будущее свободным по конечному прошлому. |
-| `HiddenRegression` | Выдать равные концы окна за отсутствие промежуточного регресса в усиленном критерии. |
-| `SupportTransitivity` | Приписать транзитивность круговой сети без основания. |
-| `ForcedRetention` | Объявить захваченным участника успешного возвращения. |
-| `CompressionAdmissible` | Выдать сжатие с оставшимися участниками за допустимый шаг. |
-| `CompressionFree` | Предъявить выход через закрытую сжатием дверь. |
-| `NoPrivateExitDuringCapture` | Вывести частный выход из собственного намерения при общем заточении. |
-| `NeighbourExit` | Выходом одного участника автоматически вывести его соседа. |
-| `LocalRepairIsNotBurst` | Отождествить отдельную местную помощь с общим взрывом. |
-| `UnanimityRequired` | Вывести единодушие всех из взрыва, вызванного одной Дживой. |
-| `OutsideCatalyst` | Выдать ушедшего участника за действенный катализатор внутри круга. |
-| `NoCollectiveInfluence` | Утверждать, что чужая кашая не меняет мой общий исход. |
-| `FutureIsNow` | Подменить будущее окончательное оттаивание отсутствием хватки сейчас. |
-| `ErasedWound` | Обнулить уже причинённый ущерб после снятия ограничения. |
-| `UnsafePostulate` | Закрыть доказательство произвольным постулатом. |
-| `UnsolvedHole` | Оставить вместо доказательства дыру. |
+| `ZeroWindow` | Recognition from a zero-length window. |
+| `FiniteCertificate` | Certification of all futures from a finite past. |
+| `HiddenRegression` | Equal endpoints hiding an intermediate regression. |
+| `SupportTransitivity` | Unsupported transitivity of the circular support network. |
+| `ForcedRetention` | Captivity after a successful collective return. |
+| `CompressionAdmissible` | Treating enclosure with remaining participants as admissible. |
+| `CompressionFree` | Exiting through a gate closed by compression. |
+| `NoPrivateExitDuringCapture` | Deriving exit from personal intention during shared captivity. |
+| `NeighbourExit` | A local departure automatically taking a neighbor outside. |
+| `LocalRepairIsNotBurst` | Equating local assistance with collective explosion. |
+| `UnanimityRequired` | Deriving unanimity from an explosion enabled by one person. |
+| `OutsideCatalyst` | Treating a departed participant as an internal catalyst. |
+| `NoCollectiveInfluence` | Claiming another person's grasping leaves one's shared outcome unchanged. |
+| `FutureIsNow` | Replacing eventual liberation with present freedom. |
+| `ErasedWound` | Erasing recorded damage after restrictions end. |
+| `UnsafePostulate` | Completing a proof with an arbitrary postulate. |
+| `UnsolvedHole` | Leaving a hole instead of a proof. |
 
-Положительные примеры принимаются Agda, отрицательные обязаны отвергаться.
-Сам факт завершения `check.py` с кодом 0 означает обе части проверки.
+Exit status 0 from `check.py` means both positive acceptance and expected negative
+rejection succeeded.
 
-## Публикация на сайте
+## Publishing the bilingual pages
+
+From the repository root:
 
 ```sh
 python3 agda/build_web.py
 ```
 
-Сначала скрипт запускает все проверки через `check.py`. Только при их успехе
-он вызывает `agda --html --highlight-occurrences` и собирает русскую и
-английскую страницы `formalization.html` / `formalization.en.html`.
-Публикуемые фрагменты извлекаются из настоящей подсветки Agda и сверяются
-с текстом исходников; ссылки ведут к определениям в полных модулях.
+The builder first runs `check.py`. Only after success does it invoke
+`agda --html --highlight-occurrences` and generate `formalization.html` and
+`formalization.en.html`. Published excerpts come from native Agda highlighting
+and are checked against the source text. Links lead to definitions in full modules.
 
-`web_content.py` задаёт порядок этапов и пояснения; `web_template.html` —
-шаблон страницы. Исходники модели и инструменты остаются здесь. В каталоге
-`formalization/` лежат только опубликованные производные: полные подсвеченные
-модули, архив исходников с проверками и `verification.json` с хешами файлов.
-Системная standard library в публичный каталог не копируется. Её имена
-сохраняют подсветку, но не становятся ссылками на отсутствующие страницы.
+`web_content.py` supplies bilingual explanations and stage order;
+`web_template.html` supplies the page template. Technical sources remain here.
+`formalization/` contains generated module pages, the source archive including
+verification tools, and `verification.json` with source hashes. The system standard
+library is not published: its names retain highlighting without broken module links.
 
-Сборка входит в `rebuild.sh`; наблюдатель `tools/watch.py` отслеживает
-изменения исходников Agda. Браузер показывает результат проверки при сборке,
-а не запускает Agda у читателя. При изменении модели страницу нужно
-пересобрать: архив и манифест относятся к опубликованному снимку исходников.
+The build is integrated into `rebuild.sh`; `tools/watch.py` watches Agda sources.
+The browser displays build-time verification results, not a local Agda execution.
+After model changes, rebuild the pages: the archive and manifest describe the
+published source snapshot.

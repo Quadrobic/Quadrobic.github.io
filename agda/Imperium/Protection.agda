@@ -8,8 +8,8 @@ open import Data.Product using (Σ; _×_; _,_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; subst; trans; sym)
 open import Relation.Nullary using (¬_)
 
--- Опасность, остаточный вред, ограничение и нанесённая рана не отождествляются.
--- Числа — условная шкала этой модели, не определение вреда в самом трактате.
+-- Threat, residual harm, restriction, and inflicted injury are distinct quantities.
+-- Numbers form an abstract scale here, not the treatise's definition of harm.
 record Problem : Set₁ where
   field
     Action : Set
@@ -24,13 +24,13 @@ open Problem
 Adequate : (p : Problem) → Action p → Set
 Adequate p a = residual p a ≡ 0
 
--- Минимальность относительно реально доступных достаточных действий.
--- Не сравниваем несопоставимые числа «уровень угрозы» и «уровень ограничения».
+-- Minimality is relative to the available sufficient actions.
+-- Do not equate incomparable threat and restriction scales.
 record Proportionate (p : Problem) (a : Action p) : Set where
   field
     adequate : Adequate p a
     least : ∀ b → Adequate p b → restriction p a ≤ restriction p b
-    -- При одинаковом ограничении не выбираем более тяжёлую рану.
+    -- Among equally restrictive actions, do not choose a greater injury.
     least-wound : ∀ b → Adequate p b → restriction p b ≡ restriction p a → wound p a ≤ wound p b
 
 released-choice : ∀ p a → Proportionate p a → threat p ≡ 0 → restriction p a ≡ 0
@@ -44,7 +44,7 @@ released-no-new-wound p a justified clear = n≤0⇒n≡0
     (Proportionate.least-wound justified (idle p) (trans (idle-residual p) clear)
       (trans (idle-level p) (sym (released-choice p a justified clear)))))
 
--- Эпизод хранит последствия, которые не исчезают с отменой ограничения.
+-- An episode retains consequences after restrictions are lifted.
 record Episode : Set₁ where
   field
     problem : ℕ → Problem
@@ -61,8 +61,8 @@ level e t = restriction (problem e t) (choice e t)
 released : ∀ e t → threat (problem e t) ≡ 0 → level e t ≡ 0
 released e t = released-choice (problem e t) (choice e t) (justified e t)
 
--- Нетривиальный конечный выбор: ограничение 1 останавливает угрозу 3.
--- Вред от защиты записан отдельно; достаточность не превращает рану в ноль.
+-- A nontrivial finite choice: restriction 1 stops threat 3.
+-- Protection's injury is recorded separately; sufficiency does not make it zero.
 data Response : Set where
   wait hold crush : Response
 

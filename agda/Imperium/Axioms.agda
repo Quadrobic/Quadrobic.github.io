@@ -16,11 +16,11 @@ open import Data.Product using (Σ; _×_; _,_)
 open import Relation.Binary.PropositionalEquality using (_≡_)
 open import Relation.Nullary using (¬_)
 
--- Свод обязательств и их конструктивный экземпляр, а не «доказательство
--- истинности учения». Неудача поиска терма сама по себе НЕ доказывает
--- противоречие: может недоставать лемм, решения или исходных предпосылок.
--- Равенства, верные по выбранному представлению, и исходные контракты.
--- Их проверяет Agda, но они не являются выводами о ходе собрания.
+-- A collection of obligations and a constructive instance, not a proof that
+-- the doctrine is true. Failure to find a term does NOT establish a contradiction:
+-- lemmas, assumptions, or a proof strategy may still be missing.
+-- Representation equalities and explicit initial contracts.
+-- Agda checks them, but they are not conclusions about the gathering's dynamics.
 record ModelContracts : Set₁ where
   field
     ct-initial-access : ∀ C → OpenAccess (initial C)
@@ -37,23 +37,23 @@ record ModelContracts : Set₁ where
     ct-wall-keeps-edge : ∀ {E W} (b : Boundary E W) →
       Boundary.edge (lower-wall b) ≡ Boundary.edge b
 
--- Следствия, полученные при данных определениях и контрактах.
--- В отличие от ct-*, безопасность цели не записана в предпосылку перехода.
+-- Consequences derived under these definitions and contracts.
+-- Unlike ct-*, the target's safety is not a transition premise.
 record Theorems : Set₁ where
   field
-    ax1-shchel : ∀ h n → Σ History (λ h′ → Agrees n h h′ × Siddha h′)
-    ax1-no-cert : ∀ h n → Σ History (λ h′ → Agrees n h h′ × ¬ Siddha h′)
+    ax1-thawing-extension : ∀ h n → Σ History (λ h′ → Agrees n h h′ × Liberated h′)
+    ax1-no-cert : ∀ h n → Σ History (λ h′ → Agrees n h h′ × ¬ Liberated h′)
     ax-no-finite-cert : ∀ h n → ¬ Certifies n h
     ax-no-finite-condemnation : ∀ h n → ¬ Refutes n h
-    ax-recognition-⇏-siddha : ¬ (∀ l s k → Recognized (Life.observed l) s k → Siddha (Life.acts l))
-    ax-siddha-⇏-recognition : ¬ (∀ l s k → Siddha (Life.acts l) → Recognized (Life.observed l) s k)
-    ax-emperor-⇏-siddha : ¬ (∀ E lives j s k → EmperorStatus E lives j s k → Siddha (Life.acts (lives j)))
-    ax-siddha-⇏-emperor : ¬ (∀ E lives j s k → Siddha (Life.acts (lives j)) → EmperorStatus E lives j s k)
+    ax-recognition-⇏-liberated : ¬ (∀ l s k → Recognized (Life.observed l) s k → Liberated (Life.acts l))
+    ax-liberated-⇏-recognition : ¬ (∀ l s k → Liberated (Life.acts l) → Recognized (Life.observed l) s k)
+    ax-emperor-⇏-liberated : ¬ (∀ E lives j s k → EmperorStatus E lives j s k → Liberated (Life.acts (lives j)))
+    ax-liberated-⇏-emperor : ¬ (∀ E lives j s k → Liberated (Life.acts (lives j)) → EmperorStatus E lives j s k)
     ax-recognition-revocable : Σ Observations (λ o → Recognized o 0 1 × ¬ Recognized o 1 1)
     ax-status-revocable : Σ (Three → Life) (λ lives →
       EmperorStatus threeEmpire lives a 0 1 × ¬ EmperorStatus threeEmpire lives a 1 1)
     ax-no-empty-recognition : ∀ o s → ¬ Recognized o s 0
-    -- Конкретная модель без трона; НЕ утверждение, что всякая опора нетранзитивна.
+    -- A concrete model without a throne; NOT a claim that all support is nontransitive.
     ax-throneless : Σ Empire (λ E → ¬ (∀ x y z → Empire.Holds E x y → Empire.Holds E y z → Empire.Holds E x z))
     ax-protection-releases : ∀ (e : Episode) t → Problem.threat (Episode.problem e t) ≡ 0 → level e t ≡ 0
     thm-star-step-preserves : ∀ {C} {g h : Gathering C} (step : RawStep g h) →
@@ -72,8 +72,8 @@ record Theorems : Set₁ where
       ¬ (∀ {h} → RawStep g h → EscapeInvariant g → EscapeInvariant h)
     thm-recovery-reopens : ∀ {C} (g : Gathering C) p → MayLeave (recover g p) p
     thm-explosion-frees-all : ∀ {C} (g : Gathering C) shape → EscapeInvariant (burst g shape)
-    thm-one-shakti-can-free-all : EscapeInvariant shared-return
-    thm-one-kashaya-can-trap-all : ∀ p → ¬ MayLeave shared-capture p
+    thm-one-life-force-can-free-all : EscapeInvariant shared-return
+    thm-one-grasping-force-can-trap-all : ∀ p → ¬ MayLeave shared-capture p
 
 record Doctrine : Set₁ where
   field
@@ -94,14 +94,14 @@ model-contracts = record
 
 verified-theorems : Theorems
 verified-theorems = record
-  { ax1-shchel = shchel
-  ; ax1-no-cert = net-gramoty
+  { ax1-thawing-extension = thawing-extension
+  ; ax1-no-cert = gripping-extension
   ; ax-no-finite-cert = no-finite-certificate
   ; ax-no-finite-condemnation = no-finite-condemnation
-  ; ax-recognition-⇏-siddha = recognition-⇏-siddha
-  ; ax-siddha-⇏-recognition = siddha-⇏-recognition
-  ; ax-emperor-⇏-siddha = emperor-⇏-siddha
-  ; ax-siddha-⇏-emperor = siddha-⇏-emperor
+  ; ax-recognition-⇏-liberated = recognition-⇏-liberated
+  ; ax-liberated-⇏-recognition = liberated-⇏-recognition
+  ; ax-emperor-⇏-liberated = emperor-⇏-liberated
+  ; ax-liberated-⇏-emperor = liberated-⇏-emperor
   ; ax-recognition-revocable = revocable
   ; ax-status-revocable = revocable-status
   ; ax-no-empty-recognition = no-zero-window
@@ -115,8 +115,8 @@ verified-theorems = record
   ; thm-raw-steps-can-fail = raw-preservation-false
   ; thm-recovery-reopens = recovery-reopens
   ; thm-explosion-frees-all = explosion-frees-all
-  ; thm-one-shakti-can-free-all = Imperium.CollectiveExamples.single-shakti-frees-all
-  ; thm-one-kashaya-can-trap-all = Imperium.CollectiveExamples.single-kashaya-traps
+  ; thm-one-life-force-can-free-all = Imperium.CollectiveExamples.single-life-force-frees-all
+  ; thm-one-grasping-force-can-trap-all = Imperium.CollectiveExamples.single-grasping-force-traps
   }
 
 imperium : Doctrine

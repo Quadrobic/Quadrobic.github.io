@@ -9,9 +9,9 @@ open import Data.Maybe using (Maybe; just; nothing)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (¬_)
 
--- §8: только структура трёх нитей. Connection — внешний параметр-свидетель
--- наличия связи, НЕ тип Истока и не содержимое голоса Хридаи.
--- Исток намеренно отсутствует в языке модели.
+-- §8: only the three-thread structure. Connection is an external witness parameter
+-- for the presence of a connection, NOT a Source type or the content of the inner voice.
+-- The Source is deliberately absent from the model's language.
 record Encounter (Riverbed Present Connection : Set) : Set where
   constructor encounter
   field
@@ -19,7 +19,7 @@ record Encounter (Riverbed Present Connection : Set) : Set where
     present : Present
     connection : Connection
 
--- §10: снять стену — не стереть край. Типы обоих переданы извне.
+-- §10: removing a wall does not erase a boundary. Both types are external parameters.
 record Boundary (Edge Wall : Set) : Set where
   constructor boundary
   field
@@ -36,7 +36,7 @@ edge-preserved b = refl
 wall-removed : ∀ {E W} (b : Boundary E W) → Boundary.wall (lower-wall b) ≡ nothing
 wall-removed b = refl
 
--- §2: различаются способы удержания формы, не наличие движения.
+-- §2: modes of maintaining form differ; both require movement.
 data Mode : Set where
   repetition renewal : Mode
 
@@ -49,7 +49,7 @@ record MovingForm (Movement : Set) : Set where
 form-needs-movement : MovingForm ⊥ → ⊥
 form-needs-movement = MovingForm.movement
 
--- §24: зверь и принадлежность тени — разные координаты.
+-- §24: beast identity and membership in shadow are distinct coordinates.
 data Recognition : Set where
   rejected acknowledged : Recognition
 
@@ -73,7 +73,7 @@ acknowledged-not-shadow b ()
 
 data ShadowItem : Set where
   animal : (b : Beast) → InShadow b → ShadowItem
-  human : ℕ → ShadowItem -- отвергнутое человеческое чувство, не зверь
+  human : ℕ → ShadowItem -- a rejected human feeling, not a beast
 
 IsBeast : ShadowItem → Set
 IsBeast (animal _ _) = ⊤

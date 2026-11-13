@@ -21,26 +21,26 @@ open import Data.Maybe using (just)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (¬_; yes; no)
 
--- Когда-нибудь свободна ≠ свободна сейчас.
+-- Eventually free does not mean free now.
 future-free : History
 future-free = thaw 1 (λ _ → grip)
 
-later-free : EventuallySiddha future-free
+later-free : EventuallyFree future-free
 later-free = 1 , thaw-late 1 (λ _ → grip)
 
-not-free-now : ¬ SiddhaFrom future-free 0
+not-free-now : ¬ FreeFrom future-free 0
 not-free-now p = grip≢flow (p 0 z≤n)
 
--- Много окон не превращает наблюдение в знание всей истории.
+-- Many windows do not turn observation into knowledge of the entire history.
 many-windows : Sustained (Life.observed calm-gripping) 0 12 10
 many-windows = calm-gripping-sustained 0 12 10 (s≤s z≤n) (s≤s z≤n)
 
--- Разные формы опоры совместимы: нетранзитивность не требование учения.
--- Для транзитивной модели тоже есть экземпляр Empire со всеми его полями.
+-- Different support networks are consistent; nontransitivity is not required.
+-- The transitive model also supplies every field of Empire.
 transitive-model : Empire
 transitive-model = allSupportEmpire
 
--- Локальный выход до общего решения по-прежнему возможен.
+-- A local exit before the collective decision remains possible.
 a-left : Gathering circle
 a-left = leave at-edge a
 
@@ -53,12 +53,12 @@ b-stays-inside = refl
 a-already-outside : Gathering.position a-left a ≡ outside
 a-already-outside = exit-arrives-outside a-exits-before-choice
 
--- Одной действенной Шакти a достаточно для общего возвращения b и c,
--- хотя они не сделали того же личного выбора. Это конкретный свидетель,
--- а не универсальное правило победы любой Шакти над любой кашаей.
+-- One effective life-force contribution from a enables the shared return of b and c,
+-- although their personal choices differ. This is a concrete witness,
+-- not a universal priority of life force over grasping force.
 successful-trace : Trace (initial circle) shared-return
 successful-trace = then-step (approach-step refl) allow-approach
-  (then-step single-shakti-step single-shakti-admissible done)
+  (then-step single-life-force-step single-life-force-admissible done)
 
 successful-still-free : EscapeInvariant shared-return
 successful-still-free = trace-preserves successful-trace (initial-escape circle)
@@ -73,27 +73,27 @@ changed-riverbed : Gathering.outline shared-return b ≡ 2
 changed-riverbed = refl
 
 bad-step : RawStep at-edge shared-capture
-bad-step = single-kashaya-step
+bad-step = single-grasping-force-step
 
 bad-is-not-safe : ¬ EscapeInvariant shared-capture
 bad-is-not-safe = compression-violates at-edge b refl
 
 bad-is-not-admissible : ¬ Admissible bad-step
-bad-is-not-admissible = single-kashaya-inadmissible
+bad-is-not-admissible = single-grasping-force-inadmissible
 
--- Даже своё reclaim не защищает a от общего заточения, вызванного b.
-a-wanted-return : Contribution.intention (one-kashaya a) ≡ reclaim
+-- Even a's own reclaim does not prevent collective captivity caused by b.
+a-wanted-return : Contribution.intention (one-grasping-force a) ≡ reclaim
 a-wanted-return = refl
 
 a-captured-by-b : Captured shared-capture a
 a-captured-by-b = compression-captures at-edge a refl
 
--- Возможны разные наборы вкладов и конкурирующие силы, но не независимые
--- исходы для участников одного и того же общего resolve.
+-- Contributions and competing forces may differ, but participants cannot receive
+-- independent outcomes from the same collective resolve.
 common-gates : ∀ p q → Gathering.gate shared-capture p ≡ Gathering.gate shared-capture q
 common-gates p q = shared-inside-gates at-edge enclosure (λ _ → 0) p q refl refl
 
--- Отдельная местная помощь не тождественна общему взрыву.
+-- Individual local assistance is not identical to a collective explosion.
 only-b-recovered : Gathering circle
 only-b-recovered = recover shared-capture b
 
@@ -112,7 +112,7 @@ a-still-captured = refl , refl , refl
 local-repair-not-all : ¬ EscapeInvariant only-b-recovered
 local-repair-not-all safe = blocked-cannot-leave a refl refl (safe a)
 
--- Но последующее действенное движение одной Дживы может освободить ВСЕХ.
+-- Later effective movement by one participant can nevertheless free EVERYONE.
 reopening-step : RawStep shared-capture rekindled
 reopening-step = rekindle-step refl
 
@@ -125,9 +125,9 @@ later-all-free = later-explosion-frees-all
 not-every-raw-step-preserves : ¬ (∀ {g h : Gathering circle} →
   RawStep g h → EscapeInvariant g → EscapeInvariant h)
 not-every-raw-step-preserves preserve =
-  raw-preservation-false at-edge refl one-kashaya kashaya-effective edge-safe preserve
+  raw-preservation-false at-edge refl one-grasping-force grasping-force-effective edge-safe preserve
 
--- Уже покинувшие круг не захватываются обратно общим исходом.
+-- The collective outcome does not recapture those who have already left.
 all-left : Gathering circle
 all-left = leave (leave a-left b) c
 
@@ -149,18 +149,18 @@ quiet-run = record
 always-free : ∀ t → EscapeInvariant (Run.state quiet-run t)
 always-free = run-preserves quiet-run (initial-escape circle)
 
--- Цельность не стирает зверя; возвращение не удерживает его в тени.
+-- Wholeness does not erase the beast; acknowledgment does not keep it in shadow.
 beast-identity : Beast.identity (acknowledge (beast 7 rejected)) ≡ 7
 beast-identity = refl
 
 no-longer-shadow : ¬ InShadow (acknowledge (beast 7 rejected))
 no-longer-shadow = acknowledged-not-shadow (beast 7 rejected)
 
--- Стена снята, но собственный край цел.
+-- The wall is removed while the participant's own boundary remains.
 same-edge : Boundary.edge (lower-wall (boundary 7 (just 2))) ≡ 7
 same-edge = refl
 
--- Достаточное минимальное ограничение не равно числу угрозы и не безвредно.
+-- Sufficient minimal restriction need not equal the threat or be harmless.
 minimal-not-equal : ¬ (Problem.restriction (scenario 3) hold ≡ Problem.threat (scenario 3))
 minimal-not-equal = proportional-is-not-equality
 
@@ -170,7 +170,7 @@ released-but-not-undone = sample-released
 damage-remains : Episode.damage sample 2 ≡ 1
 damage-remains = wound-not-erased
 
--- Общий взрыв снимает власть центра у всех, не переписывая их намерений.
+-- A collective explosion removes central authority without rewriting intentions.
 successful-own-center : ∀ p → Gathering.authority shared-return p ≡ own
 successful-own-center a = refl
 successful-own-center b = refl

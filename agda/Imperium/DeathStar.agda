@@ -26,14 +26,14 @@ data Authority : Set where
 data Choice : Set where
   reclaim surrender : Choice
 
--- Общий исход не совпадает с личным выбором. Один катализатор способен
--- изменить положение всех оставшихся, не выбирая их внутренний путь за них.
+-- A collective outcome is distinct from a personal choice. One catalyst can
+-- change every remaining participant's situation without choosing their inner path.
 data Outcome : Set where
   explosion enclosure : Outcome
 
--- Открытый контракт столкновения сил. Input может содержать личные решения,
--- условные меры вкладов или качественные свидетельства. Никакой арифметики
--- Шакти/кашаи и правила «что всегда побеждает» ядро не постулирует.
+-- An open contract for competing forces. Input may encode personal decisions,
+-- abstract contribution measures, or qualitative evidence. The core postulates
+-- neither arithmetic for life and grasping forces nor a universal winner.
 record CollectiveRule (Person : Set) : Set₁ where
   field
     Input : Set
@@ -45,8 +45,8 @@ record CollectiveRule (Person : Set) : Set₁ where
     enclosure-origin : ∀ positions input → Responds positions input enclosure →
       Σ Person (λ p → positions p ≡ inside × GrippingPower input p)
 
--- Состав и идентичности Русел — контракт представления. Правило общего
--- ответа передаётся отдельно и явно, а не прячется в доказательствах.
+-- Membership and riverbed identities form a representation contract. The collective
+-- response rule is supplied explicitly rather than hidden inside proofs.
 record Circle : Set₁ where
   field
     Person BedIdentity Shape : Set
@@ -56,8 +56,8 @@ record Circle : Set₁ where
     initial-outline : Person → Shape
     rule : CollectiveRule Person
 
--- MayLeave/Detains не поля с произвольными значениями: возможность выхода
--- ниже определяется наличием настоящего перехода Exit.
+-- MayLeave/Detains are not arbitrary fields: the ability to leave below
+-- is defined through the existence of an actual Exit transition.
 record Gathering (C : Circle) : Set where
   constructor gathering
   field
@@ -71,7 +71,7 @@ open Gathering
 bed : ∀ {C} → Gathering C → Circle.Person C → Circle.BedIdentity C
 bed {C} _ = Circle.riverbed C
 
--- Это равенство верно по выбору представления, не по динамической теореме.
+-- This equality follows from the representation, not a dynamical theorem.
 bed-by-representation : ∀ {C} (g h : Gathering C) p → bed g p ≡ bed h p
 bed-by-representation g h p = refl
 
@@ -93,8 +93,8 @@ update-self {C} f p value with Circle.person-equality C p p
 leave : ∀ {C} → Gathering C → Circle.Person C → Gathering C
 leave {C} g p = record g { position = update {C} (position g) p outside }
 
--- После плохой ночи новое собственное движение при опоре может вновь
--- открыть выход. Это не объявляет прошлый захват допустимым задним числом.
+-- After a harmful outcome, renewed movement with support can reopen an exit.
+-- This does not retroactively make the earlier captivity admissible.
 recover : ∀ {C} → Gathering C → Circle.Person C → Gathering C
 recover {C} g p = record g
   { gate = update {C} (gate g) p unlocked
@@ -115,8 +115,8 @@ outcome-authority : Outcome → Authority
 outcome-authority explosion = own
 outcome-authority enclosure = center
 
--- Общая реакция затрагивает всех, кто ещё участвует. Выбор каждого остаётся
--- его выбором, но дверь больше НЕ вычисляется отдельно из его бюллетеня.
+-- The collective response affects everyone still participating. Each choice remains
+-- personal, but a gate is NOT computed independently from its owner's ballot.
 resolve : ∀ {C} → Gathering C → Outcome →
   (Circle.Person C → Circle.Shape C) → Gathering C
 resolve {C} g outcome shape = gathering aftermath (position g) gate′ authority′ shape
@@ -137,13 +137,13 @@ compress g = resolve g enclosure (outline g)
 burst : ∀ {C} → Gathering C → (Circle.Person C → Circle.Shape C) → Gathering C
 burst g shape = resolve g explosion shape
 
--- Участник-катализатор — свидетель действенного вклада, не правитель круга.
+-- A catalyst witnesses an effective contribution, not authority over the circle.
 EffectiveOutcome : ∀ {C} → Gathering C → CollectiveRule.Input (Circle.rule C) → Outcome → Set
 EffectiveOutcome {C} g input outcome =
   CollectiveRule.Responds (Circle.rule C) (position g) input outcome
 
--- Выход — исполнимое локальное действие одного участника. Не требуется
--- ни общего решения, ни согласия центра, ни завершения ритуала.
+-- Exit is an executable local action by one participant. It requires neither
+-- a collective decision, central permission, nor completion of the ritual.
 data Exit {C : Circle} (g : Gathering C) (p : Circle.Person C) : Gathering C → Set where
   depart : position g p ≡ inside → gate g p ≡ unlocked → Exit g p (leave g p)
 
@@ -153,7 +153,7 @@ exit-arrives-outside {C} {g} {p = p} (depart _ _) = update-self {C} (position g)
 MayLeave : ∀ {C} → Gathering C → Circle.Person C → Set
 MayLeave {C} g p = (position g p ≡ outside) ⊎ Σ (Gathering C) (Exit g p)
 
--- Ушедший уже свободен; оставшийся может совершить Exit.
+-- Those outside are already free; those inside may perform Exit.
 EscapeInvariant : ∀ {C} → Gathering C → Set
 EscapeInvariant g = ∀ p → MayLeave g p
 
@@ -182,8 +182,8 @@ initial-access C _ _ = refl
 initial-escape : ∀ C → EscapeInvariant (initial C)
 initial-escape C = access⇒escape (initial-access C)
 
--- Физически возможные переходы включают и плохой исход. У RawStep НЕТ
--- встроенного требования EscapeInvariant, а у resolve-step нет общего «да».
+-- Transitions possible in the model include harmful outcomes. RawStep has NO
+-- built-in EscapeInvariant requirement; resolve-step does not require unanimous assent.
 data RawStep {C : Circle} (g : Gathering C) : Gathering C → Set where
   approach-step : phase g ≡ assembling → RawStep g (approach g)
   exit-step : ∀ {p h} → Exit g p h → RawStep g h
@@ -194,9 +194,9 @@ data RawStep {C : Circle} (g : Gathering C) : Gathering C → Set where
     (outcome : Outcome) → EffectiveOutcome g input outcome →
     (shape : Circle.Person C → Circle.Shape C) → RawStep g (resolve g outcome shape)
 
--- Допустимость оценивает общий результат, а не единодушие личных решений.
--- Взрыв при действенном вкладе одной Дживы допустим и без общего reclaim.
--- Возможность заточения остаётся в RawStep, но не становится нормой.
+-- Admissibility concerns the collective result, not unanimous personal decisions.
+-- An explosion enabled by one participant is admissible without unanimous reclaim.
+-- Enclosure remains possible in RawStep without becoming admissible.
 data Admissible {C : Circle} {g : Gathering C} : ∀ {h} → RawStep g h → Set where
   allow-approach : ∀ {ready} → Admissible (approach-step ready)
   allow-exit : ∀ {p h} {e : Exit g p h} → Admissible (exit-step e)
@@ -206,7 +206,7 @@ data Admissible {C : Circle} {g : Gathering C} : ∀ {h} → RawStep g h → Set
   allow-explosion : ∀ {ready input effective shape} →
     Admissible (resolve-step ready input explosion effective shape)
 
--- Доказательство для выхода требует рассмотреть, кто ушёл: сам p или другой.
+-- The exit proof distinguishes whether p or another participant leaves.
 leave-access : ∀ {C} {g : Gathering C} {p h} → OpenAccess g → Exit g p h → OpenAccess h
 leave-access {C} {g} {p} access (depart at opened) q q-inside
   with Circle.person-equality C p q
@@ -221,8 +221,8 @@ recover-access {C} {g} p access q at with Circle.person-equality C p q
 burst-access : ∀ {C} (g : Gathering C) shape → OpenAccess (burst g shape)
 burst-access g shape p at rewrite at = refl
 
--- Инвариант цели не записан в Admissible. Теорема разбирает реальные
--- локальные действия и общий взрыв; гарантии для всех RawStep НЕТ.
+-- Admissible does not assume the target invariant. The theorem analyzes local
+-- actions and collective explosion; it gives NO guarantee for arbitrary RawStep.
 admissible-preserves : ∀ {C} {g h : Gathering C} (step : RawStep g h) →
   Admissible step → EscapeInvariant g → EscapeInvariant h
 admissible-preserves (approach-step _) allow-approach safe = access⇒escape (escape⇒access safe)
@@ -234,7 +234,7 @@ admissible-preserves (rekindle-step _) allow-rekindle safe = access⇒escape (es
 admissible-preserves {g = g} (resolve-step _ input explosion effective shape) allow-explosion safe =
   access⇒escape (burst-access g shape)
 
--- Конечная история: в каждом её префиксе инвариант сохраняется.
+-- Finite history: the invariant holds at every prefix.
 data Trace {C : Circle} (g : Gathering C) : Gathering C → Set where
   done : Trace g g
   then-step : ∀ {h k} (step : RawStep g h) → Admissible step → Trace h k → Trace g k
@@ -244,7 +244,7 @@ trace-preserves done safe = safe
 trace-preserves (then-step step allowed rest) safe =
   trace-preserves rest (admissible-preserves step allowed safe)
 
--- Бесконечное наблюдение хода: возможность выйти у каждого на КАЖДОМ шаге.
+-- An infinite run: EVERY participant can leave at EVERY step.
 record Run (C : Circle) : Set where
   field
     state : ℕ → Gathering C
@@ -257,8 +257,8 @@ run-preserves r safe zero = safe
 run-preserves r safe (suc t) =
   admissible-preserves (Run.step r t) (Run.allowed r t) (run-preserves r safe t)
 
--- Для настоящего шага сжатия нужно свидетельство действенной кашаи,
--- а не доказательство того, что ВСЕ выбрали surrender.
+-- An actual compression step requires evidence of effective grasping force,
+-- not a proof that EVERY participant chose surrender.
 compression-step : ∀ {C} (g : Gathering C) → phase g ≡ brink →
   (input : CollectiveRule.Input (Circle.rule C)) → EffectiveOutcome g input enclosure →
   RawStep g (compress g)
@@ -269,7 +269,7 @@ blocked-cannot-leave : ∀ {C} {g : Gathering C} p → position g p ≡ inside �
 blocked-cannot-leave p at closed (inj₁ gone) = inside≢outside (trans (sym at) gone)
 blocked-cannot-leave p at closed (inj₂ (_ , depart _ opened)) = shut≢open (trans (sym closed) opened)
 
--- Нужен свидетель оставшегося: пустой круг / все уже ушли никого не удержит.
+-- A remaining participant is required: an empty circle cannot detain anyone.
 compression-blocks : ∀ {C} (g : Gathering C) p → position g p ≡ inside → ¬ MayLeave (compress g) p
 compression-blocks g p at = blocked-cannot-leave p at closed
   where
@@ -284,7 +284,7 @@ compression-not-admissible : ∀ {C} (g : Gathering C) ready input
   ¬ Admissible (compression-step g ready input effective)
 compression-not-admissible g ready input effective ()
 
--- Равенства представления: исход общий, хотя участники и их выборы различны.
+-- Representation equalities: the outcome is shared despite distinct personal choices.
 resolve-inside-gate : ∀ {C} (g : Gathering C) outcome shape p → position g p ≡ inside →
   gate (resolve g outcome shape) p ≡ outcome-gate outcome
 resolve-inside-gate g outcome shape p at rewrite at = refl
@@ -301,8 +301,8 @@ resolve-outside-authority : ∀ {C} (g : Gathering C) outcome shape p → positi
   authority (resolve g outcome shape) p ≡ own
 resolve-outside-authority g outcome shape p gone rewrite gone = refl
 
--- Плохой исход нарушает инвариант даже у безопасного исходного круга.
--- При одном общем исходе нельзя раздать оставшимся независимые двери.
+-- A harmful outcome violates the invariant even from a safe initial circle.
+-- One collective outcome cannot assign independent gates to those remaining inside.
 shared-inside-gates : ∀ {C} (g : Gathering C) outcome shape p q →
   position g p ≡ inside → position g q ≡ inside →
   gate (resolve g outcome shape) p ≡ gate (resolve g outcome shape) q
@@ -320,7 +320,7 @@ raw-preservation-false {C} g ready input effective safe preserve =
     p = proj₁ origin
     at = proj₁ (proj₂ origin)
 
--- Свидетель плохого текущего исхода, НЕ окончательный приговор будущему.
+-- Evidence of current captivity, NOT a final verdict on the future.
 Captured : ∀ {C} → Gathering C → Circle.Person C → Set
 Captured g p = (phase g ≡ aftermath) × (position g p ≡ inside) × (gate g p ≡ shut)
 
@@ -330,7 +330,7 @@ compression-captures g p at = refl , at , closed
     closed : gate (compress g) p ≡ shut
     closed rewrite at = refl
 
--- Общий взрыв освобождает и того, кто не стал катализатором.
+-- Collective explosion also frees participants who were not its catalyst.
 explosion-frees-all : ∀ {C} (g : Gathering C) shape → EscapeInvariant (burst g shape)
 explosion-frees-all g shape = access⇒escape (burst-access g shape)
 
