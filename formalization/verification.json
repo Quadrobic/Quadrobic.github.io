@@ -60,7 +60,7 @@
     "agda/Imperium/Signs.agda": "0b4b08fd7e791ce280bd5e61a38dd44ca91b75791a4f1666a0e4868a6ad5c935",
     "agda/Imperium/Structure.agda": "8a8f1dfd7778b4ea12268334f7253ef33bf171cdc167ac47a72a85aa94fd81a5",
     "agda/README.md": "21d0266a81aab628d5734f22da96ae5157cc22655ab8063c0f818c45e475e56a",
-    "agda/build_web.py": "2d40da374bb70dc3cc82585f839c96fa15d01899a0bc077ccd5e053f2fb071e9",
+    "agda/build_web.py": "977666859df637cf4027db599eea058b1645f0ddcb2405a774e6cd44360da0cd",
     "agda/check.py": "8f23fd16323cad5489ceaf3689f7945118bcb276dd5e608a238ebfabd6697cb2",
     "agda/imperium.agda-lib": "4e3d561897fe1e031ae0f59680fba2c1638cefe6a16d64d6a03cceb1f355ac2c",
     "agda/tests/reject/ChoiceIgnored.agda": "84832d51b54eb8f2480235aca349b0d918b073318962c6dcd843dc664788da71",
@@ -88,9 +88,9 @@
     "agda/tests/reject/UnsolvedHole.agda": "afd049e7b7b3d15070d085e5c30347ddf5f2e272ec607d6d38bcbf2c62345cec",
     "agda/tests/reject/UnsupportedRecovery.agda": "b59c6848dae53b5559f9336724211275585ce89a2ac37ffb30af8b6d98b22847",
     "agda/tests/reject/ZeroWindow.agda": "aefc1c95d07e636aa99cbe1f086eb15d2f27ade7c70820e333ed6376c4599df9",
-    "agda/web_annotations.py": "d78ea26586a1d401491d1c28fca03bd5d412adac233e91b229082c7f043e5945",
-    "agda/web_content.py": "364f524199673e67f11ec7842b8ed7f8fc14ea985a3df5b4f189e4ac765c17f3",
+    "agda/web_annotations.py": "fd862432f4a87dcf22b9083b7e1ef674f76e8eeaf49edd9f40fb2d4b936f9e8f",
+    "agda/web_content.py": "67ae4aeaa1ef8e96ee5293d60ba6bfcb290c4d8043f46a9bb95b307d26313101",
     "agda/web_template.html": "bb7e375630ee91a93f381cad11c9eacdd7ce9626b1e0d08c8c436a1e479cdb54"
   },
-  "source_sha256": "e1e82ba256ee7e3d8f22d9a61de159420cc21dcd8956f494a62a21fe6aa0bd0b"
+  "source_sha256": "74a8d0925348880d57dd9895fc2406212c60ed6ef04856a5a3f7839c6e564821"
 }

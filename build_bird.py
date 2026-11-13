@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Builds bird.html / bird.en.html from bird.md / bird.en.md — the bonus story,
+Builds bird.html / bird.en.html from bird.md / bird.en.md - the bonus story,
 reusing the treatise site's own look, scroll choreography, TTS reader and
 text-size controls (css/style.css, js/main.js, js/ink.js) via bird_template.html.
 
@@ -142,7 +142,7 @@ def build(lang, meta):
 
     out = TEMPLATE.read_text(encoding="utf-8")
     out = out.replace("<!--TITLE-->", title)
-    out = out.replace("<!--DESC-->", f'{title} — {meta["subtitle"]}.')
+    out = out.replace("<!--DESC-->", f'{title} - {meta["subtitle"]}.')
     out = out.replace("<!--HERO_TITLE-->", title)
     out = out.replace("<!--LANG-->", lang)
     for key, value in meta.items():

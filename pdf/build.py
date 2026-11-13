@@ -56,7 +56,7 @@ def render_blocks(blocks) -> list[str]:
             out.append(f"<ol>{items}</ol>")
         elif kind == "dt":
             term, definition = payload
-            out.append(f"<li><strong>{term}</strong> — {definition}</li>")
+            out.append(f"<li><strong>{term}</strong> - {definition}</li>")
         # "axiom" / "invocation" handled by render_book() directly.
     return out
 
