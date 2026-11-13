@@ -53,8 +53,8 @@
     "agda/Imperium/Roles.agda": "2eb108bc63401fcd61bc32a0a490f5a667beadd1e813425d5049b4a0279cf775",
     "agda/Imperium/Signs.agda": "0b4b08fd7e791ce280bd5e61a38dd44ca91b75791a4f1666a0e4868a6ad5c935",
     "agda/Imperium/Structure.agda": "8a8f1dfd7778b4ea12268334f7253ef33bf171cdc167ac47a72a85aa94fd81a5",
-    "agda/README.md": "db5421100cd6d7de94d3d1483354b1d10b2b4b7d7afa96a1d794765527afd54a",
-    "agda/build_web.py": "a99faca71cb0858bdd6b2b55acf6266f9a76fa45b933c2b0278c0672c719ce19",
+    "agda/README.md": "d72d0dda928a30c789d807daf90bc24ffcf13ac5a2204a75f2acd2ff3fbd7404",
+    "agda/build_web.py": "2d40da374bb70dc3cc82585f839c96fa15d01899a0bc077ccd5e053f2fb071e9",
     "agda/check.py": "05a81b507a24f171cdfa9a7b57f4b40aac30f717d1f0862f6b45c4ec2abb2257",
     "agda/imperium.agda-lib": "4e3d561897fe1e031ae0f59680fba2c1638cefe6a16d64d6a03cceb1f355ac2c",
     "agda/tests/reject/ChoiceIgnored.agda": "84832d51b54eb8f2480235aca349b0d918b073318962c6dcd843dc664788da71",
@@ -78,8 +78,9 @@
     "agda/tests/reject/UnsolvedHole.agda": "afd049e7b7b3d15070d085e5c30347ddf5f2e272ec607d6d38bcbf2c62345cec",
     "agda/tests/reject/UnsupportedRecovery.agda": "b59c6848dae53b5559f9336724211275585ce89a2ac37ffb30af8b6d98b22847",
     "agda/tests/reject/ZeroWindow.agda": "aefc1c95d07e636aa99cbe1f086eb15d2f27ade7c70820e333ed6376c4599df9",
+    "agda/web_annotations.py": "09b6d221829cc24033c43ca465173ff71b1f7a4381a60f0911b36f6a337c6da6",
     "agda/web_content.py": "90ae8c98915e02589829ec68c048ce91e81f619c2bab02dfbce71e12870bde13",
     "agda/web_template.html": "bb7e375630ee91a93f381cad11c9eacdd7ce9626b1e0d08c8c436a1e479cdb54"
   },
-  "source_sha256": "b0444bc6a1caba6fc2f675533bd569ea541ba53b951dcb75679ddf80ab29e6bc"
+  "source_sha256": "cfbb3ef9a0843a87e5629027d3c48259d2617e13b4b6ab3927407c0cf47ce6ac"
 }

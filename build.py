@@ -17,6 +17,7 @@ ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT / "tools"))
 import manifesto  # noqa: E402
 from web_glossary import glossary_json  # noqa: E402
+import model_annotations  # noqa: E402
 
 TEMPLATE = ROOT / "template.html"
 
@@ -170,7 +171,7 @@ def render_star_blocks(blocks, lang):
     return "\n".join(parts)
 
 
-def render_sections(sections, lang="ru"):
+def render_sections(sections, lang="ru", snapshot=None):
     """Shared by "book" and "practices": a list of .passage articles, each
     with an optional heading (numbered "§N. Title" or, for a titled-but-
     unnumbered subsection, just "Title") and its blocks."""
@@ -188,13 +189,15 @@ def render_sections(sections, lang="ru"):
         star = sec["num"] == "38"
         mode_attr = ' data-star-reading="true"' if star else ""
         body = render_star_blocks(sec["blocks"], lang) if star else render_blocks(sec["blocks"])
+        note = model_annotations.marker(snapshot, int(sec['num']), lang) if snapshot and sec['num'] and lang in ('ru', 'en') else ''
+        note_class = ' model-annotated' if note else ''
         sections_html.append(
-            f'<article class="passage"{id_attr}{mode_attr}>{header}{body}</article>'
+            f'<article class="passage{note_class}"{id_attr}{mode_attr}>{header}{note}{body}</article>'
         )
     return "".join(sections_html)
 
 
-def render_book(book, book_index, lang):
+def render_book(book, book_index, lang, snapshot=None):
     if book["kind"] == "book":
         roman = manifesto.book_roman(book, book_index, lang)
         book_title = manifesto.book_name(book, lang)
@@ -207,7 +210,7 @@ def render_book(book, book_index, lang):
     <span class="glyph-line" aria-hidden="true">△</span>
   </div>
   <div class="book-body">
-    {render_sections(book["sections"], lang)}
+    {render_sections(book["sections"], lang, snapshot)}
   </div>
 </section>
 """
@@ -220,7 +223,7 @@ def render_book(book, book_index, lang):
     <h2 class="book-title reveal-title">{book_title}</h2>
   </div>
   <div class="book-body">
-    {render_sections(book["sections"], lang)}
+    {render_sections(book["sections"], lang, snapshot)}
   </div>
 </section>
 """
@@ -298,7 +301,7 @@ def render_nav(doc, lang):
     return "\n".join(items)
 
 
-def build(lang: str, tpl: str):
+def build(lang: str, tpl: str, snapshot):
     meta = LANGS[lang]
     doc = manifesto.load(meta["readme"], lang=lang)
     updated = manifesto.format_updated(meta["readme"], lang)
@@ -310,14 +313,21 @@ def build(lang: str, tpl: str):
     for book in doc["books"]:
         if book["kind"] == "book":
             bi += 1
-        books_html.append(render_book(book, bi, lang))
+        books_html.append(render_book(book, bi, lang, snapshot))
 
     nav_html = render_nav(doc, lang)
 
+    model_ui = model_annotations.reading_ui(snapshot, doc, lang)
+    if lang in ('ru', 'en'):
+        map_target = ROOT / ('model-map.html' if lang == 'ru' else 'model-map.en.html')
+        map_target.write_text(model_annotations.render_map(snapshot, doc, lang), encoding='utf-8')
+        print(f'wrote {map_target.name}')
     out = tpl.replace("<!--TITLE-->", html.escape(doc["title"]))
     out = out.replace("<!--PREAMBLE-->", preamble_html)
     out = out.replace("<!--BOOKS-->", "\n".join(books_html))
     out = out.replace("<!--NAV-->", nav_html)
+    for key, value in model_ui.items():
+        out = out.replace(f'<!--MODEL_{key.upper()}-->', value)
     out = out.replace("<!--GLOSSARY_DATA-->", glossary_json(doc, lang))
     out = out.replace("<!--LANG_ATTR-->", meta["lang_attr"])
     out = out.replace("<!--DESC-->", html.escape(meta["desc"]))
@@ -355,8 +365,9 @@ def build(lang: str, tpl: str):
 
 def main():
     tpl = TEMPLATE.read_text(encoding="utf-8")
+    snapshot = model_annotations.load_snapshot()
     for lang in LANGS:
-        build(lang, tpl)
+        build(lang, tpl, snapshot)
 
 
 if __name__ == "__main__":

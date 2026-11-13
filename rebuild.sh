@@ -43,10 +43,27 @@ needs_rebuild() {
   [ -n "$(git rev-list -1 "$built..HEAD" -- "$@")" ]
 }
 
-SITE_DEPS=(README.md README.en.md README.th.md build.py template.html tools/manifesto.py tools/web_glossary.py)
+FORMAL_DEPS=(agda/build_web.py agda/web_content.py agda/web_template.html agda/check.py
+  agda/README.md agda/web_annotations.py agda/.gitignore agda/imperium.agda-lib agda/All.agda
+  agda/Imperium/*.agda agda/tests/reject/*.agda)
+if needs_rebuild formalization.html "${FORMAL_DEPS[@]}" \
+  || needs_rebuild formalization.en.html "${FORMAL_DEPS[@]}" \
+  || needs_rebuild formalization/annotations.json "${FORMAL_DEPS[@]}" \
+  || needs_rebuild formalization/verification.json "${FORMAL_DEPS[@]}" \
+  || needs_rebuild formalization/imperium-source.zip "${FORMAL_DEPS[@]}"; then
+  echo "→ formalization (Agda verification + highlighted HTML)"
+  python3 agda/build_web.py
+else
+  echo "→ formalization (up to date, skipped)"
+fi
+
+
+SITE_DEPS=(README.md README.en.md README.th.md build.py template.html tools/manifesto.py tools/web_glossary.py tools/model_annotations.py formalization/annotations.json)
 if needs_rebuild index.html "${SITE_DEPS[@]}" \
   || needs_rebuild index.en.html "${SITE_DEPS[@]}" \
-  || needs_rebuild index.th.html "${SITE_DEPS[@]}"; then
+  || needs_rebuild index.th.html "${SITE_DEPS[@]}" \
+  || needs_rebuild model-map.html "${SITE_DEPS[@]}" \
+  || needs_rebuild model-map.en.html "${SITE_DEPS[@]}"; then
   echo "→ index.html"
   python3 build.py
 else
@@ -76,17 +93,5 @@ else
   echo "→ bird.pdf (up to date, skipped)"
 fi
 
-FORMAL_DEPS=(agda/build_web.py agda/web_content.py agda/web_template.html agda/check.py
-  agda/README.md agda/.gitignore agda/imperium.agda-lib agda/All.agda
-  agda/Imperium/*.agda agda/tests/reject/*.agda)
-if needs_rebuild formalization.html "${FORMAL_DEPS[@]}" \
-  || needs_rebuild formalization.en.html "${FORMAL_DEPS[@]}" \
-  || needs_rebuild formalization/verification.json "${FORMAL_DEPS[@]}" \
-  || needs_rebuild formalization/imperium-source.zip "${FORMAL_DEPS[@]}"; then
-  echo "→ formalization (Agda verification + highlighted HTML)"
-  python3 agda/build_web.py
-else
-  echo "→ formalization (up to date, skipped)"
-fi
 
 echo "done."

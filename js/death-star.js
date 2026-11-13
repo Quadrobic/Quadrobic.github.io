@@ -224,7 +224,7 @@
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape" || !active || returning) return;
     // Let a definition, mobile menu or voice panel consume its own Escape.
-    if (document.querySelector('#term-tooltip:not([hidden]), #mobile-sheet.open, #tts-voice-panel.open')) return;
+    if (document.querySelector('#term-tooltip:not([hidden]), [data-model-panel]:not([hidden]), #mobile-sheet.open, #tts-voice-panel.open')) return;
     e.preventDefault();
     returnToPage();
   }, true);

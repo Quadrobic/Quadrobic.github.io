@@ -1,0 +1,60 @@
+/* Claim-level annotations: signals stay in the margin; panels never cover prose. */
+[data-status="theorem"] { --model-color: #5bbcaf; }
+[data-status="contract"] { --model-color: #dbad61; }
+[data-status="open"] { --model-color: #ee846b; }
+[data-status="excluded"] { --model-color: #b4a2d6; }
+[data-status="uncovered"] { --model-color: #9da5a8; }
+.model-entry { position: relative; z-index: 2; display: flex; gap: 18px; align-items: center; max-width: 652px; margin: 0 auto 6rem; padding: 18px 22px; border-block: 1px solid #a7844e66; color: #d0bc9d; font: 15px/1.6 var(--serif-body); }
+.model-entry-signal { color: #5bbcaf; font: 29px/1 monospace; }
+.model-entry small { display: block; color: #9a8b7b; font-size: 13px; }
+.model-entry a { flex-shrink: 0; color: #e3c18e; text-decoration: none; font-size: 15px; border-bottom: 1px solid #76613c; }
+.model-annotated { position: relative; }
+.model-marker { position: absolute; left: -53px; top: 13px; width: 44px; min-height: 48px; padding: 0; border: 0; background: transparent; color: #d8c9ae; cursor: pointer; z-index: 3; display: grid; justify-items: center; align-content: center; gap: 3px; }
+.model-hex { display: grid; place-items: center; width: 34px; height: 37px; background: #192322; color: #d5e0d8; font: 19px/1 'DejaVu Sans Mono', monospace; clip-path: polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%); box-shadow: inset 0 0 14px #83b7a144; }
+.model-marker:hover .model-hex, .model-marker[aria-expanded="true"] .model-hex { background: #354843; color: white; }
+.model-marker:focus-visible { outline: 2px solid #66b7ab; outline-offset: 3px; border-radius: 5px; }
+.model-dots { display: flex; justify-content: center; gap: 3px; }
+.model-dots i { width: 5px; height: 5px; background: var(--model-color); border-radius: 50%; }
+.model-panel[hidden] { display: none !important; }
+.model-panel { position: fixed; width: 310px; z-index: 95; max-height: calc(100dvh - 116px); overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #57716a #0e1919; background: #101b1c; border: 1px solid #637c72; box-shadow: 0 12px 40px #0007; color: #e1ded1; text-align: left; font: 15px/1.6 var(--serif-body); animation: model-panel-arrive 160ms ease-out; }
+.model-panel > header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 15px; border-bottom: 1px solid #617a6e; background: repeating-linear-gradient(120deg, #80906916 0 7px, transparent 7px 14px); }
+.model-panel-label { color: #c7d5b9; font: 10px/1.5 ui-monospace, monospace; letter-spacing: .09em; text-transform: uppercase; }
+.model-panel [data-model-close] { width: 36px; height: 36px; padding: 0; background: none; border: 1px solid #697e74; color: #dfdfcd; font: 23px/1 monospace; cursor: pointer; }
+.model-panel > h3 { font: 23px/1.15 var(--serif-display); color: #ece2cc; padding: 17px 18px 8px; margin: 0; border: 0; }
+.model-panel-scope { margin: 0 18px 15px; color: #b4bcae; font-size: 13px; }
+.model-panel > footer { padding: 14px 18px; border-top: 1px solid #4c625b; }
+.model-panel > footer a { color: #e5c18d; font: 12px/1.5 ui-monospace, monospace; text-decoration: none; }
+.model-panel.is-inline { position: relative; inset: auto !important; width: 100%; margin-bottom: 24px; max-height: min(620px, 70dvh); box-shadow: 0 6px 20px #0002; z-index: 4; }
+.model-status { display: inline-flex; align-items: center; gap: 7px; color: var(--model-color); font: 10px/1.55 ui-monospace, monospace; letter-spacing: .025em; }
+.model-status b { display: grid; place-items: center; flex-shrink: 0; width: 21px; height: 23px; clip-path: polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%); background: color-mix(in srgb, var(--model-color) 15%, #102021); font-size: 14px; font-weight: 400; }
+.model-claim { padding: 16px 18px 20px; border-top: 1px solid #334d49; border-left: 2px solid var(--model-color); }
+.model-claim h4 { margin: 10px 0 8px; font: 23px/1.15 var(--serif-display); color: #e9e0ca; letter-spacing: normal; }
+.model-claim-text { color: #c5cbbf; font: 15px/1.65 var(--serif-body); text-align: left; }
+.model-code { margin: 14px 0 0; min-width: 0; }
+.model-code summary { cursor: pointer; font: 11px/1.5 ui-monospace, monospace; color: #bbcfbd; padding: 8px 0; }
+.model-code pre { margin: 6px 0; max-height: 320px; overflow: auto; overscroll-behavior: contain; white-space: pre; tab-size: 2; background: #081213; border: 1px solid #345049; padding: 12px; color: #d5dfd4; font: 11px/1.8 'DejaVu Sans Mono', Consolas, monospace; text-align: left; }
+.model-code .Agda a { color: inherit; text-decoration: none; }
+.model-code .Agda a[href] { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #80bba344; }
+.model-code .Agda .Keyword, .model-code .Agda .Module { color: #e7b577; }
+.model-code .Agda .Function, .model-code .Agda .Field { color: #70d3c9; }
+.model-code .Agda .Datatype, .model-code .Agda .Record { color: #d2c792; }
+.model-code .Agda .InductiveConstructor { color: #bad59d; }
+.model-code .Agda .Comment { color: #94a498; font-style: italic; }
+.model-no-code { padding-top: 12px; color: #99a59b; font: 11px/1.65 ui-monospace, monospace; }
+.model-claim-links { display: flex; flex-wrap: wrap; gap: 9px 14px; margin-top: 12px; }
+.model-claim-links a { color: #cfb992; font: 11px/1.6 ui-monospace, monospace; text-decoration: none; border-bottom: 1px solid #526358; }
+.model-panel a:focus-visible, .model-panel button:focus-visible, .model-panel summary:focus-visible { outline: 2px solid #83d2bb; outline-offset: 3px; }
+@keyframes model-panel-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1379px) {
+  .model-marker { left: 7px; top: 18px; }
+  .model-annotated > h3 { padding-left: 36px; }
+}
+@media (max-width: 560px) {
+  .model-entry { margin: 0 20px 4rem; padding: 16px 0; flex-wrap: wrap; gap: 12px; }
+  .model-entry > div { flex: 1; min-width: 200px; }
+  .model-entry > a { margin-left: 36px; }
+  .model-marker { left: 2px; top: 16px; }
+  .model-panel.is-inline { width: calc(100% + 12px); margin-left: -6px; }
+}
+@media (prefers-reduced-motion: reduce) { .model-panel { animation: none; } }
+@media print { .model-marker, .model-panel, .model-entry, .model-note-slot { display: none !important; } .model-annotated > h3 { padding-left: 0; } }

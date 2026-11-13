@@ -11,6 +11,7 @@ import sys
 import zipfile
 
 from web_content import REJECTIONS, STAGES
+from web_annotations import CLAIMS, STATUSES
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -48,10 +49,18 @@ def links(markup, prefix="", strip_ids=False):
     return re.sub(r'<a\b[^>]*>', rewrite, markup)
 
 
+def source_offset(source, marker, after=0):
+    # Match declaration/comment starts, never a suffix such as bed in riverbed.
+    match = re.compile(r'^' + re.escape(marker), re.M).search(source, after)
+    if not match:
+        raise ValueError(f'Source marker not found at a line start: {marker}')
+    return match.start()
+
+
 def excerpt(module, start, end, raw):
     source = MODULES[module].read_text(encoding="utf-8")
-    begin = source.index(start)
-    finish = source.index(end, begin + len(start)) if end else len(source)
+    begin = source_offset(source, start)
+    finish = source_offset(source, end, begin + len(start)) if end else len(source)
     fragments, offset = [], 0
     for token in TOKEN.findall(raw):
         text = pre_text(token)
@@ -76,7 +85,7 @@ def code_panel(module, start, end, folded, raw, lang):
     full = "Весь модуль" if lang == "ru" else "Full module"
     copy = "Копировать" if lang == "ru" else "Copy"
     label = "Развернуть проверенный код" if lang == "ru" else "Expand checked code"
-    line = MODULES[module].read_text().index(start) + 1
+    line = source_offset(MODULES[module].read_text(), start) + 1
     panel = f'''<figure class="code-panel">
 <figcaption><span>{escape(module)}</span><span class="code-actions">
 <a href="formalization/code/{module}.html#{line}">{full} ↗</a>
@@ -193,6 +202,23 @@ def main():
     }
     # Build all narrative excerpts before replacing any published page.
     pages = {lang: render(lang, raw, version, manifest) for lang in ('ru', 'en')}
+    annotations = {'source_sha256': manifest['source_sha256'], 'agda': version,
+                   'statuses': STATUSES, 'claims': {}}
+    for section, claims in CLAIMS.items():
+        annotations['claims'][str(section)] = []
+        for claim in claims:
+            item = {key: value for key, value in claim.items() if key != 'code'}
+            if claim['status'] not in STATUSES:
+                raise ValueError(f'Unknown annotation status: {claim}')
+            if claim['status'] in ('theorem', 'contract', 'open') and not claim['code']:
+                raise ValueError(f'Missing source evidence for section {section}: {claim}')
+            if claim['code']:
+                name, start, end = claim['code']
+                module = 'Imperium.' + name
+                item['snippet'] = excerpt(module, start, end, raw[module])
+                offset = source_offset(MODULES[module].read_text(), start) + 1
+                item['source'] = f'formalization/code/{module}.html#{offset}'
+            annotations['claims'][str(section)].append(item)
     code_dir = PUBLIC / 'code'
     code_dir.mkdir(parents=True, exist_ok=True)
     for module in MODULES:
@@ -209,6 +235,7 @@ def main():
             info.external_attr = 0o644 << 16
             info.compress_type = zipfile.ZIP_DEFLATED
             archive.writestr(info, p.read_bytes())
+    (PUBLIC / 'annotations.json').write_text(json.dumps(annotations, ensure_ascii=False, indent=2) + '\n')
     (PUBLIC / 'verification.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     for lang, body in pages.items():
         target = ROOT / ('formalization.html' if lang == 'ru' else 'formalization.en.html')

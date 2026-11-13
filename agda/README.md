@@ -414,3 +414,21 @@ The build is integrated into `rebuild.sh`; `tools/watch.py` watches Agda sources
 The browser displays build-time verification results, not a local Agda execution.
 After model changes, rebuild the pages: the archive and manifest describe the
 published source snapshot.
+
+### Claim-level reading annotations
+
+`web_annotations.py` records reviewed links from numbered treatise sections to
+specific claims. Statuses distinguish proved model consequences, definitional
+contracts, open parameters, deliberate exclusions, and text not yet covered.
+A status never certifies an entire philosophical section. In particular, the
+listening exercises in §16 are not the observational criterion modeled for §17.
+
+After verification, `build_web.py` exports `formalization/annotations.json` with
+native Agda excerpts, definition links, and the verification snapshot hash. The
+main site builder rejects a stale snapshot. `tools/model_annotations.py` renders
+the reading notes and the separate RU/EN connection maps from that export and
+the parsed treatise. Graph edges represent explicit textual section references,
+not logical implication or formal proof dependencies.
+
+`rebuild.sh` verifies and exports the model before rebuilding the main site.
+The print edition is unchanged by these web-only annotations.
