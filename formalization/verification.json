@@ -88,9 +88,9 @@
     "agda/tests/reject/UnsolvedHole.agda": "afd049e7b7b3d15070d085e5c30347ddf5f2e272ec607d6d38bcbf2c62345cec",
     "agda/tests/reject/UnsupportedRecovery.agda": "b59c6848dae53b5559f9336724211275585ce89a2ac37ffb30af8b6d98b22847",
     "agda/tests/reject/ZeroWindow.agda": "aefc1c95d07e636aa99cbe1f086eb15d2f27ade7c70820e333ed6376c4599df9",
-    "agda/web_annotations.py": "faa65e43ac00bcbd2785ae7cb2a3a16a44bc487248c4ee5844003b851858c21d",
+    "agda/web_annotations.py": "92436d243a300965296c1ca24bdadd182bca515fa4c1db6edff6d516a21d6708",
     "agda/web_content.py": "67ae4aeaa1ef8e96ee5293d60ba6bfcb290c4d8043f46a9bb95b307d26313101",
     "agda/web_template.html": "bb7e375630ee91a93f381cad11c9eacdd7ce9626b1e0d08c8c436a1e479cdb54"
   },
-  "source_sha256": "d78239e2b52eaa14f7ca8abd25bc037af6010e2af75a81b432ed71d938e71763"
+  "source_sha256": "c078f235500b2b3ec74fb6ec38e45db68bf67ed2b8ded0ef2b94b7607f8e8032"
 }

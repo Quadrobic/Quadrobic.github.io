@@ -1,5 +1,5 @@
 {
-  "source_sha256": "d78239e2b52eaa14f7ca8abd25bc037af6010e2af75a81b432ed71d938e71763",
+  "source_sha256": "c078f235500b2b3ec74fb6ec38e45db68bf67ed2b8ded0ef2b94b7607f8e8032",
   "agda": "Agda version 2.8.0.2",
   "statuses": {
     "theorem": [
@@ -228,11 +228,11 @@
         "status": "excluded",
         "ru": [
           "Голос Хридаи - не данные",
-          "Хридая названа мистическим сердцем; содержание её голоса намеренно не кодируется. Наблюдения и последствия доступны модели; сама дверь не становится вычисляемым ответом."
+          "Хридая названа мистическим сердцем; содержание её голоса намеренно не кодируется. Наблюдения и последствия доступны модели; внутреннее узнавание не становится вычисляемым ответом."
         ],
         "en": [
           "Hridaya’s voice is not data",
-          "Hridaya is named the mystical heart; the content of its voice is deliberately not encoded. Observations and consequences can be modeled; the door itself does not become a computed answer."
+          "Hridaya is named the mystical heart; the content of its voice is deliberately not encoded. Observations and consequences can be modeled; inner recognition does not become a computed answer."
         ],
         "stage": "shadow"
       }
