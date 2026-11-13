@@ -482,3 +482,10 @@ shared practice to the Empire, is a philosophical account in the treatise.
 emergence from posture. Annotations for §§20, 25, and 30 mark these practical
 claims as not covered rather than presenting them as model theorems. The Source
 and Hridaya are not made consequences of bodily geometry.
+
+The bodily inhibition described in the revised §29 is a doctrinal account of
+mature ahimsa: protection of one's own living response extends to another's
+life. It is not a derived physiological law or a physical force encoded in Agda.
+The annotation is explicitly not covered. Necessary defense, errors despite
+attention, and the recurrence of pramada remain distinct; `Protection` does not
+prove a biological inability to injure another being.
