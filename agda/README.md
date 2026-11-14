@@ -489,3 +489,31 @@ life. It is not a derived physiological law or a physical force encoded in Agda.
 The annotation is explicitly not covered. Necessary defense, errors despite
 attention, and the recurrence of pramada remain distinct; `Protection` does not
 prove a biological inability to injure another being.
+
+## History, openings, and catalyst footing
+
+`iceAt initial h t` follows the classified actions of history `h` from its
+initial ice. `siddha-clears-ice` proves that eventual permanent flow clears
+that actual finite accumulation and keeps it clear thereafter. Its existential
+time is not a computable certificate from observations or a recovery deadline.
+Classification into `flow`, `grip`, and `pramada` is supplied externally:
+this is accounting, not an algorithm of discernment or a cause of action.
+
+`width` counts available responses as one plus nonnegative slack. Binding
+reduces slack by one, down to zero; flow increases it by one. `opening-remains`
+proves positive width throughout every history. The floor of one is the explicit
+representation of the doctrine's opening axiom. No response identities, real
+accessibility of flow, or empirical number of choices are inferred from it.
+
+`ReturningPower` now carries companion `Footing` in the concrete example;
+the general rule requires a `returning-supported` witness. This is distinct
+from `Support`, which requires an already open companion passage for local
+reopening. Footing can be found inside a captive circle before a new shared
+explosion. The example supplies a distinct companion explicitly; it does not
+model psychological adequacy of that support.
+
+`enclosure-source-not-siddha` excludes a currently liberated source of
+compression using `SiddhaFrom` at time zero of the encounter's history.
+`gripping-now` is an explicit contract connecting effective grasping to actions.
+Future eventual liberation alone cannot rule out present grasping. Captivity
+of other participants, including siddhas, remains possible.

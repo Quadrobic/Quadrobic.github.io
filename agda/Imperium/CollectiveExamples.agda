@@ -2,6 +2,8 @@
 
 module Imperium.CollectiveExamples where
 
+open import Imperium.Core using (flow; grip)
+
 open import Imperium.DeathStar
 open import Imperium.Empire using (Three; a; b; c)
 open import Data.Nat using (ℕ)
@@ -33,12 +35,19 @@ record Contribution : Set where
     intention : Choice
     influence : Influence
 
+-- Explicit companion footing; it need not be an already unlocked passage.
+record Footing (p : Three) : Set where
+  constructor footing
+  field
+    companion : Three
+    other : ¬ (companion ≡ p)
+
 Profile : Set
 Profile = Three → Contribution
 
 ReturnPower : Profile → Three → Set
 ReturnPower input p = (Contribution.intention (input p) ≡ reclaim) ×
-  (Contribution.influence (input p) ≡ shakti)
+  (Contribution.influence (input p) ≡ shakti) × Footing p
 
 GripPower : Profile → Three → Set
 GripPower input p = Contribution.influence (input p) ≡ kashaya
@@ -51,12 +60,23 @@ Possible : (Three → Position) → Profile → Outcome → Set
 Possible positions input explosion = Σ Three (λ p → positions p ≡ inside × ReturnPower input p)
 Possible positions input enclosure = Σ Three (λ p → positions p ≡ inside × GripPower input p)
 
+classify : Influence → Imperium.Core.Act
+classify kashaya = grip
+classify _ = flow
+
+grip-now : ∀ i → i ≡ kashaya → classify i ≡ grip
+grip-now kashaya refl = refl
+
 possibility-rule : CollectiveRule Three
 possibility-rule = record
   { Input = Profile
   ; choice = λ input p → Contribution.intention (input p)
   ; ReturningPower = ReturnPower ; GrippingPower = GripPower
   ; returning-choice = λ _ _ power → Data.Product.proj₁ power
+  ; Footing = λ _ p → Footing p
+  ; returning-supported = λ _ _ power → Data.Product.proj₂ (Data.Product.proj₂ power)
+  ; acts = λ input p _ → classify (Contribution.influence (input p))
+  ; gripping-now = λ input p power → grip-now (Contribution.influence (input p)) power
   ; Responds = Possible
   ; explosion-origin = λ _ _ effective → effective
   ; enclosure-origin = λ _ _ effective → effective
@@ -83,7 +103,7 @@ one-shakti b = contribution surrender quiet
 one-shakti c = contribution surrender quiet
 
 shakti-effective : EffectiveOutcome at-edge one-shakti explosion
-shakti-effective = a , refl , (refl , refl)
+shakti-effective = a , refl , (refl , refl , footing b (λ ()))
 
 shared-return : Gathering circle
 shared-return = burst at-edge (λ _ → 2)
@@ -126,7 +146,7 @@ contested b = contribution reclaim kashaya
 contested c = contribution reclaim quiet
 
 contested-explosion : RawStep at-edge shared-return
-contested-explosion = resolve-step refl contested explosion (a , refl , (refl , refl)) (λ _ → 2)
+contested-explosion = resolve-step refl contested explosion (a , refl , (refl , refl , footing b (λ ()))) (λ _ → 2)
 
 contested-enclosure : RawStep at-edge shared-capture
 contested-enclosure = resolve-step refl contested enclosure (b , refl , refl) (λ _ → 0)
@@ -151,7 +171,7 @@ rekindled : Gathering circle
 rekindled = approach shared-capture
 
 later-shakti-effective : EffectiveOutcome rekindled one-shakti explosion
-later-shakti-effective = a , refl , (refl , refl)
+later-shakti-effective = a , refl , (refl , refl , footing b (λ ()))
 
 later-shared-return : Gathering circle
 later-shared-return = burst rekindled (λ _ → 3)

@@ -29,6 +29,8 @@ open import Relation.Nullary using (yes; no; ¬_)
 ------------------------------------------------------------------------
 -- Actions and histories
 
+-- Classification is supplied externally by discernment. The model accounts
+-- for classified actions; it neither decides their meaning nor causes them.
 data Act : Set where
   flow : Act      -- movement leaves experience without binding the next action
   grip : Act      -- kashaya demands repetition; this is binding, not influx alone

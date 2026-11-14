@@ -51,3 +51,52 @@ pramada≢flow ()
 -- This counterexample prevents the old "no grip implies liberation" shortcut.
 heedless-not-siddha : ¬ Siddha (λ _ → pramada)
 heedless-not-siddha (T , free) = pramada≢flow (free T ≤-refl)
+
+-- State after t classified actions of this very history. Classification is
+-- supplied by discernment outside the model: accounting is not its cause.
+iceAt : ℕ → History → ℕ → ℕ
+iceAt initial h zero = initial
+iceAt initial h (suc t) = step (iceAt initial h t) (h t)
+
+-- Once permanent flow begins, the actual accumulated finite ice clears.
+flow-tail-clears : ∀ initial h T →
+  (∀ t → T Data.Nat.≤ t → h t ≡ flow) →
+  ∀ n → iceAt initial h (T + n) ≡ run n (iceAt initial h T) (λ _ → flow)
+flow-tail-clears initial h T free zero rewrite Data.Nat.Properties.+-identityʳ T = refl
+flow-tail-clears initial h T free (suc n)
+  rewrite +-suc T n | free (T + n) (Data.Nat.Properties.m≤m+n T n)
+        | flow-tail-clears initial h T free n = advance n (iceAt initial h T)
+  where
+    advance : ∀ n ice → step (run n ice (λ _ → flow)) flow ≡ run (suc n) ice (λ _ → flow)
+    advance zero ice = refl
+    advance (suc n) ice = advance n (pred ice)
+
+siddha-clears-ice : ∀ initial h → Siddha h →
+  Data.Product.Σ ℕ (λ T → ∀ n → iceAt initial h (T + n) ≡ zero)
+siddha-clears-ice initial h (T , free) = T + iceAt initial h T , cleared
+  where
+    cleared : ∀ n → iceAt initial h ((T + iceAt initial h T) + n) ≡ zero
+    cleared n rewrite Data.Nat.Properties.+-assoc T (iceAt initial h T) n
+      | flow-tail-clears initial h T free (iceAt initial h T + n) = drain (iceAt initial h T) n
+      where
+        drain : ∀ ice n → run (ice + n) ice (λ _ → flow) ≡ zero
+        drain zero n = flow-keeps-clear n
+        drain (suc ice) n = drain ice n
+
+-- Width is the number of available responses, represented by one plus slack.
+-- Binding narrows down to one; attentive flow expands. This floor is an
+-- explicit axiom of representation, not an empirical accessibility claim.
+widthStep : ℕ → Act → ℕ
+widthStep slack flow = suc slack
+widthStep slack grip = pred slack
+widthStep slack pramada = pred slack
+
+slackAt : ℕ → History → ℕ → ℕ
+slackAt initial h zero = initial
+slackAt initial h (suc t) = widthStep (slackAt initial h t) (h t)
+
+width : ℕ → History → ℕ → ℕ
+width initial h t = suc (slackAt initial h t)
+
+opening-remains : ∀ initial h t → 0 Data.Nat.< width initial h t
+opening-remains initial h t = Data.Nat.s≤s Data.Nat.z≤n

@@ -44,6 +44,9 @@ record ModelContracts : Set₁ where
 -- Unlike ct-*, the target's safety is not a transition premise.
 record Theorems : Set₁ where
   field
+    thm-siddha-clears-ice : ∀ initial h → Siddha h →
+      Σ ℕ (λ T → ∀ n → Ice.iceAt initial h (T + n) ≡ 0)
+    thm-opening-remains : ∀ initial h t → Data.Nat._<_ 0 (Ice.width initial h t)
     thm-ice-grip-growth : ∀ count ice → Ice.run count ice (λ _ → grip) ≡ count + ice
     thm-ice-pramada-growth : ∀ count ice → Ice.run count ice (λ _ → pramada) ≡ count + ice
     thm-ice-flow-clears : ∀ ice → Ice.run ice ice (λ _ → flow) ≡ 0
@@ -112,7 +115,9 @@ model-contracts = record
 
 verified-theorems : Theorems
 verified-theorems = record
-  { thm-ice-grip-growth = Ice.grip-grows
+  { thm-siddha-clears-ice = Ice.siddha-clears-ice
+  ; thm-opening-remains = Ice.opening-remains
+  ; thm-ice-grip-growth = Ice.grip-grows
   ; thm-ice-pramada-growth = Ice.pramada-grows
   ; thm-ice-flow-clears = Ice.flow-clears
   ; thm-pramada-not-siddha = Ice.heedless-not-siddha

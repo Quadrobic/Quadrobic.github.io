@@ -48,18 +48,18 @@
   "files": {
     "agda/.gitignore": "63ad7890e98c1592d4fa793cc61ad5c29ed6b4ce4460d9674622bc494ea42cd6",
     "agda/All.agda": "9e024411e0f881f0d9458952bbfd999e78b9cffdd14e0058a060604381cdad22",
-    "agda/Imperium/Axioms.agda": "935fe436858105782962aa4d09b2f0114dd59e87904764d084c75a911741659f",
+    "agda/Imperium/Axioms.agda": "2e3f6b3b3a906af27b844a82e09498f9a01ebe56f2ed6debe8e1aa7fb2e9d8c0",
     "agda/Imperium/Checks.agda": "2e862fccedfb9def9f82b1c60e26e2a5f225c25a66344afa11818e2e089ef228",
-    "agda/Imperium/CollectiveExamples.agda": "fb1da89ac6212a08b99e9c7d46b72bf1167cbfb837daafaf18188d9223cbbe16",
-    "agda/Imperium/Core.agda": "a0f796c8c92e9b5a6e84f8cfc786a4b334817431e44f89e31d29733550d5eac4",
-    "agda/Imperium/DeathStar.agda": "6c0783f59391b491edb1867ec28e8544da5ae02200265d0d4e2140d54c5a684c",
+    "agda/Imperium/CollectiveExamples.agda": "753362103c7e3744a92206b3f29d260bc65fc3232a430c85c22a5537a206247f",
+    "agda/Imperium/Core.agda": "e16fb103fc2b2f806aa67e22969b51c5799e5a97f563602f6f19c7a84b38ccaa",
+    "agda/Imperium/DeathStar.agda": "ef5c497537bd2a21abc2f89b3518b76ef4922accd2085d30d6b4cb9bf446a412",
     "agda/Imperium/Empire.agda": "52f7596a5a04796581b9c01a1a4d65639586faed9c15d56c4e77fe5a6900f6ef",
-    "agda/Imperium/IceDynamics.agda": "a9924b74139ad80da639272e67a312e0873911af5484d010a3d9a7e684052001",
+    "agda/Imperium/IceDynamics.agda": "8d887f6e9314732cd1f325ae6bc631952c6157b8372065b450e90c29c2da3408",
     "agda/Imperium/Protection.agda": "2de02d9ca6de9bbb9009ee861b8ef25732f54151880824852d113d93a57e1d58",
     "agda/Imperium/Roles.agda": "2eb108bc63401fcd61bc32a0a490f5a667beadd1e813425d5049b4a0279cf775",
     "agda/Imperium/Signs.agda": "0b4b08fd7e791ce280bd5e61a38dd44ca91b75791a4f1666a0e4868a6ad5c935",
     "agda/Imperium/Structure.agda": "8a8f1dfd7778b4ea12268334f7253ef33bf171cdc167ac47a72a85aa94fd81a5",
-    "agda/README.md": "922f9397e6378d54062aae7627594994d030802c064574956dc2a6b0043e0235",
+    "agda/README.md": "310618d2e7b399df12757bfeceda9fbf0cc8e22235a693e7c8ae62fa73a4ff4b",
     "agda/build_web.py": "977666859df637cf4027db599eea058b1645f0ddcb2405a774e6cd44360da0cd",
     "agda/check.py": "8f23fd16323cad5489ceaf3689f7945118bcb276dd5e608a238ebfabd6697cb2",
     "agda/imperium.agda-lib": "4e3d561897fe1e031ae0f59680fba2c1638cefe6a16d64d6a03cceb1f355ac2c",
@@ -92,5 +92,5 @@
     "agda/web_content.py": "67ae4aeaa1ef8e96ee5293d60ba6bfcb290c4d8043f46a9bb95b307d26313101",
     "agda/web_template.html": "bb7e375630ee91a93f381cad11c9eacdd7ce9626b1e0d08c8c436a1e479cdb54"
   },
-  "source_sha256": "c078f235500b2b3ec74fb6ec38e45db68bf67ed2b8ded0ef2b94b7607f8e8032"
+  "source_sha256": "d0967db308d1341bd2cffb0731fceaab982db3dca10ffb4fd309afc68b294a88"
 }

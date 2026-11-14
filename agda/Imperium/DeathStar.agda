@@ -2,6 +2,9 @@
 
 module Imperium.DeathStar where
 
+open import Imperium.Core using (History; SiddhaFrom; flow; grip; grip≢flow)
+open import Data.Nat.Properties using (≤-refl)
+
 open import Data.Empty using (⊥; ⊥-elim)
 open import Data.Unit using (⊤; tt)
 open import Data.Nat using (ℕ; zero; suc)
@@ -39,11 +42,29 @@ record CollectiveRule (Person : Set) : Set₁ where
     -- A returning catalyst must make its own reclaim choice. Other participants
     -- need not agree; kashaya may remain effective despite a reclaim intention.
     returning-choice : ∀ input p → ReturningPower input p → choice input p ≡ reclaim
+    -- Histories start at the current encounter. Eventual future liberation
+    -- alone cannot exclude grasping now; use SiddhaFrom at the present.
+    -- Catalyst footing is distinct from local passage-reopening Support:
+    -- a captive circle may still find footing for a new collective explosion.
+    Footing : Input → Person → Set
+    returning-supported : ∀ input p → ReturningPower input p → Footing input p
+    acts : Input → Person → History
+    gripping-now : ∀ input p → GrippingPower input p → acts input p 0 ≡ grip
     Responds : (Person → Position) → Input → Outcome → Set
     explosion-origin : ∀ positions input → Responds positions input explosion →
       Σ Person (λ p → positions p ≡ inside × ReturningPower input p)
     enclosure-origin : ∀ positions input → Responds positions input enclosure →
       Σ Person (λ p → positions p ≡ inside × GrippingPower input p)
+
+enclosure-source-not-siddha : ∀ {P} (r : CollectiveRule P) positions input →
+  CollectiveRule.Responds r positions input enclosure →
+  Σ P (λ p → positions p ≡ inside × ¬ SiddhaFrom (CollectiveRule.acts r input p) 0)
+enclosure-source-not-siddha r positions input effective =
+  p , proj₁ (proj₂ origin) , (λ free → grip≢flow
+    (trans (sym (CollectiveRule.gripping-now r input p (proj₂ (proj₂ origin)))) (free 0 ≤-refl)))
+  where
+    origin = CollectiveRule.enclosure-origin r positions input effective
+    p = proj₁ origin
 
 -- Membership and riverbed identities form a representation contract. The collective
 -- response rule is supplied explicitly rather than hidden inside proofs.
@@ -363,3 +384,14 @@ closed-circle-no-support : ∀ {C} (g : Gathering C) →
   (∀ q → passage g q ≡ shut) → ∀ p → ¬ Support g p
 closed-circle-no-support g closed p support =
   shut≢open (trans (sym (closed (Support.companion support))) (Support.available support))
+
+explosion-has-footing : ∀ {C} (g : Gathering C) input →
+  EffectiveOutcome g input explosion →
+  Σ (Circle.Person C) (λ p → position g p ≡ inside ×
+    CollectiveRule.Footing (Circle.rule C) input p)
+explosion-has-footing {C} g input effective =
+  p , proj₁ (proj₂ origin) , CollectiveRule.returning-supported
+    (Circle.rule C) input p (proj₂ (proj₂ origin))
+  where
+    origin = CollectiveRule.explosion-origin (Circle.rule C) (position g) input effective
+    p = proj₁ origin
