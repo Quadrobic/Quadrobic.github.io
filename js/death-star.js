@@ -9,7 +9,7 @@
   const lines = [...section.querySelectorAll(".star-line")];
   const button = section.querySelector(".star-return");
   const heading = section.querySelector("h3");
-  const conclusion = document.getElementById("p39") || document.getElementById("conclusion");
+  const conclusion = document.getElementById("conclusion");
   let active = false, dismissed = false, released = false;
   let returning = false;
   let scheduled = false, previousY = window.scrollY;

@@ -102,6 +102,12 @@ def render_book(book, book_index) -> str:
         if invocation_lines:
             parts.append('<p class="invocation-block">' + "<br />\n".join(invocation_lines) + "</p>")
 
+    elif book["kind"] == "afterword":
+        for sec in book["sections"]:
+            if sec["num"]:
+                parts.append(f'<h3>§{sec["num"]}. {sec["title"]}</h3>')
+            parts.extend(render_blocks(sec["blocks"]))
+
     elif book["kind"] == "glossary":
         parts.append(f"<h2>{book_heading(book)}</h2>")
         items = []

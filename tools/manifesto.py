@@ -184,7 +184,9 @@ def parse(md: str, lang: str = "ru") -> dict:
             title = stripped[3:].strip()
             glyph, _, rest = title.partition(" ")
             current_book = {"glyph": glyph, "title": rest, "sections": [], "kind": "book"}
-            if rest.startswith(kind_words["conclusion"]):
+            if rest in ("Послесловие", "Afterword"):
+                current_book["kind"] = "afterword"
+            elif rest.startswith(kind_words["conclusion"]):
                 current_book["kind"] = "conclusion"
             elif rest.startswith(kind_words["glossary"]):
                 current_book["kind"] = "glossary"

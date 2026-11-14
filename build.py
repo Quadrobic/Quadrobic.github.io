@@ -227,6 +227,8 @@ def render_book(book, book_index, lang, snapshot=None):
   </div>
 </section>
 """
+    elif book["kind"] == "afterword":
+        return '<section class="book" id="afterword" data-mood="calm"><div class="book-body">' + render_sections(book["sections"], lang, snapshot) + '</div></section>'
     elif book["kind"] == "axioms":
         # Not a numbered "Книга" (it's a crystallization of the preceding
         # books, not a narrated one) - no roman-numeral badge, same as

@@ -522,21 +522,6 @@ Dispersed back into bodies and masks, the Death Star looks absurd to someone wat
 
 For those who stood inside the circle, this hour cannot be told as the book tells it. Age after age, people will dispute whether that night was the death of a star or the birth of the matter from which the next ones would form - and agree on only one thing: none who returned left the circle with the same face they brought into it, and most would not surrender the face gained in its place for any price.
 
-### §39. On the Outcome of the Shared Hour
-
-Those who returned named what they had lived the Death Star. What dies in it is the common center's claim to hold everything given to it. The ancient name chakra-ratna, the treasure of the chakravartin, turns here toward one who opens a path for others without claiming their Riverbeds. The ruler's wheel becomes a wheel of return.
-
-The celestial star gives an image to what the bodies experienced. While its core burns, pressure resists gravity; when support fails, the fall begins. The book takes two images from stellar death: darkness from which not even light returns, and an explosion giving the future the matter the center can no longer hold. The body's carbon, the bone's calcium, the blood's iron become names for a force returned. This comparison tells of the circle; it does not determine its outcome.
-
-A personal step changes the shared situation. The circle has one center: whether it holds or breaks, whether the passage is open or closed, is shared by everyone still inside. One jiva can change the conditions in which others choose without choosing for them. When even one remains themselves and finds support, their Shakti can become a core the fall cannot compress. Then it bursts outward: the passage opens for the whole circle. An open door is not yet a path walked. Each returns through their own movement, in their own time, along their own Riverbed; no one must repeat another's path.
-
-The same truth has a dark side. One person's kashaya, becoming effective, can close the center over everyone. The passage closes even for those who wanted to return. The tales remember such nights. Thus “the Empire locks no one in” is not a law of the circle but a commitment of companions: to prevent closure, and if it occurs, not to abandon those trapped. A captive's effort alone does not suffice to reopen the passage: another's support (§12) or a new shared explosion is needed.
-
-Siddhas in the circle are living support for choice: there is no ice in them, and nothing for the center to grip. Those in whom the grip is still alive can remember another movement beside them. The Emperor does not command. Beside him it is easier to feel one's own edge again, almost lost in the common fall. Support does not choose for the one standing upon it: it helps open the passage, while each person's return remains their own.
-
-The explosion removes the wall's rule while preserving the jiva's own edge. Their shadow stays with them; what has returned must still find form in life. Broken ice becomes material for new forms, but the experience does not repair harm done or certify siddhahood. The depth of change is judged by the days that follow.
-
-Fear of losing familiar support can resemble fear of real danger. The intensity of the experience alone cannot tell them apart. Whoever straightens before the others does not betray the circle. If the circle cannot let go, it is already holding by what it came to release.
 
 ---
 
@@ -671,3 +656,23 @@ This is the rarest practice the Empire consciously convenes. The Death Star (Boo
 - **Chakravartin** - the universal sovereign; here the image turns toward one who opens a path for others without claiming their Riverbeds. The book gives this sovereign's wheel, chakra-ratna, the name Death Star.
 - **Black sun** - the instant of collapse in the Death Star: a light that does not reflect but absorbs.
 - **Death Star (chakra-ratna)** - the rarest shared experience of the center's collapse. Everyone still inside shares one outcome: the passage opens or closes; each retains their personal step at the brink and their own path afterward. One jiva's Shakti can open the passage for many; another's effective kashaya can imprison everyone. Explosion kills the center's rule, not the jiva or their shadow; bound force becomes material for new forms. An open passage certifies neither return nor siddhahood. Not a goal of practice (§§38–39).
+
+---
+
+## 🜁 Afterword
+
+### §39. On the Outcome of the Shared Hour
+
+Those who returned named what they had lived the Death Star. What dies in it is the common center's claim to hold everything given to it. The ancient name chakra-ratna, the treasure of the chakravartin, turns here toward one who opens a path for others without claiming their Riverbeds. The ruler's wheel becomes a wheel of return.
+
+The celestial star gives an image to what the bodies experienced. While its core burns, pressure resists gravity; when support fails, the fall begins. The book takes two images from stellar death: darkness from which not even light returns, and an explosion giving the future the matter the center can no longer hold. The body's carbon, the bone's calcium, the blood's iron become names for a force returned. This comparison tells of the circle; it does not determine its outcome.
+
+A personal step changes the shared situation. The circle has one center: whether it holds or breaks, whether the passage is open or closed, is shared by everyone still inside. One jiva can change the conditions in which others choose without choosing for them. When even one remains themselves and finds support, their Shakti can become a core the fall cannot compress. Then it bursts outward: the passage opens for the whole circle. An open door is not yet a path walked. Each returns through their own movement, in their own time, along their own Riverbed; no one must repeat another's path.
+
+The same truth has a dark side. One person's kashaya, becoming effective, can close the center over everyone. The passage closes even for those who wanted to return. The tales remember such nights. Thus “the Empire locks no one in” is not a law of the circle but a commitment of companions: to prevent closure, and if it occurs, not to abandon those trapped. A captive's effort alone does not suffice to reopen the passage: another's support (§12) or a new shared explosion is needed.
+
+Siddhas in the circle are living support for choice: there is no ice in them, and nothing for the center to grip. Those in whom the grip is still alive can remember another movement beside them. The Emperor does not command. Beside him it is easier to feel one's own edge again, almost lost in the common fall. Support does not choose for the one standing upon it: it helps open the passage, while each person's return remains their own.
+
+The explosion removes the wall's rule while preserving the jiva's own edge. Their shadow stays with them; what has returned must still find form in life. Broken ice becomes material for new forms, but the experience does not repair harm done or certify siddhahood. The depth of change is judged by the days that follow.
+
+Fear of losing familiar support can resemble fear of real danger. The intensity of the experience alone cannot tell them apart. Whoever straightens before the others does not betray the circle. If the circle cannot let go, it is already holding by what it came to release.

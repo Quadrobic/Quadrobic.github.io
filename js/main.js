@@ -105,7 +105,7 @@
 
   function scrollToTarget(id) {
     const sealed = document.documentElement.classList.contains("star-sealed");
-    const el = sealed && (id === "conclusion" || id === "practices")
+    const el = sealed && (id === "conclusion" || id === "practices" || id === "p39" || id === "afterword")
       ? document.querySelector(".star-return") : document.getElementById(id);
     if (!el) return;
     window.dispatchEvent(new Event("reading:jump"));
