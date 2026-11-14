@@ -70,7 +70,8 @@ def book_heading(book) -> str:
 def render_book(book, book_index) -> str:
     parts = []
     if book["kind"] in ("book", "practices"):
-        parts.append(f"<h2>{book_heading(book)}</h2>")
+        heading_class = ' class="body-threshold"' if book_index == 5 else ""
+        parts.append(f"<h2{heading_class}>{book_heading(book)}</h2>")
         for sec in book["sections"]:
             if sec["num"] is None and sec["title"] is None and not sec["blocks"]:
                 continue
