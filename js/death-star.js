@@ -9,7 +9,7 @@
   const lines = [...section.querySelectorAll(".star-line")];
   const button = section.querySelector(".star-return");
   const heading = section.querySelector("h3");
-  const conclusion = document.getElementById("conclusion");
+  const conclusion = document.getElementById("p39") || document.getElementById("conclusion");
   let active = false, dismissed = false, released = false;
   let returning = false;
   let scheduled = false, previousY = window.scrollY;
@@ -197,7 +197,7 @@
         { transform: "scale(1)", opacity: 1, offset: 0.45 },
         { transform: "scale(1.15)", opacity: 0 },
       ], { duration: 1400, easing: "ease-out", fill: "forwards" }));
-      // Cross to the conclusion behind the expanding light, then let it clear.
+      // Continue to the commentary (or conclusion in older translations).
       await new Promise((resolve) => setTimeout(resolve, 520));
     }
     dismissed = true;
@@ -208,7 +208,7 @@
     window.dispatchEvent(new Event("reading:jump"));
     if (window.__lenis) window.__lenis.scrollTo(conclusion, { offset: -40, immediate: true });
     else window.scrollTo({ top: scrollY + conclusion.getBoundingClientRect().top - 40, behavior: "instant" });
-    const title = conclusion.querySelector("h2") || conclusion;
+    const title = conclusion.querySelector("h2, h3") || conclusion;
     title.tabIndex = -1;
     title.focus({ preventScroll: true });
     await Promise.all(animations.map((animation) => animation.finished.catch(() => {})));
