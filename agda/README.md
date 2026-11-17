@@ -47,6 +47,7 @@ This project does not claim Cubical Agda compatibility.
 | --- | --- |
 | `Imperium/Core.agda` | Histories, two extensions of any finite past, and impossibility of finite certification or condemnation. |
 | `Imperium/IceDynamics.agda` | An explicit unit accretion/erosion contract, multi-step consequences, and the distinction between absent grasping and absent heedlessness. |
+| `Imperium/Witness.agda` | Conditional inner aliasing and outer discrimination; a consistent sample; counterexamples to a universal report-based oracle. No data about Svabhava or Hridaya. |
 | `Imperium/Signs.agda` | Nonempty observation windows, adjacent-sample trends, consecutive windows, revocable recognition, and observational independence. |
 | `Imperium/Empire.agda` | A nonempty Empire; distinct support, appropriated authority, and voice relations; three concrete networks. |
 | `Imperium/Roles.agda` | The Emperor's role combines actual support with observed recognition; neither direction implies eventual liberation. |
@@ -530,3 +531,37 @@ Sadhana and the conclusion have reading-only markers and no invented proof statu
 Entries without verified destination URLs retain a plain bibliographic title.
 Keep source titles, dates, and the scope of study results explicit. Never infer
 quadrobic efficacy, metaphysical truth, or group safety from an adjacent citation.
+
+### Witness: immediacy is not an oracle about form
+
+`Witness.agda` models reports about acts, not Svabhava, Hridaya, or the entire
+Riverbed. An inner `Feeling` and an encounter `Reply` have distinct roles.
+`Perception` is an idealized discriminating window: grip and pramada share flow's
+inner report, while the encounter returns different reports. These are explicit
+**contracts**, not theorems of human psychology or guarantees for every witness.
+
+Under those contracts, `no-inner-criterion-grip` and
+`no-inner-criterion-pramada` propagate equal inputs through any verdict function.
+`outer-separates-*` and `reads-*` derive the promised discrimination from the
+outer adequacy assumptions. `sample` inhabits the contracts. `Verdict.binding`
+includes both grip and pramada without identifying their `Act` constructors.
+
+The unrestricted `Observation` examples deliberately expose the limit of the
+ideal window. `noticed-grip` allows self-noticing; `hidden-grip` and
+`free-with-room` have the same outer reply despite different acts.
+`no-universal-inner` and `no-universal-outer` therefore rule out universal
+classifiers of these one-bit reports over the allowed observations. This does
+not rule out richer observation, learning, or any particular person's discernment.
+`no-room` is not a measure of harm; minimal protection and the consequences of
+an attentive mistake require context not represented by this bit.
+
+The three witness rejection fixtures reject an inner feeling used as a
+certificate, a universalized outer decoder, and impossibility of self-noticing.
+The complete suite now expects 28 rejections. Ordinary reports are not wired
+into `Signs.Observations`: accuracy of trend scores remains a separate parameter.
+
+The prose distinguishes revisiting a judgment from undoing an action. Existing
+recognition-window theorems remain valid: a later window can fail its criterion.
+They do not reverse a choice or erase recorded injury. The personal authorship
+of a choice and a companion's responsibility for advice or pressure are not
+encoded by Witness or by an additional oracle.

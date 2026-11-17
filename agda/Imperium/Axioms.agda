@@ -4,6 +4,7 @@ module Imperium.Axioms where
 
 open import Imperium.Core
 open import Imperium.IceDynamics as Ice using ()
+open import Imperium.Witness as Witness using ()
 open import Imperium.Signs
 open import Imperium.Empire
 open import Imperium.Roles
@@ -24,6 +25,8 @@ open import Relation.Nullary using (¬_)
 -- Agda checks them, but they are not conclusions about the gathering's dynamics.
 record ModelContracts : Set₁ where
   field
+    -- An ideal discriminating window, not an oracle for all encounters.
+    ct-witness-window : Witness.Perception
     -- Unit accretion/erosion rates are representation contracts.
     ct-ice-flow : ∀ ice → Ice.step ice flow ≡ pred ice
     ct-ice-grip : ∀ ice → Ice.step ice grip ≡ suc ice
@@ -44,6 +47,17 @@ record ModelContracts : Set₁ where
 -- Unlike ct-*, the target's safety is not a transition premise.
 record Theorems : Set₁ where
   field
+    thm-witness-inner-grip : ∀ (P : Witness.Perception) (f : Witness.Feeling → Witness.Verdict) →
+      f (Witness.Perception.inner P flow) ≡ Witness.flowing →
+      f (Witness.Perception.inner P grip) ≡ Witness.flowing
+    thm-witness-inner-pramada : ∀ (P : Witness.Perception) (f : Witness.Feeling → Witness.Verdict) →
+      f (Witness.Perception.inner P flow) ≡ Witness.flowing →
+      f (Witness.Perception.inner P pramada) ≡ Witness.flowing
+    thm-witness-outer-separates : ∀ (P : Witness.Perception) →
+      ¬ (Witness.Perception.outer P flow ≡ Witness.Perception.outer P grip)
+    thm-witness-reads-grip : ∀ (P : Witness.Perception) →
+      Witness.Theorems.classify P (Witness.Perception.outer P grip) ≡ Witness.binding
+    thm-witness-no-oracle : ∀ f → ¬ Witness.ReadsAllOuter f
     thm-siddha-clears-ice : ∀ initial h → Siddha h →
       Σ ℕ (λ T → ∀ n → Ice.iceAt initial h (T + n) ≡ 0)
     thm-opening-remains : ∀ initial h t → Data.Nat._<_ 0 (Ice.width initial h t)
@@ -101,7 +115,8 @@ record Doctrine : Set₁ where
 
 model-contracts : ModelContracts
 model-contracts = record
-  { ct-ice-flow = λ _ → refl
+  { ct-witness-window = Witness.sample
+  ; ct-ice-flow = λ _ → refl
   ; ct-ice-grip = λ _ → refl
   ; ct-ice-pramada = λ _ → refl
   ; ct-initial-access = initial-access
@@ -115,7 +130,12 @@ model-contracts = record
 
 verified-theorems : Theorems
 verified-theorems = record
-  { thm-siddha-clears-ice = Ice.siddha-clears-ice
+  { thm-witness-inner-grip = Witness.Theorems.no-inner-criterion-grip
+  ; thm-witness-inner-pramada = Witness.Theorems.no-inner-criterion-pramada
+  ; thm-witness-outer-separates = Witness.Theorems.outer-separates-grip
+  ; thm-witness-reads-grip = Witness.Theorems.reads-grip
+  ; thm-witness-no-oracle = Witness.no-universal-outer
+  ; thm-siddha-clears-ice = Ice.siddha-clears-ice
   ; thm-opening-remains = Ice.opening-remains
   ; thm-ice-grip-growth = Ice.grip-grows
   ; thm-ice-pramada-growth = Ice.pramada-grows

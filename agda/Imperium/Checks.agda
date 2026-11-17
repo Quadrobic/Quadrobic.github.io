@@ -11,6 +11,7 @@ open import Imperium.Protection
 open import Imperium.Structure
 open import Imperium.DeathStar
 open import Imperium.CollectiveExamples
+open import Imperium.Witness as Witness using ()
 open import Data.Empty using (⊥)
 open import Data.Unit using (⊤; tt)
 open import Data.Nat using (ℕ; zero; suc; z≤n; s≤s)
@@ -193,3 +194,19 @@ explosion-is-not-departure p = resolve-preserves-position at-edge explosion (λ 
 
 b-leaves-in-own-step : Exit shared-return b (leave shared-return b)
 b-leaves-in-own-step = depart refl refl
+
+-- Witness contracts certify only the selected discriminating window.
+witness-flow-read : Witness.Theorems.classify Witness.sample
+  (Witness.Perception.outer Witness.sample flow) ≡ Witness.flowing
+witness-flow-read = Witness.Theorems.reads-flow Witness.sample
+
+witness-pramada-read : Witness.Theorems.classify Witness.sample
+  (Witness.Perception.outer Witness.sample pramada) ≡ Witness.binding
+witness-pramada-read = Witness.Theorems.reads-pramada Witness.sample
+
+-- The general observations include noticed grasping and an aliased outer reply.
+witness-self-noticing : ¬ (Witness.Observation.feeling Witness.noticed-grip ≡ Witness.alive)
+witness-self-noticing = Witness.self-noticing-possible
+
+witness-no-outer-oracle : ¬ Witness.ReadsAllOuter (Witness.Theorems.classify Witness.sample)
+witness-no-outer-oracle = Witness.ideal-decoder-not-universal

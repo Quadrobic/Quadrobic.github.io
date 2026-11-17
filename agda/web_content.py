@@ -72,8 +72,35 @@ STAGES = [
             ("Structure", "acknowledge :", "data ShadowItem", False),
         ],
     },
+    {'id': 'witness',
+     'roman': 'VI',
+     'refs': '§§8, 16, 22',
+     'ru': ('Узнать движение, различить форму',
+            'Условная различимость',
+            'Witness отделяет внутренний отчёт от ответа встречи. В окне Perception хватка и прамада имеют тот '
+            'же внутренний отчёт, что flow. Любой критерий по этому отчёту даёт им один ответ. Различающий '
+            'внешний ответ позволяет читать выбранный признак связанности.',
+            'Совпадение внутренних отчётов и достаточность внешнего ответа - контракты окна, не законы о каждом '
+            'человеке. Verdict различает flowing и binding: прамада не переименована в хватку. Observation '
+            'допускает ошибочный внешний признак и замеченную изнутри хватку. Поэтому доказано и отсутствие '
+            'универсального внешнего классификатора для этих обычных наблюдений. Голос Хридаи, Свабхава и полная '
+            'форма Русла не кодируются.'),
+     'en': ('Know movement, discern form',
+            'Conditional distinguishability',
+            'Witness separates an inner report from an encounter response. In a Perception window, grasping and '
+            'pramada share flow’s inner report. Any criterion based on that report gives them the same answer. A '
+            'discriminating outer response lets the chosen binding feature be read.',
+            'Inner aliasing and outer adequacy are window contracts, not laws about every person. Verdict '
+            'distinguishes flowing from binding: pramada is not renamed grip. Observation permits a misleading '
+            'outer sign and directly noticed grasping. Consequently no universally correct outer classifier '
+            'exists for these ordinary observations either. Hridaya’s voice, Svabhava, and the entire Riverbed '
+            'form are not encoded.'),
+     'blocks': [('Witness', 'record Perception', 'module Theorems', False),
+                ('Witness', 'module Theorems', '-- INHABITANT', False),
+                ('Witness', 'sample :', '-- LIMITS', True),
+                ('Witness', 'record Observation', None, True)]},
     {
-        "id": "death-star", "roman": "VI", "refs": "§38",
+        "id": "death-star", "roman": "VII", "refs": "§§12, 38–39",
         "ru": ("Каждый выбирает - круг отвечает вместе", "Общее действие и инвариант",
                "Выбор принадлежит каждой Дживе, но действует на общий круг. Действенная Шакти одной способна открыть выход всем оставшимся; кашая другой - заточить всех, даже намеренных вернуться. Личный шаг остаётся у каждого; общий исход один для всех внутри. Открытый проход ещё не есть личное возвращение: для выхода нужен собственный шаг. Восстановление после заточения требует опоры другого с открытым проходом; новый взрыв открывает его всем.",
                "CollectiveRule отдельно задаёт, какой вклад оказался действенным. Ядро не назначает универсального победителя Шакти или кашаи и не вводит числовую меру их силы. Демонстрационная инстанция допускает оба исхода при конкурирующих вкладах; это пример возможностей, а не закон их столкновения. ReturningPower связан с собственным reclaim катализатора. Исключение смыкания из Admissible - нормативный выбор, а не доказанная невозможность. Теорема проверяет сохранение инварианта остальными допустимыми переходами; recovery-reopens условна относительно свидетельства опоры."),
@@ -96,7 +123,7 @@ STAGES = [
         ],
     },
     {
-        "id": "doctrine", "roman": "VII", "refs": "Doctrine",
+        "id": "doctrine", "roman": "VIII", "refs": "Doctrine",
         "ru": ("У каждого утверждения - свой статус", "Контракты ≠ следствия",
                "Doctrine хранит два раздела. ModelContracts показывает, что задано представлением модели. Theorems содержит доказанные при этих определениях следствия. Экземпляр imperium предъявляет обе части.",
                "Ни проверка типов, ни запись Doctrine не доказывают истинности всего учения. Если новый экземпляр не строится, это ещё не доказательство противоречия: может не хватать лемм или предпосылок."),
@@ -111,6 +138,9 @@ STAGES = [
 ]
 
 REJECTIONS = {
+    "InnerReportCertificate": ("Внутреннее чувство живого, выданное за сертификат свободы", "An alive inner report presented as a freedom certificate"),
+    "OuterReportCertificate": ("Идеальный внешний критерий, перенесённый на любую встречу", "An ideal outer criterion applied to any encounter"),
+    "SelfNoticingImpossible": ("Случай самообмана, выданный за невозможность заметить хватку самому", "An ambiguous case presented as impossibility of self-noticing"),
     "NegligenceIsSiddha": ("Отсутствие хватки при бесконечной прамаде, выданное за сиддху", "Endless pramada without grasping presented as siddhahood"),
     "NoNegligentAccretion": ("Небрежность, объявленная неспособной закрепить след", "Heedlessness declared unable to bind a trace"),
     "OneFlowErasesIce": ("Одно живое действие, выданное за полное очищение", "One flow action presented as complete clearing"),

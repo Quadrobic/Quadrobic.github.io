@@ -78,8 +78,8 @@ CLAIMS = {
         ('A nonzero observation window', 'Recognized requires positive length and checks every adjacent score pair. Scores are abstract; observational accuracy is not postulated.'), 'recognition',
         ('Signs', 'record Recognized', '-- A positive')),
         claim('theorem',
-        ('Признание обратимо', 'revocable предъявляет наблюдения: первое окно соответствует критерию, следующее - нет. Это конкретный свидетель обратимости, не теория психологии.'),
-        ('Recognition is revocable', 'revocable supplies observations where the first window meets the criterion and the next does not. This is a concrete witness, not a psychological theory.'), 'recognition',
+        ('Признание держится, пока держится ясность', 'revocable предъявляет наблюдения: первое окно соответствует критерию, следующее - нет. Это прекращение основания для признания, не отмена поступков или их последствий.'),
+        ('Recognition lasts while clarity lasts', 'revocable supplies observations where the first window meets the criterion and the next does not. The basis of recognition ends; acts and their consequences are not undone.'), 'recognition',
         ('Signs', 'revocable :', 'calm-gripping :'))],
     22: [claim('uncovered',
         ('Помощь и заёмный ответ', 'Различение помощи, зависимости от одобрения и присвоения формы пока не представлено в Agda. Сопоставления ниже дают внешние точки сравнения, а не доказательства устройства Русла.'),
@@ -159,3 +159,21 @@ CLAIMS = {
 
 # The afterword explains the shared-outcome structure narrated in §38.
 CLAIMS[39] = CLAIMS[38]
+
+# Witness separates conditional observation contracts from their consequences.
+CLAIMS[8] += [
+    claim('contract',
+          ('Окно различающего ответа', 'Perception задаёт случай, где внутренние отчёты совпадают, а ответы встречи различаются. Совпадение и достаточность ответа приняты как условия; внешний взгляд не объявлен безошибочным.'),
+          ('A discriminating-response window', 'Perception specifies a case where inner reports coincide and encounter responses differ. Aliasing and observational adequacy are assumptions; no observer is declared infallible.'), 'witness',
+          ('Witness', 'record Perception', 'module Theorems')),
+    claim('theorem',
+          ('Одного совпавшего отчёта недостаточно', 'В этом окне любой критерий Feeling → Verdict даёт одинаковый результат для flow и хватки или прамады. Доказательство не запрещает замечать хватку изнутри в других случаях и не измеряет Свабхаву.'),
+          ('An aliased report is insufficient', 'In this window any Feeling → Verdict criterion gives the same result for flow and grip or pramada. The proof neither excludes self-noticing elsewhere nor measures Svabhava.'), 'witness',
+          ('Witness', 'module Theorems', '-- INHABITANT')),
+]
+CLAIMS[22] += [
+    claim('theorem',
+          ('Чужой ответ тоже не универсальный судья', 'no-universal-outer использует обычные наблюдения, где одинаковый ответ сопровождает разные действия. Идеальный критерий окна нельзя перенести на всякую встречу. Три знака, полное Русло и самоузнавание не закодированы.'),
+          ('An outer report is no universal judge either', 'no-universal-outer uses ordinary observations where the same reply accompanies different acts. A window’s ideal decoder cannot classify every encounter. The three signs, entire Riverbed, and self-recognition are not encoded.'), 'witness',
+          ('Witness', 'ReadsAllInner :', None)),
+]

@@ -442,6 +442,18 @@ reading('miyazaki', [24, 29],
     'Чужая жизнь остаётся самостоятельной даже там, где человек узнаёт в ней своё. Сострадание не требует свести все стороны конфликта к одному голосу.',
     'Another life remains independent even where a human recognizes something familiar. Compassion does not require reducing every side of a conflict to one voice.')
 
+reading('mead-self', [8, 9, 22],
+    'George Herbert Mead. Mind, Self, and Society, §22: The “I” and the “me” (1934)', 'parallel',
+    'Различение отвечающего «Я» и социально организованного «Мне». Это не тождество Свабхавы и Русла: у Мида «Я» тоже принадлежит социальному процессу и узнаётся после действия, а не даётся как неизменная природа.',
+    'Distinguishes the responding “I” from the socially organized “me”. This is not an identity with Svabhava and Riverbed: Mead’s “I” also belongs to social process and becomes known after action, not as an unchanging nature.',
+    'https://brocku.ca/MeadProject/Mead/pubs2/mindself/Mead_1934_22.html')
+reading('cooley-self', [8],
+    'Charles H. Cooley. Human Nature and the Social Order, ch. V (1902; revised ed. 1922)', 'parallel',
+    '«Зеркальное я» включает воображаемое впечатление о себе и воображаемое суждение другого. Оно объясняет участие связи в образе себя, но не делает чужой взгляд прозрачным или безошибочным. Ссылка ведёт к пересмотренному изданию.',
+    'The looking-glass self includes imagined appearance and imagined judgment by another. It illuminates relationship in self-image without making another’s gaze transparent or infallible. The link is to the revised edition.',
+    'https://brocku.ca/MeadProject/Cooley/Cooley_1902/Cooley_1902f.html')
+
+
 
 def export_readings():
     """Resolve shared entries once per section; reject broken catalog references."""
