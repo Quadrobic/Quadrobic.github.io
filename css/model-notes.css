@@ -44,6 +44,11 @@
 .model-claim-links { display: flex; flex-wrap: wrap; gap: 9px 14px; margin-top: 12px; }
 .model-claim-links a { color: #cfb992; font: 11px/1.6 ui-monospace, monospace; text-decoration: none; border-bottom: 1px solid #526358; }
 .model-readings { margin-top: 18px; border-top: 1px solid #334d49; padding-top: 10px; }
+.model-literature { padding: 0 18px 18px; border-top: 1px solid #334d49; }
+.model-literature .model-readings { border-top: 0; margin-top: 0; padding-top: 14px; }
+.model-reading-kind { display: block; margin-bottom: 5px; color: #8faea0; font: 10px/1.5 ui-monospace, monospace; letter-spacing: .03em; }
+.model-reading-title { color: #d6c29f; font: 13px/1.6 var(--serif-body); overflow-wrap: anywhere; }
+.model-readings .model-reading-scope { color: #a7b6ab; font: 12px/1.6 var(--serif-body); margin: 12px 0; }
 .model-readings summary { cursor: pointer; color: #cfb992; font: 12px/1.6 ui-monospace, monospace; }
 .model-readings ul { padding-left: 18px; margin: 14px 0 0; }
 .model-readings li { margin-bottom: 16px; }
@@ -64,3 +69,4 @@
 }
 @media (prefers-reduced-motion: reduce) { .model-panel { animation: none; } }
 @media print { .model-marker, .model-panel, .model-entry, .model-note-slot { display: none !important; } .model-annotated > h3 { padding-left: 0; } }
+.model-context-marker { position: relative; inset: auto; margin-bottom: 12px; }

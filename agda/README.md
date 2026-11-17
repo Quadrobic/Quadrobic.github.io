@@ -517,3 +517,16 @@ compression using `SiddhaFrom` at time zero of the encounter's history.
 `gripping-now` is an explicit contract connecting effective grasping to actions.
 Future eventual liberation alone cannot rule out present grasping. Captivity
 of other participants, including siddhas, remains possible.
+
+### Contextual readings on the website
+
+`web_readings.py` holds the bilingual reading catalog and its section links.
+The web export includes it in the checked source snapshot and download archive,
+but a source hash does not verify a book's content or an empirical claim.
+Readings appear in closed disclosures after the model cards, independently of
+the claim statuses. Tradition, context, parallel, study, critique, and imagery
+are distinct labels; a comparison is not a declaration of direct influence.
+Sadhana and the conclusion have reading-only markers and no invented proof status.
+Entries without verified destination URLs retain a plain bibliographic title.
+Keep source titles, dates, and the scope of study results explicit. Never infer
+quadrobic efficacy, metaphysical truth, or group safety from an adjacent citation.

@@ -252,7 +252,7 @@ To lower the throne to the earth is to stand on four supports. The book calls th
 
 ### §19. On the Vertical and the Four Supports
 
-The human body learns to stand. Hands leave the earth, the head rises, the gaze acquires a height. From there it looks and learns distance; hearing meets the world from the body's position, touch measures it from the skin. The senses converge at a bodily point of reference. A measure of encounter is learned with it: higher means more important, lower more submissive. The body learns to hold dignity as though a single bow of the head could take it away.
+The human body learns to stand. Hands leave the earth, the head rises, the gaze acquires a height. From there it looks and learns distance; hearing meets the world from the body's position, touch measures it from the skin. The senses converge at a bodily point of reference. Another measure is attached to that height: higher means more important, lower more submissive. The body learns to hold dignity as though a single bow of the head could take it away.
 
 Four points of support return the hands to the earth. Weight is distributed differently; familiar height no longer determines the whole response. Distance, balance, a place for head and gaze must be found anew. The body that knew how to stand above an encounter learns to be within it. Afterward one can stand again without standing above another.
 
@@ -284,7 +284,7 @@ When the rejected returns, the jiva seeks a bank. A teacher's clarity, an adopte
 
 But a ready form still carries the measure of the person who gave it. The teacher helped name anger - now that anger needs to say “no” to the teacher. Here the bank's shape is revealed. If the answer can change with one's own need, what was borrowed enters one's own Riverbed (§7). If the need must be silenced again for the answer's sake, the form is reinforced: kashaya makes another's clarity a new mask and the teacher a center one fears to lose. Relief has no appointed expiry. Its adequacy is tested where life needs something the ready answer left no room for.
 
-A learned voice can speak an exact confession. A borrowed answer is therefore recognized through what happens after the words: can it bear the silence of the one who gave it; does meaning remain without their approval; can one ask and object without losing the right to one's own movement? This tests the form, not the purity of its origins. Encounter also cuts banks; another's word does not become ice merely because it came from another (§5, §7).
+A learned voice can speak an exact confession. Even refusal can be learned as a way to earn approval. A borrowed answer is therefore recognized through what happens after the words: can it bear the silence of the one who gave it; does meaning remain without their approval; can one ask and object without losing the right to one's own movement? This tests the form, not the purity of its origins. Encounter also cuts banks; another's word does not become ice merely because it came from another (§5, §7).
 
 Here the path passes between two dangers. One's own ice can freeze the gaze upon oneself (§11), so discernment needs another. Yet someone given the right to answer for the whole jiva becomes new ice. The Empire builds bonds so that help does not close around a single voice: there are many guides, recognition is revocable, there is no throne (Book Seven). Answers that differ leave the jiva work it cannot hand over to a teacher.
 
@@ -437,6 +437,8 @@ In service the inner meets the resistance of material: another's time, exhaustio
 The Empire is distributed like a mycelium, not built like a state: different Riverbeds resonate with different Emperors whose history of bends is closer to their own. The network gives each jiva a guide whose voice it can hear, not one voice for all.
 
 Different Emperors' voices can diverge: each expresses movement through its own Riverbed rather than deciding for the Source. In matters of its own path the jiva hears both voices and tests them with the same attention as any impulse (§16). No one's word replaces its discernment. But a shared task needs agreement, shared responsibility, and the possibility of revising a decision. A temporary measure for common work does not become a hierarchy of Riverbeds; refusing to recognize one eternal judge does not remove the need to hear each other.
+
+A throne can hide where its very name is forbidden. If a few decide and the rest do not know how to object, the mycelium has already grown an invisible crown. A shared task is therefore named aloud: who answers for it, what limits the decision, how it can be changed and withdrawn. What concerns many must remain open to their questions.
 
 Succession is not appointed by an act of will: that would repeat the very hierarchy quadrobic practice is meant to remove. It arises as an Emperor arises - through maturity witnessed by those who observed it in service year after year, not in a ceremony of transferred power.
 

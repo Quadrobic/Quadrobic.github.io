@@ -171,7 +171,7 @@ def render_star_blocks(blocks, lang):
     return "\n".join(parts)
 
 
-def render_sections(sections, lang="ru", snapshot=None):
+def render_sections(sections, lang="ru", snapshot=None, context=None):
     """Shared by "book" and "practices": a list of .passage articles, each
     with an optional heading (numbered "§N. Title" or, for a titled-but-
     unnumbered subsection, just "Title") and its blocks."""
@@ -190,6 +190,9 @@ def render_sections(sections, lang="ru", snapshot=None):
         mode_attr = ' data-star-reading="true"' if star else ""
         body = render_star_blocks(sec["blocks"], lang) if star else render_blocks(sec["blocks"])
         note = model_annotations.marker(snapshot, int(sec['num']), lang) if snapshot and sec['num'] and lang in ('ru', 'en') else ''
+        if snapshot and context:
+            note = model_annotations.context_marker(snapshot, context, lang)
+            context = None
         note_class = ' model-annotated' if note else ''
         sections_html.append(
             f'<article class="passage{note_class}"{id_attr}{mode_attr}>{header}{note}{body}</article>'
@@ -223,7 +226,7 @@ def render_book(book, book_index, lang, snapshot=None):
     <h2 class="book-title reveal-title">{book_title}</h2>
   </div>
   <div class="book-body">
-    {render_sections(book["sections"], lang, snapshot)}
+    {render_sections(book["sections"], lang, snapshot, context="sadhana")}
   </div>
 </section>
 """
@@ -256,13 +259,15 @@ def render_book(book, book_index, lang, snapshot=None):
         blocks = []
         for sec in book["sections"]:
             blocks.append(render_blocks(sec["blocks"]))
+        note = model_annotations.context_marker(snapshot, 'conclusion', lang) if snapshot else ''
+        context_class = ' model-context model-annotated' if note else ''
         return f"""
 <section class="conclusion" id="conclusion" data-mood="calm">
   <div class="book-divider">
     <span class="glyph-line" aria-hidden="true">△</span>
     <h2 class="book-title reveal-title">{book_title}</h2>
   </div>
-  <div class="book-body">{''.join(blocks)}</div>
+  <div class="book-body{context_class}">{note}{''.join(blocks)}</div>
 </section>
 """
     return ""

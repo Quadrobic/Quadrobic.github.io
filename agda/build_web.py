@@ -12,6 +12,7 @@ import zipfile
 
 from web_content import REJECTIONS, STAGES
 from web_annotations import CLAIMS, STATUSES
+from web_readings import KINDS, export_readings
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -203,7 +204,8 @@ def main():
     # Build all narrative excerpts before replacing any published page.
     pages = {lang: render(lang, raw, version, manifest) for lang in ('ru', 'en')}
     annotations = {'source_sha256': manifest['source_sha256'], 'agda': version,
-                   'statuses': STATUSES, 'claims': {}}
+                   'statuses': STATUSES, 'claims': {},
+                   'reading_kinds': KINDS, 'readings': export_readings()}
     for section, claims in CLAIMS.items():
         annotations['claims'][str(section)] = []
         for claim in claims:

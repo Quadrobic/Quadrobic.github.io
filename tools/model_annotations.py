@@ -53,6 +53,9 @@ UI = {
     'code': 'Проверенный фрагмент Agda', 'source': 'Определение в коде', 'more': 'Пояснение модели',
     'nocode': 'Для этого утверждения нет фрагмента Agda.',
     'readings': 'Сопоставления вне книги',
+    'reading_scope': 'Источники понятий, параллели и возражения. Соседство с теоремой не делает книгу или исследование частью доказательства Agda; сходство не означает прямого влияния.',
+    'reading_context_scope': 'Дополнительное чтение. Пометки поясняют характер связи с текстом.',
+    'sadhana': 'Садхана', 'conclusion': 'Заключение',
     'uncovered': 'Утверждения этого параграфа пока не представлены отдельными определениями или теоремами. Это не означает ни их доказанности, ни намеренного запрета формализации.',
     'uncovered_title': 'Пока за пределами покрытия',
     'title': 'Связи, не тождества.', 'eyebrow': 'КАРТА ТЕКСТА / AGDA',
@@ -71,6 +74,9 @@ UI = {
     'code': 'Checked Agda excerpt', 'source': 'Definition in the code', 'more': 'Model explanation',
     'nocode': 'There is no Agda excerpt for this claim.',
     'readings': 'Comparisons outside the book',
+    'reading_scope': 'Conceptual sources, comparisons, and objections. Proximity to a theorem does not make a book or study part of its Agda proof; resemblance does not imply direct influence.',
+    'reading_context_scope': 'Further reading. Labels explain the kind of connection to the text.',
+    'sadhana': 'Sadhana', 'conclusion': 'Conclusion',
     'uncovered': 'This section’s claims do not yet have dedicated definitions or theorems. This implies neither proof nor a deliberate exclusion from formalization.',
     'uncovered_title': 'Not yet covered',
     'title': 'Connections, not identities.', 'eyebrow': 'TEXT MAP / AGDA',
@@ -101,7 +107,21 @@ def badges(snapshot, claims, lang):
                    for status in dict.fromkeys(c['status'] for c in claims))
 
 
-def cards(snapshot, claims, lang):
+def readings(snapshot, section, lang):
+    items = snapshot.get('readings', {}).get(str(section), [])
+    if not items:
+        return ''
+    content = []
+    for item in items:
+        title = esc(item['title'])
+        if item.get('href'):
+            title = f'<a href="{esc(item["href"])}">{title}</a>'
+        kind = snapshot['reading_kinds'][item['kind']][0 if lang == 'ru' else 1]
+        content.append(f'<li><span class="model-reading-kind">{esc(kind)}</span><div class="model-reading-title">{title}</div><p>{esc(item[lang])}</p></li>')
+    return f'<details class="model-readings"><summary>{UI[lang]["readings"]}</summary><p class="model-reading-scope">{UI[lang]["reading_scope"]}</p><ul>{"".join(content)}</ul></details>'
+
+
+def cards(snapshot, claims, lang, number=None):
     ui = UI[lang]
     formal = 'formalization.html' if lang == 'ru' else 'formalization.en.html'
     result = []
@@ -111,11 +131,9 @@ def cards(snapshot, claims, lang):
         links = f'<a href="{esc(c["source"])}">{ui["source"]} ↗</a>' if c.get('source') else ''
         if c.get('stage'):
             links += f'<a href="{formal}#{esc(c["stage"])}">{ui["more"]} ↗</a>'
-        readings = ''
-        if c.get('readings'):
-            items = ''.join(f'<li><a href="{esc(r["href"])}">{esc(r["title"])}</a><p>{esc(r[lang])}</p></li>' for r in c['readings'])
-            readings = f'<details class="model-readings"><summary>{ui["readings"]}</summary><ul>{items}</ul></details>'
-        result.append(f'<section class="model-claim" data-status="{c["status"]}">{badges(snapshot, [c], lang)}<h4>{esc(title)}</h4><div class="model-claim-text">{esc(text)}</div>{code}<div class="model-claim-links">{links}</div>{readings}</section>')
+        result.append(f'<section class="model-claim" data-status="{c["status"]}">{badges(snapshot, [c], lang)}<h4>{esc(title)}</h4><div class="model-claim-text">{esc(text)}</div>{code}<div class="model-claim-links">{links}</div></section>')
+    if literature := readings(snapshot, number, lang):
+        result.append(f'<section class="model-literature">{literature}</section>')
     return ''.join(result)
 
 
@@ -127,6 +145,13 @@ def marker(snapshot, number, lang):
     label = f'{UI[lang]["status"]}, §{number}: ' + ', '.join(status_names(snapshot, claims, lang))
     dots = ''.join(f'<i data-status="{s}"></i>' for s in statuses)
     return f'<button class="model-marker" type="button" data-model-section="{number}" aria-label="{esc(label)}" aria-controls="model-panel" aria-expanded="false"><span class="model-hex" aria-hidden="true">{esc(snapshot["statuses"][statuses[0]][0])}</span><span class="model-dots" aria-hidden="true">{dots}</span></button><div class="model-note-slot" id="model-slot-{number}"></div>'
+
+
+def context_marker(snapshot, name, lang):
+    if lang not in UI or not snapshot.get('readings', {}).get(name):
+        return ''
+    label = UI[lang]['readings'] + ': ' + UI[lang][name]
+    return f'<button class="model-marker model-context-marker" type="button" data-model-section="{name}" aria-label="{esc(label)}" aria-controls="model-panel" aria-expanded="false"><span class="model-hex" aria-hidden="true">·</span></button><div class="model-note-slot" id="model-slot-{name}"></div>'
 
 
 def entries(doc):
@@ -155,12 +180,18 @@ def reading_ui(snapshot, doc, lang):
     actual = entries(doc)
     if set(snapshot['claims']) - {str(sec['number']) for sec in actual}:
         raise ValueError('Model annotations refer to missing treatise sections')
+    if set(snapshot.get('readings', {})) - ({str(sec['number']) for sec in actual} | {'sadhana', 'conclusion'}):
+        raise ValueError('Readings refer to missing treatise sections')
     for sec in actual:
         claims = section_claims(snapshot, sec['number'], lang)
         sections[str(sec['number'])] = {
             'title': f'§{sec["number"]}. {sec["title"]}',
-            'html': cards(snapshot, claims, lang),
+            'html': cards(snapshot, claims, lang, sec['number']),
         }
+    for name in ('sadhana', 'conclusion'):
+        if snapshot.get('readings', {}).get(name):
+            sections[name] = {'title': ui[name], 'html': f'<section class="model-literature">{readings(snapshot, name, lang)}</section>',
+                              'label': ui['readings'], 'scope': ui['reading_context_scope'], 'context': True}
     data = {'sections': sections, 'ui': ui, 'map': map_path}
     entry = f'<aside class="model-entry"><span class="model-entry-signal" aria-hidden="true">⊢</span><div>{ui["entry"]}<small>{ui["scope"]}</small></div><a href="{map_path}">{ui["map"]} ↗</a></aside>'
     panel = f'<aside id="model-panel" class="model-panel" data-model-panel data-lenis-prevent hidden aria-labelledby="model-panel-title"><header><span class="model-panel-label">{ui["status"]}</span><button type="button" data-model-close aria-label="{ui["close"]}">×</button></header><h3 id="model-panel-title"></h3><div class="model-panel-scope">{ui["scope"]}</div><div class="model-panel-content"></div><footer><a href="{map_path}" data-model-map>{ui["map"]} ↗</a></footer></aside>'
@@ -210,7 +241,7 @@ def render_map(snapshot, doc, lang):
         incoming = [s['number'] for s in sections if n in s['refs']]
         def refs(nums):
             return ' '.join(f'<a href="#map-p{v}" data-map-select="{v}">§{v}</a>' for v in nums) or ui['none']
-        details.append(f'<section class="map-detail" id="map-p{n}" data-map-detail="{n}"><div class="map-detail-number">§{n:02d}</div><h2 tabindex="-1">{esc(sec["title"])}</h2><a class="map-read" href="{index}#p{n}">{ui["read"]} ↗</a><div class="map-references"><div><b>{ui["out"]}</b>{refs(sec["refs"])}</div><div><b>{ui["in"]}</b>{refs(incoming)}</div></div>{cards(snapshot, claims, lang)}</section>')
+        details.append(f'<section class="map-detail" id="map-p{n}" data-map-detail="{n}"><div class="map-detail-number">§{n:02d}</div><h2 tabindex="-1">{esc(sec["title"])}</h2><a class="map-read" href="{index}#p{n}">{ui["read"]} ↗</a><div class="map-references"><div><b>{ui["out"]}</b>{refs(sec["refs"])}</div><div><b>{ui["in"]}</b>{refs(incoming)}</div></div>{cards(snapshot, claims, lang, n)}</section>')
         navigation.append(f'<a href="#map-p{n}" data-map-select="{n}"><span>§{n:02d}</span>{esc(sec["title"])}</a>')
     edges = sum(len(s['refs']) for s in sections)
     return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{ui['map']} · Agda</title><link rel="icon" href="logo/favicon.svg"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/model-notes.css"><link rel="stylesheet" href="css/model-map.css"></head>

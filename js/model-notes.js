@@ -1,4 +1,4 @@
-/* One claim inspector, shared by all numbered sections. No prose is replaced. */
+/* One inspector for model claims and contextual readings. No prose is replaced. */
 (function () {
   "use strict";
   const dataNode = document.getElementById("model-notes-data");
@@ -10,7 +10,8 @@
   let active = null, pinned = false, timer = 0, restoring = false;
   const cancel = () => clearTimeout(timer);
   const inside = (node) => node instanceof Node && panel.contains(node);
-  const inContext = (node) => inside(node) || (active && node instanceof Node && active.closest(".passage").contains(node));
+  const region = (button) => button.closest(".passage, .model-context");
+  const inContext = (node) => inside(node) || (active && node instanceof Node && region(active).contains(node));
   const trigger = (node) => node instanceof Element ? node.closest(".model-marker") : null;
 
   function refresh() {
@@ -33,7 +34,7 @@
   }
   function place() {
     if (!active) return;
-    const article = active.closest(".passage");
+    const article = region(active);
     const rect = article.getBoundingClientRect();
     const inline = !wide.matches || rect.right + 328 > innerWidth;
     const changed = panel.classList.contains("is-inline") !== inline;
@@ -55,8 +56,13 @@
     active = button; pinned = pin;
     const section = data.sections[button.dataset.modelSection];
     panel.querySelector("#model-panel-title").textContent = section.title;
+    panel.querySelector(".model-panel-label").textContent = section.label || data.ui.status;
+    panel.querySelector(".model-panel-scope").textContent = section.scope || data.ui.scope;
     panel.querySelector(".model-panel-content").innerHTML = section.html;
-    panel.querySelector("[data-model-map]").href = `${data.map}#map-p${button.dataset.modelSection}`;
+    panel.querySelector("footer").hidden = !!section.context;
+    const mapLink = panel.querySelector("[data-model-map]");
+    if (section.context) mapLink.removeAttribute("href");
+    else mapLink.href = `${data.map}#map-p${button.dataset.modelSection}`;
     panel.hidden = false;
     button.setAttribute("aria-expanded", "true");
     place();
