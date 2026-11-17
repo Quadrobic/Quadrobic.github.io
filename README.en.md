@@ -214,7 +214,9 @@ Three signs return discernment to three simple phrases: **does not fade with del
 
 **Can bear a name.** What is named before someone able to listen becomes more open to encounter. Embarrassment and the search for words do not disprove the voice. What is tested is the willingness to remain beside what has been heard and receive an answer, without softening its name or making that name a cage.
 
-The signs pass no sentence: they return hearing to what has happened to the Riverbed. The grip imitates all three: habit endures delay, pride lives on its own approval, a learned voice speaks an exact confession. So the signs are heard together with the consequences of action and the long course of the Riverbed. Recognition ripens over years; even a familiar voice must be distinguished from an echo.
+The signs pass no sentence: they return hearing to what has happened to the Riverbed. The grip imitates all three: habit endures delay, pride lives on its own approval, a learned voice speaks an exact confession.
+
+It cannot be caught within one's own repetition: an answer is needed that does not reduce to what the jiva already tells itself. Two signs need an actual other: approval is tested before a gaze able to disagree; a name before someone able to listen and answer. Their agreement does not become a condition of the voice. Alongside the signs one listens to the consequences of action and the Riverbed's long course (§17). Recognition ripens over years; even a familiar voice must be distinguished from an echo.
 
 When the signs disagree, they are not put to a vote. In their disagreement one seeks the living need and the grip entangled with it: what seeks encounter and what seeks recognition; where a word has not been found and where a name is being hidden. The need is given a smaller, reversible form that does not claim another's edge, and one looks at what has happened to the jiva and to others. What remains unclear is neither cast out nor raised into a vow. Necessary protection is given at once, and discernment continues afterward (§33).
 
@@ -236,45 +238,37 @@ What is heard must still find a way to move. The jiva already knows what it want
 
 ## 🜁 Book V. The Body and the Shadow
 
-### §18. On Perception's Point of Support
+### §18. On Order Written into the Body
 
-Until now the book has named things through images: throne, crown, wall, the height at which dignity is held. They were not only images.
+Until now the book has named things through images: throne, crown, wall, the height at which dignity is held. These were not only images.
 
-The throne rests where the body has learned to tower over another. The crown is carried by a neck that straightens under another's gaze. The wall rises in the throat before a word. Order did not wait to be written into law. It wrote itself into the spine, the gaze, the way the body decides for itself how much space to take when someone else enters.
+The throne stands where the body has learned to rise above another. The neck straightened under another's gaze bears the crown. The wall rises in the throat before a word. Order did not wait to be written into law. It wrote itself into the spine, the gaze, the way the body decides how much room to occupy when another enters.
+
+What was repressed is written there too. The body holds both the command and the movement it stopped: a hand prevented from completing a refusal, a voice cut short in the throat. The body is therefore the door to the shadow. Through it one must both descend from the familiar form and reclaim what that form gave no room.
 
 One can answer a word with “yes” and change nothing. Work that never reaches this support of the throne remains a conversation with it.
 
-To lower the throne to the ground is to stand on four supports. The book calls this quadrobics, and here the word means exactly that.
-
-After these words, the hands may stay where they are. Then it is worth lingering with what has already been heard: where agreement has become one's own, where it has remained a beautiful thought, what exactly holds the palms back. The mind can go on, leaving this question unanswered. But the experience will take a different path. One returns to listening until one's own desire to try emerges within it. Reluctance does not yet mean the jiva is unready: the body may need different support, time, trust. The posture is not assumed to prove one's maturity.
-
-Close your eyes - and the body still seeks support, knows the bend of the elbow, the weight of the head, the nearness of the ground. This knowledge needs no words. The senses do not enter the jiva separately: sight looks from a certain height, hearing meets the world from the body's position, touch knows distance from within the skin. Perception has a bodily point of reference. We seldom notice it while the position is familiar.
-
-A change of support lets one catch a response before it becomes the only one again: justify oneself, straighten under a gaze, hide the throat, hold the face. What has been heard is given another way to be present among things. Work with the body thus touches the same ice the jiva has already learned to notice in thought.
+To lower the throne to the earth is to stand on four supports. The book calls this quadrobics, and here the word means precisely that.
 
 ### §19. On the Vertical and the Four Supports
 
-The human body learns to stand. The spine becomes an axis, the head a summit, the hands are freed from the ground. From this possibility grow the embrace, the tool, and the sign of power. The vertical itself is not at fault; but with it the jiva easily learns another's measure: higher means greater, lower means more obedient. Axis, throne, tower, pillar give this measure visible shape. The field of fear (§10) clings to height, and the body learns to hold its dignity as though a single bow of the head could take it away.
+The human body learns to stand. Hands leave the earth, the head rises, the gaze acquires a height. From there it looks and learns distance; hearing meets the world from the body's position, touch measures it from the skin. The senses converge at a bodily point of reference. A measure of encounter is learned with it: higher means more important, lower more submissive. The body learns to hold dignity as though a single bow of the head could take it away.
 
-Four points of support return the hands to the ground. They share the body's fate again; weight is distributed differently, the head no longer bears the dignity of the whole jiva alone. Fourfootedness changes perception's point of reference, bringing it closer to the countless forms through which the Riverbed flowed before. It does not abolish every center of the body: it frees the familiar axis from the duty of being a throne. Afterward one can stand again without standing above another.
-
-In shared practice this takes on a further meaning. Close to the ground, it is harder to rely on the familiar picture of an encounter: one stands above and speaks, another looks up and listens. Companions learn to share space, notice another's distance, make room for movement, and stop when there is too little room. The arrangement of bodies alone does not remove power: one can command from one's knees. But here power is easier to catch in the very movement by which it demands that others yield. The Empire receives its first bodily exercise in living without a throne: share the earth without claiming another's support.
+Four points of support return the hands to the earth. Weight is distributed differently; familiar height no longer determines the whole response. Distance, balance, a place for head and gaze must be found anew. The body that knew how to stand above an encounter learns to be within it. Afterward one can stand again without standing above another.
 
 ### §20. On Removing the Mask
 
-When the practitioner gets down on all fours and puts on the mask, the social autopilot loses its familiar support. Here the mask relieves the face of its duty to keep representing someone to the world. The persona - a face for encounter - can serve the jiva; but once grown into the skin, it begins choosing what is allowed to be alive. The quadrobic mask interrupts this performance. From behind the familiar face comes what spent years in shadow: the raw material of the jiva, not yet reconciled with itself.
+On four supports the mask relieves the face of its duty to keep representing someone to the world. The persona mistaken for the face for years loses part of its bodily support: familiar height, gaze, ready answer. Lower quadrobics carries change to the place from which the role was performed before any decision. Beneath the mask one ceases continually to hold the familiar face.
 
-The practice is carried not by the geometry of the body but by intention: those who meet fourfootedness sitting, with palms on the floor or on the knees, are open to the same path as those standing on four supports at full strength. Form serves movement, not the other way around.
+Within the pause one hears the body continuing its former work: the jaw prepares a justification, the shoulder seeks to keep its superiority, the throat stops what has not yet been named. This is allowed to sound without fulfilling its first demand. Here an impulse meets delay, silence without approval, the possibility of receiving a name (§16). Room is freed for what the habitual response kept interrupting.
 
-The quadrobic state here names work within a pause: the familiar response loses its undivided rule, while one's own movement still needs to be heard. Fifteen to forty-five minutes are set aside; the interval sustains attention rather than promising that Hridaya will speak by its end. Here an impulse is tested by delay and by whether it needs approval (§16), noticing even the role the jiva still plays before itself. An experienced practitioner uses this time as a draft - a space where an impulse may sound fully before being carried into the world and tested in words before someone able to hear.
-
-This bodily work is lower quadrobics. Its primacy is the primacy of support: what is heard needs a place in breath, movement, refusal before it can withstand another's answer. “Lower” names the foundation of practice, not a person's worth. A form accessible to the body preserves the task: loosen automatism, notice the grip, remain beside what is not yet clear. Higher quadrobics carries this work further - giving a voice of its own to what this space was freed for (Book Six).
-
-Beside a companion the foundation becomes shared. One learns to remain without the familiar face and without buying approval; the other to stay near without demanding a performance or hurrying what is heard. Both may change position, increase the distance, ask for help, end early. Through repetition they come to know one another by how a request is met and a refusal respected. The Empire's first bond grows here: the experience of remaining oneself beside another. Every shared hour begins again with this simple work.
+Beside a companion the encounter itself changes. One remains without the familiar face, the other learns not to demand a performance; both share earth, distance, and time without assigning one another a place above or below. One can change position, ask for support, finish early. How a refusal is received and a request met reveals whether the space remains shared. The Empire's bodily work begins here (§30): sustain the encounter without holding the other captive within it.
 
 ### §21. On the Return of the Rejected
 
-The removed mask does not at once reveal a ready-made truth about the jiva. Before a clear voice comes what was long denied speech: rage forbidden to defend; the need for warmth taught to be ashamed of itself; strength that seemed dangerous to those who wanted the jiva obedient. Old ways of surviving emerge with them - please, strike first, disappear from another's gaze. All this belongs to its history. But belonging to the jiva does not yet mean speaking for the whole of it.
+The removed mask leaves a movement without its familiar ending. The hand that always yielded still rises at the old command - and for the first time pauses. In that pause what the command cut short returns: anger forbidden to protect, the pull toward warmth, the strength to push away. The shadow receives a voice through the same throat forced to silence it.
+
+With the need return the ways it once survived prohibition: please, strike first, disappear from another's gaze. All this belongs to the jiva's history. But belonging to it does not mean speaking for it as a whole.
 
 The return of the rejected begins with a simple and difficult acknowledgment: this too is mine. Neither foreign dirt to wash off nor a secret ruler to whom the body must now be surrendered. What is acknowledged receives a place at the common table, not the only throne. The jiva listens to what it seeks and what it tries to protect. Beneath the demand to destroy everything lies the unbearable narrowness of the old confines; beneath the wish to become indispensable, a hunger for connection. The need is heard, the grip loosened, the way of acting sought anew.
 
@@ -282,27 +276,29 @@ Here order sets two traps. The first commands that everything spoiling the good 
 
 One acknowledgment comes in a rush, another ripens quietly, demanding no upheaval. The measure is not the weight of what was endured, but the room that opens afterward: are there more ways to live, answer, connect, remain oneself? Support is needed to receive what returns without slamming the door or giving it the whole house.
 
+The removed mask leaves a familiar stretch of bank open. Movement needs form (§7), and another's ready word easily becomes its first support. One's own has yet to be found; another's clarity already stands nearby.
+
 ### §22. On the Voice That Cannot Be Borrowed
 
-When the rejected returns, another's ready-made clarity is easily mistaken for salvation: a teacher's voice, a practice taken over whole, a learned answer to one's own pain. The relief is real but temporary: the Riverbed flows under another's pressure while its own need remains unheard. The Empire and Emperors (Book Seven) exist so that beside a freer current one's own becomes clearer. The borrowed answer falls silent; the distinction one has found remains.
+When the rejected returns, the jiva seeks a bank. A teacher's clarity, an adopted practice, another's word for one's pain give movement form: instead of endless contraction one can name a need, ask, refuse, take a first step. Relief does come from this support. What is named before someone able to listen becomes more open to encounter (§16).
 
-The work in this dark middle of the path is to give what rises room and time, neither carrying out its first demand nor casting it out before it speaks in its own name. There is no need to prolong darkness for its own sake: what is heard is taken back into life, tested in encounter, revisited where it remains unclear. The jiva is reading its own history, not serving a sentence for it. The voice emerging among learned answers cannot be borrowed from any Emperor or any book, including this one.
+But a ready form still carries the measure of the person who gave it. The teacher helped name anger - now that anger needs to say “no” to the teacher. Here the bank's shape is revealed. If the answer can change with one's own need, what was borrowed enters one's own Riverbed (§7). If the need must be silenced again for the answer's sake, the form is reinforced: kashaya makes another's clarity a new mask and the teacher a center one fears to lose. Relief has no appointed expiry. Its adequacy is tested where life needs something the ready answer left no room for.
 
-Before it sounds, this voice speaks in learned voices - the masks the jiva has grown used to wearing: the voice of one who sacrifices for others and secretly enjoys the sacrifice; of one who behaves well to avoid being hated; of one who fears not death but ceasing to exist in the eyes of those who know them. Each truly belongs to its history. In each one must hear both the living need and the kashaya that grew around it, because once it seemed impossible to breathe without the mask.
+A learned voice can speak an exact confession. A borrowed answer is therefore recognized through what happens after the words: can it bear the silence of the one who gave it; does meaning remain without their approval; can one ask and object without losing the right to one's own movement? This tests the form, not the purity of its origins. Encounter also cuts banks; another's word does not become ice merely because it came from another (§5, §7).
 
-Service that needs praise is not a lie: care and the hunger to be needed live side by side in it. Kindness sustained by fear of abandonment is not made wholly of fear: life and the grip follow the same bend for a long time. These voices need neither complete justification nor expulsion. They are named before someone trusted, without deliberate embellishment - the same third sign (§16), turned upon a whole history. Not to destroy the need for another, but to let it speak in its own name.
+Here the path passes between two dangers. One's own ice can freeze the gaze upon oneself (§11), so discernment needs another. Yet someone given the right to answer for the whole jiva becomes new ice. The Empire builds bonds so that help does not close around a single voice: there are many guides, recognition is revocable, there is no throne (Book Seven). Answers that differ leave the jiva work it cannot hand over to a teacher.
 
-Once what has been named has sounded, the jiva is left not with an answer but with a question no longer asked in another's voice: who am I, if neither the role I was praised for nor the emptiness beneath it? In this moment it is neither rhetorical nor part of a rite: it sounds as though the jiva's continued existence depends on the answer. The answer comes not as a conclusion, but as what was always true and simply unnamed: I am neither the role nor the emptiness beneath it. I am what moves when neither answers for me anymore.
+That work does not mean casting out everything learned. Care and hunger to be needed coexist in service; warmth and fear of losing connection in kindness. The need is heard, the grip loosened, the way of acting sought anew. Once these voices have been named, a question remains that can no longer be asked in another's voice: who am I, if not the role for which I was praised, and not the emptiness beneath it?
 
-This movement is not alone, though fear of loneliness is what comes first. The jiva discovers its edge not in emptiness, but in bonds with companions who have known it long enough to tell voice from mask. The bond neither creates the voice nor owns it: it makes it audible - first of all to the jiva itself. Fear of losing this bond is natural; letting that fear speak for Hridaya again means putting back on the mask that was just named aloud.
+The answer emerges in movement: in one's own refusal, in a request no longer disguised as merit, in the strength to stay near without promising to become convenient. The jiva recognizes itself among encounters, not apart from them. Companions see different sides of its course; no one contains it whole, and their agreement does not make recognition final (§17).
 
-This bond has more than one face: one companion sees firmness in the jiva, another gentleness, a third a question still unanswered. Each reflection reveals a side and carries the risk of error; none contains the whole. When one movement emerges through their differences, the jiva first finds words to say not “this is how I am seen,” but “this is who I am.” Another's gaze has not assigned it a form: in meeting that gaze it has discerned for itself what it had not seen before. Neither the companions' agreement nor its own certainty makes this recognition final. The difference from an echo passing itself off as one's own voice is not whether the jiva is visible to others: it almost always is. What matters is what first answers that visibility within it: movement recognizing itself through encounter, or the grip replacing encounter with a demand for approval.
+Beside an Emperor one therefore seeks resonance (§32). Their clarity serves as a tuning fork: beside a tuned instrument it is easier to hear one's own tuning. They do not perform the jiva's voice for it. If attunement demands that everything sounding differently fall silent, the tuning fork has already become a command.
 
 ### §23. On Wholeness, Not Purity
 
 The path leads not to a bank cleansed of darkness, but to a Riverbed carrying darkness and light in one current without freezing from either. The shadow is everything the jiva has denied the right to be called its own. Rage and greed may live there, but so may tenderness, strength, laughter, the wish to live, once declared impermissible. To reclaim the shadow is to recognize all this as one's own and answer for the form it takes. Then what was rejected no longer needs to guide the hand secretly from behind.
 
-Wholeness is not purity: a whole Riverbed still has dark bends, but the jiva can hear them without giving any one of them the entire current. It need not become gentle or convenient. The strength to say “no,” defend an edge, interrupt a dead custom remains; the need to prove that strength by stopping another weakens. Thus the Riverbed becomes a current that warms neighboring banks. Wholeness is not a reward for completing the path, but its substance.
+Wholeness is not purity: a whole Riverbed still has dark bends, but the jiva can hear them without giving any one of them the entire current. It need not become gentle or convenient. The strength to say “no,” defend an edge, interrupt a dead custom remains; the need to prove that strength by stopping another weakens. Thus the Riverbed becomes a current that warms neighboring banks. Wholeness is not a reward for completing the path, but its substance. The body through which one learned to descend now learns not to cut short what has been reclaimed: sustain its own voice, let the hand finish a refusal, receive warmth it once recoiled from.
 
 And yet reclaiming the rejected does not mean knowing all that lives in the Riverbed. Beneath the names of this life remain movements to which this life has given neither body nor language. Behind some doors waits not a forgotten role, but a beast: an ancient way of moving, lying still, calling. It has yet to receive a voice in the present body.
 
@@ -547,7 +543,11 @@ Nothing said here comes for the first time. The movement to which these books ar
 
 ### Individual Practices of Lower Quadrobics
 
-The quadrobic posture: four supports, a mask, the removal of the familiar axis's rule, fifteen to forty-five minutes daily or every other day, in stillness or slow movement. This is the bodily foundation of the path (Book Five). Support is adapted to the body's abilities (§20), and duration grows with hearing: a missed day does not become a debt to the Empire.
+The quadrobic posture: four supports, a mask, the removal of the familiar axis's rule, fifteen to forty-five minutes daily or every other day, in stillness or slow movement. This is the bodily foundation of the path (Book Five). Fourfootedness takes a form accessible to the body: sitting, palms on the floor or knees, additional support. The task remains changing the familiar position rather than proving endurance.
+
+Duration grows with hearing. Reluctance to take the posture is not declared immaturity: the body may need time, trust, another support. A missed day does not become a debt to the Empire.
+
+Practice time serves as a draft: an impulse is allowed to sound before becoming an act. One notices the role still played before oneself and tests what can be tested through delay and lack of approval (§16). What becomes clearer is then carried into life and named before someone able to hear; the interval alone promises no clarity.
 
 ### Individual Practices of Higher Quadrobics
 

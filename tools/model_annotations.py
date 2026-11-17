@@ -52,10 +52,11 @@ UI = {
     'entry': 'У текста есть проверяемый слой. Метки на полях показывают его границы.',
     'code': 'Проверенный фрагмент Agda', 'source': 'Определение в коде', 'more': 'Пояснение модели',
     'nocode': 'Для этого утверждения нет фрагмента Agda.',
+    'readings': 'Сопоставления вне книги',
     'uncovered': 'Утверждения этого параграфа пока не представлены отдельными определениями или теоремами. Это не означает ни их доказанности, ни намеренного запрета формализации.',
     'uncovered_title': 'Пока за пределами покрытия',
     'title': 'Связи, не тождества.', 'eyebrow': 'КАРТА ТЕКСТА / AGDA',
-    'intro': '38 параграфов. Рёбра - явные ссылки §N в тексте, а не логическое следование. Выберите узел: рядом появятся точные утверждения и их статус.',
+    'intro': '{count} параграфов. Рёбра - явные ссылки §N в тексте, а не логическое следование. Выберите узел: рядом появятся точные утверждения и их статус.',
     'legend': 'Цвет каждого сегмента - статус отдельного утверждения. У одного параграфа их бывает несколько.',
     'out': 'Ссылается на', 'in': 'На него ссылаются', 'none': 'Нет ссылок',
     'read': 'Читать параграф', 'back': 'Трактат', 'formal': 'Формализация',
@@ -69,10 +70,11 @@ UI = {
     'entry': 'The text has a checkable layer. Margin markers show its boundaries.',
     'code': 'Checked Agda excerpt', 'source': 'Definition in the code', 'more': 'Model explanation',
     'nocode': 'There is no Agda excerpt for this claim.',
+    'readings': 'Comparisons outside the book',
     'uncovered': 'This section’s claims do not yet have dedicated definitions or theorems. This implies neither proof nor a deliberate exclusion from formalization.',
     'uncovered_title': 'Not yet covered',
     'title': 'Connections, not identities.', 'eyebrow': 'TEXT MAP / AGDA',
-    'intro': '38 sections. Edges are explicit §N cross-references in the text, not logical implications. Select a node to see the precise claims and their status alongside it.',
+    'intro': '{count} sections. Edges are explicit §N cross-references in the text, not logical implications. Select a node to see the precise claims and their status alongside it.',
     'legend': 'Each colored segment marks one claim status. A section may have several.',
     'out': 'Refers to', 'in': 'Referred to by', 'none': 'No references',
     'read': 'Read this section', 'back': 'Treatise', 'formal': 'Formalization',
@@ -109,7 +111,11 @@ def cards(snapshot, claims, lang):
         links = f'<a href="{esc(c["source"])}">{ui["source"]} ↗</a>' if c.get('source') else ''
         if c.get('stage'):
             links += f'<a href="{formal}#{esc(c["stage"])}">{ui["more"]} ↗</a>'
-        result.append(f'<section class="model-claim" data-status="{c["status"]}">{badges(snapshot, [c], lang)}<h4>{esc(title)}</h4><div class="model-claim-text">{esc(text)}</div>{code}<div class="model-claim-links">{links}</div></section>')
+        readings = ''
+        if c.get('readings'):
+            items = ''.join(f'<li><a href="{esc(r["href"])}">{esc(r["title"])}</a><p>{esc(r[lang])}</p></li>' for r in c['readings'])
+            readings = f'<details class="model-readings"><summary>{ui["readings"]}</summary><ul>{items}</ul></details>'
+        result.append(f'<section class="model-claim" data-status="{c["status"]}">{badges(snapshot, [c], lang)}<h4>{esc(title)}</h4><div class="model-claim-text">{esc(text)}</div>{code}<div class="model-claim-links">{links}</div>{readings}</section>')
     return ''.join(result)
 
 
@@ -126,7 +132,7 @@ def marker(snapshot, number, lang):
 def entries(doc):
     result = []
     for book in doc['books']:
-        if book['kind'] != 'book':
+        if book['kind'] not in ('book', 'afterword'):
             continue
         for sec in book['sections']:
             if not sec['num']:
@@ -209,6 +215,6 @@ def render_map(snapshot, doc, lang):
     edges = sum(len(s['refs']) for s in sections)
     return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{ui['map']} · Agda</title><link rel="icon" href="logo/favicon.svg"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/model-notes.css"><link rel="stylesheet" href="css/model-map.css"></head>
 <body class="model-map-page"><header class="map-nav"><a href="{index}">△ {ui['back']}</a><a href="{formal}">⊢ {ui['formal']}</a><nav aria-label="Language"><a href="model-map.html" lang="ru" data-map-lang="ru" {'aria-current="page"' if lang == 'ru' else ''}>RU</a><a href="model-map.en.html" lang="en" data-map-lang="en" {'aria-current="page"' if lang == 'en' else ''}>EN</a></nav></header>
-<main class="model-map-main"><div class="map-warning"><span>{ui['eyebrow']}</span><span>{len(sections)} {ui['nodes']} / {edges} {ui['edges']}</span></div><h1>{ui['title']}</h1><p class="map-intro">{ui['intro']}</p><div class="map-legend">{legend}</div><p class="map-scope">{ui['legend']} {ui['scope']}</p>
+<main class="model-map-main"><div class="map-warning"><span>{ui['eyebrow']}</span><span>{len(sections)} {ui['nodes']} / {edges} {ui['edges']}</span></div><h1>{ui['title']}</h1><p class="map-intro">{ui['intro'].format(count=len(sections))}</p><div class="map-legend">{legend}</div><p class="map-scope">{ui['legend']} {ui['scope']}</p>
 <div class="map-workspace"><div class="map-circuit">{graph_svg(sections, snapshot, lang)}<div class="map-circuit-caption"><span>§ → §</span> {ui['arrow']}</div></div><aside class="map-inspector" aria-label="{ui['status']}">{''.join(details)}</aside></div>
 <details class="map-directory" open><summary>{ui['list']}</summary><nav>{''.join(navigation)}</nav></details><footer class="map-snapshot">{ui['verified']} · {esc(snapshot['agda'])} · <a href="formalization/verification.json">SHA-256 {snapshot['source_sha256'][:16]}</a></footer></main><script src="js/model-map.js"></script></body></html>'''

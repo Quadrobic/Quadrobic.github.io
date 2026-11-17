@@ -43,6 +43,12 @@
 .model-no-code { padding-top: 12px; color: #99a59b; font: 11px/1.65 ui-monospace, monospace; }
 .model-claim-links { display: flex; flex-wrap: wrap; gap: 9px 14px; margin-top: 12px; }
 .model-claim-links a { color: #cfb992; font: 11px/1.6 ui-monospace, monospace; text-decoration: none; border-bottom: 1px solid #526358; }
+.model-readings { margin-top: 18px; border-top: 1px solid #334d49; padding-top: 10px; }
+.model-readings summary { cursor: pointer; color: #cfb992; font: 12px/1.6 ui-monospace, monospace; }
+.model-readings ul { padding-left: 18px; margin: 14px 0 0; }
+.model-readings li { margin-bottom: 16px; }
+.model-readings a { color: #d6c29f; font-size: 13px; overflow-wrap: anywhere; }
+.model-readings li p { margin: 5px 0 0; color: #b7c1b4; font: 13px/1.65 var(--serif-body); text-align: left; }
 .model-panel a:focus-visible, .model-panel button:focus-visible, .model-panel summary:focus-visible { outline: 2px solid #83d2bb; outline-offset: 3px; }
 @keyframes model-panel-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 1379px) {

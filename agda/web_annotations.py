@@ -81,6 +81,9 @@ CLAIMS = {
         ('Признание обратимо', 'revocable предъявляет наблюдения: первое окно соответствует критерию, следующее - нет. Это конкретный свидетель обратимости, не теория психологии.'),
         ('Recognition is revocable', 'revocable supplies observations where the first window meets the criterion and the next does not. This is a concrete witness, not a psychological theory.'), 'recognition',
         ('Signs', 'revocable :', 'calm-gripping :'))],
+    22: [claim('uncovered',
+        ('Помощь и заёмный ответ', 'Различение помощи, зависимости от одобрения и присвоения формы пока не представлено в Agda. Сопоставления ниже дают внешние точки сравнения, а не доказательства устройства Русла.'),
+        ('Help and a borrowed answer', 'Help, dependence on approval, and making a form one’s own are not yet represented in Agda. The comparisons below offer outside perspectives, not proofs of the Riverbed’s nature.'), None)],
     20: [claim('uncovered',
         ('Телесное основание встречи', 'Низкая квадробика описана как выбранное основание практики: опора, пауза и возможность остаться собой рядом с другим. Эффективность позы и возникновение доверия не являются теоремами Agda.'),
         ('The bodily foundation of encounter', 'Lower quadrobics is described as a chosen foundation: support, pause, and remaining oneself beside another. Neither posture efficacy nor the emergence of trust is an Agda theorem.'), None)],
@@ -153,3 +156,35 @@ CLAIMS = {
         ('Переживание не становится алгоритмом', 'Формализуются условия прохода и переходы, а не опыт обрушения. Личный шаг, общий исход и путь возвращения не сводят пережитое к данным.'),
         ('Experience does not become an algorithm', 'Passage conditions and transitions are modeled, not the lived collapse. Distinguishing personal choice, shared outcome, and return does not turn experience into data.'), 'death-star')],
 }
+
+# Optional comparisons remain outside the treatise's revelatory voice.
+# Empirical findings and clinical metaphors are not interchangeable evidence.
+CLAIMS[22][0]['readings'] = [
+    {
+        'title': 'Lieberman et al. (2007)',
+        'href': 'https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2016/03/Lieberman_2007_PsychScience.pdf',
+        'ru': 'Называние эмоций в эксперименте сопровождалось меньшей реакцией миндалины на эмоциональные изображения. Это узкий аналог действия имени, не доказательство исцеления чужими словами.',
+        'en': 'Labeling emotions was associated with lower amygdala responses to emotional images in an experiment. This is a narrow comparison for naming, not proof that another’s words heal.',
+    },
+    {
+        'title': 'Deci, Eghrari, Patrick & Leone (1994)',
+        'href': 'https://selfdeterminationtheory.org/SDT/documents/1994_DeciEghrariPatLeone.pdf',
+        'ru': 'Теория самодетерминации различает интроекцию, поддерживаемую внутренним давлением, и интеграцию принятой ценности. Эксперимент исследует условия усвоения. Это не означает, что заёмное обязательно недолговечно.',
+        'en': 'Self-determination theory distinguishes introjection sustained by internal pressure from integration of an adopted value. The experiment examines conditions of internalization. Borrowed forms do not therefore have a fixed expiry.',
+    },
+    {
+        'title': 'Perls, Hefferline & Goodman (1951)',
+        'href': 'https://gestalt.org/phgintro.htm',
+        'ru': 'В гештальт-терапии интроекция описывается образом проглоченного, но не усвоенного. Здесь ссылка ведёт к предисловиям и контексту книги: это клиническая метафора, а не экспериментальная проверка §22.',
+        'en': 'Gestalt therapy describes introjection through the image of swallowing without assimilation. This link provides the book’s introductions and context: a clinical metaphor, not an experimental test of §22.',
+    },
+    {
+        'title': 'Kruglanski & Webster (1996)',
+        'href': 'https://fitelson.org/current/seizing.pdf',
+        'ru': 'Обзор потребности в определённости описывает поспешное принятие и удержание готового ответа. Это сопоставление с поиском берега, не утверждение, что всякая боль неизбежно порождает зависимость.',
+        'en': 'The review of need for closure describes urgently adopting and preserving a ready answer. This offers a comparison for seeking a bank, not a claim that all pain inevitably creates dependence.',
+    },
+]
+
+# The afterword explains the shared-outcome structure narrated in §38.
+CLAIMS[39] = CLAIMS[38]
