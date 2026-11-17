@@ -129,6 +129,18 @@ def glossary_json(doc, lang):
             ),
             "forms": [title, *EN_FORMS[title].split("|")],
         })
+    elif lang == "th":
+        title = "คลื่นนิ่ง"
+        entries.append({
+            "title": title,
+            "definition": (
+                "เกิดเมื่อคลื่นเหมือนกันที่เคลื่อนสวนทางซ้อนกัน "
+                "ลวดลายอยู่กับที่: บางจุดการสั่นหักล้างกัน บางจุดเสริมกัน "
+                "สายที่ขึงตึงสั่นเช่นนี้ ใน §2 ใช้เป็นภาพของระเบียบ: "
+                "ความนิ่งของลวดลายอาศัยการเคลื่อนไหว มิใช่การไร้การเคลื่อนไหว"
+            ),
+            "forms": [title],
+        })
     # Data, never executable markup. Also safe for a literal </script> in
     # a future glossary definition.
     return json.dumps(entries, ensure_ascii=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")

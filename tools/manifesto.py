@@ -41,7 +41,7 @@ BOOK_HEADING_RE = {
 KIND_WORDS = {
     "ru": {"conclusion": "Заключение", "glossary": "Словарь", "axioms": "Аксиоматика", "practices": "Садхана"},
     "en": {"conclusion": "Conclusion", "glossary": "Glossary", "axioms": "Axiomatics", "practices": ("Sadhana", "Practices")},
-    "th": {"conclusion": "บทส่งท้าย", "glossary": "อภิธานศัพท์", "axioms": "สูตรสัจธรรม", "practices": "การฝึกฝน"},
+    "th": {"conclusion": ("บทสรุป", "บทส่งท้าย"), "glossary": "อภิธานศัพท์", "axioms": "สัจพจน์", "practices": ("สาธนา", "การฝึกฝน")},
 }
 
 # "Last updated" colophon, shown on the site footer and in the PDF. Dated
@@ -184,7 +184,7 @@ def parse(md: str, lang: str = "ru") -> dict:
             title = stripped[3:].strip()
             glyph, _, rest = title.partition(" ")
             current_book = {"glyph": glyph, "title": rest, "sections": [], "kind": "book"}
-            if rest in ("Послесловие", "Afterword"):
+            if rest in ("Послесловие", "Afterword", "ปัจฉิมลิขิต"):
                 current_book["kind"] = "afterword"
             elif rest.startswith(kind_words["conclusion"]):
                 current_book["kind"] = "conclusion"
