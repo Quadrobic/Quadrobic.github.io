@@ -455,6 +455,24 @@ reading('cooley-self', [8],
 
 
 
+
+reading('kagan-feedback', [18, 20],
+    'Brett J. Kagan et al. In vitro neurons learn and exhibit sentience when embodied in a simulated game-world (Neuron, 2022)', 'study',
+    'В установке DishBrain активность культуры нейронов управляла действием в симуляции, а результат возвращался стимуляцией. Структурированная замкнутая обратная связь была важна для наблюдавшегося обучения. Это параллель к изменению через собственное действие и ответ, не доказательство телесной практики. Опыт не устанавливает, что всякая адаптация вне такого контура невозможна; кодирование среды и правила обратной связи задавали исследователи.',
+    'In DishBrain, neuronal culture activity controlled action in a simulation, with outcomes returned as stimulation. Structured closed-loop feedback mattered for the observed learning. This parallels change through action and response, rather than proving the bodily practice. It does not establish that all adaptation outside such a loop is impossible; researchers designed the environmental encoding and feedback rules.',
+    'https://doi.org/10.1016/j.neuron.2022.09.001')
+reading('synchrony-chaos', [2, 18],
+    'Josep Rossello, Vincent Canals & Antoni Morro. Neural Information Processing: between synchrony and chaos (Nature Precedings, 2012)', 'parallel',
+    'Модельная работа о разных вычислительных функциях синхронизированных и некоррелированных нейронных ансамблей. Nature Precedings - архив предварительных работ, а не публикация в журнале Nature. Сопоставление с кристаллом и бурей принадлежит этой книге; отсюда не следует универсальный закон работы мозга.',
+    'A modeling study of different computational functions in synchronized and uncorrelated neural ensembles. Nature Precedings was a preprint venue, not the journal Nature. The comparison with crystal and storm belongs to this book; no universal law of brain function follows.',
+    'https://doi.org/10.1038/npre.2012.6935.1')
+reading('edge-chaos', [2, 3],
+    'Nils Bertschinger & Thomas Natschläger. Real-time computation at the edge of chaos in recurrent neural networks (Neural Computation, 2004)', 'parallel',
+    'В исследованных рекуррентных сетях сложные вычисления временных рядов становились возможны близ границы упорядоченной и хаотической динамики. Это ограниченный результат для моделей сетей. Живой берег в трактате - философский образ способности сохранять след и принимать новое, не измеренное критическое состояние Дживы.',
+    'In the recurrent networks studied, complex time-series computations became possible near the boundary between ordered and chaotic dynamics. This is a limited result for network models. The treatise’s living bank is a philosophical image of retaining traces while receiving novelty, not a measured critical state of the jiva.',
+    'https://doi.org/10.1162/089976604323057443')
+
+
 def export_readings():
     """Resolve shared entries once per section; reject broken catalog references."""
     for item in CATALOG.values():

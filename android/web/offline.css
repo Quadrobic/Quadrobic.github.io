@@ -1,0 +1,4 @@
+/* The installed reader uses local fonts and exports source downloads natively. */
+#tts-wrap { display: none !important; }
+.offline-version { font-size: 12px; opacity: .65; }
+.offline-about { color: inherit; text-underline-offset: 4px; }

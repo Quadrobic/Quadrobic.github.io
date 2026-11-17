@@ -40,6 +40,8 @@ But order cannot stop movement altogether. It is not a second force beside the S
 
 There are two images of form. One is the crystal: movement within it holds the lattice and repeats its pattern. The other is flame: movement within it renews the form at every instant, binding itself forever to none of its outlines. Both exist through movement; the difference lies in what that movement serves. Life is flame: it preserves itself by changing. This whole path is about how the jiva, in whom crystal and flame meet, recovers its flame without shattering what in it must remain solid.
 
+Living form must retain a trace and receive what is new. In the crystal, the new must repeat the old; in the storm, the trace disappears before it can be answered. The jiva need not choose either silence. It needs a bank that holds the current and changes in response to it.
+
 ### §3. On Chaos That Serves the Ice
 
 The simplest way would be to recognize the Source by its noise. But order is loudest of all when it rearranges its lattices. A landslide in the mountains is deafening, and it is only stone seeking a new rest. So it is in the world - and so it is, only closer and more painful, in the soul, where it matters most to distinguish the grip from one's own living movement.
@@ -250,6 +252,8 @@ Until now the book has named things through images: throne, crown, wall, the hei
 
 The throne stands where the body has learned to rise above another. The neck straightened under another's gaze bears the crown. The wall rises in the throat before a word. Order did not wait to be written into law. It wrote itself into the spine, the gaze, the way the body decides how much room to occupy when another enters.
 
+This inscription lives through its enactment. The shoulder rises again, the throat tightens again, the gaze seeks permission in advance - the former encounter continues in the new one. Yet the body’s own movement also changes what comes back to it. A hand that completes a refusal for the first time meets a response that its former submission never received. As long as that response can change the next gesture, the inscription remains alive. Ice thickens where every encounter must confirm what has already been learned.
+
 What was repressed is written there too. The body holds both the command and the movement it stopped: a hand prevented from completing a refusal, a voice cut short in the throat. The body is therefore the door to the shadow. Through it one must both descend from the familiar form and reclaim what that form gave no room.
 
 One can answer a word with “yes” and change nothing. Work that never reaches this support of the throne remains a conversation with it.
@@ -266,7 +270,7 @@ Four points of support return the hands to the earth. Weight is distributed diff
 
 When a practitioner goes onto four supports and puts on a mask, the social autopilot loses its familiar footing. Awkwardness rises first. It is the material of the work: shame, a smirk, a quick count of minutes - all are the face still holding on. While the body holds that face, the door to the shadow stays shut (§18). Through awkwardness it opens or remains closed. Without this, posture remains posture: one can command on one’s knees.
 
-The pause breaks open the habitual ending of a response. The jaw is already preparing a justification, the shoulder to preserve superiority, the throat to cut short what has not been named; now movement can be heard before it is carried out. An impulse meets delay, silence without approval, and the possibility of a name (§16). Space occupied by the ready face is freed for what it kept interrupting.
+The pause breaks open the habitual ending of a response. The jaw is already preparing a justification, the shoulder to preserve superiority, the throat to cut short what has not been named; now movement can be heard before it is carried out. An impulse meets delay, silence without approval, and the possibility of a name (§16). Space occupied by the ready face is freed for what it kept interrupting. The pause does not break off the encounter: it leaves time to receive its response and continue differently. Freezing on command is another way of enacting the old inscription; hearing and changing the next gesture begins to rewrite it.
 
 Whether to follow this path is decided by the one who follows it. But the work begins only where the door is opened from within: intention reaches the body and releases it from having to perform the old role. Without that, a different act is being performed, however long the posture lasts.
 

@@ -3,3 +3,10 @@ agda/_build
 __pycache__
 *.pyc
 *.agdai
+android/.cache/
+*.apk
+*.aab
+*.ap_
+*.jks
+*.keystore
+*.p12

@@ -1,5 +1,5 @@
 {
-  "source_sha256": "077122179dc901be5609a642062c2c910633e903f1dc4035fdc84f01001592cb",
+  "source_sha256": "361ce086fdf6b340982dc47eddf5edb3502605b35216f32620f57d99466b3f69",
   "agda": "Agda version 2.8.0.2",
   "statuses": {
     "theorem": [
@@ -1587,6 +1587,22 @@
         "kind": "critique",
         "ru": "Популярные клинические рассказы о теле и травме. По их образам нельзя заключать, что воспоминание буквально хранится в определённой мышце; выводы и методы требуют отдельной оценки.",
         "en": "Popular clinical accounts of body and trauma. Their imagery does not establish that a memory is literally stored in a particular muscle; claims and methods need separate evaluation."
+      },
+      {
+        "id": "kagan-feedback",
+        "title": "Brett J. Kagan et al. In vitro neurons learn and exhibit sentience when embodied in a simulated game-world (Neuron, 2022)",
+        "kind": "study",
+        "ru": "В установке DishBrain активность культуры нейронов управляла действием в симуляции, а результат возвращался стимуляцией. Структурированная замкнутая обратная связь была важна для наблюдавшегося обучения. Это параллель к изменению через собственное действие и ответ, не доказательство телесной практики. Опыт не устанавливает, что всякая адаптация вне такого контура невозможна; кодирование среды и правила обратной связи задавали исследователи.",
+        "en": "In DishBrain, neuronal culture activity controlled action in a simulation, with outcomes returned as stimulation. Structured closed-loop feedback mattered for the observed learning. This parallels change through action and response, rather than proving the bodily practice. It does not establish that all adaptation outside such a loop is impossible; researchers designed the environmental encoding and feedback rules.",
+        "href": "https://doi.org/10.1016/j.neuron.2022.09.001"
+      },
+      {
+        "id": "synchrony-chaos",
+        "title": "Josep Rossello, Vincent Canals & Antoni Morro. Neural Information Processing: between synchrony and chaos (Nature Precedings, 2012)",
+        "kind": "parallel",
+        "ru": "Модельная работа о разных вычислительных функциях синхронизированных и некоррелированных нейронных ансамблей. Nature Precedings - архив предварительных работ, а не публикация в журнале Nature. Сопоставление с кристаллом и бурей принадлежит этой книге; отсюда не следует универсальный закон работы мозга.",
+        "en": "A modeling study of different computational functions in synchronized and uncorrelated neural ensembles. Nature Precedings was a preprint venue, not the journal Nature. The comparison with crystal and storm belongs to this book; no universal law of brain function follows.",
+        "href": "https://doi.org/10.1038/npre.2012.6935.1"
       }
     ],
     "20": [
@@ -1648,6 +1664,14 @@
         "ru": "Многоцентровая репликация не воспроизвела конкретный эффект мимической обратной связи. Она не исследовала маски квадробики и не даёт ни подтверждения, ни опровержения её полного замысла.",
         "en": "A multilab replication did not reproduce a particular facial-feedback effect. It did not study quadrobic masks and neither validates nor refutes the whole practice.",
         "href": "https://doi.org/10.1177/1745691616674458"
+      },
+      {
+        "id": "kagan-feedback",
+        "title": "Brett J. Kagan et al. In vitro neurons learn and exhibit sentience when embodied in a simulated game-world (Neuron, 2022)",
+        "kind": "study",
+        "ru": "В установке DishBrain активность культуры нейронов управляла действием в симуляции, а результат возвращался стимуляцией. Структурированная замкнутая обратная связь была важна для наблюдавшегося обучения. Это параллель к изменению через собственное действие и ответ, не доказательство телесной практики. Опыт не устанавливает, что всякая адаптация вне такого контура невозможна; кодирование среды и правила обратной связи задавали исследователи.",
+        "en": "In DishBrain, neuronal culture activity controlled action in a simulation, with outcomes returned as stimulation. Structured closed-loop feedback mattered for the observed learning. This parallels change through action and response, rather than proving the bodily practice. It does not establish that all adaptation outside such a loop is impossible; researchers designed the environmental encoding and feedback rules.",
+        "href": "https://doi.org/10.1016/j.neuron.2022.09.001"
       }
     ],
     "conclusion": [
@@ -1695,6 +1719,14 @@
         "kind": "parallel",
         "ru": "Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
         "en": "The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
+      },
+      {
+        "id": "edge-chaos",
+        "title": "Nils Bertschinger & Thomas Natschläger. Real-time computation at the edge of chaos in recurrent neural networks (Neural Computation, 2004)",
+        "kind": "parallel",
+        "ru": "В исследованных рекуррентных сетях сложные вычисления временных рядов становились возможны близ границы упорядоченной и хаотической динамики. Это ограниченный результат для моделей сетей. Живой берег в трактате - философский образ способности сохранять след и принимать новое, не измеренное критическое состояние Дживы.",
+        "en": "In the recurrent networks studied, complex time-series computations became possible near the boundary between ordered and chaotic dynamics. This is a limited result for network models. The treatise’s living bank is a philosophical image of retaining traces while receiving novelty, not a measured critical state of the jiva.",
+        "href": "https://doi.org/10.1162/089976604323057443"
       }
     ],
     "7": [
@@ -1752,6 +1784,22 @@
         "kind": "parallel",
         "ru": "Самоорганизация и возникновение порядка в сложных системах. Параллель к рождению формы, не физическая биография Истока.",
         "en": "Self-organization and emerging order in complex systems. A comparison for form’s emergence, not a physical biography of the Source."
+      },
+      {
+        "id": "synchrony-chaos",
+        "title": "Josep Rossello, Vincent Canals & Antoni Morro. Neural Information Processing: between synchrony and chaos (Nature Precedings, 2012)",
+        "kind": "parallel",
+        "ru": "Модельная работа о разных вычислительных функциях синхронизированных и некоррелированных нейронных ансамблей. Nature Precedings - архив предварительных работ, а не публикация в журнале Nature. Сопоставление с кристаллом и бурей принадлежит этой книге; отсюда не следует универсальный закон работы мозга.",
+        "en": "A modeling study of different computational functions in synchronized and uncorrelated neural ensembles. Nature Precedings was a preprint venue, not the journal Nature. The comparison with crystal and storm belongs to this book; no universal law of brain function follows.",
+        "href": "https://doi.org/10.1038/npre.2012.6935.1"
+      },
+      {
+        "id": "edge-chaos",
+        "title": "Nils Bertschinger & Thomas Natschläger. Real-time computation at the edge of chaos in recurrent neural networks (Neural Computation, 2004)",
+        "kind": "parallel",
+        "ru": "В исследованных рекуррентных сетях сложные вычисления временных рядов становились возможны близ границы упорядоченной и хаотической динамики. Это ограниченный результат для моделей сетей. Живой берег в трактате - философский образ способности сохранять след и принимать новое, не измеренное критическое состояние Дживы.",
+        "en": "In the recurrent networks studied, complex time-series computations became possible near the boundary between ordered and chaotic dynamics. This is a limited result for network models. The treatise’s living bank is a philosophical image of retaining traces while receiving novelty, not a measured critical state of the jiva.",
+        "href": "https://doi.org/10.1162/089976604323057443"
       }
     ],
     "10": [

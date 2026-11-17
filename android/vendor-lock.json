@@ -1,0 +1,194 @@
+{
+  "assets": [
+    {
+      "file": "vendor/p5.js",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js",
+      "sha256": "64058f1717628bb8389a635d52694f09e4a5d4c0792ef623b52d006b84f78bc1"
+    },
+    {
+      "file": "vendor/gsap.js",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.js",
+      "sha256": "1b93393729708c024f2ecfd2bbf553ec02824b6a4acd661bff37ebfc67893c1a"
+    },
+    {
+      "file": "vendor/ScrollTrigger.js",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.js",
+      "sha256": "58312ba6375bd4d6957b897bee38e567c24f8614ea6817668c4adaf47071be16"
+    },
+    {
+      "file": "vendor/lenis.min.js",
+      "url": "https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js",
+      "sha256": "55a065df7880463fdb4f88cc57f498a9711c5a85b3c82c1c6b81888c32a33850"
+    },
+    {
+      "file": "licenses/p5.txt",
+      "url": "https://raw.githubusercontent.com/processing/p5.js/v1.9.4/license.txt",
+      "sha256": "eb2f25f8f165d5f20682c1ce7e99ce69144ecfd80fbed8c17dfd327ecd8b6cb6"
+    },
+    {
+      "file": "licenses/GSAP.txt",
+      "url": "https://raw.githubusercontent.com/greensock/GSAP/3.12.5/README.md",
+      "sha256": "aac9caec70ceaf7fa340a64f4ebf454237b094352bd6d1206b819729826020e7"
+    },
+    {
+      "file": "licenses/GSAP-license.html.txt",
+      "url": "https://gsap.com/standard-license/",
+      "sha256": "097c29dda071b2f7ac83bc956ba5053171b5a1ea1a4887036811202a31a32ff2"
+    },
+    {
+      "file": "licenses/Lenis.txt",
+      "url": "https://cdn.jsdelivr.net/npm/lenis@1.1.14/LICENSE",
+      "sha256": "bba15b1137346a73ed8c35e7f20961a69e0ed842d956a50339240c3e7b08c089"
+    },
+    {
+      "file": "licenses/CormorantGaramond.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/OFL.txt",
+      "sha256": "60700d351cac4650c51f3f9db318d2a420f8b45052dba2715eb5fec41f0f6956"
+    },
+    {
+      "file": "licenses/EBGaramond.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/OFL.txt",
+      "sha256": "0985066662eb755ed3683ae5482a81a9195b49ce3f7e165cc2388b3dbece7dd7"
+    },
+    {
+      "file": "licenses/NotoSerifThai.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserifthai/OFL.txt",
+      "sha256": "2e98fd23a52d253db8612cd5942c8f2ff4111b21d2367050fdca91d8ccc374a0"
+    },
+    {
+      "file": "fonts/30893fb892fbfd91226f.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKky2F7i6C.woff2",
+      "sha256": "9dc38267bdee93a653200ef3c1e8060e3f1399073432c415c683b419d3b50464"
+    },
+    {
+      "file": "fonts/6ac0105b2e1bc73b5ff6.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2",
+      "sha256": "d04439363ec805132dc6c6e6a925f76efe17646f9811af8e10e218ea3dba5335"
+    },
+    {
+      "file": "fonts/8f1497dfb3b015c37398.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpntKky2F7i6C.woff2",
+      "sha256": "826f73ca737feec0eb1004808629973d6b611fddc2bd2a689b5fe331f6be6427"
+    },
+    {
+      "file": "fonts/3ed39130134b7f5143bc.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+      "sha256": "5d618c462b7a5b74f442e1548880086af71764d9cc7d35c16ab45353da934621"
+    },
+    {
+      "file": "fonts/5e51dee1dd36f209f326.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYrXtKky2F7i6C.woff2",
+      "sha256": "d81372bae1f872f1418c0b7eb412f8a92a156a950fda8d2383701c75d38969df"
+    },
+    {
+      "file": "fonts/3eee5e474dab8b7edcd1.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-h9M8A_ipUIT9.woff2",
+      "sha256": "5ec5fa50d9dfbf2696444909621e3c76cba1feafe8b2c5dfa7b9e1db1828aca3"
+    },
+    {
+      "file": "fonts/35db2166abc59b158a42.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-hdM8A_ipUIT9.woff2",
+      "sha256": "81128e45d617b89d0cdea042cf76e2c74eb90f0f67c0afbdec9dc00097594ae7"
+    },
+    {
+      "file": "fonts/bec2fc6b8f6a6bb82e44.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-htM8A_ipUIT9.woff2",
+      "sha256": "acbc63ac7bc9236948427040742b4c4cc7fad33c634931f9640b9f374ea9ae25"
+    },
+    {
+      "file": "fonts/2a77a84b39839bfb29d2.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-iNM8A_ipUA.woff2",
+      "sha256": "b91e158482fe81c46ea380522ad3fb06bd3866ddcdd5a854ca1614c314482268"
+    },
+    {
+      "file": "fonts/230f06012ae2788f6425.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDD-jNM8A_ipUIT9.woff2",
+      "sha256": "416ed13a21bbd527b85c0009c68b0fe30080b3d51049583808fb0759f5111d62"
+    },
+    {
+      "file": "fonts/9f6ebc6a537b8cd42c7d.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL9-U6i1gmFJbvw.woff2",
+      "sha256": "25a931cc2ca3f09370855d14dbc9a7b8d78360ab85d5f32d43e238f92e2f95b4"
+    },
+    {
+      "file": "fonts/b35e0da874a73686c647.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL95U6i1gmFJbvw.woff2",
+      "sha256": "22626f52d0ec241ea93a1b01e6c1a307e6853d0654b62bb5ce58807e90c51e81"
+    },
+    {
+      "file": "fonts/7a3ba4abd8296a684060.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL99U6i1gmFJ.woff2",
+      "sha256": "d145e5e476289597de8cdb424a1ce9341cd6ff86fb599d4ca64a11e251d68975"
+    },
+    {
+      "file": "fonts/8bb329b5021812118fe7.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL9wU6i1gmFJbvw.woff2",
+      "sha256": "76c7cb739bebbd4b86c7b93e51af880b945308f4ef94a3c03fbc31fce5270e01"
+    },
+    {
+      "file": "fonts/983193d89bb2014fb11b.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL9xU6i1gmFJbvw.woff2",
+      "sha256": "5261f469e6637b2e49a3ae600b8e835baac56c2b823f7389c7fdabcf0d94b447"
+    },
+    {
+      "file": "fonts/28c1e4ed5e0a7218326f.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL9yU6i1gmFJbvw.woff2",
+      "sha256": "8b5d8d2e6aa3102b1996822c641f1742e3199f486ee8ee2db5111440b6493f35"
+    },
+    {
+      "file": "fonts/dca7e1bbb5e41e99b402.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL9zU6i1gmFJbvw.woff2",
+      "sha256": "9609380e5a491c535b7fef0336c6f964db773888d9663fbfff92e8c446620708"
+    },
+    {
+      "file": "fonts/95ccbd6843ba8792052b.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR1SDk_YAPI.woff2",
+      "sha256": "68fd4b247dde89984ee835d99953d235e4927be2b1b732ad81173b519869cee8"
+    },
+    {
+      "file": "fonts/cabeb3675215f00778f7.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR2SDk_YAPIlWk.woff2",
+      "sha256": "19e98f32f56c0f648cc511d29305b295f6f63a7cf1f1c72eb8516dd21e69a705"
+    },
+    {
+      "file": "fonts/d26cc78fa0542809844f.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR4SDk_YAPIlWk.woff2",
+      "sha256": "2db942ef6f5237810b751b686706fbd08969a28d055318a9a8fb4a1ec99bbcce"
+    },
+    {
+      "file": "fonts/75faa677c427d0544f3c.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR5SDk_YAPIlWk.woff2",
+      "sha256": "65f7302476afd8d89c200101a987691cd99da017e25fb4bf8f57c385f69e9b6f"
+    },
+    {
+      "file": "fonts/c5e64e77ba839191d4a7.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR6SDk_YAPIlWk.woff2",
+      "sha256": "d858010614321f668ca37def13edb91c98f9747d5126092a9dcbff264d6eb948"
+    },
+    {
+      "file": "fonts/faab223bb3d698743756.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR7SDk_YAPIlWk.woff2",
+      "sha256": "c2fa6862b03629214873944b171b0df1189420be52aabd82142d45f96fdce588"
+    },
+    {
+      "file": "fonts/91aba817984c0c7a15cd.woff2",
+      "url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GRxSDk_YAPIlWk.woff2",
+      "sha256": "171a104fa20c9ccf6c25945151a98b37ed2ae26986c2e01f9afda65ee2fa9f77"
+    },
+    {
+      "file": "fonts/4c11cde07a136928cae5.woff2",
+      "url": "https://fonts.gstatic.com/s/notoserifthai/v28/k3kHo80MPvpLmixYH7euCxWpSMu3-gcWGj0hHAKGvUQleOfz-VpL-DdULg.woff2",
+      "sha256": "a6e0d661ce53d7f1e7b873e9dd79e018148874f031b75fcd65eacda5a808da12"
+    },
+    {
+      "file": "fonts/83bb711c9c6ea8e22586.woff2",
+      "url": "https://fonts.gstatic.com/s/notoserifthai/v28/k3kHo80MPvpLmixYH7euCxWpSMu3-gcWGj0hHAKGvUQleP3z-VpL-DdULg.woff2",
+      "sha256": "147da1b0294cc633191daca080613e9f7d3feff31ba1969d3f465d1bc0e8cca0"
+    },
+    {
+      "file": "fonts/d050c470a7d20fc3cc52.woff2",
+      "url": "https://fonts.gstatic.com/s/notoserifthai/v28/k3kHo80MPvpLmixYH7euCxWpSMu3-gcWGj0hHAKGvUQlePPz-VpL-Dc.woff2",
+      "sha256": "1d75a0cb3bb76e6f59ba85bae7f31b33d5c8c020d33e1b499580957172a82f03"
+    }
+  ]
+}

@@ -257,3 +257,11 @@ python3 -m http.server 8731
 в `formalization/verification.json` - версия Agda, результаты и SHA-256
 исходников снимка. Фрагменты на странице сверяются с исходным текстом.
 `rebuild.sh` и `tools/watch.py` учитывают зависимости этой сборки.
+
+## Optional offline Android application
+
+The Android reader is built explicitly with `./android/update.sh`; it is not a
+step of `rebuild.sh` or the file watcher. See [android/README.md](android/README.md)
+for SDK setup, offline dependency caching, signing-state backups, and checks.
+APKs and signing state are stored outside the checkout. `--check` reports missing
+tools without installing them; `--prepare-only` renders an isolated offline site.
