@@ -195,3 +195,7 @@ CLAIMS[32].append(claim('theorem',
     ('Признание окна не становится свойством хвоста', 'Две последовательности имеют один класс ObsTails, но разное признание окна [0,2]. Поэтому никакой предикат на этих классах не воспроизводит это признание. Это утверждение о Recognized, не полное определение роли Императора.'),
     ('Window recognition does not descend to tails', 'Two sequences share an ObsTails class but differ in recognition on [0,2]. No predicate on these classes reproduces that recognition. This concerns Recognized, not the Emperor’s complete role.'), 'tails',
     ('Levels', 'recognition-not-tail-local :', '-- Every finite action')))
+
+CLAIMS[31].append(claim('uncovered',
+    ('Свобода от одобрения не завершает встречу', 'Трактат сохраняет для сиддхи чтение ответа другого и новое узнавание формы. Эта постоянная открытость не выведена из Tail или Witness. Tail исключает сертификат по конечному прошлому; неразличимость в Witness условна и не запрещает самопознание. Мотив одобрения и бесконечная внутренняя запись пока не моделируются.'),
+    ('Freedom from approval does not end encounter', 'The treatise retains reading another’s response and renewed recognition of form for the siddha. This continuing openness is not derived from Tail or Witness. Tail rules out finite-past certification; aliasing in Witness is conditional and does not prohibit self-knowledge. Approval-seeking and infinite internal records are not yet modeled.'), 'witness'))
