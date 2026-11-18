@@ -177,3 +177,21 @@ CLAIMS[22] += [
           ('An outer report is no universal judge either', 'no-universal-outer uses ordinary observations where the same reply accompanies different acts. A window’s ideal decoder cannot classify every encounter. The three signs, entire Riverbed, and self-recognition are not encoded.'), 'witness',
           ('Witness', 'ReadsAllInner :', None)),
 ]
+
+
+CLAIMS[11].append(claim('theorem',
+    ('Конечное начало не меняет класс хвоста', 'prefix-invisible отождествляет классы историй, совпадающих с некоторого момента. Это изменение начала при общей шкале времени, а не произвольный сдвиг истории.'),
+    ('A finite beginning does not change the tail class', 'prefix-invisible identifies classes of histories that eventually agree on the same clock. It is not an arbitrary time shift.'), 'tails',
+    ('Tail', 'prefix-invisible :', 'IsSiddha-computes :')))
+CLAIMS[31].append(claim('theorem',
+    ('Сиддха определена на классах хвостов', 'siddha-respects доказывает независимость EventuallySiddha от конечного начала. IsSiddha переносит усечённое утверждение на Tails с помощью унивалентности, не выдавая конкретного момента оттаивания.'),
+    ('Siddhahood descends to tail classes', 'siddha-respects proves EventuallySiddha invariant under finite initial changes. IsSiddha descends the truncated proposition to Tails using univalence, without producing a concrete cutoff.'), 'tails',
+    ('Tail', 'Tails :', '-- Changing finitely')))
+CLAIMS[17].append(claim('theorem',
+    ('Признание читает своё окно', 'Совпадение наблюдений на [s,s+k] сохраняет Recognized в обе стороны: recognition-window-local применяется в каждом направлении. Окончательная свобода этим не удостоверяется.'),
+    ('Recognition reads its own window', 'Agreement on [s,s+k] preserves Recognized in both directions by applying recognition-window-local each way. This does not certify eventual freedom.'), 'tails',
+    ('Levels', 'recognition-window-local :', '-- A concrete window')))
+CLAIMS[32].append(claim('theorem',
+    ('Признание окна не становится свойством хвоста', 'Две последовательности имеют один класс ObsTails, но разное признание окна [0,2]. Поэтому никакой предикат на этих классах не воспроизводит это признание. Это утверждение о Recognized, не полное определение роли Императора.'),
+    ('Window recognition does not descend to tails', 'Two sequences share an ObsTails class but differ in recognition on [0,2]. No predicate on these classes reproduces that recognition. This concerns Recognized, not the Emperor’s complete role.'), 'tails',
+    ('Levels', 'recognition-not-tail-local :', '-- Every finite action')))

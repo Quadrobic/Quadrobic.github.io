@@ -32,7 +32,26 @@ STAGES = [
         ],
     },
     {
-        "id": "empire", "roman": "III", "refs": "§§30, 32, 35",
+        "id": "tails", "roman": "III", "refs": "§§11, 17, 31–32",
+        "ru": ("Хвост истории и окно встречи", "Кубическая теория типов",
+               "Сиддха в модели - свойство бесконечного продолжения: изменение конечного начала его не меняет. Tail собирает истории, совпадающие с некоторого момента, в классы Tails и определяет IsSiddha на этих классах. Признание устроено иначе: оно читает конечное окно наблюдений. Два наблюдения с одним хвостом могут дать разные признания в раннем окне. Это разные вопросы, а не две ступени одного состояния.",
+               "Инвариантность хвоста доказана отдельно от двух продолжений Core. Унивалентность позволяет отождествить эквивалентные утверждения и перенести предикат на фактор. IsSiddha скрывает свидетельство момента, но не вычисляет его. Время не сдвигается: классы забывают конечное начало, сохраняя общие индексы. Tails и ObsTails - разные типы; закон точности наблюдений не добавлен. Контрпример касается окна [0,2], а не всякого возможного понятия признания. Факторизация не стирает рану и ответственность: их учёт не входит в Tails. Cubical не доказывает метафизику трактата."),
+        "en": ("A history’s tail and an encounter’s window", "Cubical type theory",
+               "Siddhahood in the model concerns an infinite continuation: changing a finite beginning does not change it. Tail groups histories that eventually agree into Tails and defines IsSiddha on their classes. Recognition instead reads a finite observation window. Two observations sharing a tail can give different recognition in an early window. These are different questions, not two ranks of one state.",
+               "Tail invariance is proved separately from Core’s two extensions. Univalence identifies equivalent propositions, allowing the predicate to descend to the quotient. IsSiddha hides the cutoff witness without computing it. Time is not shifted: classes forget a finite beginning while retaining common indices. Tails and ObsTails are distinct types; no observation-accuracy law is added. The counterexample concerns [0,2], not every possible notion of recognition. The quotient does not erase injury or responsibility: their accounting is not part of Tails. Cubical does not prove the treatise’s metaphysics."),
+        "blocks": [
+            ("Tail", "Rel :", "siddha-respects :", True),
+            ("Tail", "siddha-respects :", "-- A set quotient", False),
+            ("Tail", "Tails :", "-- Changing finitely", False),
+            ("Tail", "prefix-invisible :", "IsSiddha-computes :", False),
+            ("Tail", "prefix-allows-siddha :", None, True),
+            ("Levels", "recognition-window-local :", "-- A concrete window", False),
+            ("Levels", "same-tail-class :", "-- Every finite action", True),
+            ("Levels", "siddha-not-window-local :", None, True),
+        ],
+    },
+    {
+        "id": "empire", "roman": "IV", "refs": "§§30, 32, 35",
         "ru": ("Опора не становится троном", "Контракт и контрмодели",
                "Способность держать другого, право решать за него и полнота голоса - три разных отношения. Можно поддерживать многих, не присваивая их Русел. Ни один голос не выражает все стороны общего целиком.",
                "Отсутствие присвоенной власти - контракт экземпляра Empire. Круг из трёх показывает возможность нетранзитивной опоры; другая модель показывает, что транзитивная помощь тоже совместима с отсутствием трона."),
@@ -46,7 +65,7 @@ STAGES = [
         ],
     },
     {
-        "id": "protection", "roman": "IV", "refs": "§§13, 29, 33",
+        "id": "protection", "roman": "V", "refs": "§§13, 29, 33",
         "ru": ("Отпустить руку - не стереть рану", "Достаточность и цена",
                "Защиту сравнивают с доступными действиями: она должна остановить вред без лишнего ограничения. При исчезновении угрозы ограничение снимается и новая рана не наносится. Уже причинённый ущерб остаётся в учёте.",
                "Достаточность и последствия задаёт Problem. Теорема условна относительно этих данных. Это не полное определение вреда и не утверждение, что реальные последствия заранее известны."),
@@ -59,7 +78,7 @@ STAGES = [
         ],
     },
     {
-        "id": "shadow", "roman": "V", "refs": "§§2, 8, 10, 24",
+        "id": "shadow", "roman": "VI", "refs": "§§2, 8, 10, 24",
         "ru": ("Снять стену, сохранить край", "Структурные контракты",
                "Встреча имеет три структурные нити. Снятие стены не удаляет собственный край. Признанный зверь остаётся тем же зверем, но уже не принадлежит тени; тень при этом не исчерпывается зверями.",
                "Здесь задаётся представление понятий. Сохранение идентичности по построению не выдаётся за открытие о психике. Connection обозначает наличие связи; типа Истока и данных голоса Хридаи нет."),
@@ -73,7 +92,7 @@ STAGES = [
         ],
     },
     {'id': 'witness',
-     'roman': 'VI',
+     'roman': 'VII',
      'refs': '§§8, 16, 22',
      'ru': ('Узнать движение, различить форму',
             'Условная различимость',
@@ -100,7 +119,7 @@ STAGES = [
                 ('Witness', 'sample :', '-- LIMITS', True),
                 ('Witness', 'record Observation', None, True)]},
     {
-        "id": "death-star", "roman": "VII", "refs": "§§12, 38–39",
+        "id": "death-star", "roman": "VIII", "refs": "§§12, 38–39",
         "ru": ("Каждый выбирает - круг отвечает вместе", "Общее действие и инвариант",
                "Выбор принадлежит каждой Дживе, но действует на общий круг. Действенная Шакти одной способна открыть выход всем оставшимся; кашая другой - заточить всех, даже намеренных вернуться. Личный шаг остаётся у каждого; общий исход один для всех внутри. Открытый проход ещё не есть личное возвращение: для выхода нужен собственный шаг. Восстановление после заточения требует опоры другого с открытым проходом; новый взрыв открывает его всем.",
                "CollectiveRule отдельно задаёт, какой вклад оказался действенным. Ядро не назначает универсального победителя Шакти или кашаи и не вводит числовую меру их силы. Демонстрационная инстанция допускает оба исхода при конкурирующих вкладах; это пример возможностей, а не закон их столкновения. ReturningPower связан с собственным reclaim катализатора. Исключение смыкания из Admissible - нормативный выбор, а не доказанная невозможность. Теорема проверяет сохранение инварианта остальными допустимыми переходами; recovery-reopens условна относительно свидетельства опоры."),
@@ -123,7 +142,7 @@ STAGES = [
         ],
     },
     {
-        "id": "doctrine", "roman": "VIII", "refs": "Doctrine",
+        "id": "doctrine", "roman": "IX", "refs": "Doctrine",
         "ru": ("У каждого утверждения - свой статус", "Контракты ≠ следствия",
                "Doctrine хранит два раздела. ModelContracts показывает, что задано представлением модели. Theorems содержит доказанные при этих определениях следствия. Экземпляр imperium предъявляет обе части.",
                "Ни проверка типов, ни запись Doctrine не доказывают истинности всего учения. Если новый экземпляр не строится, это ещё не доказательство противоречия: может не хватать лемм или предпосылок."),
@@ -137,7 +156,12 @@ STAGES = [
     },
 ]
 
+CUBICAL_REJECTIONS = {"AllTailsEqual", "TailRecognition", "TruncationCutoff"}
+
 REJECTIONS = {
+    "AllTailsEqual": ("Один конечный префикс, ошибочно отождествлённый с общим хвостом", "A shared finite prefix confused with a shared tail"),
+    "TailRecognition": ("Признание раннего окна, перенесённое по равенству хвостов", "Early-window recognition transferred through equal tails"),
+    "TruncationCutoff": ("Скрытое существование момента, выданное за конкретное свидетельство", "Truncated existence of a cutoff presented as a concrete witness"),
     "InnerReportCertificate": ("Внутреннее чувство живого, выданное за сертификат свободы", "An alive inner report presented as a freedom certificate"),
     "OuterReportCertificate": ("Идеальный внешний критерий, перенесённый на любую встречу", "An ideal outer criterion applied to any encounter"),
     "SelfNoticingImpossible": ("Случай самообмана, выданный за невозможность заметить хватку самому", "An ambiguous case presented as impossibility of self-noticing"),

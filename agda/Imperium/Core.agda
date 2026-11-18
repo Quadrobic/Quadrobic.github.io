@@ -1,4 +1,4 @@
-{-# OPTIONS --safe --without-K #-}
+{-# OPTIONS --safe --cubical-compatible #-}
 
 -- Empire / Quadrobic Jainism: the formal core, stage 0.
 --

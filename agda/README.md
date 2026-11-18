@@ -39,7 +39,9 @@ Verification uses `--safe --without-K`. Unsolved holes, postulates, and bypasses
 for termination, positivity, or coverage checking are not permitted. Warnings
 are errors, with one exception: `UnsupportedIndexedMatch`, also suppressed by
 the installed standard library for its Cubical transport computation warning.
-This project does not claim Cubical Agda compatibility.
+The separate `CubicalAll.agda` entry point uses `--safe --cubical`. Only
+`Core` and `Signs`, which it reuses, are marked `--cubical-compatible`; this flag
+implies `--without-K`. The remaining intensional model retains its original flags.
 
 ## Modules
 
@@ -57,7 +59,10 @@ This project does not claim Cubical Agda compatibility.
 | `Imperium/CollectiveExamples.agda` | One participant freeing or trapping everyone, competing contributions, and later collective release. |
 | `Imperium/Axioms.agda` | Separate `ModelContracts` and `Theorems`, their constructive instances, and the enclosing `Doctrine`. This does not encode every axiom of the treatise. |
 | `Imperium/Checks.agda` | Positive examples and checks of theorem boundaries. |
-| `All.agda` | The single entry point for all valid modules. |
+| `Imperium/Tail.agda` | Eventual equality, the set quotient of histories, the truncated Siddha predicate on classes, and finite-prefix invariance. |
+| `Imperium/Levels.agda` | Window-local recognition, a counterexample to its descent to observation tails, and the `TwoLevels` theorem record. |
+| `All.agda` | Entry point for the intensional model. |
+| `CubicalAll.agda` | Entry point for the Cubical extension. |
 
 Code comments and technical documentation are in English. Russian transliterations
 in identifiers are replaced with descriptive English names. Sanskrit and Jain terms
@@ -557,7 +562,8 @@ an attentive mistake require context not represented by this bit.
 
 The three witness rejection fixtures reject an inner feeling used as a
 certificate, a universalized outer decoder, and impossibility of self-noticing.
-The complete suite now expects 28 rejections. Ordinary reports are not wired
+The intensional suite expects 28 rejections; the Cubical extension adds three.
+Ordinary reports are not wired
 into `Signs.Observations`: accuracy of trend scores remains a separate parameter.
 
 The prose distinguishes revisiting a judgment from undoing an action. Existing
@@ -565,3 +571,68 @@ recognition-window theorems remain valid: a later window can fail its criterion.
 They do not reverse a choice or erase recorded injury. The personal authorship
 of a choice and a companion's responsibility for advice or pressure are not
 encoded by Witness or by an additional oracle.
+
+
+## Cubical extension: external dependency
+
+Cubical v0.9 supports Agda 2.8. The exact commit is pinned in
+`cubical-lock.json`. Install it **outside this repository**:
+
+```sh
+git clone --depth 1 --branch v0.9 https://github.com/agda/cubical.git "$HOME/.local/share/agda/cubical"
+python3 agda/check.py
+```
+
+If already installed elsewhere, set `AGDA_CUBICAL=/absolute/path/to/cubical`
+or pass `--cubical /absolute/path/to/cubical` to `check.py`. The checker verifies
+the pinned Git commit and rejects modified dependency sources. It never fetches
+or updates dependencies automatically. `cubical_support.py` copies only pinned
+source files to a private cache under the system temporary directory, outside
+the checkout. Generated interfaces never modify the installed Cubical library.
+The dependency's revision and source digest are recorded in the public snapshot;
+the downloaded library is not included in the repository or source archive.
+
+`python3 agda/check.py` checks **both** entry points, the original 28 expected
+rejections, and three Cubical expected rejections under `tests/cubical-reject/`.
+These guard against collapsing different tail classes, transferring early-window
+recognition along tail equality, and treating truncation as a concrete witness.
+`python3 agda/build_web.py` verifies both parts and generates their native Agda
+HTML highlighting. Public links and source downloads include Tail and Levels.
+
+After preparing the standard-library cache, direct checking is also possible:
+
+```sh
+agda --no-libraries --safe --cubical -Werror -WnoUnsupportedIndexedMatch \
+  -i agda -i agda/_build/stdlib -i "$HOME/.local/share/agda/cubical" \
+  agda/CubicalAll.agda
+```
+
+The direct command may create Agda interfaces in the external library checkout;
+use the Python checker to keep that installation untouched. In an editor, supply
+the same external include path for `CubicalAll.agda`; no global Agda defaults
+are changed by the project.
+
+### Interpretation and proof boundaries
+
+* `Rel` means eventual pointwise equality on a **common clock**. It forgets a
+  finite beginning, not arbitrary time shifts, reorderings, or infinite changes.
+* `Siddha` remains `EventuallySiddha`. `SiddhaP` propositionally truncates its
+  cutoff witness; `IsSiddha` descends that proposition to `Tails`. No algorithm
+  for recognizing siddhahood or recovering a cutoff is supplied.
+* Tail invariance is proved by `siddha-respects`; it is not a logical consequence
+  of the two extension witnesses alone. Univalence (`hPropExt`) identifies
+  equivalent propositions for quotient elimination. It introduces no postulate
+  in project code; the checked library uses Cubical primitives and higher
+  inductive types. This is an advantage of this representation, not a claim
+  that every alternative requires Cubical Agda.
+* `recognition-window-local` transports recognition using agreement throughout
+  the closed window `[s,s+k]`, including every adjacent observation. Applying it
+  in both directions gives logical equivalence.
+* `recognition-not-tail-local` refutes descent of recognition for the particular
+  window `[0,2]` to `ObsTails`. It does not refute a newly defined eventual or
+  moving-window predicate. `ObsTails` and action-history `Tails` are distinct;
+  observation accuracy is still not postulated.
+* `TwoLevels` collects proved consequences, rather than adding model contracts.
+  These theorems concern the minimal `Recognized` predicate, not the Emperor's
+  whole support role. They do not establish an empirical diagnosis or prove
+  the treatise's metaphysics.

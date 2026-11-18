@@ -39,7 +39,7 @@ WATCHED = [
 def mtimes() -> dict:
     formal_sources = [p for p in (ROOT / "agda").rglob("*")
                       if p.is_file() and "_build" not in p.parts and "__pycache__" not in p.parts
-                      and (p.suffix in {".agda", ".py", ".md", ".html", ".agda-lib"} or p.name == ".gitignore")]
+                      and (p.suffix in {".agda", ".py", ".md", ".html", ".agda-lib", ".json"} or p.name == ".gitignore")]
     return {p: p.stat().st_mtime for p in [*WATCHED, *formal_sources] if p.exists()}
 
 

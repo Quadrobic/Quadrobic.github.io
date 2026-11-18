@@ -265,3 +265,11 @@ step of `rebuild.sh` or the file watcher. See [android/README.md](android/README
 for SDK setup, offline dependency caching, signing-state backups, and checks.
 APKs and signing state are stored outside the checkout. `--check` reports missing
 tools without installing them; `--prepare-only` renders an isolated offline site.
+
+
+The Cubical extension has a separate `agda/CubicalAll.agda` entry point.
+`python3 agda/check.py` verifies both entry points and all 31 expected rejections.
+It requires the external Cubical v0.9 checkout pinned in `agda/cubical-lock.json`;
+see `agda/README.md` for installation and `AGDA_CUBICAL`. The dependency itself
+and its interface cache stay outside this repository. `agda/build_web.py` exports
+Tail and Levels with the other checked modules and records the dependency digest.

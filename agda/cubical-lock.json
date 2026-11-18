@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/agda/cubical.git",
+  "tag": "v0.9",
+  "commit": "b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+  "agda_series": "2.8"
+}
