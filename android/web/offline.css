@@ -2,3 +2,6 @@
 #tts-wrap { display: none !important; }
 .offline-version { font-size: 12px; opacity: .65; }
 .offline-about { color: inherit; text-underline-offset: 4px; }
+
+/* The installed reader does not need its own website download link. */
+#download-controls { display: none !important; }

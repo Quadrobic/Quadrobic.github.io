@@ -514,27 +514,59 @@ body {
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
-#pdf-download {
+#download-controls {
   position: fixed;
   left: 18px;
   bottom: 114px;
   z-index: 40;
+}
+#download-toggle {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 1px solid rgba(201, 168, 106, 0.55);
-  background: rgba(14, 9, 6, 0.35);
+  background: rgba(14, 9, 6, 0.65);
   color: rgba(232, 200, 138, 0.8);
   backdrop-filter: blur(3px);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
 }
-#pdf-download:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
-#pdf-download svg { pointer-events: none; }
+#download-toggle:hover,
+#download-toggle[aria-expanded="true"] { color: var(--gold-bright); border-color: currentColor; }
+#download-panel[hidden] { display: none; }
+#download-panel {
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+  min-width: 164px;
+  padding: 6px;
+  border: 1px solid rgba(201, 168, 106, 0.4);
+  border-radius: 16px;
+  background: rgba(20, 14, 10, 0.97);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+#download-panel a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 4px 12px;
+  border-radius: 10px;
+  color: var(--gold);
+  font-family: var(--serif-body);
+  font-size: 16px;
+  text-decoration: none;
+}
+#download-panel a:hover,
+#download-panel a:focus-visible { background: rgba(232, 200, 138, 0.1); color: var(--gold-bright); }
+#download-panel small { font-size: 11px; opacity: .65; margin-left: 4px; }
+#download-panel svg { flex-shrink: 0; }
+@media (max-width: 720px) {
+  #mobile-sheet #download-controls { position: relative; left: auto; bottom: auto; }
+  #download-panel { left: 50%; transform: translateX(-50%); }
+}
 
 /* ---------- text-size controls ---------- */
 
@@ -1155,7 +1187,7 @@ body {
 .star-at-threshold #mobile-menu-btn,
 .star-at-threshold #sound-toggle,
 .star-at-threshold #tts-toggle,
-.star-at-threshold #pdf-download,
+.star-at-threshold #download-controls,
 .star-at-threshold #text-size-controls { filter: grayscale(1); }
 .star-at-threshold .star-return::before { animation: star-last-orbit 12s ease-in-out infinite; }
 @keyframes star-last-orbit {

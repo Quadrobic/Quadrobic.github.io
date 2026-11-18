@@ -39,6 +39,8 @@ LANGS = {
         "sound_aria": "Переключить фоновый звук", "sound_title": "Звук",
         "tts_aria": "Слушать трактат вслух", "tts_title": "Слушать",
         "tts_voice_aria": "Голос и скорость чтения", "tts_voice_title": "Голос и скорость",
+        "apk_aria": "Скачать приложение для Android (APK, офлайн-чтение)",
+        "download_aria": "Скачать",
         "pdf_aria": "Скачать PDF", "pdf_title": "Скачать PDF",
         "dec_aria": "Уменьшить размер текста", "dec_title": "Меньше текста",
         "inc_aria": "Увеличить размер текста", "inc_title": "Больше текста",
@@ -63,6 +65,8 @@ LANGS = {
         "sound_aria": "Toggle ambient sound", "sound_title": "Sound",
         "tts_aria": "Listen to the treatise", "tts_title": "Listen",
         "tts_voice_aria": "Voice and reading speed", "tts_voice_title": "Voice & speed",
+        "apk_aria": "Download the Android app (APK, offline reading)",
+        "download_aria": "Downloads",
         "pdf_aria": "Download PDF", "pdf_title": "Download PDF",
         "dec_aria": "Decrease text size", "dec_title": "Smaller text",
         "inc_aria": "Increase text size", "inc_title": "Larger text",
@@ -86,6 +90,8 @@ LANGS = {
         "sound_aria": "เปิด/ปิดเสียงพื้นหลัง", "sound_title": "เสียง",
         "tts_aria": "ฟังคัมภีร์", "tts_title": "ฟัง",
         "tts_voice_aria": "เลือกเสียงผู้อ่าน", "tts_voice_title": "เสียง",
+        "apk_aria": "ดาวน์โหลดแอป Android (APK สำหรับอ่านออฟไลน์)",
+        "download_aria": "ดาวน์โหลด",
         "pdf_aria": "ดาวน์โหลด PDF", "pdf_title": "ดาวน์โหลด PDF",
         "dec_aria": "ลดขนาดตัวอักษร", "dec_title": "ตัวอักษรเล็กลง",
         "inc_aria": "เพิ่มขนาดตัวอักษร", "inc_title": "ตัวอักษรใหญ่ขึ้น",
@@ -358,6 +364,8 @@ def build(lang: str, tpl: str, snapshot):
     out = out.replace("<!--TTS_TITLE-->", html.escape(meta["tts_title"]))
     out = out.replace("<!--TTS_VOICE_ARIA-->", html.escape(meta["tts_voice_aria"]))
     out = out.replace("<!--TTS_VOICE_TITLE-->", html.escape(meta["tts_voice_title"]))
+    out = out.replace("<!--DOWNLOAD_ARIA-->", html.escape(meta["download_aria"]))
+    out = out.replace("<!--APK_ARIA-->", html.escape(meta["apk_aria"]))
     out = out.replace("<!--PDF_ARIA-->", html.escape(meta["pdf_aria"]))
     out = out.replace("<!--PDF_TITLE-->", html.escape(meta["pdf_title"]))
     out = out.replace("<!--DEC_ARIA-->", html.escape(meta["dec_aria"]))
