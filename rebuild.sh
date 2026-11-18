@@ -44,7 +44,7 @@ needs_rebuild() {
 }
 
 FORMAL_DEPS=(agda/build_web.py agda/web_content.py agda/web_template.html agda/check.py
-  agda/README.md agda/web_annotations.py agda/.gitignore agda/imperium.agda-lib agda/All.agda
+  agda/README.md agda/web_annotations.py agda/web_readings.py agda/.gitignore agda/imperium.agda-lib agda/All.agda
   agda/Imperium/*.agda agda/tests/reject/*.agda)
 if needs_rebuild formalization.html "${FORMAL_DEPS[@]}" \
   || needs_rebuild formalization.en.html "${FORMAL_DEPS[@]}" \

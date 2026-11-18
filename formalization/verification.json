@@ -98,8 +98,8 @@
     "agda/tests/reject/ZeroWindow.agda": "aefc1c95d07e636aa99cbe1f086eb15d2f27ade7c70820e333ed6376c4599df9",
     "agda/web_annotations.py": "c2434971f9de9151b00dd9deacfce86c8f016cedad71c2f131f2a56ab4fc461b",
     "agda/web_content.py": "9869e278b2b90e55e1d4357f51ae9d67d33dccf7148ecc60102c4a397b3ffad2",
-    "agda/web_readings.py": "97f4f305159d8f68399984841d569d888e3c163169190f43c4c2156206ef931d",
+    "agda/web_readings.py": "5788d4ad174841768d212d6e7c2ad32ac78594b243c972a2471ddf851f2652a1",
     "agda/web_template.html": "bb7e375630ee91a93f381cad11c9eacdd7ce9626b1e0d08c8c436a1e479cdb54"
   },
-  "source_sha256": "361ce086fdf6b340982dc47eddf5edb3502605b35216f32620f57d99466b3f69"
+  "source_sha256": "d63f4f44e2a5e57e26501c0bfb6bda2a2eada5519cbb1d2f8a8cf7c1fa7790cf"
 }

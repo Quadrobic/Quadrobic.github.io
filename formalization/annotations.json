@@ -1,5 +1,5 @@
 {
-  "source_sha256": "361ce086fdf6b340982dc47eddf5edb3502605b35216f32620f57d99466b3f69",
+  "source_sha256": "d63f4f44e2a5e57e26501c0bfb6bda2a2eada5519cbb1d2f8a8cf7c1fa7790cf",
   "agda": "Agda version 2.8.0.2",
   "statuses": {
     "theorem": [
@@ -680,16 +680,12 @@
       "Context"
     ],
     "parallel": [
-      "Параллель",
-      "Parallel"
+      "Близкая мысль",
+      "Related idea"
     ],
     "study": [
       "Исследование",
       "Study"
-    ],
-    "critique": [
-      "Возражение / граница",
-      "Objection / limit"
     ],
     "image": [
       "Источник образов",
@@ -697,83 +693,21 @@
     ]
   },
   "readings": {
-    "8": [
-      {
-        "id": "tattvartha",
-        "title": "Umāsvāti. Tattvārtha Sūtra / That Which Is, trans. Nathmal Tatia (1994; Yale reissue 2011)",
-        "kind": "tradition",
-        "ru": "Гл. 6: приток со страстью и без неё; 8.1: пять причин связывания. Кармическая материя и освобождение здесь принадлежат джайнскому учению. Книга переосмысляет их через Русло и возвращение к жизни.",
-        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 names five causes of bondage. Karmic matter and liberation belong to Jain doctrine. The treatise reworks them through the Riverbed and renewed life.",
-        "href": "https://yalebooks.co.uk/book/9780300165296/that-which-is/"
-      },
-      {
-        "id": "dundas",
-        "title": "Paul Dundas. The Jains, 2nd ed. (Routledge, 2002)",
-        "kind": "context",
-        "ru": "История, многообразие общин, аскетическая и мирская жизнь. Позволяет различить исторический джайнизм и самостоятельную космологию этой книги.",
-        "en": "History, diverse communities, ascetic and lay life. A way to distinguish historical Jainism from this book’s independent cosmology.",
-        "href": "https://www.routledge.com/The-Jains/Dundas/p/book/9780415266062"
-      },
-      {
-        "id": "jaini",
-        "title": "Padmanabh S. Jaini. The Jaina Path of Purification (1979)",
-        "kind": "context",
-        "ru": "Джива, карма, обеты, очищение и освобождение. Особенно важен контраст: сиддха в классическом учении освобождена от воплощений, а здесь имя получает иной смысл.",
-        "en": "Jiva, karma, vows, purification, and liberation. The contrast matters: the classical siddha is free from rebirth, whereas this book gives the name a different meaning."
-      },
-      {
-        "id": "long",
-        "title": "Jeffery D. Long. Jainism: An Introduction (2009)",
-        "kind": "context",
-        "ru": "Введение в историю, философию и практику джайнизма; ориентир для терминов, а не подтверждение всех их авторских переосмыслений.",
-        "en": "An introduction to Jain history, philosophy, and practice: orientation for the vocabulary, not endorsement of every authorial reinterpretation."
-      },
-      {
-        "id": "guseva",
-        "title": "Н. Р. Гусева. Джайнизм (Наука, 1968)",
-        "kind": "context",
-        "ru": "Русскоязычное историческое введение. Его время и исследовательская перспектива отличаются от позднейших работ по джайнизму.",
-        "en": "A Russian-language historical introduction. Its period and scholarly perspective differ from later Jain studies."
-      },
-      {
-        "id": "whitehead",
-        "title": "Alfred North Whitehead. Process and Reality (1929)",
-        "kind": "parallel",
-        "ru": "Событие и становление вместо первенства неподвижной вещи. Процессуальная метафизика даёт собеседника, но не доказательство Истока.",
-        "en": "Events and becoming rather than the primacy of static things. Process metaphysics offers an interlocutor, not proof of the Source."
-      },
-      {
-        "id": "mead-self",
-        "title": "George Herbert Mead. Mind, Self, and Society, §22: The “I” and the “me” (1934)",
-        "kind": "parallel",
-        "ru": "Различение отвечающего «Я» и социально организованного «Мне». Это не тождество Свабхавы и Русла: у Мида «Я» тоже принадлежит социальному процессу и узнаётся после действия, а не даётся как неизменная природа.",
-        "en": "Distinguishes the responding “I” from the socially organized “me”. This is not an identity with Svabhava and Riverbed: Mead’s “I” also belongs to social process and becomes known after action, not as an unchanging nature.",
-        "href": "https://brocku.ca/MeadProject/Mead/pubs2/mindself/Mead_1934_22.html"
-      },
-      {
-        "id": "cooley-self",
-        "title": "Charles H. Cooley. Human Nature and the Social Order, ch. V (1902; revised ed. 1922)",
-        "kind": "parallel",
-        "ru": "«Зеркальное я» включает воображаемое впечатление о себе и воображаемое суждение другого. Оно объясняет участие связи в образе себя, но не делает чужой взгляд прозрачным или безошибочным. Ссылка ведёт к пересмотренному изданию.",
-        "en": "The looking-glass self includes imagined appearance and imagined judgment by another. It illuminates relationship in self-image without making another’s gaze transparent or infallible. The link is to the revised edition.",
-        "href": "https://brocku.ca/MeadProject/Cooley/Cooley_1902/Cooley_1902f.html"
-      }
-    ],
     "9": [
       {
         "id": "tattvartha",
         "title": "Umāsvāti. Tattvārtha Sūtra / That Which Is, trans. Nathmal Tatia (1994; Yale reissue 2011)",
         "kind": "tradition",
-        "ru": "Гл. 6: приток со страстью и без неё; 8.1: пять причин связывания. Кармическая материя и освобождение здесь принадлежат джайнскому учению. Книга переосмысляет их через Русло и возвращение к жизни.",
-        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 names five causes of bondage. Karmic matter and liberation belong to Jain doctrine. The treatise reworks them through the Riverbed and renewed life.",
+        "ru": "Гл. 6 различает приток со страстью и без неё; 8.1 называет причины связывания, включая страсти и небрежность. Здесь находятся джайнские основания различения асравы и бандхи в §11.",
+        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 includes passions and heedlessness among the causes of bondage. These are the Jain sources for §11’s distinction between asrava and bandha.",
         "href": "https://yalebooks.co.uk/book/9780300165296/that-which-is/"
       },
       {
         "id": "mead-self",
         "title": "George Herbert Mead. Mind, Self, and Society, §22: The “I” and the “me” (1934)",
         "kind": "parallel",
-        "ru": "Различение отвечающего «Я» и социально организованного «Мне». Это не тождество Свабхавы и Русла: у Мида «Я» тоже принадлежит социальному процессу и узнаётся после действия, а не даётся как неизменная природа.",
-        "en": "Distinguishes the responding “I” from the socially organized “me”. This is not an identity with Svabhava and Riverbed: Mead’s “I” also belongs to social process and becomes known after action, not as an unchanging nature.",
+        "ru": "Образ себя складывается через принятие отношения других, а собственный ответ не исчерпывается этим образом. Связь относится к эго и социальному узнаванию себя в §9 и §22.",
+        "en": "The self-image develops through taking others’ attitudes, while one’s response is not exhausted by that image. The connection concerns ego and social self-recognition in §9 and §22.",
         "href": "https://brocku.ca/MeadProject/Mead/pubs2/mindself/Mead_1934_22.html"
       }
     ],
@@ -782,9 +716,16 @@
         "id": "tattvartha",
         "title": "Umāsvāti. Tattvārtha Sūtra / That Which Is, trans. Nathmal Tatia (1994; Yale reissue 2011)",
         "kind": "tradition",
-        "ru": "Гл. 6: приток со страстью и без неё; 8.1: пять причин связывания. Кармическая материя и освобождение здесь принадлежат джайнскому учению. Книга переосмысляет их через Русло и возвращение к жизни.",
-        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 names five causes of bondage. Karmic matter and liberation belong to Jain doctrine. The treatise reworks them through the Riverbed and renewed life.",
+        "ru": "Гл. 6 различает приток со страстью и без неё; 8.1 называет причины связывания, включая страсти и небрежность. Здесь находятся джайнские основания различения асравы и бандхи в §11.",
+        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 includes passions and heedlessness among the causes of bondage. These are the Jain sources for §11’s distinction between asrava and bandha.",
         "href": "https://yalebooks.co.uk/book/9780300165296/that-which-is/"
+      },
+      {
+        "id": "jaini",
+        "title": "Padmanabh S. Jaini. The Jaina Path of Purification (1979)",
+        "kind": "context",
+        "ru": "Страсти и связывание кармой; ахимса, внимательность и очищение через практику. Близко к связке хватки, небрежности и работы над причинением вреда.",
+        "en": "Passions and karmic bondage; ahimsa, attentiveness, and purification through practice. Closely related to the text’s treatment of grip, heedlessness, and harmful action."
       }
     ],
     "28": [
@@ -792,77 +733,46 @@
         "id": "tattvartha",
         "title": "Umāsvāti. Tattvārtha Sūtra / That Which Is, trans. Nathmal Tatia (1994; Yale reissue 2011)",
         "kind": "tradition",
-        "ru": "Гл. 6: приток со страстью и без неё; 8.1: пять причин связывания. Кармическая материя и освобождение здесь принадлежат джайнскому учению. Книга переосмысляет их через Русло и возвращение к жизни.",
-        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 names five causes of bondage. Karmic matter and liberation belong to Jain doctrine. The treatise reworks them through the Riverbed and renewed life.",
+        "ru": "Гл. 6 различает приток со страстью и без неё; 8.1 называет причины связывания, включая страсти и небрежность. Здесь находятся джайнские основания различения асравы и бандхи в §11.",
+        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 includes passions and heedlessness among the causes of bondage. These are the Jain sources for §11’s distinction between asrava and bandha.",
         "href": "https://yalebooks.co.uk/book/9780300165296/that-which-is/"
       },
       {
         "id": "dundas",
         "title": "Paul Dundas. The Jains, 2nd ed. (Routledge, 2002)",
         "kind": "context",
-        "ru": "История, многообразие общин, аскетическая и мирская жизнь. Позволяет различить исторический джайнизм и самостоятельную космологию этой книги.",
-        "en": "History, diverse communities, ascetic and lay life. A way to distinguish historical Jainism from this book’s independent cosmology.",
+        "ru": "Описание джайнских обетов, общинной и мирской практики. Полезно для понятий дхармы и авашьяк в тексте.",
+        "en": "An account of Jain vows, communal life, and lay practice, relevant to the text’s dharma and avashyaka vocabulary.",
         "href": "https://www.routledge.com/The-Jains/Dundas/p/book/9780415266062"
-      },
-      {
-        "id": "jaini",
-        "title": "Padmanabh S. Jaini. The Jaina Path of Purification (1979)",
-        "kind": "context",
-        "ru": "Джива, карма, обеты, очищение и освобождение. Особенно важен контраст: сиддха в классическом учении освобождена от воплощений, а здесь имя получает иной смысл.",
-        "en": "Jiva, karma, vows, purification, and liberation. The contrast matters: the classical siddha is free from rebirth, whereas this book gives the name a different meaning."
       },
       {
         "id": "long",
         "title": "Jeffery D. Long. Jainism: An Introduction (2009)",
         "kind": "context",
-        "ru": "Введение в историю, философию и практику джайнизма; ориентир для терминов, а не подтверждение всех их авторских переосмыслений.",
-        "en": "An introduction to Jain history, philosophy, and practice: orientation for the vocabulary, not endorsement of every authorial reinterpretation."
+        "ru": "Джайнистские понятия живого, ненасилия и повседневной дисциплины: контекст дхармы и Садханы.",
+        "en": "Jain accounts of living beings, nonviolence, and daily discipline: context for dharma and Sadhana."
       },
       {
         "id": "guseva",
         "title": "Н. Р. Гусева. Джайнизм (Наука, 1968)",
         "kind": "context",
-        "ru": "Русскоязычное историческое введение. Его время и исследовательская перспектива отличаются от позднейших работ по джайнизму.",
-        "en": "A Russian-language historical introduction. Its period and scholarly perspective differ from later Jain studies."
+        "ru": "Русскоязычное изложение джайнских понятий кармы, ненасилия и аскетической практики.",
+        "en": "A Russian-language account of Jain karma, nonviolence, and ascetic practice."
       },
       {
         "id": "shah",
         "title": "Natubhai Shah. Jainism: The World of Conquerors (1998)",
         "kind": "context",
-        "ru": "Широкая картина учения и жизни общин; дополнительное чтение рядом с Джайни и Дандасом.",
-        "en": "A broad account of doctrine and communal life; further reading alongside Jaini and Dundas."
-      }
-    ],
-    "31": [
-      {
-        "id": "tattvartha",
-        "title": "Umāsvāti. Tattvārtha Sūtra / That Which Is, trans. Nathmal Tatia (1994; Yale reissue 2011)",
-        "kind": "tradition",
-        "ru": "Гл. 6: приток со страстью и без неё; 8.1: пять причин связывания. Кармическая материя и освобождение здесь принадлежат джайнскому учению. Книга переосмысляет их через Русло и возвращение к жизни.",
-        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 names five causes of bondage. Karmic matter and liberation belong to Jain doctrine. The treatise reworks them through the Riverbed and renewed life.",
-        "href": "https://yalebooks.co.uk/book/9780300165296/that-which-is/"
+        "ru": "Джайнистская этика и уклад общины: обеты, забота о живом и дисциплина повседневности.",
+        "en": "Jain ethics and communal practice: vows, care for living beings, and daily discipline."
       },
       {
-        "id": "dundas",
-        "title": "Paul Dundas. The Jains, 2nd ed. (Routledge, 2002)",
-        "kind": "context",
-        "ru": "История, многообразие общин, аскетическая и мирская жизнь. Позволяет различить исторический джайнизм и самостоятельную космологию этой книги.",
-        "en": "History, diverse communities, ascetic and lay life. A way to distinguish historical Jainism from this book’s independent cosmology.",
-        "href": "https://www.routledge.com/The-Jains/Dundas/p/book/9780415266062"
-      },
-      {
-        "id": "jaini",
-        "title": "Padmanabh S. Jaini. The Jaina Path of Purification (1979)",
-        "kind": "context",
-        "ru": "Джива, карма, обеты, очищение и освобождение. Особенно важен контраст: сиддха в классическом учении освобождена от воплощений, а здесь имя получает иной смысл.",
-        "en": "Jiva, karma, vows, purification, and liberation. The contrast matters: the classical siddha is free from rebirth, whereas this book gives the name a different meaning."
-      },
-      {
-        "id": "shah",
-        "title": "Natubhai Shah. Jainism: The World of Conquerors (1998)",
-        "kind": "context",
-        "ru": "Широкая картина учения и жизни общин; дополнительное чтение рядом с Джайни и Дандасом.",
-        "en": "A broad account of doctrine and communal life; further reading alongside Jaini and Dundas."
+        "id": "aurobindo-own-nature",
+        "title": "Sri Aurobindo. Essays on the Gita, Second Series, ch. XX: Swabhava and Swadharma (1928; CWSA 19)",
+        "kind": "parallel",
+        "ru": "Собственная природа выражается собственным законом действия; чужая, даже безупречно исполненная форма не заменяет этого закона. Близкое чтение к Свабхаве и дхарме как выражению своего движения.",
+        "en": "One’s own nature expresses itself through its own law of action; even a perfectly performed borrowed form cannot replace it. Close to Svabhava and dharma as the expression of one’s movement.",
+        "href": "https://www.sriaurobindoashram.org/sriaurobindo/downloadpdf.php?id=34#page=518"
       }
     ],
     "sadhana": [
@@ -870,38 +780,38 @@
         "id": "tattvartha",
         "title": "Umāsvāti. Tattvārtha Sūtra / That Which Is, trans. Nathmal Tatia (1994; Yale reissue 2011)",
         "kind": "tradition",
-        "ru": "Гл. 6: приток со страстью и без неё; 8.1: пять причин связывания. Кармическая материя и освобождение здесь принадлежат джайнскому учению. Книга переосмысляет их через Русло и возвращение к жизни.",
-        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 names five causes of bondage. Karmic matter and liberation belong to Jain doctrine. The treatise reworks them through the Riverbed and renewed life.",
+        "ru": "Гл. 6 различает приток со страстью и без неё; 8.1 называет причины связывания, включая страсти и небрежность. Здесь находятся джайнские основания различения асравы и бандхи в §11.",
+        "en": "Chapter 6 distinguishes influx with and without passion; 8.1 includes passions and heedlessness among the causes of bondage. These are the Jain sources for §11’s distinction between asrava and bandha.",
         "href": "https://yalebooks.co.uk/book/9780300165296/that-which-is/"
       },
       {
         "id": "dundas",
         "title": "Paul Dundas. The Jains, 2nd ed. (Routledge, 2002)",
         "kind": "context",
-        "ru": "История, многообразие общин, аскетическая и мирская жизнь. Позволяет различить исторический джайнизм и самостоятельную космологию этой книги.",
-        "en": "History, diverse communities, ascetic and lay life. A way to distinguish historical Jainism from this book’s independent cosmology.",
+        "ru": "Описание джайнских обетов, общинной и мирской практики. Полезно для понятий дхармы и авашьяк в тексте.",
+        "en": "An account of Jain vows, communal life, and lay practice, relevant to the text’s dharma and avashyaka vocabulary.",
         "href": "https://www.routledge.com/The-Jains/Dundas/p/book/9780415266062"
       },
       {
         "id": "jaini",
         "title": "Padmanabh S. Jaini. The Jaina Path of Purification (1979)",
         "kind": "context",
-        "ru": "Джива, карма, обеты, очищение и освобождение. Особенно важен контраст: сиддха в классическом учении освобождена от воплощений, а здесь имя получает иной смысл.",
-        "en": "Jiva, karma, vows, purification, and liberation. The contrast matters: the classical siddha is free from rebirth, whereas this book gives the name a different meaning."
+        "ru": "Страсти и связывание кармой; ахимса, внимательность и очищение через практику. Близко к связке хватки, небрежности и работы над причинением вреда.",
+        "en": "Passions and karmic bondage; ahimsa, attentiveness, and purification through practice. Closely related to the text’s treatment of grip, heedlessness, and harmful action."
       },
       {
         "id": "long",
         "title": "Jeffery D. Long. Jainism: An Introduction (2009)",
         "kind": "context",
-        "ru": "Введение в историю, философию и практику джайнизма; ориентир для терминов, а не подтверждение всех их авторских переосмыслений.",
-        "en": "An introduction to Jain history, philosophy, and practice: orientation for the vocabulary, not endorsement of every authorial reinterpretation."
+        "ru": "Джайнистские понятия живого, ненасилия и повседневной дисциплины: контекст дхармы и Садханы.",
+        "en": "Jain accounts of living beings, nonviolence, and daily discipline: context for dharma and Sadhana."
       },
       {
         "id": "guseva",
         "title": "Н. Р. Гусева. Джайнизм (Наука, 1968)",
         "kind": "context",
-        "ru": "Русскоязычное историческое введение. Его время и исследовательская перспектива отличаются от позднейших работ по джайнизму.",
-        "en": "A Russian-language historical introduction. Its period and scholarly perspective differ from later Jain studies."
+        "ru": "Русскоязычное изложение джайнских понятий кармы, ненасилия и аскетической практики.",
+        "en": "A Russian-language account of Jain karma, nonviolence, and ascetic practice."
       },
       {
         "id": "yoga-sutras",
@@ -909,13 +819,6 @@
         "kind": "parallel",
         "ru": "Дисциплина внимания, практика и освобождение в классической йоге. Параллель к работе пути, не историческое происхождение квадробики.",
         "en": "Attention, practice, and liberation in classical yoga. A comparison for discipline, not a historical origin of quadrobics."
-      },
-      {
-        "id": "modern-yoga",
-        "title": "Mark Singleton. Yoga Body (Oxford, 2010); Joseph S. Alter. Yoga in Modern India (2004)",
-        "kind": "context",
-        "ru": "История современных телесных практик: форма, которую принимают за вневременную, складывается в определённых общественных условиях. Квадробика здесь - самостоятельный выбор пути.",
-        "en": "Histories of modern bodily practices: supposedly timeless forms develop under particular social conditions. Quadrobics here is an independent choice of practice."
       },
       {
         "id": "act",
@@ -953,143 +856,20 @@
         "en": "Shared movement, rhythm, and community in history. One rhythm can bind people without determining what the resulting bond serves."
       }
     ],
-    "1": [
-      {
-        "id": "dundas",
-        "title": "Paul Dundas. The Jains, 2nd ed. (Routledge, 2002)",
-        "kind": "context",
-        "ru": "История, многообразие общин, аскетическая и мирская жизнь. Позволяет различить исторический джайнизм и самостоятельную космологию этой книги.",
-        "en": "History, diverse communities, ascetic and lay life. A way to distinguish historical Jainism from this book’s independent cosmology.",
-        "href": "https://www.routledge.com/The-Jains/Dundas/p/book/9780415266062"
-      },
-      {
-        "id": "raft",
-        "title": "Alagaddūpama Sutta, MN 22, trans. Ñāṇamoli & Bodhi, The Middle Length Discourses (1995)",
-        "kind": "parallel",
-        "ru": "Образ плота: учение служит переправе, а не становится ношей после неё. Параллель к книге как раме вокруг двери.",
-        "en": "The raft serves a crossing rather than becoming a burden afterward. A comparison for the book as a frame around a door.",
-        "href": "https://wisdomexperience.org/ebook/the-middle-length-discourses-of-the-buddha/contents/"
-      },
-      {
-        "id": "zhuangzi",
-        "title": "Zhuangzi, ch. 26, trans. Burton Watson",
-        "kind": "parallel",
-        "ru": "Ловушка нужна ради рыбы, слова - ради смысла. Родственный жест освобождения от средства, когда оно уже исполнило работу.",
-        "en": "The trap serves the fish, words serve meaning. A related gesture of releasing a means once it has done its work."
-      },
-      {
-        "id": "ladder",
-        "title": "Ludwig Wittgenstein. Tractatus Logico-Philosophicus, 6.54, 7 (1921)",
-        "kind": "parallel",
-        "ru": "Лестница, которую отбрасывают, поднявшись по ней, и граница высказывания. Философская параллель, не тождество апофатик.",
-        "en": "The ladder discarded after climbing and the limit of saying. A philosophical comparison, not an identity between apophatic teachings."
-      },
-      {
-        "id": "heraclitus",
-        "title": "Charles H. Kahn. The Art and Thought of Heraclitus (1979)",
-        "kind": "parallel",
-        "ru": "Единство перемены и устойчивости, речной образ. Историческое чтение Гераклита не сводится к лозунгу о всеобщем хаосе.",
-        "en": "Change, persistence, and river imagery. A historical reading of Heraclitus is more than a slogan about universal chaos."
-      },
-      {
-        "id": "whitehead",
-        "title": "Alfred North Whitehead. Process and Reality (1929)",
-        "kind": "parallel",
-        "ru": "Событие и становление вместо первенства неподвижной вещи. Процессуальная метафизика даёт собеседника, но не доказательство Истока.",
-        "en": "Events and becoming rather than the primacy of static things. Process metaphysics offers an interlocutor, not proof of the Source."
-      },
-      {
-        "id": "lossky",
-        "title": "В. Н. Лосский. Очерк мистического богословия Восточной Церкви (1944)",
-        "kind": "parallel",
-        "ru": "Апофатическое богословие: отрицание не исчерпывает непостижимого. Христианский богословский контекст отличается от безличного Истока этой книги.",
-        "en": "Apophatic theology: negation does not exhaust the incomprehensible. Its Christian theological setting differs from this book’s impersonal Source."
-      }
-    ],
-    "30": [
-      {
-        "id": "dundas",
-        "title": "Paul Dundas. The Jains, 2nd ed. (Routledge, 2002)",
-        "kind": "context",
-        "ru": "История, многообразие общин, аскетическая и мирская жизнь. Позволяет различить исторический джайнизм и самостоятельную космологию этой книги.",
-        "en": "History, diverse communities, ascetic and lay life. A way to distinguish historical Jainism from this book’s independent cosmology.",
-        "href": "https://www.routledge.com/The-Jains/Dundas/p/book/9780415266062"
-      },
-      {
-        "id": "ritual-process",
-        "title": "Arnold van Gennep. The Rites of Passage (1909); Victor Turner. The Ritual Process (1969)",
-        "kind": "context",
-        "ru": "Порог, переход и коммунитас помогают прочесть Час Растворения. Общий порог не гарантирует равенства после него и не описывает всякий ритуал одинаково.",
-        "en": "Threshold, transition, and communitas illuminate the Hour of Dissolution. A shared threshold guarantees neither equality afterward nor a single account of every ritual."
-      },
-      {
-        "id": "synchrony",
-        "title": "Scott S. Wiltermuth & Chip Heath. Synchrony and Cooperation (2009); Michael J. Hove & Jane L. Risen. It’s All in the Timing (2009)",
-        "kind": "study",
-        "ru": "В исследованных задачах совместный ритм связан с сотрудничеством и расположением. Отсюда не следуют нравственная правота группы или безопасность растворения в ней.",
-        "en": "In the studied tasks, shared timing relates to cooperation and affiliation. Neither the group’s moral rightness nor safety of merging into it follows.",
-        "href": "https://www2.psych.ubc.ca/~schaller/Psyc591Readings/WiltermuthHeath2009.pdf"
-      },
-      {
-        "id": "arendt",
-        "title": "Hannah Arendt. The Human Condition (1958); On Violence (1970)",
-        "kind": "parallel",
-        "ru": "Совместное действие, власть и насилие. У Арендт власть может означать способность действовать вместе; в трактате «власть» часто означает присвоение. Сходство вопросов не делает словари тождественными.",
-        "en": "Acting together, power, and violence. For Arendt, power can mean the capacity to act together; here it often means appropriation. Shared questions do not make the vocabularies identical."
-      },
-      {
-        "id": "freeman",
-        "title": "Jo Freeman. The Tyranny of Structurelessness (1972)",
-        "kind": "critique",
-        "ru": "Необъявленная структура скрывает круг тех, кто принимает решения. Для Империи это прямое испытание: правила, поручения и возможность отзыва должны оставаться видимыми для всех, кого они затрагивают.",
-        "en": "Unacknowledged structure conceals the circle that makes decisions. A direct test for the Empire: rules, delegated tasks, and recall must remain visible to those affected.",
-        "href": "https://www.jofreeman.com/joreen/tyranny.htm"
-      },
-      {
-        "id": "earthsea-dispossessed",
-        "title": "Ursula K. Le Guin. A Wizard of Earthsea (1968); The Dispossessed (1974)",
-        "kind": "parallel",
-        "ru": "Признание тени и трудности общества без трона. Литературные собеседники, не доказательства психологической или общественной модели.",
-        "en": "Acknowledging the shadow and the difficulties of a society without a throne. Literary interlocutors, not proofs of a psychological or social model."
-      }
-    ],
-    "13": [
-      {
-        "id": "jaini",
-        "title": "Padmanabh S. Jaini. The Jaina Path of Purification (1979)",
-        "kind": "context",
-        "ru": "Джива, карма, обеты, очищение и освобождение. Особенно важен контраст: сиддха в классическом учении освобождена от воплощений, а здесь имя получает иной смысл.",
-        "en": "Jiva, karma, vows, purification, and liberation. The contrast matters: the classical siddha is free from rebirth, whereas this book gives the name a different meaning."
-      },
-      {
-        "id": "yoga-sutras",
-        "title": "Edwin F. Bryant. The Yoga Sūtras of Patañjali (2009)",
-        "kind": "parallel",
-        "ru": "Дисциплина внимания, практика и освобождение в классической йоге. Параллель к работе пути, не историческое происхождение квадробики.",
-        "en": "Attention, practice, and liberation in classical yoga. A comparison for discipline, not a historical origin of quadrobics."
-      },
-      {
-        "id": "act",
-        "title": "Steven C. Hayes, Kirk D. Strosahl & Kelly G. Wilson. Acceptance and Commitment Therapy (1999; 2nd ed. 2012)",
-        "kind": "parallel",
-        "ru": "Принятие переживания не требует исполнять его требование: действие можно выбирать по ценностям. Это терапевтическая параллель, не обоснование метафизики книги.",
-        "en": "Accepting an experience need not mean obeying its demand: action can follow values. A therapeutic comparison, not support for the book’s metaphysics."
-      }
-    ],
     "29": [
       {
         "id": "jaini",
         "title": "Padmanabh S. Jaini. The Jaina Path of Purification (1979)",
         "kind": "context",
-        "ru": "Джива, карма, обеты, очищение и освобождение. Особенно важен контраст: сиддха в классическом учении освобождена от воплощений, а здесь имя получает иной смысл.",
-        "en": "Jiva, karma, vows, purification, and liberation. The contrast matters: the classical siddha is free from rebirth, whereas this book gives the name a different meaning."
+        "ru": "Страсти и связывание кармой; ахимса, внимательность и очищение через практику. Близко к связке хватки, небрежности и работы над причинением вреда.",
+        "en": "Passions and karmic bondage; ahimsa, attentiveness, and purification through practice. Closely related to the text’s treatment of grip, heedlessness, and harmful action."
       },
       {
         "id": "chapple",
         "title": "Christopher Key Chapple. Nonviolence to Animals, Earth, and Self in Asian Traditions (SUNY, 1993)",
         "kind": "context",
-        "ru": "Ахимса в отношениях с животными, землёй и собой. Этический и исторический контекст; не свидетельство физиологической невозможности причинить вред.",
-        "en": "Ahimsa toward animals, earth, and oneself. Ethical and historical context, not evidence that inflicting harm becomes physiologically impossible.",
+        "ru": "Ахимса распространяет внимание к чужой жизни на животных, землю и самого действующего. Прямая связь с ненасилием как способом отношения к живому в §29. Это этическое чтение, а не физиологическое доказательство.",
+        "en": "Ahimsa extends care for life to animals, earth, and the acting person. Directly related to §29’s nonviolence as a way of relating to living beings. An ethical reading, rather than physiological evidence.",
         "href": "https://digitalcommons.lmu.edu/theo_fac/64/"
       },
       {
@@ -1122,40 +902,13 @@
         "en": "Another life remains independent even where a human recognizes something familiar. Compassion does not require reducing every side of a conflict to one voice."
       }
     ],
-    "37": [
-      {
-        "id": "jaini",
-        "title": "Padmanabh S. Jaini. The Jaina Path of Purification (1979)",
-        "kind": "context",
-        "ru": "Джива, карма, обеты, очищение и освобождение. Особенно важен контраст: сиддха в классическом учении освобождена от воплощений, а здесь имя получает иной смысл.",
-        "en": "Jiva, karma, vows, purification, and liberation. The contrast matters: the classical siddha is free from rebirth, whereas this book gives the name a different meaning."
-      }
-    ],
     "4": [
       {
         "id": "matilal",
         "title": "Bimal Krishna Matilal. The Central Philosophy of Jainism (Anekāntavāda) (1981)",
         "kind": "context",
-        "ru": "Многосторонность и обусловленное высказывание. Сьядвада не означает, что любые несовместимые ответы одинаково верны: важно, с какой стороны и при каких условиях сказано.",
-        "en": "Many-sidedness and conditional predication. Syadvada does not make every incompatible answer equally true: standpoint and conditions matter.",
-        "href": "https://jainqq.org/explore/001129/1"
-      },
-      {
-        "id": "rovelli",
-        "title": "Carlo Rovelli. Relational Quantum Mechanics (1996); Helgoland (2020)",
-        "kind": "parallel",
-        "ru": "Относительность квантового описания к взаимодействующей системе. Это не сьядвада и не доказательство зависимости физической реальности от человеческого мнения.",
-        "en": "Quantum descriptions relative to interacting systems. This is neither syadvada nor proof that physical reality depends on human opinion.",
-        "href": "https://arxiv.org/abs/quant-ph/9609002"
-      }
-    ],
-    "17": [
-      {
-        "id": "matilal",
-        "title": "Bimal Krishna Matilal. The Central Philosophy of Jainism (Anekāntavāda) (1981)",
-        "kind": "context",
-        "ru": "Многосторонность и обусловленное высказывание. Сьядвада не означает, что любые несовместимые ответы одинаково верны: важно, с какой стороны и при каких условиях сказано.",
-        "en": "Many-sidedness and conditional predication. Syadvada does not make every incompatible answer equally true: standpoint and conditions matter.",
+        "ru": "Одну форму рассматривают с разных сторон; высказывание сохраняет смысл вместе с условиями и точкой зрения. Прямое чтение к сьядваде и множеству голосов.",
+        "en": "A form is approached from different standpoints; a statement retains its conditions and perspective. Direct reading for syadvada and the plurality of voices.",
         "href": "https://jainqq.org/explore/001129/1"
       }
     ],
@@ -1164,23 +917,16 @@
         "id": "matilal",
         "title": "Bimal Krishna Matilal. The Central Philosophy of Jainism (Anekāntavāda) (1981)",
         "kind": "context",
-        "ru": "Многосторонность и обусловленное высказывание. Сьядвада не означает, что любые несовместимые ответы одинаково верны: важно, с какой стороны и при каких условиях сказано.",
-        "en": "Many-sidedness and conditional predication. Syadvada does not make every incompatible answer equally true: standpoint and conditions matter.",
+        "ru": "Одну форму рассматривают с разных сторон; высказывание сохраняет смысл вместе с условиями и точкой зрения. Прямое чтение к сьядваде и множеству голосов.",
+        "en": "A form is approached from different standpoints; a statement retains its conditions and perspective. Direct reading for syadvada and the plurality of voices.",
         "href": "https://jainqq.org/explore/001129/1"
-      },
-      {
-        "id": "weber-michels",
-        "title": "Max Weber. Economy and Society (1922); Robert Michels. Political Parties (1911)",
-        "kind": "critique",
-        "ru": "Харизма, её превращение в учреждение и склонность организации к олигархии. Отсутствие наследного трона не освобождает Империю от проверки того, кто фактически решает.",
-        "en": "Charisma, its routinization, and organizational tendencies toward oligarchy. Absence of a hereditary throne does not exempt the Empire from examining who actually decides."
       },
       {
         "id": "freeman",
         "title": "Jo Freeman. The Tyranny of Structurelessness (1972)",
-        "kind": "critique",
-        "ru": "Необъявленная структура скрывает круг тех, кто принимает решения. Для Империи это прямое испытание: правила, поручения и возможность отзыва должны оставаться видимыми для всех, кого они затрагивают.",
-        "en": "Unacknowledged structure conceals the circle that makes decisions. A direct test for the Empire: rules, delegated tasks, and recall must remain visible to those affected.",
+        "kind": "context",
+        "ru": "Вместо скрытого круга решающих - явные правила, подотчётные поручения и распределённые возможности участия. Близко к тому, как §35 отличает отсутствие трона от отсутствия устройства.",
+        "en": "Explicit rules, accountable delegation, and distributed participation replace a hidden decision-making circle. Close to §35’s distinction between having no throne and having no structure.",
         "href": "https://www.jofreeman.com/joreen/tyranny.htm"
       },
       {
@@ -1196,51 +942,30 @@
         "kind": "parallel",
         "ru": "Ризома как образ связи без единственного ствола. Образ грибницы не доказывает отсутствия власти внутри реальной сети.",
         "en": "The rhizome as connection without a single trunk. Mycelial imagery does not prove that an actual network has no power relations."
-      },
-      {
-        "id": "bounded-choice",
-        "title": "Robert J. Lifton. Thought Reform and the Psychology of Totalism (1961); Janja Lalich. Bounded Choice (2004); Eileen Barker. The Making of a Moonie (1984); Lifton. Destroying the World to Save It (1999)",
-        "kind": "critique",
-        "ru": "Разные исследования замкнутых систем авторитета и религиозного участия. Их не используют как ярлык для любой общины: здесь они испытывают возможность возражения, независимой связи и выхода.",
-        "en": "Distinct studies of closed authority systems and religious participation. Not labels for every community; here they test possibilities of dissent, independent relationships, and exit."
-      },
-      {
-        "id": "invented-religion",
-        "title": "Carole M. Cusack. Invented Religions (2010); Adam Possamai. In Search of New Age Spiritualities (2005); Markus A. Davidsen. Fiction-Based Religion (2013); David Chidester. Authentic Fakes (2005)",
-        "kind": "context",
-        "ru": "Как современные религиозные формы работают с вымыслом и популярной культурой. Академическая карта для проекта, не приговор о подлинности внутреннего опыта.",
-        "en": "How modern religious forms engage fiction and popular culture. An academic map for the project, not a verdict on the authenticity of inward experience."
       }
     ],
-    "33": [
+    "8": [
       {
-        "id": "chapple",
-        "title": "Christopher Key Chapple. Nonviolence to Animals, Earth, and Self in Asian Traditions (SUNY, 1993)",
+        "id": "guseva",
+        "title": "Н. Р. Гусева. Джайнизм (Наука, 1968)",
         "kind": "context",
-        "ru": "Ахимса в отношениях с животными, землёй и собой. Этический и исторический контекст; не свидетельство физиологической невозможности причинить вред.",
-        "en": "Ahimsa toward animals, earth, and oneself. Ethical and historical context, not evidence that inflicting harm becomes physiologically impossible.",
-        "href": "https://digitalcommons.lmu.edu/theo_fac/64/"
+        "ru": "Русскоязычное изложение джайнских понятий кармы, ненасилия и аскетической практики.",
+        "en": "A Russian-language account of Jain karma, nonviolence, and ascetic practice."
       },
       {
-        "id": "arendt",
-        "title": "Hannah Arendt. The Human Condition (1958); On Violence (1970)",
+        "id": "whitehead",
+        "title": "Alfred North Whitehead. Process and Reality (1929)",
         "kind": "parallel",
-        "ru": "Совместное действие, власть и насилие. У Арендт власть может означать способность действовать вместе; в трактате «власть» часто означает присвоение. Сходство вопросов не делает словари тождественными.",
-        "en": "Acting together, power, and violence. For Arendt, power can mean the capacity to act together; here it often means appropriation. Shared questions do not make the vocabularies identical."
+        "ru": "Событие и становление вместо первенства неподвижной вещи. Процессуальная метафизика даёт собеседника, но не доказательство Истока.",
+        "en": "Events and becoming rather than the primacy of static things. Process metaphysics offers an interlocutor, not proof of the Source."
       },
       {
-        "id": "star-wars",
-        "title": "George Lucas et al. Star Wars (from 1977); BioWare. Star Wars: Knights of the Old Republic (2003)",
-        "kind": "image",
-        "ru": "Заявленный автором источник тёмного канона. Кодекс ситхов относится к расширенной вселенной и представлен в Knights of the Old Republic; это не реплика из фильма 1977 года. Книга переосмысляет силу через защиту чужого Русла.",
-        "en": "An author-acknowledged source of dark-canon imagery. The Sith Code belongs to the expanded universe and appears in Knights of the Old Republic, not as a line in the 1977 film. Here strength is reworked through protection of another’s Riverbed."
-      },
-      {
-        "id": "campbell",
-        "title": "Joseph Campbell. The Hero with a Thousand Faces (1949); Campbell & Bill Moyers. The Power of Myth (1988)",
+        "id": "cooley-self",
+        "title": "Charles H. Cooley. Human Nature and the Social Order, ch. V (1902; revised ed. 1922)",
         "kind": "parallel",
-        "ru": "Переход, испытание и возвращение. Сравнительная схема мифа не устанавливает единого смысла всех историй и не делает обрушение обязательным этапом пути.",
-        "en": "Transition, trial, and return. A comparative mythic scheme neither fixes every story’s meaning nor makes collapse a compulsory stage."
+        "ru": "Человек узнаёт себя через представление о том, как его видят и оценивают другие. Близко к участию встречи в образе собственного Русла; воображаемый взгляд ещё нуждается в действительном ответе.",
+        "en": "People understand themselves through imagining how others see and judge them. Close to encounter shaping the image of one’s Riverbed; an imagined gaze still needs an actual response.",
+        "href": "https://brocku.ca/MeadProject/Cooley/Cooley_1902/Cooley_1902f.html"
       }
     ],
     "14": [
@@ -1248,37 +973,31 @@
         "id": "triadic-heart",
         "title": "Paul E. Muller-Ortega. The Triadic Heart of Śiva (SUNY, 1989)",
         "kind": "context",
-        "ru": "Сердце в недвойственном шиваизме Кашмира. Это контекст имени Хридаи; мистическое сердце книги не тождественно целой системе Абхинавагупты.",
-        "en": "The heart in nondual Kashmir Shaivism. Context for Hridaya’s name; this book’s mystical heart is not identical with Abhinavagupta’s entire system."
+        "ru": "Мистическое сердце как средоточие сознания и проявления в кашмирском шиваизме. Близкое чтение к Хридае как живому присутствию, которое предшествует объяснению себя.",
+        "en": "The mystical heart as the focus of consciousness and manifestation in Kashmir Shaivism. Closely related to Hridaya as living presence before self-explanation."
       },
       {
         "id": "spanda",
         "title": "Mark S. G. Dyczkowski. The Doctrine of Vibration (SUNY, 1987); Jaideva Singh. Spanda-Kārikās (1980)",
         "kind": "context",
-        "ru": "Спанда как пульсация и проявление сознания. Сопоставление с Шакти не превращает метафизическую пульсацию в измеримую физическую частоту.",
-        "en": "Spanda as pulsation and manifestation of consciousness. Comparing it with Shakti does not turn metaphysical pulsation into a measurable physical frequency.",
+        "ru": "Спанда - живая пульсация сознания и сила проявления. Близко к Шакти как выражению движения и к присутствию мистического сердца; речь о метафизике, не о физической частоте.",
+        "en": "Spanda as the living pulsation of consciousness and power of manifestation. Close to Shakti as expression of movement and to mystical presence; a metaphysical account, not a physical frequency.",
         "href": "https://doi.org/10.1515/9781438401744"
       },
       {
         "id": "recognition-heart",
         "title": "Jaideva Singh. Pratyabhijñāhṛdayam (1963)",
         "kind": "parallel",
-        "ru": "Узнавание и сердце в кашмирском шиваизме. Параллель к узнаванию своего движения, а не основание считать традиции одним учением.",
-        "en": "Recognition and the heart in Kashmir Shaivism. A comparison for recognizing one’s movement, not grounds for treating the traditions as one doctrine."
-      },
-      {
-        "id": "rogers",
-        "title": "Carl R. Rogers. On Becoming a Person (1961)",
-        "kind": "parallel",
-        "ru": "Конгруэнтность и отношение, в котором возможно слышать себя. Самоузнавание не даёт другому права окончательно назвать Дживу.",
-        "en": "Congruence and a relationship in which one can hear oneself. Self-recognition gives no other person the right to define the jiva finally."
+        "ru": "Узнавание собственной природы как уже присутствующей, а не создаваемой усилием. Близко к тому, что практика настраивает слушание Хридаи, но не учреждает само сердце.",
+        "en": "Recognition of one’s nature as already present rather than produced by effort. Close to practice attuning the hearing of Hridaya without bringing the heart itself into existence."
       },
       {
         "id": "gendlin",
         "title": "Eugene T. Gendlin. Focusing (1978)",
         "kind": "parallel",
-        "ru": "Телесно ощущаемый смысл ещё не найденных слов. Параллель к слушанию, не отождествление felt sense с мистическим сердцем и не правило безошибочности ощущений.",
-        "en": "A bodily felt sense before words are found. A comparison for listening, not an identification with the mystical heart or a rule that sensations cannot mislead."
+        "ru": "Внимание к телесно ощущаемому смыслу, ожидание собственных слов и проверка их отклика. Инструкции уступают самому процессу: готовый ответ не должен заменять слушание. Близкое практическое чтение к §14–16.",
+        "en": "Attending to bodily felt meaning, waiting for one’s own words, and checking their resonance. Instructions yield to the process itself: a ready answer must not replace listening. Closely related to the practice in §14–16.",
+        "href": "https://focusing.org/sixsteps"
       }
     ],
     "6": [
@@ -1286,23 +1005,16 @@
         "id": "spanda",
         "title": "Mark S. G. Dyczkowski. The Doctrine of Vibration (SUNY, 1987); Jaideva Singh. Spanda-Kārikās (1980)",
         "kind": "context",
-        "ru": "Спанда как пульсация и проявление сознания. Сопоставление с Шакти не превращает метафизическую пульсацию в измеримую физическую частоту.",
-        "en": "Spanda as pulsation and manifestation of consciousness. Comparing it with Shakti does not turn metaphysical pulsation into a measurable physical frequency.",
+        "ru": "Спанда - живая пульсация сознания и сила проявления. Близко к Шакти как выражению движения и к присутствию мистического сердца; речь о метафизике, не о физической частоте.",
+        "en": "Spanda as the living pulsation of consciousness and power of manifestation. Close to Shakti as expression of movement and to mystical presence; a metaphysical account, not a physical frequency.",
         "href": "https://doi.org/10.1515/9781438401744"
       },
       {
         "id": "conatus",
         "title": "Baruch Spinoza. Ethics, III, propositions 6–7 (1677)",
         "kind": "parallel",
-        "ru": "Конатус: стремление вещи сохранять своё бытие. Родство с волей к жизни не означает совпадения с Шакти или морального оправдания любого желания.",
-        "en": "Conatus: a thing’s striving to persist in being. Affinity with the will to life implies neither identity with Shakti nor moral approval of every desire."
-      },
-      {
-        "id": "schopenhauer",
-        "title": "Arthur Schopenhauer. The World as Will and Representation (1818/1819)",
-        "kind": "critique",
-        "ru": "Воля, страдание и отрицание воли. Важный собеседник именно в расхождении: книга выбирает новое движение жизни, не объявляя страдание его целью.",
-        "en": "Will, suffering, and denial of the will. A significant interlocutor through disagreement: this book chooses renewed life without making suffering its purpose."
+        "ru": "Каждая вещь стремится сохранять своё бытие; это стремление выражает её действительную сущность. Близко к внутреннему основанию воли к жизни в §6.",
+        "en": "Each thing strives to persist in being; this striving expresses its actual essence. Close to the inward basis of the will to life in §6."
       },
       {
         "id": "bergson",
@@ -1317,361 +1029,37 @@
         "kind": "parallel",
         "ru": "Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
         "en": "The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
-      },
-      {
-        "id": "schrodinger",
-        "title": "Erwin Schrödinger. What Is Life? (1944)",
-        "kind": "parallel",
-        "ru": "Физический вопрос об устойчивости живого. Исторический мост между жизнью и порядком, не отождествление термодинамики с волей.",
-        "en": "A physical inquiry into the persistence of life. A historical bridge between life and order, not an identification of thermodynamics with will."
-      },
-      {
-        "id": "england",
-        "title": "Jeremy L. England. Statistical Physics of Self-Replication (J. Chem. Phys. 139, 2013)",
-        "kind": "study",
-        "ru": "Термодинамические ограничения самовоспроизведения при заданных предпосылках. Из них не следует желание материи жить или необходимость духовного пути.",
-        "en": "Thermodynamic constraints on self-replication under specified assumptions. They entail neither matter’s desire to live nor the necessity of a spiritual path.",
-        "href": "https://arxiv.org/abs/1209.1179"
-      },
-      {
-        "id": "kauffman",
-        "title": "Stuart Kauffman. At Home in the Universe (1995)",
-        "kind": "parallel",
-        "ru": "Самоорганизация и возникновение порядка в сложных системах. Параллель к рождению формы, не физическая биография Истока.",
-        "en": "Self-organization and emerging order in complex systems. A comparison for form’s emergence, not a physical biography of the Source."
       }
     ],
-    "22": [
+    "1": [
       {
-        "id": "recognition-heart",
-        "title": "Jaideva Singh. Pratyabhijñāhṛdayam (1963)",
+        "id": "raft",
+        "title": "Alagaddūpama Sutta, MN 22, trans. Ñāṇamoli & Bodhi, The Middle Length Discourses (1995)",
         "kind": "parallel",
-        "ru": "Узнавание и сердце в кашмирском шиваизме. Параллель к узнаванию своего движения, а не основание считать традиции одним учением.",
-        "en": "Recognition and the heart in Kashmir Shaivism. A comparison for recognizing one’s movement, not grounds for treating the traditions as one doctrine."
+        "ru": "Образ плота: учение служит переправе, а не становится ношей после неё. Параллель к книге как раме вокруг двери.",
+        "en": "The raft serves a crossing rather than becoming a burden afterward. A comparison for the book as a frame around a door.",
+        "href": "https://wisdomexperience.org/ebook/the-middle-length-discourses-of-the-buddha/contents/"
       },
       {
-        "id": "winnicott",
-        "title": "D. W. Winnicott. Ego Distortion in Terms of True and False Self (1960)",
-        "kind": "context",
-        "ru": "Ложное я как организация приспособления к требованиям окружения. Клинический собеседник маски; ложное я не означает просто ложь, а истинное я не тождественно Свабхаве.",
-        "en": "The false self as an organization of compliance with the environment. A clinical interlocutor for the mask; false self does not simply mean lying, nor true self Svabhava.",
-        "href": "https://doi.org/10.1093/med:psych/9780190271381.003.0023"
-      },
-      {
-        "id": "goffman",
-        "title": "Erving Goffman. The Presentation of Self in Everyday Life (1959)",
+        "id": "zhuangzi",
+        "title": "Zhuangzi, ch. 26, trans. Burton Watson",
         "kind": "parallel",
-        "ru": "Представление себя во встрече. Социальная роль сама по себе не ложь и не болезнь; различение книги касается её затвердевания и права её менять.",
-        "en": "Presenting oneself in encounters. A social role is not inherently a lie or illness; the book asks about its hardening and the right to change it."
+        "ru": "Ловушка нужна ради рыбы, слова - ради смысла. Родственный жест освобождения от средства, когда оно уже исполнило работу.",
+        "en": "The trap serves the fish, words serve meaning. A related gesture of releasing a means once it has done its work."
       },
       {
-        "id": "looking-glass",
-        "title": "Charles H. Cooley. Human Nature and the Social Order (1902); Jean-Paul Sartre. Being and Nothingness (1943)",
+        "id": "ladder",
+        "title": "Ludwig Wittgenstein. Tractatus Logico-Philosophicus, 6.54, 7 (1921)",
         "kind": "parallel",
-        "ru": "Зеркальное я и чужой взгляд. Здесь сопоставлены разные объяснения того, как другой участвует в отношении к себе; они не образуют единой психологической теории.",
-        "en": "The looking-glass self and the other’s gaze. Distinct accounts of how others enter self-relation, not a single psychological theory."
+        "ru": "Лестница, которую отбрасывают, поднявшись по ней, и граница высказывания. Философская параллель, не тождество апофатик.",
+        "en": "The ladder discarded after climbing and the limit of saying. A philosophical comparison, not an identity between apophatic teachings."
       },
       {
-        "id": "perls",
-        "title": "Fritz Perls, Ralph Hefferline & Paul Goodman. Gestalt Therapy (1951)",
-        "kind": "context",
-        "ru": "Интроекция: проглоченное, но не усвоенное. Ссылка ведёт к предисловиям и контексту книги; это клиническая метафора, не экспериментальная проверка §22.",
-        "en": "Introjection: swallowing without assimilation. The link supplies introductions and context; this is a clinical metaphor, not an experimental test of §22.",
-        "href": "https://gestalt.org/phgintro.htm"
-      },
-      {
-        "id": "rogers",
-        "title": "Carl R. Rogers. On Becoming a Person (1961)",
+        "id": "heraclitus",
+        "title": "Charles H. Kahn. The Art and Thought of Heraclitus (1979)",
         "kind": "parallel",
-        "ru": "Конгруэнтность и отношение, в котором возможно слышать себя. Самоузнавание не даёт другому права окончательно назвать Дживу.",
-        "en": "Congruence and a relationship in which one can hear oneself. Self-recognition gives no other person the right to define the jiva finally."
-      },
-      {
-        "id": "lieberman",
-        "title": "Matthew D. Lieberman et al. Putting Feelings into Words (Psychological Science 18, 2007)",
-        "kind": "study",
-        "ru": "Называние эмоций сопровождалось меньшей реакцией миндалины на эмоциональные изображения. Это не универсальное обещание субъективного облегчения и не доказательство исцеления чужими словами.",
-        "en": "Labeling emotions was associated with lower amygdala responses to emotional images. This promises neither universal subjective relief nor healing through another’s words.",
-        "href": "https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2016/03/Lieberman_2007_PsychScience.pdf"
-      },
-      {
-        "id": "ryan-connell",
-        "title": "Richard M. Ryan & James P. Connell. Perceived Locus of Causality and Internalization (JPSP 57, 1989)",
-        "kind": "study",
-        "ru": "Различение причин действия: внешнее давление, внутреннее принуждение, признанная ценность. Помогает уточнить зависимость от одобрения; не устанавливает срок жизни заёмной формы.",
-        "en": "Distinguishes reasons for action: external pressure, internal coercion, and an endorsed value. It clarifies approval dependence without setting an expiry date for borrowed forms.",
-        "href": "https://selfdeterminationtheory.org/SDT/documents/1989_RyanConnell.pdf"
-      },
-      {
-        "id": "deci-1994",
-        "title": "Edward L. Deci, Haleh Eghrari, Brian C. Patrick & Dean R. Leone. Facilitating Internalization (1994)",
-        "kind": "study",
-        "ru": "Исследование условий усвоения: понятный смысл действия, признание чувств и возможность выбора. Заимствованное способно стать своим; интроекция не обязана исчезнуть от течения времени.",
-        "en": "Studies conditions of internalization: meaningful rationale, acknowledging feelings, and choice. What is borrowed can become one’s own; introjection need not disappear with time.",
-        "href": "https://selfdeterminationtheory.org/SDT/documents/1994_DeciEghrariPatLeone.pdf"
-      },
-      {
-        "id": "sdt",
-        "title": "Edward L. Deci & Richard M. Ryan. The “What” and “Why” of Goal Pursuits (2000); Ryan & Deci. Self-Determination Theory (2017)",
-        "kind": "context",
-        "ru": "Интроецированная и интегрированная регуляция различаются способом принятия, а не тем, впервые ли мысль появилась у самой Дживы. Автономия не равна изоляции.",
-        "en": "Introjected and integrated regulation differ in how something is endorsed, not whether the jiva first invented it. Autonomy does not mean isolation."
-      },
-      {
-        "id": "closure",
-        "title": "Arie W. Kruglanski & Donna M. Webster. Motivated Closing of the Mind: “Seizing” and “Freezing” (1996)",
-        "kind": "context",
-        "ru": "Поспешное принятие и удержание ответа при потребности в определённости. Сходство слов с хваткой и льдом - продуктивная параллель, не тождество механизмов и не диагноз страдающему.",
-        "en": "Urgently adopting and preserving an answer under need for closure. The vocabulary’s affinity with grip and ice is a comparison, not an identity of mechanisms or a diagnosis of suffering.",
-        "href": "https://fitelson.org/current/seizing.pdf"
-      },
-      {
-        "id": "bowlby",
-        "title": "John Bowlby. A Secure Base (1988)",
-        "kind": "parallel",
-        "ru": "Надёжная опора позволяет исследовать мир, не предписывая каждый шаг. Параллель к помощи спутника; не всякая зависимость от другого становится захватом.",
-        "en": "A secure base enables exploration without prescribing every step. A comparison for companionship; dependence on another is not always captivity."
-      },
-      {
-        "id": "mead-self",
-        "title": "George Herbert Mead. Mind, Self, and Society, §22: The “I” and the “me” (1934)",
-        "kind": "parallel",
-        "ru": "Различение отвечающего «Я» и социально организованного «Мне». Это не тождество Свабхавы и Русла: у Мида «Я» тоже принадлежит социальному процессу и узнаётся после действия, а не даётся как неизменная природа.",
-        "en": "Distinguishes the responding “I” from the socially organized “me”. This is not an identity with Svabhava and Riverbed: Mead’s “I” also belongs to social process and becomes known after action, not as an unchanging nature.",
-        "href": "https://brocku.ca/MeadProject/Mead/pubs2/mindself/Mead_1934_22.html"
-      }
-    ],
-    "5": [
-      {
-        "id": "garfield",
-        "title": "Jay L. Garfield. The Fundamental Wisdom of the Middle Way (Oxford, 1995)",
-        "kind": "critique",
-        "ru": "Мадхьямака критикует свабхаву как независимую самосущую природу. Свабхава книги означает собственное движение; совпадение слова не устраняет различия учений.",
-        "en": "Madhyamaka criticizes svabhava as independent intrinsic existence. Here Svabhava names one’s own movement; a shared word does not erase doctrinal differences.",
-        "href": "https://doi.org/10.1093/oso/9780195103175.001.0001"
-      }
-    ],
-    "32": [
-      {
-        "id": "tambiah",
-        "title": "Stanley J. Tambiah. World Conqueror and World Renouncer (Cambridge, 1976)",
-        "kind": "context",
-        "ru": "Буддийская царская власть и отречение в тайском историческом контексте. Чакравартин и колесо здесь помогают увидеть масштаб авторского переворота образа властителя.",
-        "en": "Buddhist kingship and renunciation in Thai historical context. The wheel-turning ruler helps reveal the scale of this book’s reversal of sovereign imagery.",
-        "href": "https://www.cambridge.org/core/books/world-conqueror-and-world-renouncer/234CDB8B861966ABDEAC394C5A8A76A1"
-      },
-      {
-        "id": "weber-michels",
-        "title": "Max Weber. Economy and Society (1922); Robert Michels. Political Parties (1911)",
-        "kind": "critique",
-        "ru": "Харизма, её превращение в учреждение и склонность организации к олигархии. Отсутствие наследного трона не освобождает Империю от проверки того, кто фактически решает.",
-        "en": "Charisma, its routinization, and organizational tendencies toward oligarchy. Absence of a hereditary throne does not exempt the Empire from examining who actually decides."
-      },
-      {
-        "id": "bounded-choice",
-        "title": "Robert J. Lifton. Thought Reform and the Psychology of Totalism (1961); Janja Lalich. Bounded Choice (2004); Eileen Barker. The Making of a Moonie (1984); Lifton. Destroying the World to Save It (1999)",
-        "kind": "critique",
-        "ru": "Разные исследования замкнутых систем авторитета и религиозного участия. Их не используют как ярлык для любой общины: здесь они испытывают возможность возражения, независимой связи и выхода.",
-        "en": "Distinct studies of closed authority systems and religious participation. Not labels for every community; here they test possibilities of dissent, independent relationships, and exit."
-      }
-    ],
-    "39": [
-      {
-        "id": "tambiah",
-        "title": "Stanley J. Tambiah. World Conqueror and World Renouncer (Cambridge, 1976)",
-        "kind": "context",
-        "ru": "Буддийская царская власть и отречение в тайском историческом контексте. Чакравартин и колесо здесь помогают увидеть масштаб авторского переворота образа властителя.",
-        "en": "Buddhist kingship and renunciation in Thai historical context. The wheel-turning ruler helps reveal the scale of this book’s reversal of sovereign imagery.",
-        "href": "https://www.cambridge.org/core/books/world-conqueror-and-world-renouncer/234CDB8B861966ABDEAC394C5A8A76A1"
-      },
-      {
-        "id": "stellar-elements",
-        "title": "E. M. Burbidge, G. R. Burbidge, W. A. Fowler & F. Hoyle. Synthesis of the Elements in Stars (Rev. Mod. Phys. 29, 1957); Carl Sagan. Cosmos (1980)",
-        "kind": "context",
-        "ru": "Звёздный нуклеосинтез даёт физическую опору образам углерода, кальция и железа. Не всё вещество тела возникло в звёздах: значительная часть водорода первична. Исход круга отсюда не выводится.",
-        "en": "Stellar nucleosynthesis grounds the imagery of carbon, calcium, and iron. Not all bodily matter originated in stars: much hydrogen is primordial. The circle’s outcome does not follow from this.",
-        "href": "https://doi.org/10.1103/RevModPhys.29.547"
-      },
-      {
-        "id": "crowd-identity",
-        "title": "Gustave Le Bon. The Crowd (1895); Stephen Reicher, Russell Spears & Tom Postmes. A Social Identity Model of Deindividuation Phenomena (1995)",
-        "kind": "critique",
-        "ru": "Исторический образ толпы сопоставлен с иной моделью: в группе идентичность может перестраиваться вокруг общих норм, а не исчезать. Чувство единства само по себе не доказывает потери или сохранения собственного голоса.",
-        "en": "A historical crowd image meets another model: group identity may reorganize around shared norms rather than vanish. Felt unity alone proves neither loss nor preservation of one’s voice.",
-        "href": "https://doi.org/10.1080/14792779443000049"
-      },
-      {
-        "id": "canetti-lotman",
-        "title": "Elias Canetti. Crowds and Power (1960); Ю. М. Лотман. Культура и взрыв (1992)",
-        "kind": "parallel",
-        "ru": "Кристалл толпы и взрыв культуры. Сильные самостоятельные образы, которые можно читать рядом со Звездой Смерти, не смешивая их значения.",
-        "en": "Crowd crystals and cultural explosion. Strong independent images to read alongside the Death Star without conflating their meanings."
-      },
-      {
-        "id": "invented-religion",
-        "title": "Carole M. Cusack. Invented Religions (2010); Adam Possamai. In Search of New Age Spiritualities (2005); Markus A. Davidsen. Fiction-Based Religion (2013); David Chidester. Authentic Fakes (2005)",
-        "kind": "context",
-        "ru": "Как современные религиозные формы работают с вымыслом и популярной культурой. Академическая карта для проекта, не приговор о подлинности внутреннего опыта.",
-        "en": "How modern religious forms engage fiction and popular culture. An academic map for the project, not a verdict on the authenticity of inward experience."
-      }
-    ],
-    "36": [
-      {
-        "id": "yoga-sutras",
-        "title": "Edwin F. Bryant. The Yoga Sūtras of Patañjali (2009)",
-        "kind": "parallel",
-        "ru": "Дисциплина внимания, практика и освобождение в классической йоге. Параллель к работе пути, не историческое происхождение квадробики.",
-        "en": "Attention, practice, and liberation in classical yoga. A comparison for discipline, not a historical origin of quadrobics."
-      },
-      {
-        "id": "modern-yoga",
-        "title": "Mark Singleton. Yoga Body (Oxford, 2010); Joseph S. Alter. Yoga in Modern India (2004)",
-        "kind": "context",
-        "ru": "История современных телесных практик: форма, которую принимают за вневременную, складывается в определённых общественных условиях. Квадробика здесь - самостоятельный выбор пути.",
-        "en": "Histories of modern bodily practices: supposedly timeless forms develop under particular social conditions. Quadrobics here is an independent choice of practice."
-      },
-      {
-        "id": "tao",
-        "title": "Ursula K. Le Guin. Tao Te Ching: A Book About the Way and the Power of the Way (1997)",
-        "kind": "parallel",
-        "ru": "Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
-        "en": "The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
-      }
-    ],
-    "18": [
-      {
-        "id": "modern-yoga",
-        "title": "Mark Singleton. Yoga Body (Oxford, 2010); Joseph S. Alter. Yoga in Modern India (2004)",
-        "kind": "context",
-        "ru": "История современных телесных практик: форма, которую принимают за вневременную, складывается в определённых общественных условиях. Квадробика здесь - самостоятельный выбор пути.",
-        "en": "Histories of modern bodily practices: supposedly timeless forms develop under particular social conditions. Quadrobics here is an independent choice of practice."
-      },
-      {
-        "id": "reich",
-        "title": "Wilhelm Reich. Character Analysis (1933)",
-        "kind": "critique",
-        "ru": "Исторический образ характерного и телесного панциря. Его нельзя принимать за установленную физиологию или переносить сюда позднейшие представления об оргоне.",
-        "en": "A historical account of character and bodily armor. It must not be treated as established physiology or used to import later claims about orgone."
-      },
-      {
-        "id": "merleau-ponty",
-        "title": "Maurice Merleau-Ponty. Phenomenology of Perception (1945)",
-        "kind": "parallel",
-        "ru": "Тело как способ быть в мире и начало пространственной ориентации. Это философское описание, не экспериментальное доказательство действия четырёх опор.",
-        "en": "The body as a way of being in the world and the basis of spatial orientation. A philosophical account, not experimental proof of four-support practice."
-      },
-      {
-        "id": "grounded-cognition",
-        "title": "Paula M. Niedenthal. Embodying Emotion (Science 316, 2007); Lawrence W. Barsalou. Grounded Cognition (2008)",
-        "kind": "context",
-        "ru": "Обзоры участия восприятия и действия в эмоциях и мышлении. Общая рамка не удостоверяет любую телесную практику и не делает метафору буквальной анатомией.",
-        "en": "Reviews of perception and action in emotion and cognition. A general framework does not validate every bodily practice or turn metaphor into literal anatomy."
-      },
-      {
-        "id": "body-order",
-        "title": "Marcel Mauss. Techniques of the Body (1935); Pierre Bourdieu. The Logic of Practice (1980); Michel Foucault. Discipline and Punish (1975)",
-        "kind": "context",
-        "ru": "Обученные способы держаться, габитус и дисциплина тел. Разные общественные механизмы помогают прочесть «порядок записан в теле», не сводя каждую привычку к подавлению.",
-        "en": "Learned bodily techniques, habitus, and bodily discipline. Distinct social accounts illuminate “order written into the body” without reducing every habit to repression."
-      },
-      {
-        "id": "bakhtin",
-        "title": "М. М. Бахтин. Творчество Франсуа Рабле и народная культура средневековья и Ренессанса (1965)",
-        "kind": "parallel",
-        "ru": "Карнавал и материально-телесный низ как переворот официальной высоты. Литературная параллель, не теория лечебной позы.",
-        "en": "Carnival and the material bodily lower stratum as a reversal of official height. A literary comparison, not a theory of therapeutic posture."
-      },
-      {
-        "id": "trauma-books",
-        "title": "Bessel van der Kolk. The Body Keeps the Score (2014); Peter A. Levine. Waking the Tiger (1997)",
-        "kind": "critique",
-        "ru": "Популярные клинические рассказы о теле и травме. По их образам нельзя заключать, что воспоминание буквально хранится в определённой мышце; выводы и методы требуют отдельной оценки.",
-        "en": "Popular clinical accounts of body and trauma. Their imagery does not establish that a memory is literally stored in a particular muscle; claims and methods need separate evaluation."
-      },
-      {
-        "id": "kagan-feedback",
-        "title": "Brett J. Kagan et al. In vitro neurons learn and exhibit sentience when embodied in a simulated game-world (Neuron, 2022)",
-        "kind": "study",
-        "ru": "В установке DishBrain активность культуры нейронов управляла действием в симуляции, а результат возвращался стимуляцией. Структурированная замкнутая обратная связь была важна для наблюдавшегося обучения. Это параллель к изменению через собственное действие и ответ, не доказательство телесной практики. Опыт не устанавливает, что всякая адаптация вне такого контура невозможна; кодирование среды и правила обратной связи задавали исследователи.",
-        "en": "In DishBrain, neuronal culture activity controlled action in a simulation, with outcomes returned as stimulation. Structured closed-loop feedback mattered for the observed learning. This parallels change through action and response, rather than proving the bodily practice. It does not establish that all adaptation outside such a loop is impossible; researchers designed the environmental encoding and feedback rules.",
-        "href": "https://doi.org/10.1016/j.neuron.2022.09.001"
-      },
-      {
-        "id": "synchrony-chaos",
-        "title": "Josep Rossello, Vincent Canals & Antoni Morro. Neural Information Processing: between synchrony and chaos (Nature Precedings, 2012)",
-        "kind": "parallel",
-        "ru": "Модельная работа о разных вычислительных функциях синхронизированных и некоррелированных нейронных ансамблей. Nature Precedings - архив предварительных работ, а не публикация в журнале Nature. Сопоставление с кристаллом и бурей принадлежит этой книге; отсюда не следует универсальный закон работы мозга.",
-        "en": "A modeling study of different computational functions in synchronized and uncorrelated neural ensembles. Nature Precedings was a preprint venue, not the journal Nature. The comparison with crystal and storm belongs to this book; no universal law of brain function follows.",
-        "href": "https://doi.org/10.1038/npre.2012.6935.1"
-      }
-    ],
-    "20": [
-      {
-        "id": "modern-yoga",
-        "title": "Mark Singleton. Yoga Body (Oxford, 2010); Joseph S. Alter. Yoga in Modern India (2004)",
-        "kind": "context",
-        "ru": "История современных телесных практик: форма, которую принимают за вневременную, складывается в определённых общественных условиях. Квадробика здесь - самостоятельный выбор пути.",
-        "en": "Histories of modern bodily practices: supposedly timeless forms develop under particular social conditions. Quadrobics here is an independent choice of practice."
-      },
-      {
-        "id": "winnicott",
-        "title": "D. W. Winnicott. Ego Distortion in Terms of True and False Self (1960)",
-        "kind": "context",
-        "ru": "Ложное я как организация приспособления к требованиям окружения. Клинический собеседник маски; ложное я не означает просто ложь, а истинное я не тождественно Свабхаве.",
-        "en": "The false self as an organization of compliance with the environment. A clinical interlocutor for the mask; false self does not simply mean lying, nor true self Svabhava.",
-        "href": "https://doi.org/10.1093/med:psych/9780190271381.003.0023"
-      },
-      {
-        "id": "goffman",
-        "title": "Erving Goffman. The Presentation of Self in Everyday Life (1959)",
-        "kind": "parallel",
-        "ru": "Представление себя во встрече. Социальная роль сама по себе не ложь и не болезнь; различение книги касается её затвердевания и права её менять.",
-        "en": "Presenting oneself in encounters. A social role is not inherently a lie or illness; the book asks about its hardening and the right to change it."
-      },
-      {
-        "id": "grounded-cognition",
-        "title": "Paula M. Niedenthal. Embodying Emotion (Science 316, 2007); Lawrence W. Barsalou. Grounded Cognition (2008)",
-        "kind": "context",
-        "ru": "Обзоры участия восприятия и действия в эмоциях и мышлении. Общая рамка не удостоверяет любую телесную практику и не делает метафору буквальной анатомией.",
-        "en": "Reviews of perception and action in emotion and cognition. A general framework does not validate every bodily practice or turn metaphor into literal anatomy."
-      },
-      {
-        "id": "movement-learning",
-        "title": "Moshe Feldenkrais. Awareness Through Movement (1972); F. M. Alexander. The Use of the Self (1932)",
-        "kind": "parallel",
-        "ru": "Замечать привычное движение и пробовать другое. Исторические практические сопоставления; не доказательство терапевтической эффективности квадробики.",
-        "en": "Noticing familiar movement and trying alternatives. Historical practical comparisons, not proof of quadrobics’ therapeutic efficacy."
-      },
-      {
-        "id": "bakhtin",
-        "title": "М. М. Бахтин. Творчество Франсуа Рабле и народная культура средневековья и Ренессанса (1965)",
-        "kind": "parallel",
-        "ru": "Карнавал и материально-телесный низ как переворот официальной высоты. Литературная параллель, не теория лечебной позы.",
-        "en": "Carnival and the material bodily lower stratum as a reversal of official height. A literary comparison, not a theory of therapeutic posture."
-      },
-      {
-        "id": "posture-limits",
-        "title": "Eva Ranehill et al. Assessing the Robustness of Power Posing (2015)",
-        "kind": "critique",
-        "ru": "Репликация не воспроизвела заявленные гормональные эффекты и склонность к риску, хотя самоощущение власти изменилось. Это ограничивает сильные обещания о позах, но не доказывает отсутствие любых телесных эффектов.",
-        "en": "The replication did not reproduce claimed hormonal or risk-taking effects, though felt power changed. This limits strong posture claims without disproving every bodily effect.",
-        "href": "https://www.zne.uzh.ch/dam/jcr%3Ae5fc4c3c-d50e-4aa9-96ab-4389e426d20d/%20Psychological%20Science-2015-Ranehill-0956797614553946.pdf"
-      },
-      {
-        "id": "facial-limits",
-        "title": "E.-J. Wagenmakers et al. Registered Replication Report: Strack, Martin, & Stepper (1988) (2016)",
-        "kind": "critique",
-        "ru": "Многоцентровая репликация не воспроизвела конкретный эффект мимической обратной связи. Она не исследовала маски квадробики и не даёт ни подтверждения, ни опровержения её полного замысла.",
-        "en": "A multilab replication did not reproduce a particular facial-feedback effect. It did not study quadrobic masks and neither validates nor refutes the whole practice.",
-        "href": "https://doi.org/10.1177/1745691616674458"
-      },
-      {
-        "id": "kagan-feedback",
-        "title": "Brett J. Kagan et al. In vitro neurons learn and exhibit sentience when embodied in a simulated game-world (Neuron, 2022)",
-        "kind": "study",
-        "ru": "В установке DishBrain активность культуры нейронов управляла действием в симуляции, а результат возвращался стимуляцией. Структурированная замкнутая обратная связь была важна для наблюдавшегося обучения. Это параллель к изменению через собственное действие и ответ, не доказательство телесной практики. Опыт не устанавливает, что всякая адаптация вне такого контура невозможна; кодирование среды и правила обратной связи задавали исследователи.",
-        "en": "In DishBrain, neuronal culture activity controlled action in a simulation, with outcomes returned as stimulation. Structured closed-loop feedback mattered for the observed learning. This parallels change through action and response, rather than proving the bodily practice. It does not establish that all adaptation outside such a loop is impossible; researchers designed the environmental encoding and feedback rules.",
-        "href": "https://doi.org/10.1016/j.neuron.2022.09.001"
+        "ru": "Река сохраняет узнаваемость через смену вод; устойчивость и перемена принадлежат одному движению. Близко к непрерывности Русла.",
+        "en": "The river remains recognizable through changing waters; persistence and change belong to one movement. Close to the continuity of the Riverbed."
       }
     ],
     "conclusion": [
@@ -1703,8 +1091,8 @@
         "id": "heraclitus",
         "title": "Charles H. Kahn. The Art and Thought of Heraclitus (1979)",
         "kind": "parallel",
-        "ru": "Единство перемены и устойчивости, речной образ. Историческое чтение Гераклита не сводится к лозунгу о всеобщем хаосе.",
-        "en": "Change, persistence, and river imagery. A historical reading of Heraclitus is more than a slogan about universal chaos."
+        "ru": "Река сохраняет узнаваемость через смену вод; устойчивость и перемена принадлежат одному движению. Близко к непрерывности Русла.",
+        "en": "The river remains recognizable through changing waters; persistence and change belong to one movement. Close to the continuity of the Riverbed."
       },
       {
         "id": "bergson",
@@ -1719,14 +1107,6 @@
         "kind": "parallel",
         "ru": "Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
         "en": "The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
-      },
-      {
-        "id": "edge-chaos",
-        "title": "Nils Bertschinger & Thomas Natschläger. Real-time computation at the edge of chaos in recurrent neural networks (Neural Computation, 2004)",
-        "kind": "parallel",
-        "ru": "В исследованных рекуррентных сетях сложные вычисления временных рядов становились возможны близ границы упорядоченной и хаотической динамики. Это ограниченный результат для моделей сетей. Живой берег в трактате - философский образ способности сохранять след и принимать новое, не измеренное критическое состояние Дживы.",
-        "en": "In the recurrent networks studied, complex time-series computations became possible near the boundary between ordered and chaotic dynamics. This is a limited result for network models. The treatise’s living bank is a philosophical image of retaining traces while receiving novelty, not a measured critical state of the jiva.",
-        "href": "https://doi.org/10.1162/089976604323057443"
       }
     ],
     "7": [
@@ -1734,33 +1114,8 @@
         "id": "heraclitus",
         "title": "Charles H. Kahn. The Art and Thought of Heraclitus (1979)",
         "kind": "parallel",
-        "ru": "Единство перемены и устойчивости, речной образ. Историческое чтение Гераклита не сводится к лозунгу о всеобщем хаосе.",
-        "en": "Change, persistence, and river imagery. A historical reading of Heraclitus is more than a slogan about universal chaos."
-      }
-    ],
-    "27": [
-      {
-        "id": "schopenhauer",
-        "title": "Arthur Schopenhauer. The World as Will and Representation (1818/1819)",
-        "kind": "critique",
-        "ru": "Воля, страдание и отрицание воли. Важный собеседник именно в расхождении: книга выбирает новое движение жизни, не объявляя страдание его целью.",
-        "en": "Will, suffering, and denial of the will. A significant interlocutor through disagreement: this book chooses renewed life without making suffering its purpose."
-      },
-      {
-        "id": "dyson",
-        "title": "Freeman J. Dyson. Time without End: Physics and Biology in an Open Universe (Rev. Mod. Phys. 51, 1979)",
-        "kind": "critique",
-        "ru": "Условное рассуждение о далёком будущем жизни в открытой Вселенной. Это историческая космологическая модель, а не установленный окончательный сценарий и не доказательство бессмертия.",
-        "en": "A conditional account of life’s far future in an open universe. A historical cosmological model, not an established final scenario or proof of immortality.",
-        "href": "https://doi.org/10.1103/RevModPhys.51.447"
-      },
-      {
-        "id": "evangelion",
-        "title": "Hideaki Anno et al. Neon Genesis Evangelion (1995–1996); The End of Evangelion (1997); Rebuild of Evangelion (2007–2021)",
-        "kind": "image",
-        "ru": "Заявленный автором источник образов границы, комплементации и общего растворения. Это художественное родство; поле страха и исход круга в книге получают собственные правила.",
-        "en": "An author-acknowledged source for boundary, complementation, and collective dissolution imagery. An artistic affinity; the fear field and circle’s outcome have their own rules here.",
-        "href": "https://www.evangelion.jp/movie.html"
+        "ru": "Река сохраняет узнаваемость через смену вод; устойчивость и перемена принадлежат одному движению. Близко к непрерывности Русла.",
+        "en": "The river remains recognizable through changing waters; persistence and change belong to one movement. Close to the continuity of the Riverbed."
       }
     ],
     "2": [
@@ -1772,11 +1127,18 @@
         "en": "Events and becoming rather than the primacy of static things. Process metaphysics offers an interlocutor, not proof of the Source."
       },
       {
+        "id": "schrodinger",
+        "title": "Erwin Schrödinger. What Is Life? (1944)",
+        "kind": "parallel",
+        "ru": "Физический вопрос об устойчивости живого. Исторический мост между жизнью и порядком, не отождествление термодинамики с волей.",
+        "en": "A physical inquiry into the persistence of life. A historical bridge between life and order, not an identification of thermodynamics with will."
+      },
+      {
         "id": "prigogine",
         "title": "Ilya Prigogine & Isabelle Stengers. Order Out of Chaos (1984)",
         "kind": "parallel",
-        "ru": "Диссипативные структуры сохраняются благодаря обмену и потоку. Это точка сравнения с пламенем; кристалл не становится от этого физически мёртвым или злым.",
-        "en": "Dissipative structures persist through exchange and flow. A comparison for flame; crystals do not thereby become physically dead or evil."
+        "ru": "Диссипативная форма держится обменом и потоком: её устойчивость существует благодаря продолжающемуся изменению. Близкая физическая параллель к образу пламени.",
+        "en": "A dissipative form persists through exchange and flow: its stability depends on ongoing change. A close physical comparison for the image of flame."
       },
       {
         "id": "kauffman",
@@ -1784,14 +1146,6 @@
         "kind": "parallel",
         "ru": "Самоорганизация и возникновение порядка в сложных системах. Параллель к рождению формы, не физическая биография Истока.",
         "en": "Self-organization and emerging order in complex systems. A comparison for form’s emergence, not a physical biography of the Source."
-      },
-      {
-        "id": "synchrony-chaos",
-        "title": "Josep Rossello, Vincent Canals & Antoni Morro. Neural Information Processing: between synchrony and chaos (Nature Precedings, 2012)",
-        "kind": "parallel",
-        "ru": "Модельная работа о разных вычислительных функциях синхронизированных и некоррелированных нейронных ансамблей. Nature Precedings - архив предварительных работ, а не публикация в журнале Nature. Сопоставление с кристаллом и бурей принадлежит этой книге; отсюда не следует универсальный закон работы мозга.",
-        "en": "A modeling study of different computational functions in synchronized and uncorrelated neural ensembles. Nature Precedings was a preprint venue, not the journal Nature. The comparison with crystal and storm belongs to this book; no universal law of brain function follows.",
-        "href": "https://doi.org/10.1038/npre.2012.6935.1"
       },
       {
         "id": "edge-chaos",
@@ -1802,13 +1156,22 @@
         "href": "https://doi.org/10.1162/089976604323057443"
       }
     ],
+    "36": [
+      {
+        "id": "tao",
+        "title": "Ursula K. Le Guin. Tao Te Ching: A Book About the Way and the Power of the Way (1997)",
+        "kind": "parallel",
+        "ru": "Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
+        "en": "The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
+      }
+    ],
     "10": [
       {
         "id": "autopoiesis",
         "title": "Humberto Maturana & Francisco Varela. Autopoiesis and Cognition (1980); Evan Thompson. Mind in Life (2007)",
         "kind": "parallel",
-        "ru": "Живое поддерживает собственную организацию и границу. Такой край не равен психологической стене; сходство не доказывает устройство поля страха.",
-        "en": "Living systems sustain their organization and boundary. Such a boundary differs from a psychological wall; the comparison does not prove the fear field’s structure."
+        "ru": "Живое само поддерживает организацию и границу процессами собственной жизни. Это близко к различению живого края и стены в §10.",
+        "en": "Living systems sustain their organization and boundary through their own vital processes. Closely related to §10’s distinction between a living boundary and a wall."
       },
       {
         "id": "goffman",
@@ -1816,13 +1179,6 @@
         "kind": "parallel",
         "ru": "Представление себя во встрече. Социальная роль сама по себе не ложь и не болезнь; различение книги касается её затвердевания и права её менять.",
         "en": "Presenting oneself in encounters. A social role is not inherently a lie or illness; the book asks about its hardening and the right to change it."
-      },
-      {
-        "id": "looking-glass",
-        "title": "Charles H. Cooley. Human Nature and the Social Order (1902); Jean-Paul Sartre. Being and Nothingness (1943)",
-        "kind": "parallel",
-        "ru": "Зеркальное я и чужой взгляд. Здесь сопоставлены разные объяснения того, как другой участвует в отношении к себе; они не образуют единой психологической теории.",
-        "en": "The looking-glass self and the other’s gaze. Distinct accounts of how others enter self-relation, not a single psychological theory."
       },
       {
         "id": "evangelion",
@@ -1838,75 +1194,80 @@
         "kind": "parallel",
         "ru": "Близость согревает и ранит; расстояние приходится искать заново. Самостоятельный философский образ, знакомый и через «Евангелион».",
         "en": "Closeness warms and wounds; distance must be found anew. An independent philosophical image also familiar through Evangelion."
-      },
-      {
-        "id": "dune",
-        "title": "Frank Herbert. Dune (1965)",
-        "kind": "parallel",
-        "ru": "Литания против страха - художественный собеседник. Различить и выдержать страх не значит объявить любую его весть ложной.",
-        "en": "The litany against fear offers a literary interlocutor. Distinguishing and enduring fear does not mean declaring every warning false."
       }
     ],
-    "19": [
+    "38": [
       {
-        "id": "shubin",
-        "title": "Neil Shubin. Your Inner Fish (2008)",
+        "id": "stellar-elements",
+        "title": "E. M. Burbidge, G. R. Burbidge, W. A. Fowler & F. Hoyle. Synthesis of the Elements in Stars (Rev. Mod. Phys. 29, 1957); Carl Sagan. Cosmos (1980)",
         "kind": "context",
-        "ru": "Общая эволюционная история тел и конечностей. Она не подтверждает память прошлых воплощений или существование конкретного внутреннего зверя.",
-        "en": "The shared evolutionary history of bodies and limbs. It does not establish memories of past lives or a particular inner beast."
+        "ru": "Звёздный нуклеосинтез даёт физическую опору образам углерода, кальция и железа. Не всё вещество тела возникло в звёздах: значительная часть водорода первична. Исход круга отсюда не выводится.",
+        "en": "Stellar nucleosynthesis grounds the imagery of carbon, calcium, and iron. Not all bodily matter originated in stars: much hydrogen is primordial. The circle’s outcome does not follow from this.",
+        "href": "https://doi.org/10.1103/RevModPhys.29.547"
       },
       {
-        "id": "merleau-ponty",
-        "title": "Maurice Merleau-Ponty. Phenomenology of Perception (1945)",
-        "kind": "parallel",
-        "ru": "Тело как способ быть в мире и начало пространственной ориентации. Это философское описание, не экспериментальное доказательство действия четырёх опор.",
-        "en": "The body as a way of being in the world and the basis of spatial orientation. A philosophical account, not experimental proof of four-support practice."
+        "id": "ritual-process",
+        "title": "Arnold van Gennep. The Rites of Passage (1909); Victor Turner. The Ritual Process (1969)",
+        "kind": "context",
+        "ru": "Порог, переход и коммунитас помогают прочесть Час Растворения. Общий порог не гарантирует равенства после него и не описывает всякий ритуал одинаково.",
+        "en": "Threshold, transition, and communitas illuminate the Hour of Dissolution. A shared threshold guarantees neither equality afterward nor a single account of every ritual."
       },
       {
-        "id": "vertical-metaphor",
-        "title": "George Lakoff & Mark Johnson. Metaphors We Live By (1980)",
-        "kind": "parallel",
-        "ru": "Пространственные метафоры власти и положения. Связь верха с контролем усваивается в опыте; сама вертикаль не делает тело властителем.",
-        "en": "Spatial metaphors of power and position. Associations of height with control are learned in experience; standing upright does not itself make a ruler."
+        "id": "collective-rhythm",
+        "title": "Barbara Ehrenreich. Dancing in the Streets (2006); William H. McNeill. Keeping Together in Time (1995)",
+        "kind": "context",
+        "ru": "Совместное движение, ритм и общность в истории. Один ритм способен связывать людей; это ещё не определяет, чему служит возникшая связь.",
+        "en": "Shared movement, rhythm, and community in history. One rhythm can bind people without determining what the resulting bond serves."
       },
       {
-        "id": "schubert",
-        "title": "Thomas W. Schubert. Your Highness: Vertical Positions as Perceptual Symbols of Power (JPSP 89, 2005); Steffen R. Giessner & Schubert. High in the Hierarchy (2007)",
+        "id": "synchrony",
+        "title": "Scott S. Wiltermuth & Chip Heath. Synchrony and Cooperation (2009); Michael J. Hove & Jane L. Risen. It’s All in the Timing (2009)",
         "kind": "study",
-        "ru": "Связь вертикального расположения с суждениями о власти в экспериментальных задачах. Из неё не следует, что наклон головы устраняет власть или четырёхопорная поза меняет личность.",
-        "en": "Vertical position and judgments of power in experimental tasks. This does not imply that bowing removes power or four-support posture changes personality.",
-        "href": "https://www.igroup.org/schubert/papers/schubert_jpsp05.pdf"
+        "ru": "В исследованных задачах совместный ритм связан с сотрудничеством и расположением. Отсюда не следуют нравственная правота группы или безопасность растворения в ней.",
+        "en": "In the studied tasks, shared timing relates to cooperation and affiliation. Neither the group’s moral rightness nor safety of merging into it follows.",
+        "href": "https://www2.psych.ubc.ca/~schaller/Psyc591Readings/WiltermuthHeath2009.pdf"
       },
       {
-        "id": "posture-limits",
-        "title": "Eva Ranehill et al. Assessing the Robustness of Power Posing (2015)",
-        "kind": "critique",
-        "ru": "Репликация не воспроизвела заявленные гормональные эффекты и склонность к риску, хотя самоощущение власти изменилось. Это ограничивает сильные обещания о позах, но не доказывает отсутствие любых телесных эффектов.",
-        "en": "The replication did not reproduce claimed hormonal or risk-taking effects, though felt power changed. This limits strong posture claims without disproving every bodily effect.",
-        "href": "https://www.zne.uzh.ch/dam/jcr%3Ae5fc4c3c-d50e-4aa9-96ab-4389e426d20d/%20Psychological%20Science-2015-Ranehill-0956797614553946.pdf"
+        "id": "konvalinka",
+        "title": "Ivana Konvalinka et al. Synchronized Arousal between Performers and Related Spectators in a Fire-Walking Ritual (PNAS 108, 2011)",
+        "kind": "study",
+        "ru": "Динамика сердечного ритма сближалась у участников и связанных с ними зрителей. Это не буквальное слияние сердцебиений в один удар и не опыт квадробического круга.",
+        "en": "Heart-rate dynamics showed coupling between performers and related spectators. This is not literal fusion into one heartbeat or a study of a quadrobic circle.",
+        "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3100954/"
+      },
+      {
+        "id": "crowd-identity",
+        "title": "Stephen Reicher, Russell Spears & Tom Postmes. A Social Identity Model of Deindividuation Phenomena (1995)",
+        "kind": "context",
+        "ru": "Общая идентичность меняет отношения и действие участников, не сводясь к исчезновению всякой идентичности. Близко к различению общего исхода и сохраняющегося личного пути.",
+        "en": "Shared identity changes participants’ relations and actions without simply abolishing identity. Close to the distinction between a collective outcome and each person’s continuing path.",
+        "href": "https://doi.org/10.1080/14792779443000049"
+      },
+      {
+        "id": "evangelion",
+        "title": "Hideaki Anno et al. Neon Genesis Evangelion (1995–1996); The End of Evangelion (1997); Rebuild of Evangelion (2007–2021)",
+        "kind": "image",
+        "ru": "Заявленный автором источник образов границы, комплементации и общего растворения. Это художественное родство; поле страха и исход круга в книге получают собственные правила.",
+        "en": "An author-acknowledged source for boundary, complementation, and collective dissolution imagery. An artistic affinity; the fear field and circle’s outcome have their own rules here.",
+        "href": "https://www.evangelion.jp/movie.html"
       }
     ],
-    "25": [
+    "39": [
       {
-        "id": "shubin",
-        "title": "Neil Shubin. Your Inner Fish (2008)",
+        "id": "stellar-elements",
+        "title": "E. M. Burbidge, G. R. Burbidge, W. A. Fowler & F. Hoyle. Synthesis of the Elements in Stars (Rev. Mod. Phys. 29, 1957); Carl Sagan. Cosmos (1980)",
         "kind": "context",
-        "ru": "Общая эволюционная история тел и конечностей. Она не подтверждает память прошлых воплощений или существование конкретного внутреннего зверя.",
-        "en": "The shared evolutionary history of bodies and limbs. It does not establish memories of past lives or a particular inner beast."
+        "ru": "Звёздный нуклеосинтез даёт физическую опору образам углерода, кальция и железа. Не всё вещество тела возникло в звёздах: значительная часть водорода первична. Исход круга отсюда не выводится.",
+        "en": "Stellar nucleosynthesis grounds the imagery of carbon, calcium, and iron. Not all bodily matter originated in stars: much hydrogen is primordial. The circle’s outcome does not follow from this.",
+        "href": "https://doi.org/10.1103/RevModPhys.29.547"
       },
       {
-        "id": "ingold-harvey",
-        "title": "Tim Ingold. The Perception of the Environment (2000); Graham Harvey. Animism (2005)",
-        "kind": "parallel",
-        "ru": "Навык, среда и отношения с нечеловеческими существами. Слушание зверя сопоставляется с отношением, а не с присвоением чужой культуры.",
-        "en": "Skill, environment, and relations with nonhuman beings. Listening to the beast is compared with relationship, not appropriation of another culture."
-      },
-      {
-        "id": "animal-identities",
-        "title": "Kathleen C. Gerbasi et al. Furries from A to Z (2008); Joseph P. Laycock. We Are Spirits of Another Sort (2012)",
+        "id": "crowd-identity",
+        "title": "Stephen Reicher, Russell Spears & Tom Postmes. A Social Identity Model of Deindividuation Phenomena (1995)",
         "kind": "context",
-        "ru": "Разные исследования фурри и терианских самоописаний. Эти группы, внутренние звери книги и квадроберы не тождественны; данные об одной группе нельзя переносить на остальные.",
-        "en": "Distinct studies of furry and therian self-descriptions. These groups, the book’s inner beasts, and quadrobers are not identical; findings cannot simply transfer between them."
+        "ru": "Общая идентичность меняет отношения и действие участников, не сводясь к исчезновению всякой идентичности. Близко к различению общего исхода и сохраняющегося личного пути.",
+        "en": "Shared identity changes participants’ relations and actions without simply abolishing identity. Close to the distinction between a collective outcome and each person’s continuing path.",
+        "href": "https://doi.org/10.1080/14792779443000049"
       }
     ],
     "21": [
@@ -1917,13 +1278,6 @@
         "ru": "Тень и персона - важный контекст авторского замысла. Тень не состоит только из злого; различение зверя и тени здесь остаётся собственным решением книги.",
         "en": "Shadow and persona are important context for the author’s project. The shadow is not only evil; distinguishing beast from shadow remains this book’s own choice.",
         "href": "https://iaap.org/resources/academic-resources/collected-works-abstracts/volume-9-2-aion-researches-phenomenology-self/"
-      },
-      {
-        "id": "jung-criticism",
-        "title": "Sonu Shamdasani. Jung and the Making of Modern Psychology (2003); Richard Noll. The Jung Cult (1994)",
-        "kind": "critique",
-        "ru": "Исторический анализ и спорная критическая интерпретация. Эти книги не равнозначны по подходу и выводам; они помогают не выдавать юнгианские понятия за бесспорные экспериментальные факты.",
-        "en": "Historical analysis and a contested critical interpretation. Their approaches and conclusions differ; they help prevent presenting Jungian concepts as uncontested experimental facts."
       },
       {
         "id": "wegner",
@@ -1977,13 +1331,6 @@
         "kind": "parallel",
         "ru": "Сказка как поле различения тени и разрушительного действия; карта юнгианских понятий для дальнейшего чтения.",
         "en": "Fairy tales as a setting for distinguishing shadow from destructive action; a map of Jungian concepts for further reading."
-      },
-      {
-        "id": "jung-criticism",
-        "title": "Sonu Shamdasani. Jung and the Making of Modern Psychology (2003); Richard Noll. The Jung Cult (1994)",
-        "kind": "critique",
-        "ru": "Исторический анализ и спорная критическая интерпретация. Эти книги не равнозначны по подходу и выводам; они помогают не выдавать юнгианские понятия за бесспорные экспериментальные факты.",
-        "en": "Historical analysis and a contested critical interpretation. Their approaches and conclusions differ; they help prevent presenting Jungian concepts as uncontested experimental facts."
       }
     ],
     "24": [
@@ -1996,13 +1343,6 @@
         "href": "https://iaap.org/resources/academic-resources/collected-works-abstracts/volume-9-2-aion-researches-phenomenology-self/"
       },
       {
-        "id": "totemism",
-        "title": "Claude Lévi-Strauss. Totemism (1962); Émile Durkheim. The Elementary Forms of Religious Life (1912)",
-        "kind": "context",
-        "ru": "Тотем, классификация и общность в разных антропологических объяснениях. Внутренний зверь этой книги не обозначает любую тотемическую традицию.",
-        "en": "Totem, classification, and community in distinct anthropological accounts. This book’s inner beast does not stand for every totemic tradition."
-      },
-      {
         "id": "descola-viveiros",
         "title": "Philippe Descola. Beyond Nature and Culture (2005); Eduardo Viveiros de Castro. Cosmological Deixis and Amerindian Perspectivism (1998)",
         "kind": "parallel",
@@ -2010,18 +1350,11 @@
         "en": "Different ways of distinguishing human and nonhuman. Comparison does not turn particular cultures into witnesses for a universal doctrine of inner beasts."
       },
       {
-        "id": "eliade",
-        "title": "Mircea Eliade. Shamanism: Archaic Techniques of Ecstasy (1951)",
-        "kind": "context",
-        "ru": "Исторически влиятельная сравнительная схема. Её обобщения не заменяют различий между традициями и не удостоверяют переживания практикующего.",
-        "en": "A historically influential comparative scheme. Its generalizations do not replace differences between traditions or certify a practitioner’s experiences."
-      },
-      {
-        "id": "nagel",
-        "title": "Thomas Nagel. What Is It Like to Be a Bat? (1974)",
-        "kind": "critique",
-        "ru": "Предел доступа к чужому опыту. Представить зверя изнутри не значит доказать, что переживаешь именно то, что переживает другое животное.",
-        "en": "Limits of access to another’s experience. Imagining a beast from within does not establish that one experiences what another animal experiences."
+        "id": "ingold-harvey",
+        "title": "Tim Ingold. The Perception of the Environment (2000); Graham Harvey. Animism (2005)",
+        "kind": "parallel",
+        "ru": "Навык, среда и отношения с нечеловеческими существами. Слушание зверя сопоставляется с отношением, а не с присвоением чужой культуры.",
+        "en": "Skill, environment, and relations with nonhuman beings. Listening to the beast is compared with relationship, not appropriation of another culture."
       },
       {
         "id": "animal-encounters",
@@ -2038,13 +1371,6 @@
         "en": "Studying animals requires tasks attentive to their own capacities. A comparison for refusing to measure every life by one human standard."
       },
       {
-        "id": "animal-identities",
-        "title": "Kathleen C. Gerbasi et al. Furries from A to Z (2008); Joseph P. Laycock. We Are Spirits of Another Sort (2012)",
-        "kind": "context",
-        "ru": "Разные исследования фурри и терианских самоописаний. Эти группы, внутренние звери книги и квадроберы не тождественны; данные об одной группе нельзя переносить на остальные.",
-        "en": "Distinct studies of furry and therian self-descriptions. These groups, the book’s inner beasts, and quadrobers are not identical; findings cannot simply transfer between them."
-      },
-      {
         "id": "miyazaki",
         "title": "Hayao Miyazaki. Nausicaä of the Valley of the Wind (1984); Princess Mononoke (1997)",
         "kind": "parallel",
@@ -2052,58 +1378,36 @@
         "en": "Another life remains independent even where a human recognizes something familiar. Compassion does not require reducing every side of a conflict to one voice."
       }
     ],
-    "26": [
+    "22": [
       {
-        "id": "jung-further",
-        "title": "C. G. Jung. The Archetypes and the Collective Unconscious (CW 9i); Answer to Job (CW 11); Man and His Symbols (1964); Memories, Dreams, Reflections (1962/1963)",
-        "kind": "parallel",
-        "ru": "Архетипы, символ и работа с отвергнутым. Это историческая психологическая и мифопоэтическая перспектива, не доказательство буквальной памяти звериных жизней.",
-        "en": "Archetypes, symbols, and engagement with what was rejected. A historical psychological and mythopoetic perspective, not proof of literal memories of animal lives."
-      },
-      {
-        "id": "von-franz-stein",
-        "title": "Marie-Louise von Franz. Shadow and Evil in Fairy Tales (1974); Murray Stein. Jung’s Map of the Soul (1998)",
-        "kind": "parallel",
-        "ru": "Сказка как поле различения тени и разрушительного действия; карта юнгианских понятий для дальнейшего чтения.",
-        "en": "Fairy tales as a setting for distinguishing shadow from destructive action; a map of Jungian concepts for further reading."
-      },
-      {
-        "id": "totemism",
-        "title": "Claude Lévi-Strauss. Totemism (1962); Émile Durkheim. The Elementary Forms of Religious Life (1912)",
+        "id": "winnicott",
+        "title": "D. W. Winnicott. Ego Distortion in Terms of True and False Self (1960)",
         "kind": "context",
-        "ru": "Тотем, классификация и общность в разных антропологических объяснениях. Внутренний зверь этой книги не обозначает любую тотемическую традицию.",
-        "en": "Totem, classification, and community in distinct anthropological accounts. This book’s inner beast does not stand for every totemic tradition."
+        "ru": "Ложное я как организация приспособления к требованиям окружения. Клинический собеседник маски; ложное я не означает просто ложь, а истинное я не тождественно Свабхаве.",
+        "en": "The false self as an organization of compliance with the environment. A clinical interlocutor for the mask; false self does not simply mean lying, nor true self Svabhava.",
+        "href": "https://doi.org/10.1093/med:psych/9780190271381.003.0023"
       },
       {
-        "id": "eliade",
-        "title": "Mircea Eliade. Shamanism: Archaic Techniques of Ecstasy (1951)",
-        "kind": "context",
-        "ru": "Исторически влиятельная сравнительная схема. Её обобщения не заменяют различий между традициями и не удостоверяют переживания практикующего.",
-        "en": "A historically influential comparative scheme. Its generalizations do not replace differences between traditions or certify a practitioner’s experiences."
-      },
-      {
-        "id": "evangelion",
-        "title": "Hideaki Anno et al. Neon Genesis Evangelion (1995–1996); The End of Evangelion (1997); Rebuild of Evangelion (2007–2021)",
-        "kind": "image",
-        "ru": "Заявленный автором источник образов границы, комплементации и общего растворения. Это художественное родство; поле страха и исход круга в книге получают собственные правила.",
-        "en": "An author-acknowledged source for boundary, complementation, and collective dissolution imagery. An artistic affinity; the fear field and circle’s outcome have their own rules here.",
-        "href": "https://www.evangelion.jp/movie.html"
-      },
-      {
-        "id": "anime-studies",
-        "title": "Susan J. Napier. Anime from Akira to Howl’s Moving Castle (2005); Hiroki Azuma. Otaku: Japan’s Database Animals (2001)",
-        "kind": "context",
-        "ru": "Культурный контекст аниме и его читательских миров. Не универсальный ключ к каждому образу и не замена самим произведениям.",
-        "en": "Cultural context for anime and its audiences. Neither a universal key to every image nor a substitute for the works themselves."
-      }
-    ],
-    "16": [
-      {
-        "id": "gendlin",
-        "title": "Eugene T. Gendlin. Focusing (1978)",
+        "id": "goffman",
+        "title": "Erving Goffman. The Presentation of Self in Everyday Life (1959)",
         "kind": "parallel",
-        "ru": "Телесно ощущаемый смысл ещё не найденных слов. Параллель к слушанию, не отождествление felt sense с мистическим сердцем и не правило безошибочности ощущений.",
-        "en": "A bodily felt sense before words are found. A comparison for listening, not an identification with the mystical heart or a rule that sensations cannot mislead."
+        "ru": "Представление себя во встрече. Социальная роль сама по себе не ложь и не болезнь; различение книги касается её затвердевания и права её менять.",
+        "en": "Presenting oneself in encounters. A social role is not inherently a lie or illness; the book asks about its hardening and the right to change it."
+      },
+      {
+        "id": "perls",
+        "title": "Fritz Perls, Ralph Hefferline & Paul Goodman. Gestalt Therapy (1951)",
+        "kind": "context",
+        "ru": "Интроекция: проглоченное, но не усвоенное. Ссылка ведёт к предисловиям и контексту книги; это клиническая метафора, не экспериментальная проверка §22.",
+        "en": "Introjection: swallowing without assimilation. The link supplies introductions and context; this is a clinical metaphor, not an experimental test of §22.",
+        "href": "https://gestalt.org/phgintro.htm"
+      },
+      {
+        "id": "rogers",
+        "title": "Carl R. Rogers. On Becoming a Person (1961)",
+        "kind": "parallel",
+        "ru": "Конгруэнтность, открытость опыту и отношения, в которых человеку не приходится заслуживать право быть собой. Близко к уменьшению разрыва между личным переживанием и жизнью среди других.",
+        "en": "Congruence, openness to experience, and relationships in which one need not earn the right to be oneself. Close to the narrowing gap between personal experience and life with others."
       },
       {
         "id": "lieberman",
@@ -2112,6 +1416,218 @@
         "ru": "Называние эмоций сопровождалось меньшей реакцией миндалины на эмоциональные изображения. Это не универсальное обещание субъективного облегчения и не доказательство исцеления чужими словами.",
         "en": "Labeling emotions was associated with lower amygdala responses to emotional images. This promises neither universal subjective relief nor healing through another’s words.",
         "href": "https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2016/03/Lieberman_2007_PsychScience.pdf"
+      },
+      {
+        "id": "ryan-connell",
+        "title": "Richard M. Ryan & James P. Connell. Perceived Locus of Causality and Internalization (JPSP 57, 1989)",
+        "kind": "study",
+        "ru": "Различение причин действия: внешнее давление, внутреннее принуждение, признанная ценность. Помогает уточнить зависимость от одобрения; не устанавливает срок жизни заёмной формы.",
+        "en": "Distinguishes reasons for action: external pressure, internal coercion, and an endorsed value. It clarifies approval dependence without setting an expiry date for borrowed forms.",
+        "href": "https://selfdeterminationtheory.org/SDT/documents/1989_RyanConnell.pdf"
+      },
+      {
+        "id": "deci-1994",
+        "title": "Edward L. Deci, Haleh Eghrari, Brian C. Patrick & Dean R. Leone. Facilitating Internalization (1994)",
+        "kind": "study",
+        "ru": "Исследование условий усвоения: понятный смысл действия, признание чувств и возможность выбора. Заимствованное способно стать своим; интроекция не обязана исчезнуть от течения времени.",
+        "en": "Studies conditions of internalization: meaningful rationale, acknowledging feelings, and choice. What is borrowed can become one’s own; introjection need not disappear with time.",
+        "href": "https://selfdeterminationtheory.org/SDT/documents/1994_DeciEghrariPatLeone.pdf"
+      },
+      {
+        "id": "sdt",
+        "title": "Edward L. Deci & Richard M. Ryan. The “What” and “Why” of Goal Pursuits (2000); Ryan & Deci. Self-Determination Theory (2017)",
+        "kind": "context",
+        "ru": "Собственный выбор и связь с другими поддерживают друг друга. Принятое ради одобрения отличается от усвоенного как собственная ценность: автономия не требует одиночества.",
+        "en": "Choice and relatedness support one another. Acting for approval differs from integrating a value as one’s own: autonomy does not require solitude.",
+        "href": "https://doi.org/10.1207/S15327965PLI1104_01"
+      },
+      {
+        "id": "closure",
+        "title": "Arie W. Kruglanski & Donna M. Webster. Motivated Closing of the Mind: “Seizing” and “Freezing” (1996)",
+        "kind": "context",
+        "ru": "Потребность в определённости побуждает быстро принять доступный ответ и затем ограждать его от пересмотра. Прямая связь с заёмной ясностью, которая становится хваткой в §22.",
+        "en": "A need for closure encourages seizing an available answer and then protecting it from revision. Directly related to borrowed clarity becoming a grip in §22.",
+        "href": "https://fitelson.org/current/seizing.pdf"
+      },
+      {
+        "id": "bowlby",
+        "title": "John Bowlby. A Secure Base (1988)",
+        "kind": "parallel",
+        "ru": "Надёжная опора позволяет исследовать мир, не предписывая каждый шаг. Параллель к помощи спутника; не всякая зависимость от другого становится захватом.",
+        "en": "A secure base enables exploration without prescribing every step. A comparison for companionship; dependence on another is not always captivity."
+      },
+      {
+        "id": "mead-self",
+        "title": "George Herbert Mead. Mind, Self, and Society, §22: The “I” and the “me” (1934)",
+        "kind": "parallel",
+        "ru": "Образ себя складывается через принятие отношения других, а собственный ответ не исчерпывается этим образом. Связь относится к эго и социальному узнаванию себя в §9 и §22.",
+        "en": "The self-image develops through taking others’ attitudes, while one’s response is not exhausted by that image. The connection concerns ego and social self-recognition in §9 and §22.",
+        "href": "https://brocku.ca/MeadProject/Mead/pubs2/mindself/Mead_1934_22.html"
+      },
+      {
+        "id": "cooley-self",
+        "title": "Charles H. Cooley. Human Nature and the Social Order, ch. V (1902; revised ed. 1922)",
+        "kind": "parallel",
+        "ru": "Человек узнаёт себя через представление о том, как его видят и оценивают другие. Близко к участию встречи в образе собственного Русла; воображаемый взгляд ещё нуждается в действительном ответе.",
+        "en": "People understand themselves through imagining how others see and judge them. Close to encounter shaping the image of one’s Riverbed; an imagined gaze still needs an actual response.",
+        "href": "https://brocku.ca/MeadProject/Cooley/Cooley_1902/Cooley_1902f.html"
+      },
+      {
+        "id": "gendlin-obedience",
+        "title": "Eugene T. Gendlin. The Obedience Pattern (Studies in Formative Spirituality 5(2), 1984)",
+        "kind": "parallel",
+        "ru": "Помощь нужна внутреннему движению, но подмена его чужим решением останавливает именно то, чему собирались помочь. Слушание требует диалога и с наставником, и с внутренним голосом, претендующим на всю власть.",
+        "en": "Help serves an inward process, yet replacing it with another’s decision obstructs precisely what needed support. Listening requires dialogue with both a guide and an inner voice claiming total authority.",
+        "href": "https://focusing.org/gendlin/docs/gol_2057.html"
+      }
+    ],
+    "20": [
+      {
+        "id": "winnicott",
+        "title": "D. W. Winnicott. Ego Distortion in Terms of True and False Self (1960)",
+        "kind": "context",
+        "ru": "Ложное я как организация приспособления к требованиям окружения. Клинический собеседник маски; ложное я не означает просто ложь, а истинное я не тождественно Свабхаве.",
+        "en": "The false self as an organization of compliance with the environment. A clinical interlocutor for the mask; false self does not simply mean lying, nor true self Svabhava.",
+        "href": "https://doi.org/10.1093/med:psych/9780190271381.003.0023"
+      },
+      {
+        "id": "goffman",
+        "title": "Erving Goffman. The Presentation of Self in Everyday Life (1959)",
+        "kind": "parallel",
+        "ru": "Представление себя во встрече. Социальная роль сама по себе не ложь и не болезнь; различение книги касается её затвердевания и права её менять.",
+        "en": "Presenting oneself in encounters. A social role is not inherently a lie or illness; the book asks about its hardening and the right to change it."
+      },
+      {
+        "id": "grounded-cognition",
+        "title": "Paula M. Niedenthal. Embodying Emotion (Science 316, 2007); Lawrence W. Barsalou. Grounded Cognition (2008)",
+        "kind": "context",
+        "ru": "Обзоры участия восприятия и действия в эмоциях и мышлении. Общая рамка не удостоверяет любую телесную практику и не делает метафору буквальной анатомией.",
+        "en": "Reviews of perception and action in emotion and cognition. A general framework does not validate every bodily practice or turn metaphor into literal anatomy."
+      },
+      {
+        "id": "movement-learning",
+        "title": "Moshe Feldenkrais. Awareness Through Movement (1972); F. M. Alexander. The Use of the Self (1932)",
+        "kind": "parallel",
+        "ru": "Замечать привычное движение и пробовать другое. Исторические практические сопоставления; не доказательство терапевтической эффективности квадробики.",
+        "en": "Noticing familiar movement and trying alternatives. Historical practical comparisons, not proof of quadrobics’ therapeutic efficacy."
+      },
+      {
+        "id": "bakhtin",
+        "title": "М. М. Бахтин. Творчество Франсуа Рабле и народная культура средневековья и Ренессанса (1965)",
+        "kind": "parallel",
+        "ru": "Карнавал и материально-телесный низ как переворот официальной высоты. Литературная параллель, не теория лечебной позы.",
+        "en": "Carnival and the material bodily lower stratum as a reversal of official height. A literary comparison, not a theory of therapeutic posture."
+      },
+      {
+        "id": "kagan-feedback",
+        "title": "Brett J. Kagan et al. In vitro neurons learn and exhibit sentience when embodied in a simulated game-world (Neuron, 2022)",
+        "kind": "study",
+        "ru": "В установке DishBrain активность культуры нейронов управляла действием в симуляции, а результат возвращался стимуляцией. Структурированная замкнутая обратная связь была важна для наблюдавшегося обучения. Это параллель к изменению через собственное действие и ответ, не доказательство телесной практики. Опыт не устанавливает, что всякая адаптация вне такого контура невозможна; кодирование среды и правила обратной связи задавали исследователи.",
+        "en": "In DishBrain, neuronal culture activity controlled action in a simulation, with outcomes returned as stimulation. Structured closed-loop feedback mattered for the observed learning. This parallels change through action and response, rather than proving the bodily practice. It does not establish that all adaptation outside such a loop is impossible; researchers designed the environmental encoding and feedback rules.",
+        "href": "https://doi.org/10.1016/j.neuron.2022.09.001"
+      },
+      {
+        "id": "gendlin-partnerships",
+        "title": "Eugene T. Gendlin. Focusing Partnerships (The Focusing Folio 6(2), 1987)",
+        "kind": "parallel",
+        "ru": "Внимательное присутствие другого помогает собственному процессу; каждый распоряжается своим временем, а роли слушающего и говорящего меняются. Близко к опоре без командования и к спутничеству как самостоятельной практике.",
+        "en": "Another’s attentive presence supports one’s own process; each person controls their time, and listening roles alternate. Close to support without command and companionship as a practice in its own right.",
+        "href": "https://focusing.org/gendlin/docs/gol_2063.html"
+      }
+    ],
+    "17": [
+      {
+        "id": "rogers",
+        "title": "Carl R. Rogers. On Becoming a Person (1961)",
+        "kind": "parallel",
+        "ru": "Конгруэнтность, открытость опыту и отношения, в которых человеку не приходится заслуживать право быть собой. Близко к уменьшению разрыва между личным переживанием и жизнью среди других.",
+        "en": "Congruence, openness to experience, and relationships in which one need not earn the right to be oneself. Close to the narrowing gap between personal experience and life with others."
+      }
+    ],
+    "15": [
+      {
+        "id": "gendlin",
+        "title": "Eugene T. Gendlin. Focusing (1978)",
+        "kind": "parallel",
+        "ru": "Внимание к телесно ощущаемому смыслу, ожидание собственных слов и проверка их отклика. Инструкции уступают самому процессу: готовый ответ не должен заменять слушание. Близкое практическое чтение к §14–16.",
+        "en": "Attending to bodily felt meaning, waiting for one’s own words, and checking their resonance. Instructions yield to the process itself: a ready answer must not replace listening. Closely related to the practice in §14–16.",
+        "href": "https://focusing.org/sixsteps"
+      },
+      {
+        "id": "gendlin-obedience",
+        "title": "Eugene T. Gendlin. The Obedience Pattern (Studies in Formative Spirituality 5(2), 1984)",
+        "kind": "parallel",
+        "ru": "Помощь нужна внутреннему движению, но подмена его чужим решением останавливает именно то, чему собирались помочь. Слушание требует диалога и с наставником, и с внутренним голосом, претендующим на всю власть.",
+        "en": "Help serves an inward process, yet replacing it with another’s decision obstructs precisely what needed support. Listening requires dialogue with both a guide and an inner voice claiming total authority.",
+        "href": "https://focusing.org/gendlin/docs/gol_2057.html"
+      }
+    ],
+    "16": [
+      {
+        "id": "gendlin",
+        "title": "Eugene T. Gendlin. Focusing (1978)",
+        "kind": "parallel",
+        "ru": "Внимание к телесно ощущаемому смыслу, ожидание собственных слов и проверка их отклика. Инструкции уступают самому процессу: готовый ответ не должен заменять слушание. Близкое практическое чтение к §14–16.",
+        "en": "Attending to bodily felt meaning, waiting for one’s own words, and checking their resonance. Instructions yield to the process itself: a ready answer must not replace listening. Closely related to the practice in §14–16.",
+        "href": "https://focusing.org/sixsteps"
+      },
+      {
+        "id": "lieberman",
+        "title": "Matthew D. Lieberman et al. Putting Feelings into Words (Psychological Science 18, 2007)",
+        "kind": "study",
+        "ru": "Называние эмоций сопровождалось меньшей реакцией миндалины на эмоциональные изображения. Это не универсальное обещание субъективного облегчения и не доказательство исцеления чужими словами.",
+        "en": "Labeling emotions was associated with lower amygdala responses to emotional images. This promises neither universal subjective relief nor healing through another’s words.",
+        "href": "https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2016/03/Lieberman_2007_PsychScience.pdf"
+      },
+      {
+        "id": "sdt",
+        "title": "Edward L. Deci & Richard M. Ryan. The “What” and “Why” of Goal Pursuits (2000); Ryan & Deci. Self-Determination Theory (2017)",
+        "kind": "context",
+        "ru": "Собственный выбор и связь с другими поддерживают друг друга. Принятое ради одобрения отличается от усвоенного как собственная ценность: автономия не требует одиночества.",
+        "en": "Choice and relatedness support one another. Acting for approval differs from integrating a value as one’s own: autonomy does not require solitude.",
+        "href": "https://doi.org/10.1207/S15327965PLI1104_01"
+      }
+    ],
+    "13": [
+      {
+        "id": "act",
+        "title": "Steven C. Hayes, Kirk D. Strosahl & Kelly G. Wilson. Acceptance and Commitment Therapy (1999; 2nd ed. 2012)",
+        "kind": "parallel",
+        "ru": "Принятие переживания не требует исполнять его требование: действие можно выбирать по ценностям. Это терапевтическая параллель, не обоснование метафизики книги.",
+        "en": "Accepting an experience need not mean obeying its demand: action can follow values. A therapeutic comparison, not support for the book’s metaphysics."
+      }
+    ],
+    "30": [
+      {
+        "id": "sdt",
+        "title": "Edward L. Deci & Richard M. Ryan. The “What” and “Why” of Goal Pursuits (2000); Ryan & Deci. Self-Determination Theory (2017)",
+        "kind": "context",
+        "ru": "Собственный выбор и связь с другими поддерживают друг друга. Принятое ради одобрения отличается от усвоенного как собственная ценность: автономия не требует одиночества.",
+        "en": "Choice and relatedness support one another. Acting for approval differs from integrating a value as one’s own: autonomy does not require solitude.",
+        "href": "https://doi.org/10.1207/S15327965PLI1104_01"
+      },
+      {
+        "id": "synchrony",
+        "title": "Scott S. Wiltermuth & Chip Heath. Synchrony and Cooperation (2009); Michael J. Hove & Jane L. Risen. It’s All in the Timing (2009)",
+        "kind": "study",
+        "ru": "В исследованных задачах совместный ритм связан с сотрудничеством и расположением. Отсюда не следуют нравственная правота группы или безопасность растворения в ней.",
+        "en": "In the studied tasks, shared timing relates to cooperation and affiliation. Neither the group’s moral rightness nor safety of merging into it follows.",
+        "href": "https://www2.psych.ubc.ca/~schaller/Psyc591Readings/WiltermuthHeath2009.pdf"
+      },
+      {
+        "id": "earthsea-dispossessed",
+        "title": "Ursula K. Le Guin. A Wizard of Earthsea (1968); The Dispossessed (1974)",
+        "kind": "parallel",
+        "ru": "Признание тени и трудности общества без трона. Литературные собеседники, не доказательства психологической или общественной модели.",
+        "en": "Acknowledging the shadow and the difficulties of a society without a throne. Literary interlocutors, not proofs of a psychological or social model."
+      },
+      {
+        "id": "gendlin-partnerships",
+        "title": "Eugene T. Gendlin. Focusing Partnerships (The Focusing Folio 6(2), 1987)",
+        "kind": "parallel",
+        "ru": "Внимательное присутствие другого помогает собственному процессу; каждый распоряжается своим временем, а роли слушающего и говорящего меняются. Близко к опоре без командования и к спутничеству как самостоятельной практике.",
+        "en": "Another’s attentive presence supports one’s own process; each person controls their time, and listening roles alternate. Close to support without command and companionship as a practice in its own right.",
+        "href": "https://focusing.org/gendlin/docs/gol_2063.html"
       }
     ],
     "12": [
@@ -2123,81 +1639,75 @@
         "en": "A secure base enables exploration without prescribing every step. A comparison for companionship; dependence on another is not always captivity."
       }
     ],
-    "38": [
+    "18": [
       {
-        "id": "ritual-process",
-        "title": "Arnold van Gennep. The Rites of Passage (1909); Victor Turner. The Ritual Process (1969)",
-        "kind": "context",
-        "ru": "Порог, переход и коммунитас помогают прочесть Час Растворения. Общий порог не гарантирует равенства после него и не описывает всякий ритуал одинаково.",
-        "en": "Threshold, transition, and communitas illuminate the Hour of Dissolution. A shared threshold guarantees neither equality afterward nor a single account of every ritual."
-      },
-      {
-        "id": "collective-rhythm",
-        "title": "Barbara Ehrenreich. Dancing in the Streets (2006); William H. McNeill. Keeping Together in Time (1995)",
-        "kind": "context",
-        "ru": "Совместное движение, ритм и общность в истории. Один ритм способен связывать людей; это ещё не определяет, чему служит возникшая связь.",
-        "en": "Shared movement, rhythm, and community in history. One rhythm can bind people without determining what the resulting bond serves."
-      },
-      {
-        "id": "synchrony",
-        "title": "Scott S. Wiltermuth & Chip Heath. Synchrony and Cooperation (2009); Michael J. Hove & Jane L. Risen. It’s All in the Timing (2009)",
-        "kind": "study",
-        "ru": "В исследованных задачах совместный ритм связан с сотрудничеством и расположением. Отсюда не следуют нравственная правота группы или безопасность растворения в ней.",
-        "en": "In the studied tasks, shared timing relates to cooperation and affiliation. Neither the group’s moral rightness nor safety of merging into it follows.",
-        "href": "https://www2.psych.ubc.ca/~schaller/Psyc591Readings/WiltermuthHeath2009.pdf"
-      },
-      {
-        "id": "konvalinka",
-        "title": "Ivana Konvalinka et al. Synchronized Arousal between Performers and Related Spectators in a Fire-Walking Ritual (PNAS 108, 2011)",
-        "kind": "study",
-        "ru": "Динамика сердечного ритма сближалась у участников и связанных с ними зрителей. Это не буквальное слияние сердцебиений в один удар и не опыт квадробического круга.",
-        "en": "Heart-rate dynamics showed coupling between performers and related spectators. This is not literal fusion into one heartbeat or a study of a quadrobic circle.",
-        "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3100954/"
-      },
-      {
-        "id": "xygalatas",
-        "title": "Dimitris Xygalatas et al. Extreme Rituals Promote Prosociality (2013)",
-        "kind": "study",
-        "ru": "Просоциальное поведение после конкретного ритуала. Результат не является советом усиливать боль или рисковать: сила переживания не удостоверяет оттаивание.",
-        "en": "Prosocial behavior after a particular ritual. The result is no recommendation to intensify pain or risk: intensity does not certify thawing.",
-        "href": "https://doi.org/10.1177/0956797612472910"
-      },
-      {
-        "id": "crowd-identity",
-        "title": "Gustave Le Bon. The Crowd (1895); Stephen Reicher, Russell Spears & Tom Postmes. A Social Identity Model of Deindividuation Phenomena (1995)",
-        "kind": "critique",
-        "ru": "Исторический образ толпы сопоставлен с иной моделью: в группе идентичность может перестраиваться вокруг общих норм, а не исчезать. Чувство единства само по себе не доказывает потери или сохранения собственного голоса.",
-        "en": "A historical crowd image meets another model: group identity may reorganize around shared norms rather than vanish. Felt unity alone proves neither loss nor preservation of one’s voice.",
-        "href": "https://doi.org/10.1080/14792779443000049"
-      },
-      {
-        "id": "canetti-lotman",
-        "title": "Elias Canetti. Crowds and Power (1960); Ю. М. Лотман. Культура и взрыв (1992)",
+        "id": "merleau-ponty",
+        "title": "Maurice Merleau-Ponty. Phenomenology of Perception (1945)",
         "kind": "parallel",
-        "ru": "Кристалл толпы и взрыв культуры. Сильные самостоятельные образы, которые можно читать рядом со Звездой Смерти, не смешивая их значения.",
-        "en": "Crowd crystals and cultural explosion. Strong independent images to read alongside the Death Star without conflating their meanings."
+        "ru": "Тело как способ быть в мире и начало пространственной ориентации. Это философское описание, не экспериментальное доказательство действия четырёх опор.",
+        "en": "The body as a way of being in the world and the basis of spatial orientation. A philosophical account, not experimental proof of four-support practice."
       },
       {
-        "id": "evangelion",
-        "title": "Hideaki Anno et al. Neon Genesis Evangelion (1995–1996); The End of Evangelion (1997); Rebuild of Evangelion (2007–2021)",
-        "kind": "image",
-        "ru": "Заявленный автором источник образов границы, комплементации и общего растворения. Это художественное родство; поле страха и исход круга в книге получают собственные правила.",
-        "en": "An author-acknowledged source for boundary, complementation, and collective dissolution imagery. An artistic affinity; the fear field and circle’s outcome have their own rules here.",
-        "href": "https://www.evangelion.jp/movie.html"
-      },
-      {
-        "id": "anime-studies",
-        "title": "Susan J. Napier. Anime from Akira to Howl’s Moving Castle (2005); Hiroki Azuma. Otaku: Japan’s Database Animals (2001)",
+        "id": "grounded-cognition",
+        "title": "Paula M. Niedenthal. Embodying Emotion (Science 316, 2007); Lawrence W. Barsalou. Grounded Cognition (2008)",
         "kind": "context",
-        "ru": "Культурный контекст аниме и его читательских миров. Не универсальный ключ к каждому образу и не замена самим произведениям.",
-        "en": "Cultural context for anime and its audiences. Neither a universal key to every image nor a substitute for the works themselves."
+        "ru": "Обзоры участия восприятия и действия в эмоциях и мышлении. Общая рамка не удостоверяет любую телесную практику и не делает метафору буквальной анатомией.",
+        "en": "Reviews of perception and action in emotion and cognition. A general framework does not validate every bodily practice or turn metaphor into literal anatomy."
       },
       {
-        "id": "campbell",
-        "title": "Joseph Campbell. The Hero with a Thousand Faces (1949); Campbell & Bill Moyers. The Power of Myth (1988)",
+        "id": "body-order",
+        "title": "Marcel Mauss. Techniques of the Body (1935); Pierre Bourdieu. The Logic of Practice (1980); Michel Foucault. Discipline and Punish (1975)",
+        "kind": "context",
+        "ru": "Обученные способы держаться, габитус и дисциплина тел. Разные общественные механизмы помогают прочесть «порядок записан в теле», не сводя каждую привычку к подавлению.",
+        "en": "Learned bodily techniques, habitus, and bodily discipline. Distinct social accounts illuminate “order written into the body” without reducing every habit to repression."
+      },
+      {
+        "id": "bakhtin",
+        "title": "М. М. Бахтин. Творчество Франсуа Рабле и народная культура средневековья и Ренессанса (1965)",
         "kind": "parallel",
-        "ru": "Переход, испытание и возвращение. Сравнительная схема мифа не устанавливает единого смысла всех историй и не делает обрушение обязательным этапом пути.",
-        "en": "Transition, trial, and return. A comparative mythic scheme neither fixes every story’s meaning nor makes collapse a compulsory stage."
+        "ru": "Карнавал и материально-телесный низ как переворот официальной высоты. Литературная параллель, не теория лечебной позы.",
+        "en": "Carnival and the material bodily lower stratum as a reversal of official height. A literary comparison, not a theory of therapeutic posture."
+      },
+      {
+        "id": "kagan-feedback",
+        "title": "Brett J. Kagan et al. In vitro neurons learn and exhibit sentience when embodied in a simulated game-world (Neuron, 2022)",
+        "kind": "study",
+        "ru": "В установке DishBrain активность культуры нейронов управляла действием в симуляции, а результат возвращался стимуляцией. Структурированная замкнутая обратная связь была важна для наблюдавшегося обучения. Это параллель к изменению через собственное действие и ответ, не доказательство телесной практики. Опыт не устанавливает, что всякая адаптация вне такого контура невозможна; кодирование среды и правила обратной связи задавали исследователи.",
+        "en": "In DishBrain, neuronal culture activity controlled action in a simulation, with outcomes returned as stimulation. Structured closed-loop feedback mattered for the observed learning. This parallels change through action and response, rather than proving the bodily practice. It does not establish that all adaptation outside such a loop is impossible; researchers designed the environmental encoding and feedback rules.",
+        "href": "https://doi.org/10.1016/j.neuron.2022.09.001"
+      }
+    ],
+    "19": [
+      {
+        "id": "merleau-ponty",
+        "title": "Maurice Merleau-Ponty. Phenomenology of Perception (1945)",
+        "kind": "parallel",
+        "ru": "Тело как способ быть в мире и начало пространственной ориентации. Это философское описание, не экспериментальное доказательство действия четырёх опор.",
+        "en": "The body as a way of being in the world and the basis of spatial orientation. A philosophical account, not experimental proof of four-support practice."
+      },
+      {
+        "id": "vertical-metaphor",
+        "title": "George Lakoff & Mark Johnson. Metaphors We Live By (1980)",
+        "kind": "parallel",
+        "ru": "Пространственные метафоры власти и положения. Связь верха с контролем усваивается в опыте; сама вертикаль не делает тело властителем.",
+        "en": "Spatial metaphors of power and position. Associations of height with control are learned in experience; standing upright does not itself make a ruler."
+      },
+      {
+        "id": "schubert",
+        "title": "Thomas W. Schubert. Your Highness: Vertical Positions as Perceptual Symbols of Power (JPSP 89, 2005); Steffen R. Giessner & Schubert. High in the Hierarchy (2007)",
+        "kind": "study",
+        "ru": "Связь вертикального расположения с суждениями о власти в экспериментальных задачах. Из неё не следует, что наклон головы устраняет власть или четырёхопорная поза меняет личность.",
+        "en": "Vertical position and judgments of power in experimental tasks. This does not imply that bowing removes power or four-support posture changes personality.",
+        "href": "https://www.igroup.org/schubert/papers/schubert_jpsp05.pdf"
+      }
+    ],
+    "25": [
+      {
+        "id": "ingold-harvey",
+        "title": "Tim Ingold. The Perception of the Environment (2000); Graham Harvey. Animism (2005)",
+        "kind": "parallel",
+        "ru": "Навык, среда и отношения с нечеловеческими существами. Слушание зверя сопоставляется с отношением, а не с присвоением чужой культуры.",
+        "en": "Skill, environment, and relations with nonhuman beings. Listening to the beast is compared with relationship, not appropriation of another culture."
       }
     ],
     "34": [
@@ -2207,6 +1717,81 @@
         "kind": "parallel",
         "ru": "Общие правила, участие, наблюдение и разрешение споров. Порядок может служить совместной жизни без требования единого властвующего центра.",
         "en": "Shared rules, participation, monitoring, and conflict resolution. Order can serve common life without requiring one sovereign center."
+      },
+      {
+        "id": "aurobindo-free-action",
+        "title": "Sri Aurobindo. Essays on the Gita, First Series, ch. XVIII: The Divine Worker (1922; CWSA 19)",
+        "kind": "parallel",
+        "ru": "Свобода от эгоистического присвоения не требует прекращения действия. Можно оставаться в мире и действовать, не связываясь сделанным: близко к деятельной свободе сиддхи и служению без платы за право быть.",
+        "en": "Freedom from egoistic appropriation need not end action. One can remain in the world and act without bondage to one’s works: close to the siddha’s active freedom and service without earning the right to exist.",
+        "href": "https://www.sriaurobindoashram.org/sriaurobindo/downloadpdf.php?id=34#page=188"
+      }
+    ],
+    "27": [
+      {
+        "id": "evangelion",
+        "title": "Hideaki Anno et al. Neon Genesis Evangelion (1995–1996); The End of Evangelion (1997); Rebuild of Evangelion (2007–2021)",
+        "kind": "image",
+        "ru": "Заявленный автором источник образов границы, комплементации и общего растворения. Это художественное родство; поле страха и исход круга в книге получают собственные правила.",
+        "en": "An author-acknowledged source for boundary, complementation, and collective dissolution imagery. An artistic affinity; the fear field and circle’s outcome have their own rules here.",
+        "href": "https://www.evangelion.jp/movie.html"
+      }
+    ],
+    "26": [
+      {
+        "id": "evangelion",
+        "title": "Hideaki Anno et al. Neon Genesis Evangelion (1995–1996); The End of Evangelion (1997); Rebuild of Evangelion (2007–2021)",
+        "kind": "image",
+        "ru": "Заявленный автором источник образов границы, комплементации и общего растворения. Это художественное родство; поле страха и исход круга в книге получают собственные правила.",
+        "en": "An author-acknowledged source for boundary, complementation, and collective dissolution imagery. An artistic affinity; the fear field and circle’s outcome have their own rules here.",
+        "href": "https://www.evangelion.jp/movie.html"
+      }
+    ],
+    "33": [
+      {
+        "id": "star-wars",
+        "title": "George Lucas et al. Star Wars (from 1977); BioWare. Star Wars: Knights of the Old Republic (2003)",
+        "kind": "image",
+        "ru": "Заявленный автором источник тёмного канона. Кодекс ситхов относится к расширенной вселенной и представлен в Knights of the Old Republic; это не реплика из фильма 1977 года. Книга переосмысляет силу через защиту чужого Русла.",
+        "en": "An author-acknowledged source of dark-canon imagery. The Sith Code belongs to the expanded universe and appears in Knights of the Old Republic, not as a line in the 1977 film. Here strength is reworked through protection of another’s Riverbed."
+      }
+    ],
+    "5": [
+      {
+        "id": "aurobindo-own-nature",
+        "title": "Sri Aurobindo. Essays on the Gita, Second Series, ch. XX: Swabhava and Swadharma (1928; CWSA 19)",
+        "kind": "parallel",
+        "ru": "Собственная природа выражается собственным законом действия; чужая, даже безупречно исполненная форма не заменяет этого закона. Близкое чтение к Свабхаве и дхарме как выражению своего движения.",
+        "en": "One’s own nature expresses itself through its own law of action; even a perfectly performed borrowed form cannot replace it. Close to Svabhava and dharma as the expression of one’s movement.",
+        "href": "https://www.sriaurobindoashram.org/sriaurobindo/downloadpdf.php?id=34#page=518"
+      }
+    ],
+    "31": [
+      {
+        "id": "aurobindo-free-action",
+        "title": "Sri Aurobindo. Essays on the Gita, First Series, ch. XVIII: The Divine Worker (1922; CWSA 19)",
+        "kind": "parallel",
+        "ru": "Свобода от эгоистического присвоения не требует прекращения действия. Можно оставаться в мире и действовать, не связываясь сделанным: близко к деятельной свободе сиддхи и служению без платы за право быть.",
+        "en": "Freedom from egoistic appropriation need not end action. One can remain in the world and act without bondage to one’s works: close to the siddha’s active freedom and service without earning the right to exist.",
+        "href": "https://www.sriaurobindoashram.org/sriaurobindo/downloadpdf.php?id=34#page=188"
+      }
+    ],
+    "32": [
+      {
+        "id": "gendlin-partnerships",
+        "title": "Eugene T. Gendlin. Focusing Partnerships (The Focusing Folio 6(2), 1987)",
+        "kind": "parallel",
+        "ru": "Внимательное присутствие другого помогает собственному процессу; каждый распоряжается своим временем, а роли слушающего и говорящего меняются. Близко к опоре без командования и к спутничеству как самостоятельной практике.",
+        "en": "Another’s attentive presence supports one’s own process; each person controls their time, and listening roles alternate. Close to support without command and companionship as a practice in its own right.",
+        "href": "https://focusing.org/gendlin/docs/gol_2063.html"
+      },
+      {
+        "id": "gendlin-obedience",
+        "title": "Eugene T. Gendlin. The Obedience Pattern (Studies in Formative Spirituality 5(2), 1984)",
+        "kind": "parallel",
+        "ru": "Помощь нужна внутреннему движению, но подмена его чужим решением останавливает именно то, чему собирались помочь. Слушание требует диалога и с наставником, и с внутренним голосом, претендующим на всю власть.",
+        "en": "Help serves an inward process, yet replacing it with another’s decision obstructs precisely what needed support. Listening requires dialogue with both a guide and an inner voice claiming total authority.",
+        "href": "https://focusing.org/gendlin/docs/gol_2057.html"
       }
     ]
   }
