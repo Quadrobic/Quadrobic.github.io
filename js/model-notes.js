@@ -5,6 +5,39 @@
   const panel = document.getElementById("model-panel");
   if (!dataNode || !panel) return;
   const data = JSON.parse(dataNode.textContent);
+  let loading = null;
+  function loadNotes() {
+    if (data.sections) return Promise.resolve();
+    if (loading) return loading;
+    loading = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = dataNode.dataset.src;
+      script.async = true;
+      let finished = false;
+      const timeout = setTimeout(() => finish(new Error("Notes timed out")), 10000);
+      function finish(error) {
+        if (finished) return;
+        finished = true;
+        clearTimeout(timeout);
+        script.remove();
+        if (error) { reject(error); return; }
+        const payload = window.iqjModelNotes;
+        if (!payload || payload.version !== data.version || !payload.sections) {
+          reject(new Error("Notes snapshot mismatch"));
+          return;
+        }
+        data.sections = payload.sections;
+        resolve();
+      }
+      script.onload = () => finish();
+      script.onerror = () => finish(new Error("Notes unavailable"));
+      document.head.append(script);
+    }).catch((error) => {
+      loading = null; // A later visit to a marker can retry a failed request.
+      throw error;
+    });
+    return loading;
+  }
   const wide = matchMedia("(min-width: 1380px)");
   const hover = matchMedia("(hover: hover) and (pointer: fine)");
   let active = null, pinned = false, timer = 0, restoring = false;
@@ -49,23 +82,46 @@
       panel.style.top = `${Math.max(86, Math.min(marker.top, innerHeight - panel.offsetHeight - 18))}px`;
     }
   }
-  function open(button, pin = false) {
+  async function open(button, pin = false) {
     cancel();
     if (active === button) { pinned ||= pin; return; }
     close();
     active = button; pinned = pin;
-    const section = data.sections[button.dataset.modelSection];
-    panel.querySelector("#model-panel-title").textContent = section.title;
-    panel.querySelector(".model-panel-label").textContent = section.label || data.ui.status;
-    panel.querySelector(".model-panel-scope").textContent = section.scope || data.ui.scope;
-    panel.querySelector(".model-panel-content").innerHTML = section.html;
-    panel.querySelector("footer").hidden = !!section.context;
+    const id = button.dataset.modelSection;
+    const title = panel.querySelector("#model-panel-title");
+    const content = panel.querySelector(".model-panel-content");
     const mapLink = panel.querySelector("[data-model-map]");
-    if (section.context) mapLink.removeAttribute("href");
-    else mapLink.href = `${data.map}#map-p${button.dataset.modelSection}`;
+    title.textContent = data.ui[id] || region(button).querySelector("h3, h2")?.textContent || data.ui.status;
+    panel.querySelector(".model-panel-label").textContent = data.ui.status;
+    panel.querySelector(".model-panel-scope").textContent = data.ui.scope;
+    content.textContent = data.ui.loading;
+    panel.querySelector("footer").hidden = false;
+    mapLink.href = data.map;
     panel.hidden = false;
+    panel.setAttribute("aria-busy", "true");
     button.setAttribute("aria-expanded", "true");
     place();
+    try {
+      await loadNotes();
+      if (active !== button) return; // Do not reopen a closed or replaced panel.
+      const section = data.sections[id];
+      title.textContent = section.title;
+      panel.querySelector(".model-panel-label").textContent = section.label || data.ui.status;
+      panel.querySelector(".model-panel-scope").textContent = section.scope || data.ui.scope;
+      content.innerHTML = section.html;
+      panel.querySelector("footer").hidden = !!section.context;
+      if (section.context) mapLink.removeAttribute("href");
+      else mapLink.href = `${data.map}#map-p${id}`;
+    } catch (_) {
+      if (active !== button) return;
+      content.textContent = data.ui.load_error;
+    } finally {
+      if (active === button) {
+        panel.removeAttribute("aria-busy");
+        place();
+        if (panel.classList.contains("is-inline")) refresh();
+      }
+    }
   }
   function delayedClose() {
     cancel();
@@ -107,12 +163,17 @@
       event.preventDefault();
     }
   }, true);
-  panel.addEventListener("toggle", place, true);
-  addEventListener("resize", () => { if (active) place(); });
+  let placementFrame = 0;
+  function schedulePlace() {
+    if (placementFrame) return;
+    placementFrame = requestAnimationFrame(() => { placementFrame = 0; place(); });
+  }
+  panel.addEventListener("toggle", schedulePlace, true);
+  addEventListener("resize", () => { if (active) schedulePlace(); });
   addEventListener("scroll", () => {
     if (!active || panel.classList.contains("is-inline")) return;
     const rect = active.getBoundingClientRect();
     if (rect.bottom < 70 || rect.top > innerHeight - 40) close();
-    else place();
+    else schedulePlace();
   }, { passive: true });
 })();

@@ -87,7 +87,9 @@ application or private signing material belongs in this repository.
 `vendor-lock.json` pins all dependency URLs and SHA-256 digests. The first build
 can fetch those exact files; later builds use the verified cache. `--offline`
 rejects a missing or changed dependency instead of silently fetching it. Updating
-a website CDN version requires an explicit lock-file review. Fonts are local
+the pins in `../tools/runtime_libraries.py` requires an explicit lock-file review.
+That module supplies the same URLs and versions to the web templates, offline
+rewriter and app notices. The pinned Lenis CSS is bundled as well. Fonts are local
 WOFF2 subsets, including Cyrillic and Thai. Original p5.js and GSAP source files,
 license texts/notices, and the Lenis license ship inside the app.
 

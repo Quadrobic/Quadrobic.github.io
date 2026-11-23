@@ -54,6 +54,8 @@ UI = {
     'nocode': 'Для этого утверждения нет фрагмента Agda.',
     'readings': 'Близкое чтение',
     'reading_scope': 'Для каждой работы указана конкретная общая мысль. Связь относится к ней, а не ко всему учению автора. Литература не входит в доказательства Agda; сходство не означает прямого влияния.',
+    'loading': 'Загружаются примечания…',
+    'load_error': 'Не удалось загрузить примечания. Откройте карту связей ниже или попробуйте ещё раз.',
     'reading_context_scope': 'Дополнительное чтение. Пометки поясняют характер связи с текстом.',
     'sadhana': 'Садхана', 'conclusion': 'Заключение',
     'uncovered': 'Утверждения этого параграфа пока не представлены отдельными определениями или теоремами. Это не означает ни их доказанности, ни намеренного запрета формализации.',
@@ -75,6 +77,8 @@ UI = {
     'nocode': 'There is no Agda excerpt for this claim.',
     'readings': 'Related reading',
     'reading_scope': 'Each work is linked through a specific shared idea, rather than agreement with its author’s entire system. Readings are not part of Agda proofs; affinity does not imply direct influence.',
+    'loading': 'Loading notes…',
+    'load_error': 'Notes could not be loaded. Open the map below or try again.',
     'reading_context_scope': 'Further reading. Labels explain the kind of connection to the text.',
     'sadhana': 'Sadhana', 'conclusion': 'Conclusion',
     'uncovered': 'This section’s claims do not yet have dedicated definitions or theorems. This implies neither proof nor a deliberate exclusion from formalization.',
@@ -173,7 +177,7 @@ def entries(doc):
 
 def reading_ui(snapshot, doc, lang):
     if lang not in UI:
-        return {'head': '', 'entry': '', 'tail': ''}
+        return {'head': '', 'entry': '', 'tail': '', 'assets': {}}
     ui = UI[lang]
     map_path = 'model-map.html' if lang == 'ru' else 'model-map.en.html'
     sections = {}
@@ -192,11 +196,18 @@ def reading_ui(snapshot, doc, lang):
         if snapshot.get('readings', {}).get(name):
             sections[name] = {'title': ui[name], 'html': f'<section class="model-literature">{readings(snapshot, name, lang)}</section>',
                               'label': ui['readings'], 'scope': ui['reading_context_scope'], 'context': True}
-    data = {'sections': sections, 'ui': ui, 'map': map_path}
+    # The main reading page carries only UI strings. Large proof and literature
+    # cards are loaded when needed, including under file:// and in the APK.
+    encoded = json_script(sections)
+    version = hashlib.sha256(encoded.encode('utf-8')).hexdigest()[:16]
+    asset = f'formalization/notes.{lang}.js'
+    payload = f'window.iqjModelNotes = {{"version": "{version}", "sections": {encoded}}};\n'
+    data = {'ui': ui, 'map': map_path, 'version': version}
+
     entry = f'<aside class="model-entry"><span class="model-entry-signal" aria-hidden="true">⊢</span><div>{ui["entry"]}<small>{ui["scope"]}</small></div><a href="{map_path}">{ui["map"]} ↗</a></aside>'
     panel = f'<aside id="model-panel" class="model-panel" data-model-panel data-lenis-prevent hidden aria-labelledby="model-panel-title"><header><span class="model-panel-label">{ui["status"]}</span><button type="button" data-model-close aria-label="{ui["close"]}">×</button></header><h3 id="model-panel-title"></h3><div class="model-panel-scope">{ui["scope"]}</div><div class="model-panel-content"></div><footer><a href="{map_path}" data-model-map>{ui["map"]} ↗</a></footer></aside>'
-    tail = panel + f'<script type="application/json" id="model-notes-data">{json_script(data)}</script><script src="js/model-notes.js"></script>'
-    return {'head': '\n<link rel="stylesheet" href="css/model-notes.css"><noscript><style>.model-marker { display: none; }</style></noscript>', 'entry': '  ' + entry + '\n\n', 'tail': '\n' + tail}
+    tail = panel + f'<script type="application/json" id="model-notes-data" data-src="{asset}?v={version}">{json_script(data)}</script><script defer src="js/model-notes.js"></script>'
+    return {'head': '\n<link rel="stylesheet" href="css/model-notes.css"><noscript><style>.model-marker { display: none; }</style></noscript>', 'entry': '  ' + entry + '\n\n', 'tail': '\n' + tail, 'assets': {asset: payload}}
 
 
 def graph_svg(sections, snapshot, lang):

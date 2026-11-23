@@ -9,6 +9,7 @@ Re-run after any edit to any of the three source files:
 
 (or just run ./rebuild.sh, which rebuilds the site and the PDF together)
 """
+import argparse
 import html
 import sys
 from pathlib import Path
@@ -18,6 +19,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 import manifesto  # noqa: E402
 from web_glossary import glossary_json  # noqa: E402
 import model_annotations  # noqa: E402
+from build_io import write_text_if_changed  # noqa: E402
+from runtime_libraries import VERSIONS, script_tags, style_links  # noqa: E402
 
 TEMPLATE = ROOT / "template.html"
 
@@ -331,11 +334,16 @@ def build(lang: str, tpl: str, snapshot):
     nav_html = render_nav(doc, lang)
 
     model_ui = model_annotations.reading_ui(snapshot, doc, lang)
+    for name, content in model_ui.pop('assets', {}).items():
+        write_text_if_changed(ROOT / name, content)
     if lang in ('ru', 'en'):
         map_target = ROOT / ('model-map.html' if lang == 'ru' else 'model-map.en.html')
-        map_target.write_text(model_annotations.render_map(snapshot, doc, lang), encoding='utf-8')
-        print(f'wrote {map_target.name}')
+        changed = write_text_if_changed(map_target, model_annotations.render_map(snapshot, doc, lang))
+        print(f'{"wrote" if changed else "unchanged"} {map_target.name}')
     out = tpl.replace("<!--TITLE-->", html.escape(doc["title"]))
+    out = out.replace("<!--RUNTIME_LIBRARIES-->", script_tags())
+    out = out.replace("<!--RUNTIME_STYLES-->", style_links())
+    out = out.replace("<!--P5_VERSION-->", VERSIONS["p5"])
     out = out.replace("<!--PREAMBLE-->", preamble_html)
     out = out.replace("<!--BOOKS-->", "\n".join(books_html))
     out = out.replace("<!--NAV-->", nav_html)
@@ -374,14 +382,18 @@ def build(lang: str, tpl: str, snapshot):
     out = out.replace("<!--INC_TITLE-->", html.escape(meta["inc_title"]))
     out = out.replace("<!--FONT_LINKS-->", meta["font_links"])
 
-    meta["out"].write_text(out, encoding="utf-8")
-    print(f"wrote {meta['out']} ({len(out)} bytes), {bi} books")
+    changed = write_text_if_changed(meta["out"], out)
+    print(f'{"wrote" if changed else "unchanged"} {meta["out"]} ({len(out.encode("utf-8"))} bytes), {bi} books')
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--lang', choices=tuple(LANGS), action='append',
+                        help='build only this language; repeat to select several')
+    args = parser.parse_args()
     tpl = TEMPLATE.read_text(encoding="utf-8")
     snapshot = model_annotations.load_snapshot()
-    for lang in LANGS:
+    for lang in dict.fromkeys(args.lang or LANGS):
         build(lang, tpl, snapshot)
 
 

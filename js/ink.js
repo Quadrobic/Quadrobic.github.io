@@ -26,6 +26,7 @@
     calm:    { speed: 0.28, scale: 0.001,  chaos: 0.35, count: 220, alpha: 16, size: 1.6, hue: 40, sat: 45, bri: 80, glow: 1.1,  link: 0 },
   };
 
+  const motion = matchMedia("(prefers-reduced-motion: reduce)");
   const cur = { ...MOODS.source };
   let target = MOODS.source;
 
@@ -49,6 +50,16 @@
       };
     }
 
+    // p5 2 routes every line through Shape/Path2D allocation. These decorative
+    // segments need only Canvas2D, with the same p5 colors, widths and transforms.
+    function drawLine(x1, y1, x2, y2) {
+      const ctx = p.drawingContext;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    }
+
     function resize() {
       const w = window.innerWidth;
       const h = window.innerHeight;
@@ -60,7 +71,9 @@
     p.setup = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvasEl = p.createCanvas(window.innerWidth, window.innerHeight);
-      canvasEl.id("ink-canvas-inner");
+      // Renderer.id() in p5 2 copies layout sizes back into renderer dimensions;
+      // before insertion these may be zero. Naming the DOM node must not resize it.
+      canvasEl.elt.id = "ink-canvas-inner";
       canvasEl.parent(document.body);
       const realCanvas = document.getElementById("ink-canvas");
       if (realCanvas && realCanvas.tagName === "CANVAS") {
@@ -74,6 +87,15 @@
       p.noStroke();
       for (let i = 0; i < cur.count; i++) particles.push(makeParticle());
       p.frameRate(60);
+      function updatePlayback() {
+        if (document.hidden || motion.matches) {
+          p.noLoop();
+          if (!document.hidden) p.redraw();
+        } else p.loop();
+      }
+      document.addEventListener("visibilitychange", updatePlayback);
+      motion.addEventListener("change", updatePlayback);
+      updatePlayback();
     };
 
     p.windowResized = resize;
@@ -100,6 +122,7 @@
       p.noStroke();
       p.fill(14, 60, 3, 10 + cur.alpha * 0.18);
       p.rect(0, 0, p.width, p.height);
+      p.noFill();
 
       const scale = cur.scale;
       const chaos = cur.chaos;
@@ -110,6 +133,9 @@
       const green = p.green(warm) * (1 - ice) + 220 * ice;
       const blue = p.blue(warm) * (1 - ice) + 227 * ice;
       p.colorMode(p.RGB, 255, 255, 255, 100);
+      // Shared by every particle; do not repeat p5 state updates in the loop.
+      p.strokeWeight(cur.size * (1 - ice * 0.3));
+      const speed = cur.speed * 1.6 * (1 - ice * 0.9) * starSpeed;
 
       for (let i = 0; i < particles.length; i++) {
         const pt = particles[i];
@@ -120,7 +146,6 @@
           p.noise(pt.x * scale, pt.y * scale, t) * Math.PI * 2 * 2.2 * chaos;
         const crystalAngle = Math.round(angle / (Math.PI / 3)) * Math.PI / 3;
         angle += (crystalAngle - angle) * ice;
-        const speed = cur.speed * 1.6 * (1 - ice * 0.9) * starSpeed;
         pt.x += Math.cos(angle) * speed;
         pt.y += Math.sin(angle) * speed;
         if (ice > 0.01) {
@@ -146,8 +171,7 @@
 
         const alphaJ = cur.alpha * (0.5 + 0.5 * Math.sin(i * 12.9898 + t * 3));
         p.stroke(red, green, blue, alphaJ);
-        p.strokeWeight(cur.size * (1 - ice * 0.3));
-        p.line(pt.px, pt.py, pt.x, pt.y);
+        drawLine(pt.px, pt.py, pt.x, pt.y);
       }
 
       p.colorMode(p.HSB, 360, 100, 100, 100);
@@ -159,9 +183,9 @@
           const offset = (row % 2) * spacing / 2;
           for (let x = offset; x < p.width; x += spacing) {
             const y = row * rowHeight;
-            p.line(x, y, x + spacing, y);
-            p.line(x, y, x + spacing / 2, y + rowHeight);
-            p.line(x, y, x - spacing / 2, y + rowHeight);
+            drawLine(x, y, x + spacing, y);
+            drawLine(x, y, x + spacing / 2, y + rowHeight);
+            drawLine(x, y, x - spacing / 2, y + rowHeight);
           }
         }
       }
@@ -178,7 +202,7 @@
             const dy = a.y - b.y;
             const d2 = dx * dx + dy * dy;
             if (d2 < 140 * 140) {
-              p.line(a.x, a.y, b.x, b.y);
+              drawLine(a.x, a.y, b.x, b.y);
             }
           }
         }

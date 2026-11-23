@@ -59,17 +59,26 @@ else
 fi
 
 
-SITE_DEPS=(README.md README.en.md README.th.md build.py template.html tools/manifesto.py tools/web_glossary.py tools/model_annotations.py formalization/annotations.json)
-if needs_rebuild index.html "${SITE_DEPS[@]}" \
-  || needs_rebuild index.en.html "${SITE_DEPS[@]}" \
-  || needs_rebuild index.th.html "${SITE_DEPS[@]}" \
-  || needs_rebuild model-map.html "${SITE_DEPS[@]}" \
-  || needs_rebuild model-map.en.html "${SITE_DEPS[@]}"; then
-  echo "→ index.html"
-  python3 build.py
-else
-  echo "→ index.html (up to date, skipped)"
-fi
+SITE_DEPS=(build.py template.html tools/manifesto.py tools/web_glossary.py tools/model_annotations.py tools/build_io.py tools/runtime_libraries.py formalization/annotations.json)
+for lang in ru en th; do
+  case "$lang" in
+    ru) source_md=README.md; page=index.html; map=model-map.html ;;
+    en) source_md=README.en.md; page=index.en.html; map=model-map.en.html ;;
+    th) source_md=README.th.md; page=index.th.html; map= ;;
+  esac
+  rebuild_site=false
+  needs_rebuild "$page" "$source_md" "${SITE_DEPS[@]}" && rebuild_site=true
+  if [ -n "$map" ]; then
+    needs_rebuild "$map" "$source_md" "${SITE_DEPS[@]}" && rebuild_site=true
+    [ -f "formalization/notes.$lang.js" ] || rebuild_site=true
+  fi
+  if "$rebuild_site"; then
+    echo "→ $page"
+    python3 build.py --lang "$lang"
+  else
+    echo "→ $page (up to date, skipped)"
+  fi
+done
 
 if needs_rebuild IQJ-manifest.pdf README.md pdf/build.py pdf/template.html tools/manifesto.py; then
   echo "→ IQJ-manifest.pdf"
@@ -78,7 +87,7 @@ else
   echo "→ IQJ-manifest.pdf (up to date, skipped)"
 fi
 
-BIRD_DEPS=(bird.md bird.en.md build_bird.py bird_template.html tools/manifesto.py)
+BIRD_DEPS=(bird.md bird.en.md build_bird.py bird_template.html tools/manifesto.py tools/build_io.py tools/runtime_libraries.py)
 if needs_rebuild bird.html "${BIRD_DEPS[@]}" \
   || needs_rebuild bird.en.html "${BIRD_DEPS[@]}"; then
   echo "→ bird.html / bird.en.html"

@@ -30,6 +30,8 @@ WATCHED = [
     ROOT / "template.html",
     ROOT / "pdf" / "template.html",
     ROOT / "tools" / "manifesto.py",
+    ROOT / "tools" / "build_io.py",
+    ROOT / "tools" / "runtime_libraries.py",
     ROOT / "tools" / "web_glossary.py",
     ROOT / "tools" / "model_annotations.py",
     ROOT / "build.py",

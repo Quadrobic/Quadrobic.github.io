@@ -58,8 +58,9 @@ class OfflineBuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             site = Path(temp); page = site / 'formalization/code/Test.html'
             page.parent.mkdir(parents=True)
+            gsap_url = next(url for url, name in builder.RUNTIME_URLS.items() if name == 'vendor/gsap.js')
             page.write_text('<html lang="en"><head></head><body><a href="../../agda/Test.agda">source</a>'
-                            '<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script></body></html>')
+                            f'<script src="{gsap_url}"></script></body></html>')
             builder.rewrite_page(page, site, 'test')
             result = page.read_text()
             self.assertIn('src="../../app/vendor/gsap.js"', result)

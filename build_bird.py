@@ -24,6 +24,8 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT / "tools"))
 import manifesto  # noqa: E402  (inline() and format_updated() only)
+from build_io import write_text_if_changed  # noqa: E402
+from runtime_libraries import VERSIONS, script_tags, style_links  # noqa: E402
 
 TEMPLATE = ROOT / "bird_template.html"
 
@@ -145,6 +147,9 @@ def build(lang, meta):
     out = out.replace("<!--DESC-->", f'{title} - {meta["subtitle"]}.')
     out = out.replace("<!--HERO_TITLE-->", title)
     out = out.replace("<!--LANG-->", lang)
+    out = out.replace("<!--RUNTIME_LIBRARIES-->", script_tags())
+    out = out.replace("<!--RUNTIME_STYLES-->", style_links())
+    out = out.replace("<!--P5_VERSION-->", VERSIONS["p5"])
     for key, value in meta.items():
         out = out.replace(f"<!--{key.upper()}-->", value)
     out = out.replace("<!--CHAPTERS-->", chapters_html)
@@ -153,8 +158,8 @@ def build(lang, meta):
     out = out.replace("<!--UPDATED-->", updated)
 
     target = ROOT / meta["out"]
-    target.write_text(out, encoding="utf-8")
-    print(f"wrote {target} ({len(out)} characters), {len(chapters)} chapters")
+    changed = write_text_if_changed(target, out)
+    print(f'{"wrote" if changed else "unchanged"} {target} ({len(out)} characters), {len(chapters)} chapters')
 
 
 def main():

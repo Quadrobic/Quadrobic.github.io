@@ -665,7 +665,6 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  will-change: transform, opacity;
 }
 
 .glyph-line {
@@ -791,7 +790,6 @@ body {
 .reveal-title {
   opacity: 0;
   transform: scale(0.94);
-  will-change: transform, opacity;
 }
 
 /* ---------- passages ---------- */

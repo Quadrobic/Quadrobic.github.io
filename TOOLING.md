@@ -1,283 +1,182 @@
-# Инструменты сборки
+# Building and maintaining the site
 
-`README.md` (и его переводы `README.en.md` / `README.th.md`) - единственный
-источник правды для всего остального. Из русского файла генерируются и
-веб-страница, и PDF; переводы генерируют только свои веб-страницы (PDF
-пока только русский). Все три `README*.md` пишутся и редактируются вручную,
-как обычный текст.
+Read `AGENTS.md` first for a compact task-to-source map. This is a static site
+with readable Python, JavaScript and CSS sources: no npm install, bundler,
+minification step or server-side application is required.
 
-```
-README.md ──────────┐
-README.en.md ───┐    │
-README.th.md ─┐ │    │
-              │ │    │
-              ▼ ▼    ▼
-       tools/manifesto.py   (общий парсер, stdlib, без зависимостей,
-                              знает по языку: слово "Книга"/"Book"/"เล่ม",
-                              слова-маркеры Заключения/Словаря/Аксиоматики)
-              │
-              ├─→ build.py       → index.html / index.en.html / index.th.html
-              └─→ pdf/build.py   → IQJ-manifest.pdf    (только русский)
-```
+## Sources and outputs
 
-Веб-страница живёт прямо в корне репозитория (не в отдельном `site/`), чтобы
-её можно было открыть/захостить как обычный статический сайт без лишнего
-уровня пути.
+- `README.md`, `README.en.md`, `README.th.md`: treatise and complete glossary.
+  They are authored Markdown, not project documentation. Thai is updated only
+  on explicit request. RU/EN prose changes normally stay aligned.
+- `tools/manifesto.py`: shared Markdown parser for the web and Russian PDF.
+  Extend this parser when adding a new prose structure, rather than inventing
+  another parser in a renderer.
+- `template.html` and `build.py`: main page markup and localized control labels.
+- `bird.md`, `bird.en.md`, `bird_template.html`, `build_bird.py`: bonus story.
+  It has its own chapter grammar, while sharing the inline renderer and controls.
+- `pdf/template.html`, `pdf/build.py`: Russian treatise PDF, with the full glossary.
+  `bird_build.py` builds the Russian story PDF.
+- `agda/`: proofs, model contracts, negative checks, bilingual explanations,
+  claim annotations and reading catalog. See `agda/README.md` for proof work.
 
-## Быстрый старт
+Generated files are published at the repository root for GitHub Pages. Never
+hand-edit `index*.html`, `bird*.html`, `formalization*.html`, `model-map*.html`,
+`formalization/code/`, `formalization/notes.*.js`, PDFs or the source ZIP.
 
-```bash
-./rebuild.sh              # пересобрать и сайт, и PDF одним разом
-```
+## Select the smallest relevant build
 
-или для автоматического пересобора при каждом изменении:
-
-```bash
-python3 tools/watch.py    # следит за README.md и пересобирает сам, Ctrl+C - стоп
-```
-
-`watch.py` пересобирает сразу при запуске, потом - при любом изменении
-`README.md`, `README.en.md`, `README.th.md` (или шаблонов `template.html` /
-`pdf/template.html`).
-Ошибка в разметке README.md не остановит наблюдатель - он напечатает
-причину и продолжит следить дальше. Опрос раз в секунду (`--every N`,
-чтобы поменять), без внешних библиотек - сравнивает время изменения файла
-в цикле.
-
-## Структура
-
-```
-README.md - текст манифеста, русский (источник истины)
-README.en.md - перевод, английский
-README.th.md - перевод, тайский
-rebuild.sh - пересобрать всё
-build.py - рендерит index*.html из tools/manifesto.py для всех трёх языков
-template.html - HTML-каркас страницы (общий для всех языков, с плейсхолдерами)
-index.html - СГЕНЕРИРОВАННЫЙ файл (русский), не редактировать руками
-index.en.html - СГЕНЕРИРОВАННЫЙ файл (английский), не редактировать руками
-index.th.html - СГЕНЕРИРОВАННЫЙ файл (тайский), не редактировать руками
-css/style.css - вся вёрстка и палитра
-js/ink.js - p5.js: фон-течение (частицы по curl-noise полю)
-js/main.js - Lenis + GSAP ScrollTrigger: скролл, анимации, звук
-serve.sh - локальный сервер для просмотра (./serve.sh)
-tools/
-  manifesto.py - общий парсер README.md → структура книг/параграфов
-  watch.py - автопересборка при изменениях
-pdf/
-  build.py - рендерит IQJ-manifest.pdf из tools/manifesto.py
-  template.html - HTML/CSS-каркас страницы печати (тот же стиль, что и раньше)
-IQJ-manifest.pdf - СГЕНЕРИРОВАННЫЙ файл, не редактировать руками
+```sh
+python3 build.py --lang ru             # Russian page, notes and map only
+python3 build.py --lang ru --lang en   # RU/EN, without touching Thai
+python3 build.py                       # All three web editions
+python3 build_bird.py                  # Both bonus editions
+python3 pdf/build.py                   # Russian treatise PDF
+python3 bird_build.py                  # Russian bonus PDF
+./rebuild.sh                           # Rebuild stale outputs, including PDFs
+python3 tools/watch.py                 # Source watcher; Ctrl+C to stop
+./serve.sh                            # Local HTTP preview
 ```
 
-## Почему так
+Python web builds use the standard library. PDF builds also require an installed
+Chrome/Chromium; candidates are listed in `pdf/build.py`. Repeated web builds
+preserve the bytes and modification times of unchanged outputs. `rebuild.sh`
+checks each language against its own Markdown source plus shared dependencies.
+It does not rebuild a PDF for a CSS/JS edit, and never builds an APK.
 
-- **Один парсер, а не два.** Раньше и PDF, и сайт разбирали README.md каждый
-  по-своему (PDF - вообще через одноразовые команды в терминале, не сохранённые
-  никуда). Теперь `tools/manifesto.py` - единственное место, которое знает
-  формат README.md; `build.py` и `pdf/build.py` только по-разному
-  раскладывают уже распарсенную структуру в HTML.
-- **Без внешних зависимостей.** `pdf/build.py` раньше требовал pip-пакет
-  `markdown` в отдельном venv - а venv пересоздавать вручную каждый раз, когда
-  среда сбрасывается между сессиями, неудобно и хрупко. Теперь и сайт, и PDF
-  используют только стандартную библиотеку Python плюс системный
-  `google-chrome-stable` (или любой Chromium на PATH) - им же и раньше
-  рендерился PDF.
-- **Если формат README.md изменится** (новый вид блока, которого сейчас нет:
-  не абзац, не список, не аксиома, не словарная строка) - учить этому нужно
-  только `tools/manifesto.py`; `build.py` и `pdf/build.py` останутся нетронутыми.
+Changing CSS or JS needs a browser reload, not an HTML build. Changing a shared
+page template requires the corresponding web builder. Changing model claims,
+readings, explanations or proofs requires the verified export first:
 
-Словарь в конце `README*.md` сохраняется в PDF целиком. В веб-версии он
-превращается в данные для подсказок возле терминов, без отдельного раздела
-внизу страницы. Определения редактируются в том же словаре; русские падежные
-формы для поиска перечислены в `tools/web_glossary.py`, поведение карточек -
-в `js/glossary.js`.
-- **Веб-страница на верхнем уровне репозитория, а не в `site/`.** Так её
-  можно отдавать как статический сайт (GitHub Pages и подобные сервисы
-  обычно ждут `index.html` в корне) без настройки пути публикации.
-
-## Как редактировать текст манифеста (веб-страница)
-
-Текст страницы **не хранится в HTML** - он генерируется из `README.md`
-(того же файла, что превращается в PDF): отредактируйте `README.md` и
-запустите `./rebuild.sh` (или `python3 build.py`, если нужен только сайт).
-
-Формат README.md парсит `tools/manifesto.py` - общий для сайта и PDF
-(заголовки книг `## 🜁 Книга X. ...`, параграфы `### §N. ...`, аксиомы,
-начинающиеся с `△`, список словаря `- **Термин** - определение`). Если
-формат README.md сильно изменится (новый вид блока), доработки требует
-именно этот файл, а не `build.py` - он написан простым и читаемым нарочно,
-чтобы это было легко сделать.
-
-## Как посмотреть сайт локально
-
-```bash
-./serve.sh          # поднимет http://localhost:8731
-# или просто:
-python3 -m http.server 8731
+```sh
+python3 agda/build_web.py
+python3 build.py
 ```
 
-Открывать `index.html` напрямую через `file://` не стоит - некоторые
-браузеры блокируют часть возможностей (шрифты/скрипты) для локальных
-файлов без сервера.
+The web builder rejects a stale Agda snapshot. Do not edit its hashes to bypass
+that check. A bibliography change is a source change in the verified export,
+even though it does not change a mathematical theorem.
 
-## Многоязычность и переключатель языка
+## Runtime responsibilities
 
-Три языка - три отдельных статических файла (`index.html` / `index.en.html`
-/ `index.th.html`), а не один файл с переключением на лету: так каждый язык
-остаётся простым статическим HTML без дублирования всего текста в DOM трижды.
+| File | Responsibility |
+| --- | --- |
+| `js/main.js` | Lenis/GSAP scroll, reveals, navigation, progress and initial hashes |
+| `js/reader-controls.js` | Ambient/return audio and persistent text size |
+| `js/speech.js` | Speech synthesis, voice selection and reading highlight |
+| `js/ink.js` | p5 flow field, mood transitions and visibility/motion preferences |
+| `js/frost.js` | Scroll-speed frost; no changes to text geometry |
+| `js/death-star.js` | §38 phases, collective collapse, Return, explosion and unlock |
+| `js/glossary.js` | Accessible definitions from the Markdown glossary |
+| `js/model-notes.js` | Margin inspector, lazy proof/literature data, retry and focus |
+| `js/model-map.js` | Actual § cross-reference graph and selected detail |
+| `js/formalization.js` | Proof-page navigation, symbol highlighting and copying |
+| `js/downloads.js` | PDF/APK disclosure and latest-release lookup |
 
-- Кнопки RU/EN/TH - фиксированный блок `#lang-switch` в правом верхнем углу
-  (разметка в `template.html`, подсветка активного языка и запоминание
-  выбора в `localStorage` - в `js/main.js`, блок `setupLangSwitch`).
-- Определение языка по геолокации (IP, через `ipapi.co`, без запроса
-  разрешения у браузера) происходит только на корневой `index.html` и
-  только при первом визите (если в `localStorage` ещё нет сохранённого
-  выбора) - короткий инлайн-скрипт в `<head>` в `template.html`, сразу
-  после `<meta charset>`, чтобы редирект случился как можно раньше. Русский -
-  значение по умолчанию для всех, кого геолокация явно не определила иначе:
-  Таиланд → `th`, узкий заданный список явно англоязычных стран (сейчас
-  `US, GB, CA, AU, NZ, IE` в `ENGLISH_COUNTRIES` в `template.html`) → `en`,
-  всё остальное, включая любую другую не русскоязычную страну, остаётся на
-  `ru`. Список стран для `en` специально узкий - расширять его, а не менять
-  сам фолбэк на английский. Прямые ссылки на `index.en.html` / `index.th.html`
-  геолокацией не трогаются.
-- Если запрос геолокации не удался (нет сети, таймаут, блокировка) - страница
-  остаётся на оригинальном русском тексте, как и было явно оговорено.
-- Каждая страница озвучивается (TTS) на своём языке: `js/main.js` берёт
-  `document.documentElement.lang` и подбирает голос/BCP-47 код сама,
-  никакой код озвучки не хардкодит русский.
-- У тайской версии отдельный шрифт (`Noto Serif Thai` - у Cormorant/EB
-  Garamond нет тайских глифов), подключается только на тайской странице
-  через плейсхолдер `<!--FONT_LINKS-->` в `template.html`, который
-  заполняет `build.py` (ключ `font_links` в словаре `LANGS`).
+The two page templates declare script order. Scripts are deferred while keeping
+that order: p5, GSAP, ScrollTrigger, Lenis, then site behavior. Shared controls
+and speech run after `main.js`; their scroll integration uses `window.__lenis`.
+Frost and Death Star communicate through `reading:jump` and `reading:star-mode`;
+Return dispatches `reading:return` and starts `audio/alquadro.mp3` from the click.
 
-Добавить язык: завести `README.<lang>.md` с той же структурой (заголовки
-книг в формате `<Книга-слово> <римская цифра>. <Название>`, кроме
-русского - там исторически цифра прописью, см. `BOOK_NUM_WORDS` в
-`tools/manifesto.py`), добавить запись в `LANGS` в `build.py` (путь к
-файлу, заголовки кнопок и т. п.), в `BOOK_HEADING_RE` и `KIND_WORDS` в
-`tools/manifesto.py` - слова-маркеры для этого языка, и в кнопку
-`#lang-switch` в `template.html`.
+`template.html` keeps its small language bootstrap in the head: explicit language
+choices win; geolocation is a narrow first-visit fallback. Android replaces this
+bootstrap in its isolated bundle. Do not casually change the bootstrap's shape
+without checking `android/build.py`.
 
-## Как устроен фон (js/ink.js)
+The source order, hash links, text-size controls, speech, Return and reduced-motion
+behavior must work on both the treatise and bonus pages where applicable. The
+conclusion/practices stay sealed until Return on the web, not in the PDF.
 
-Один p5.js-скетч рисует частицы, что текут по полю Перлин-шума (это и есть
-«Русло» манифеста, сделанное видимым). У каждой книги своё «настроение»
-фона - задаётся атрибутом `data-mood="..."` на секции в `build.py`
-(словарь `BOOK_MOODS`) и считывается в `js/ink.js` (словарь `MOODS`):
+## Definitions, notes and model status
 
-| mood      | где                                     | вид                                   |
-|-----------|------------------------------------------|----------------------------------------|
-| `source`  | Книга I. Исток и Русло                  | широкое, медленное, светлое течение    |
-| `flow`    | Книги II, III, V, VIII                  | обычное течение                        |
-| `murk`    | Книги IV, VI, IX (тёмные/теневые)       | плотное, тёмное, быстрое               |
-| `network` | Книга VII (Империя)                     | частицы соединяются линиями - сеть     |
-| `crystal` | Аксиоматика (приложение, без номера)    | почти неподвижно, редкие яркие точки   |
-| `calm`    | Заключение                              | медленно, широко, гаснет               |
+Glossary definitions remain in Markdown. `tools/web_glossary.py` supplies matching
+forms and web data; `js/glossary.js` annotates prose without changing its words.
+There is no duplicate glossary to maintain at the bottom of the web page.
 
-Книга IX - это «Звезда Смерти» (сдвинулась с X на IX после того, как
-Аксиоматика перестала быть пронумерованной книгой и переехала после
-Садханы, см. ниже); Садхана и Словарь, как и Аксиоматика, не входят в
-число «книг», и их мудборд наследуется (`flow` по умолчанию) или задан
-отдельно (`still` у Словаря).
+`tools/model_annotations.py` combines the checked claims/reading catalog with
+current section titles. `build.py` generates `formalization/notes.ru.js` and
+`formalization/notes.en.js`, separate from the primary reading HTML. These data
+files load only when a marker is used. A content hash in their URL prevents a
+new page from reading stale cards. A shared promise deduplicates concurrent
+requests; closing or switching markers does not reopen an obsolete panel.
+Failures show a localized retry message and a link to the complete map.
+Script loading also works under `file://` and the Android asset origin.
 
-Чтобы добавить новое настроение или поменять книге текущее - правьте
-`BOOK_MOODS` в `build.py` и/или сами параметры в `MOODS` в `js/ink.js`.
+All paragraph cards remain available on the separate map without lazy loading. It displays actual textual links, not proof implication. Model statuses
+apply to individual claims: theorem, contract, open parameter, deliberately
+excluded, or uncovered. Neither bibliography nor type checking certifies the
+whole treatise. Keep that distinction in explanations and new annotations.
 
-## Как устроена прокрутка (js/main.js)
+## Checks
 
-- **Lenis** перехватывает колесо мыши/тачпад и сглаживает прокрутку.
-- **GSAP ScrollTrigger** следит за позицией скролла (через `lenis.on('scroll', ScrollTrigger.update)`)
-  и включает анимации: появление параграфов (класс `.reveal`), крупные
-  заголовки книг (`.book-divider`), смену настроения фона, подсветку
-  активной книги в боковой навигации, полосу прогресса сверху.
-- Прямые ссылки вида `index.html#book-4` работают - при загрузке страница
-  сама доскролливает до нужной секции после того, как Lenis и ScrollTrigger
-  готовы (см. `initialHash` в начале `main.js`).
+```sh
+python3 tools/check_web.py            # Offline, read-only asset/snapshot checks
+node --check js/main.js               # Repeat for JavaScript files changed
+python3 -m unittest discover -s android/tests -v  # When bundle behavior changes
+python3 agda/check.py                 # When formal sources/export metadata change
+```
 
-## Режим Звезды Смерти
+The fast web check validates local assets and native anchors, unique IDs,
+resolved placeholders, marker coverage, note hashes, reader script order and
+Agda snapshot integrity. It does not download anything or prove browser behavior.
 
-Веб-режим §38 управляется `js/death-star.js`: вход по прокрутке, редкое
-дыхание текста, сердце, фазы обрушения и выбора, кнопка «Вернуться».
-`build.py` добавляет к тексту только обёртки сцен; README и PDF сохраняют
-исходное изложение. Названия четырёх подзаголовков можно менять: фазы
-следуют их порядку. В старых переводах без подзаголовков используются
-начала соответствующих абзацев. Длительности и цвета заданы в разделе
-`§38` файла `css/style.css`. При уменьшенном движении анимации отключены.
+For interaction changes, browser-check desktop and mobile, mouse and keyboard,
+reduced motion, first note load, early dismissal, failure/retry and the source
+links. For animation changes also check frost thawing and Death Star Return.
+Keep performance comparisons reproducible: separate HTML bytes and deferred
+asset bytes; do not present a smaller HTML file as a measured overall speedup.
 
-Нажатие «Вернуться» запускает `audio/alquadro.mp3` без зацикливания;
-из центра расходится взрыв, под его светом страница переходит к заключению.
-При уменьшенном движении переход происходит сразу, без взрыва.
-До нажатия заключение, практики и нижний колонтитул скрыты вместе с их
-пунктами навигации. Прямая ссылка на скрытую часть ведёт к кнопке выхода.
-Когда кнопка видна, класс `star-at-threshold` обесцвечивает звезду;
-после выхода обе части открыты до перезагрузки страницы. В печати
-этого ограничения нет.
-кнопка звука приостанавливает и продолжает музыку. Прежний фоновый звук
-при этом затихает. Возвращение через Escape музыку не запускает.
+## Android and downloads
 
-## Бонусный рассказ
+See `android/README.md`. Build the offline app only when explicitly requested:
 
-Бонусный рассказ хранится в `bird.md` и `bird.en.md`. Команда
-`python3 build_bird.py` собирает `bird.html` и `bird.en.html` из общего
-шаблона с переводом навигации и элементов чтения. Переключатель RU/EN
-остаётся внутри рассказа, а ссылка к трактату сохраняет язык чтения.
-`rebuild.sh` и `tools/watch.py` учитывают оба исходника. `bird.pdf` пока
-русский; в английской версии это явно указано у ссылки скачивания.
+```sh
+./android/update.sh --check
+./android/update.sh --prepare-only --offline --output-dir /tmp/iqj-preview
+./android/update.sh --offline
+```
 
-## Известные ограничения
+The preview command creates an isolated site, not an APK. It must include the
+lazy notes and all fonts, scripts and audio. APKs and signing state remain outside
+the repository; backing up the signing state is necessary to retain update
+compatibility. The app needs no Internet or storage permission to read.
 
-- Требует интернет при просмотре (шрифты и библиотеки - с CDN, не зашиты
-  в файлы). Если нужен полностью офлайн-вариант - можно скачать эти
-  несколько файлов и подключать локально, скажите - сделаю.
-- Фоновый звук выключен по умолчанию (браузеры не разрешают автовоспроизведение
-  без клика) - кнопка внизу слева.
-- PDF собирается только из русского `README.md`; английской/тайской PDF
-  пока нет (кнопка «Скачать PDF» на всех трёх языках страницы ведёт на
-  один и тот же русский файл).
+The web Android link queries GitHub's latest published release only when clicked,
+selecting its versioned APK. On API failure or timeout it opens the latest-release
+page. Modified clicks/copied links use that page; no token is embedded.
 
-## Если чего-то не хватает
-
-- `pdf/build.py` ищет `google-chrome-stable` / `google-chrome` / `chromium-browser` /
-  `chromium` на PATH. Если у вас браузер называется иначе - впишите его в
-  список `CHROME_CANDIDATES` в начале `pdf/build.py`.
-- `tools/watch.py` не требует ничего, кроме Python 3.
-
-## Публичная формализация
-
-Кнопка «Формализация» перед «Бонусом» ведёт на `formalization.html`;
-английская версия - `formalization.en.html`. Источники модели, тесты и
-проверяющий скрипт остаются в `agda/`. Пояснения по этапам редактируются
-в `agda/web_content.py`, шаблон - `agda/web_template.html`.
-
-`python3 agda/build_web.py` сначала проверяет модель и все отрицательные
-примеры, затем вызывает `agda --html` и экспортирует семантическую подсветку.
-В `formalization/code/` - полные модули с переходами к определениям;
-в `formalization/imperium-source.zip` - исходники и инструменты проверки;
-в `formalization/verification.json` - версия Agda, результаты и SHA-256
-исходников снимка. Фрагменты на странице сверяются с исходным текстом.
-`rebuild.sh` и `tools/watch.py` учитывают зависимости этой сборки.
-
-## Optional offline Android application
-
-The Android reader is built explicitly with `./android/update.sh`; it is not a
-step of `rebuild.sh` or the file watcher. See [android/README.md](android/README.md)
-for SDK setup, offline dependency caching, signing-state backups, and checks.
-APKs and signing state are stored outside the checkout. `--check` reports missing
-tools without installing them; `--prepare-only` renders an isolated offline site.
+Cubical v0.9 is also external, pinned by `agda/cubical-lock.json`. The checker
+prepares its writable interface cache outside the repository. Never vendor the
+library or weaken proof checks to make an export succeed.
 
 
-The Cubical extension has a separate `agda/CubicalAll.agda` entry point.
-`python3 agda/check.py` verifies both entry points and all 31 expected rejections.
-It requires the external Cubical v0.9 checkout pinned in `agda/cubical-lock.json`;
-see `agda/README.md` for installation and `AGDA_CUBICAL`. The dependency itself
-and its interface cache stay outside this repository. `agda/build_web.py` exports
-Tail and Levels with the other checked modules and records the dependency digest.
+## Browser dependency updates
+
+`tools/runtime_libraries.py` is the single source for pinned stable versions,
+CDN URLs, script order and offline filenames. Both page builders and the Android
+rewriter use it. The Lenis stylesheet is pinned alongside its JavaScript. The ink script URL also
+includes the p5 version so a major library update cannot reuse a stale canvas
+adapter from the browser cache.
+
+```sh
+python3 tools/runtime_libraries.py          # Display pins, offline
+python3 tools/runtime_libraries.py --latest # Read-only npm stable-release check
+```
+
+The current pins, checked on 2026-11-23, are p5.js 2.4.0, GSAP/ScrollTrigger
+3.15.1 and Lenis 1.3.27. Never use `@latest` or a floating major version on the
+published site: the checked source must identify exactly which code is loaded.
+To update, change the shared pins, review upstream changes, refresh matching
+readable sources/license notices and SHA-256 digests in `android/vendor-lock.json`,
+then rebuild the web pages and an offline preview. `tools/check_web.py` detects
+outdated/reordered page scripts and mismatches with the offline lock. Run the
+browser checks before accepting the update, especially a p5 major upgrade.
 
 
-The web Android download resolves the latest published GitHub release through
-`/repos/Quadrobic/Quadrobic.github.io/releases/latest` only when clicked. It selects
-the matching versioned APK asset; a failed request, rate limit, or five-second
-timeout opens GitHub's latest-release page instead. No token is embedded.
-The template also records the current direct APK URL. Modified clicks and copied
-links use GitHub's latest-release page once JavaScript initializes.
+For p5 2, assign the canvas DOM id through `canvasEl.elt.id`: the renderer's
+`.id()` method can overwrite renderer dimensions from a zero-size layout during
+setup. The ink field draws its short segments directly on the p5 Canvas2D
+context to avoid per-particle Shape/Path2D allocation, retaining p5's noise,
+colors, width and pixel-density handling. Regression checks should inspect
+nonzero canvas dimensions and visible pixels, not just drawing calls.

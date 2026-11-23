@@ -25,12 +25,11 @@ ROOT = HERE.parent
 API = 35
 MIN_API = 26
 PACKAGE = 'org.quadrobic.iqj'
-JS_URLS = {
-    'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js': 'vendor/p5.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js': 'vendor/gsap.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js': 'vendor/ScrollTrigger.js',
-    'https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js': 'vendor/lenis.min.js',
-}
+sys.path.insert(0, str(ROOT / 'tools'))
+from runtime_libraries import VERSIONS, offline_resources
+
+RUNTIME_URLS = offline_resources()
+
 PUBLIC_FILES = ('index.html', 'index.en.html', 'index.th.html', 'bird.html', 'bird.en.html',
                 'formalization.html', 'formalization.en.html', 'model-map.html', 'model-map.en.html')
 INPUT_FILES = ('README.md', 'README.en.md', 'README.th.md', 'bird.md', 'bird.en.md',
@@ -151,8 +150,8 @@ def about_page(lang, version):
     suffix = '.en' if lang == 'en' else '.th' if lang == 'th' else ''
     other = '.en' if lang in ('en', 'th') else ''
     license_links = ''.join(f'<li><a href="licenses/{name}">{label}</a></li>' for name, label in (
-        ('p5.txt', 'p5.js 1.9.4 · LGPL-2.1'), ('GSAP.txt', 'GSAP 3.12.5 · upstream notice'),
-        ('GSAP-license.html.txt', 'GSAP · Standard License'), ('Lenis.txt', 'Lenis 1.1.14 · MIT'),
+        ('p5.txt', f'p5.js {VERSIONS["p5"]} · LGPL-2.1'), ('GSAP.txt', f'GSAP {VERSIONS["gsap"]} · upstream notice'),
+        ('GSAP-license.html.txt', 'GSAP · Standard License'), ('Lenis.txt', f'Lenis {VERSIONS["lenis"]} · MIT'),
         ('CormorantGaramond.txt', 'Cormorant Garamond · OFL'), ('EBGaramond.txt', 'EB Garamond · OFL'),
         ('NotoSerifThai.txt', 'Noto Serif Thai · OFL')))
     return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8">
@@ -175,7 +174,7 @@ def rewrite_page(path, site, version):
             raise ValueError(f'Unknown language bootstrap: {path.name}; review offline adaptation')
         text = text[:match.start()] + text[match.end():]
     text = re.sub(r'<link\b[^>]*\bhref=["\']https://fonts\.(?:googleapis|gstatic)\.com[^>]*>', '', text)
-    for url, local in JS_URLS.items():
+    for url, local in RUNTIME_URLS.items():
         text = text.replace(url, prefix + '/' + local)
     # PDF exports are a separate published artifact, not part of this HTML reader.
     text = re.sub(r'<a\b[^>]*\bid="pdf-download"[^>]*>.*?</a>', '', text, flags=re.S)
@@ -202,9 +201,11 @@ class Page(HTMLParser):
         if 'id' in attrs:
             if attrs['id'] in self.ids: raise ValueError(f'Duplicate HTML id: {attrs["id"]}')
             self.ids.add(attrs['id'])
-        self.links += [attrs[k] for k in ('href', 'src') if k in attrs]
+        self.links += [attrs[k] for k in ('href', 'src', 'data-src') if k in attrs]
         if tag in ('script', 'img', 'audio', 'source', 'iframe') and attrs.get('src'):
             self.resources.append(attrs['src'])
+        if tag == 'script' and attrs.get('data-src'):
+            self.resources.append(attrs['data-src'])
         if tag == 'link' and attrs.get('href'):
             self.resources.append(attrs['href'])
 
