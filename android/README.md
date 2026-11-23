@@ -4,7 +4,8 @@ A separate, manually built Android application. The app packages the current
 Russian, English, and Thai treatise, the RU/EN bonus, glossary, model notes,
 formalization pages, highlighted Agda modules, source archive, and return music.
 It uses the existing site's appearance in a WebView, served from packaged assets
-at a stable HTTPS origin. The manifest has no Internet or storage permission.
+at a stable HTTPS origin. The native update checker has Internet and network-state
+permissions; the WebView still rejects remote requests. No storage permission is used.
 External bibliography links open in another browser only when selected.
 
 `rebuild.sh` does not call this builder. Building the app does not rewrite the
@@ -59,6 +60,27 @@ signing key. Language, last document, per-page reading position, text-size
 preferences, and the completed return from the Death Star survive app updates.
 Reading progress stays on the device. No account or background update service
 is used. Existing explicit section links take precedence over stored positions.
+
+## In-app release checks
+
+While the reader is open and Android reports an Internet connection, a native
+worker checks this repository's latest stable GitHub release. It checks at most
+once every 12 hours after a successful request, retries failures after 15 minutes,
+and also notices a connection becoming available while the app is open. Offline
+use and network/API errors remain silent. There is no background service.
+
+Only an uploaded `quadrobic-YYYY.MM.DD.counter.apk` on the exact repository's
+HTTPS release path is offered. Its counter must exceed the installed version's
+counter (the Android version code); dates alone cannot trigger a downgrade.
+The prompt follows the current document's RU/EN/TH language and offers Download
+or Later. The same release is offered at most once per day. Download opens the
+APK in the browser; the reader neither downloads it automatically nor launches
+the installer. The user installs it over the existing app, with Android checking
+the package signature. Keep using the same signing state when publishing releases.
+
+The first app version containing this feature must be installed manually;
+previous builds cannot discover updates retroactively. Nothing is sent from the
+reading history: the request is only public release metadata from GitHub.
 
 ## Files outside the repository
 
@@ -125,5 +147,6 @@ Official tool references:
 [D8](https://developer.android.com/tools/d8),
 [APK signing](https://developer.android.com/tools/apksigner), and
 [loading in-app web content](https://developer.android.com/develop/ui/views/layout/webapps/load-local-content).
+Release metadata follows the [GitHub Releases API](https://docs.github.com/en/rest/releases/releases#get-the-latest-release).
 The small host implements the asset-origin mapping directly, without an AndroidX
 download, so a missing Gradle installation does not block this app.

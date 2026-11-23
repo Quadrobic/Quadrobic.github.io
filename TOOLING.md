@@ -140,7 +140,9 @@ See `android/README.md`. Build the offline app only when explicitly requested:
 The preview command creates an isolated site, not an APK. It must include the
 lazy notes and all fonts, scripts and audio. APKs and signing state remain outside
 the repository; backing up the signing state is necessary to retain update
-compatibility. The app needs no Internet or storage permission to read.
+compatibility. Reading stays offline; only the native GitHub release checker uses
+Internet/network-state permissions. Update downloads open in the browser after
+confirmation. No storage or package-install permission is requested.
 
 The web Android link queries GitHub's latest published release only when clicked,
 selecting its versioned APK. On API failure or timeout it opens the latest-release

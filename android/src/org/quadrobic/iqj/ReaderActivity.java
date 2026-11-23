@@ -35,11 +35,13 @@ public final class ReaderActivity extends Activity {
     private SharedPreferences preferences;
     private String pendingAsset;
     private boolean restoreReading;
+    private UpdateChecker updates;
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
         restoreReading = state != null;
         preferences = getSharedPreferences("reader", MODE_PRIVATE);
+        updates = new UpdateChecker(this, preferences, () -> reader.getUrl());
         if (Build.VERSION.SDK_INT >= 30) getWindow().setDecorFitsSystemWindows(false);
         else getWindow().getDecorView().setSystemUiVisibility(
             android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -237,6 +239,7 @@ public final class ReaderActivity extends Activity {
         super.onSaveInstanceState(state);
     }
     @Override protected void onPause() {
+        updates.pause();
         String url = reader.getUrl();
         if (url != null && localPath(Uri.parse(url)) != null && isPage(url)) {
             preferences.edit().putString("lastUrl", Uri.parse(url).buildUpon().fragment(null).build().toString()).apply();
@@ -246,7 +249,11 @@ public final class ReaderActivity extends Activity {
         reader.onPause();
         super.onPause();
     }
-    @Override protected void onResume() { super.onResume(); if (reader != null) reader.onResume(); }
+    @Override protected void onResume() {
+        super.onResume();
+        if (reader != null) reader.onResume();
+        updates.resume();
+    }
     @Override protected void onDestroy() {
         if (reader != null) { reader.stopLoading(); reader.destroy(); }
         super.onDestroy();
