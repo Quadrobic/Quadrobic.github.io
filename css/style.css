@@ -514,13 +514,15 @@ body {
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
-#download-controls {
+#download-controls,
+#controls-row > #pdf-download {
   position: fixed;
   left: 18px;
   bottom: 114px;
   z-index: 40;
 }
-#download-toggle {
+#download-toggle,
+#controls-row > #pdf-download {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -533,6 +535,8 @@ body {
   align-items: center;
   justify-content: center;
 }
+#controls-row > #pdf-download:hover,
+#controls-row > #pdf-download:focus-visible,
 #download-toggle:hover,
 #download-toggle[aria-expanded="true"] { color: var(--gold-bright); border-color: currentColor; }
 #download-panel[hidden] { display: none; }
