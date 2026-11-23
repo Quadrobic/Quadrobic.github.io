@@ -1,5 +1,5 @@
 {
-  "source_sha256": "9213e3a27c2cad4dcd362f0d123760b54a36e0a1ae6c65709cbadc7c8652d43e",
+  "source_sha256": "9492e25037e68390045f86a7f86fcc8906ab5b23ba8336c481bad942b6fbae2c",
   "agda": "Agda version 2.8.0.2",
   "statuses": {
     "theorem": [
@@ -838,7 +838,7 @@
         "id": "aurobindo-own-nature",
         "title": "Sri Aurobindo. Essays on the Gita, Second Series, ch. XX: Swabhava and Swadharma (1928; CWSA 19)",
         "kind": "parallel",
-        "ru": "Собственная природа выражается собственным законом действия; чужая, даже безупречно исполненная форма не заменяет этого закона. Близкое чтение к Свабхаве и дхарме как выражению своего движения.",
+        "ru": "Собственная природа выражается собственным законом действия; чужая, даже безупречно исполненная форма не заменяет этого закона. Связь со Свабхавой и дхармой как выражением своего движения.",
         "en": "One’s own nature expresses itself through its own law of action; even a perfectly performed borrowed form cannot replace it. Close to Svabhava and dharma as the expression of one’s movement.",
         "href": "https://www.sriaurobindoashram.org/sriaurobindo/downloadpdf.php?id=34#page=518"
       }
@@ -1041,7 +1041,7 @@
         "id": "triadic-heart",
         "title": "Paul E. Muller-Ortega. The Triadic Heart of Śiva (SUNY, 1989)",
         "kind": "context",
-        "ru": "Мистическое сердце как средоточие сознания и проявления в кашмирском шиваизме. Близкое чтение к Хридае как живому присутствию, которое предшествует объяснению себя.",
+        "ru": "Мистическое сердце как средоточие сознания и проявления в кашмирском шиваизме. Связь с Хридаей как живым присутствием, которое предшествует объяснению себя.",
         "en": "The mystical heart as the focus of consciousness and manifestation in Kashmir Shaivism. Closely related to Hridaya as living presence before self-explanation."
       },
       {
@@ -1095,73 +1095,11 @@
         "id": "tao",
         "title": "Ursula K. Le Guin. Tao Te Ching: A Book About the Way and the Power of the Way (1997)",
         "kind": "parallel",
-        "ru": "Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
-        "en": "The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
-      }
-    ],
-    "1": [
-      {
-        "id": "raft",
-        "title": "Alagaddūpama Sutta, MN 22, trans. Ñāṇamoli & Bodhi, The Middle Length Discourses (1995)",
-        "kind": "parallel",
-        "ru": "Образ плота: учение служит переправе, а не становится ношей после неё. Параллель к книге как раме вокруг двери.",
-        "en": "The raft serves a crossing rather than becoming a burden afterward. A comparison for the book as a frame around a door.",
-        "href": "https://wisdomexperience.org/ebook/the-middle-length-discourses-of-the-buddha/contents/"
-      },
-      {
-        "id": "zhuangzi",
-        "title": "Zhuangzi, ch. 26, trans. Burton Watson",
-        "kind": "parallel",
-        "ru": "Ловушка нужна ради рыбы, слова - ради смысла. Родственный жест освобождения от средства, когда оно уже исполнило работу.",
-        "en": "The trap serves the fish, words serve meaning. A related gesture of releasing a means once it has done its work."
-      },
-      {
-        "id": "ladder",
-        "title": "Ludwig Wittgenstein. Tractatus Logico-Philosophicus, 6.54, 7 (1921)",
-        "kind": "parallel",
-        "ru": "Лестница, которую отбрасывают, поднявшись по ней, и граница высказывания. Философская параллель, не тождество апофатик.",
-        "en": "The ladder discarded after climbing and the limit of saying. A philosophical comparison, not an identity between apophatic teachings."
-      },
-      {
-        "id": "heraclitus",
-        "title": "Charles H. Kahn. The Art and Thought of Heraclitus (1979)",
-        "kind": "parallel",
-        "ru": "Река сохраняет узнаваемость через смену вод; устойчивость и перемена принадлежат одному движению. Близко к непрерывности Русла.",
-        "en": "The river remains recognizable through changing waters; persistence and change belong to one movement. Close to the continuity of the Riverbed."
-      }
-    ],
-    "conclusion": [
-      {
-        "id": "raft",
-        "title": "Alagaddūpama Sutta, MN 22, trans. Ñāṇamoli & Bodhi, The Middle Length Discourses (1995)",
-        "kind": "parallel",
-        "ru": "Образ плота: учение служит переправе, а не становится ношей после неё. Параллель к книге как раме вокруг двери.",
-        "en": "The raft serves a crossing rather than becoming a burden afterward. A comparison for the book as a frame around a door.",
-        "href": "https://wisdomexperience.org/ebook/the-middle-length-discourses-of-the-buddha/contents/"
-      },
-      {
-        "id": "zhuangzi",
-        "title": "Zhuangzi, ch. 26, trans. Burton Watson",
-        "kind": "parallel",
-        "ru": "Ловушка нужна ради рыбы, слова - ради смысла. Родственный жест освобождения от средства, когда оно уже исполнило работу.",
-        "en": "The trap serves the fish, words serve meaning. A related gesture of releasing a means once it has done its work."
-      },
-      {
-        "id": "ladder",
-        "title": "Ludwig Wittgenstein. Tractatus Logico-Philosophicus, 6.54, 7 (1921)",
-        "kind": "parallel",
-        "ru": "Лестница, которую отбрасывают, поднявшись по ней, и граница высказывания. Философская параллель, не тождество апофатик.",
-        "en": "The ladder discarded after climbing and the limit of saying. A philosophical comparison, not an identity between apophatic teachings."
+        "ru": "Действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
+        "en": "Action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
       }
     ],
     "3": [
-      {
-        "id": "heraclitus",
-        "title": "Charles H. Kahn. The Art and Thought of Heraclitus (1979)",
-        "kind": "parallel",
-        "ru": "Река сохраняет узнаваемость через смену вод; устойчивость и перемена принадлежат одному движению. Близко к непрерывности Русла.",
-        "en": "The river remains recognizable through changing waters; persistence and change belong to one movement. Close to the continuity of the Riverbed."
-      },
       {
         "id": "bergson",
         "title": "Henri Bergson. Creative Evolution (1907)",
@@ -1173,17 +1111,8 @@
         "id": "tao",
         "title": "Ursula K. Le Guin. Tao Te Ching: A Book About the Way and the Power of the Way (1997)",
         "kind": "parallel",
-        "ru": "Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
-        "en": "The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
-      }
-    ],
-    "7": [
-      {
-        "id": "heraclitus",
-        "title": "Charles H. Kahn. The Art and Thought of Heraclitus (1979)",
-        "kind": "parallel",
-        "ru": "Река сохраняет узнаваемость через смену вод; устойчивость и перемена принадлежат одному движению. Близко к непрерывности Русла.",
-        "en": "The river remains recognizable through changing waters; persistence and change belong to one movement. Close to the continuity of the Riverbed."
+        "ru": "Действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
+        "en": "Action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
       }
     ],
     "2": [
@@ -1219,8 +1148,8 @@
         "id": "edge-chaos",
         "title": "Nils Bertschinger & Thomas Natschläger. Real-time computation at the edge of chaos in recurrent neural networks (Neural Computation, 2004)",
         "kind": "parallel",
-        "ru": "В исследованных рекуррентных сетях сложные вычисления временных рядов становились возможны близ границы упорядоченной и хаотической динамики. Это ограниченный результат для моделей сетей. Живой берег в трактате - философский образ способности сохранять след и принимать новое, не измеренное критическое состояние Дживы.",
-        "en": "In the recurrent networks studied, complex time-series computations became possible near the boundary between ordered and chaotic dynamics. This is a limited result for network models. The treatise’s living bank is a philosophical image of retaining traces while receiving novelty, not a measured critical state of the jiva.",
+        "ru": "В исследованных рекуррентных сетях сложные вычисления временных рядов становились возможны близ границы упорядоченной и хаотической динамики. Это ограниченный результат для моделей сетей. Связь с трактатом - способность сохранять след и принимать новое. Это философское сопоставление, не измеренное критическое состояние Дживы.",
+        "en": "In the recurrent networks studied, complex time-series computations became possible near the boundary between ordered and chaotic dynamics. This is a limited result for network models. The connection is the capacity to retain traces while receiving novelty. This is a philosophical comparison, not a measured critical state of the jiva.",
         "href": "https://doi.org/10.1162/089976604323057443"
       }
     ],
@@ -1229,8 +1158,8 @@
         "id": "tao",
         "title": "Ursula K. Le Guin. Tao Te Ching: A Book About the Way and the Power of the Way (1997)",
         "kind": "parallel",
-        "ru": "Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
-        "en": "The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
+        "ru": "Действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.",
+        "en": "Action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation."
       }
     ],
     "10": [
@@ -1829,7 +1758,7 @@
         "id": "aurobindo-own-nature",
         "title": "Sri Aurobindo. Essays on the Gita, Second Series, ch. XX: Swabhava and Swadharma (1928; CWSA 19)",
         "kind": "parallel",
-        "ru": "Собственная природа выражается собственным законом действия; чужая, даже безупречно исполненная форма не заменяет этого закона. Близкое чтение к Свабхаве и дхарме как выражению своего движения.",
+        "ru": "Собственная природа выражается собственным законом действия; чужая, даже безупречно исполненная форма не заменяет этого закона. Связь со Свабхавой и дхармой как выражением своего движения.",
         "en": "One’s own nature expresses itself through its own law of action; even a perfectly performed borrowed form cannot replace it. Close to Svabhava and dharma as the expression of one’s movement.",
         "href": "https://www.sriaurobindoashram.org/sriaurobindo/downloadpdf.php?id=34#page=518"
       }

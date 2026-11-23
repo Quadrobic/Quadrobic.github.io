@@ -26,7 +26,6 @@ def reading(key, sections, title, kind, ru, en, href=None):
     for section in sections:
         CONNECTIONS.setdefault(str(section), []).append(key)
 
-
 reading('tattvartha', [9, 11, 28, 'sadhana'],
     'Umāsvāti. Tattvārtha Sūtra / That Which Is, trans. Nathmal Tatia (1994; Yale reissue 2011)', 'tradition',
     'Гл. 6 различает приток со страстью и без неё; 8.1 называет причины связывания, включая страсти и небрежность. Здесь находятся джайнские основания различения асравы и бандхи в §11.',
@@ -73,7 +72,7 @@ reading('shah', [28],
 
 reading('triadic-heart', [14],
     'Paul E. Muller-Ortega. The Triadic Heart of Śiva (SUNY, 1989)', 'context',
-    'Мистическое сердце как средоточие сознания и проявления в кашмирском шиваизме. Близкое чтение к Хридае как живому присутствию, которое предшествует объяснению себя.',
+    'Мистическое сердце как средоточие сознания и проявления в кашмирском шиваизме. Связь с Хридаей как живым присутствием, которое предшествует объяснению себя.',
     'The mystical heart as the focus of consciousness and manifestation in Kashmir Shaivism. Closely related to Hridaya as living presence before self-explanation.')
 
 reading('spanda', [14, 6],
@@ -92,27 +91,6 @@ reading('yoga-sutras', ['sadhana'],
     'Дисциплина внимания, практика и освобождение в классической йоге. Параллель к работе пути, не историческое происхождение квадробики.',
     'Attention, practice, and liberation in classical yoga. A comparison for discipline, not a historical origin of quadrobics.')
 
-reading('raft', [1, 'conclusion'],
-    'Alagaddūpama Sutta, MN 22, trans. Ñāṇamoli & Bodhi, The Middle Length Discourses (1995)', 'parallel',
-    'Образ плота: учение служит переправе, а не становится ношей после неё. Параллель к книге как раме вокруг двери.',
-    'The raft serves a crossing rather than becoming a burden afterward. A comparison for the book as a frame around a door.',
-    'https://wisdomexperience.org/ebook/the-middle-length-discourses-of-the-buddha/contents/')
-
-reading('zhuangzi', [1, 'conclusion'],
-    'Zhuangzi, ch. 26, trans. Burton Watson', 'parallel',
-    'Ловушка нужна ради рыбы, слова - ради смысла. Родственный жест освобождения от средства, когда оно уже исполнило работу.',
-    'The trap serves the fish, words serve meaning. A related gesture of releasing a means once it has done its work.')
-
-reading('ladder', [1, 'conclusion'],
-    'Ludwig Wittgenstein. Tractatus Logico-Philosophicus, 6.54, 7 (1921)', 'parallel',
-    'Лестница, которую отбрасывают, поднявшись по ней, и граница высказывания. Философская параллель, не тождество апофатик.',
-    'The ladder discarded after climbing and the limit of saying. A philosophical comparison, not an identity between apophatic teachings.')
-
-reading('heraclitus', [1, 3, 7],
-    'Charles H. Kahn. The Art and Thought of Heraclitus (1979)', 'parallel',
-    'Река сохраняет узнаваемость через смену вод; устойчивость и перемена принадлежат одному движению. Близко к непрерывности Русла.',
-    'The river remains recognizable through changing waters; persistence and change belong to one movement. Close to the continuity of the Riverbed.')
-
 reading('conatus', [6],
     'Baruch Spinoza. Ethics, III, propositions 6–7 (1677)', 'parallel',
     'Каждая вещь стремится сохранять своё бытие; это стремление выражает её действительную сущность. Близко к внутреннему основанию воли к жизни в §6.',
@@ -130,8 +108,8 @@ reading('whitehead', [2, 8],
 
 reading('tao', [6, 36, 3],
     'Ursula K. Le Guin. Tao Te Ching: A Book About the Way and the Power of the Way (1997)', 'parallel',
-    'Путь, вода и действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.',
-    'The way, water, and action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation.')
+    'Действие без насилия над ходом вещей. Литературное переложение Лао-цзы; его не следует принимать за единственный перевод традиции.',
+    'Action without forcing the course of things. A literary rendering of Laozi, not the tradition’s sole translation.')
 
 reading('schrodinger', [2],
     'Erwin Schrödinger. What Is Life? (1944)', 'parallel',
@@ -410,14 +388,13 @@ reading('kagan-feedback', [18, 20],
 
 reading('edge-chaos', [2],
     'Nils Bertschinger & Thomas Natschläger. Real-time computation at the edge of chaos in recurrent neural networks (Neural Computation, 2004)', 'parallel',
-    'В исследованных рекуррентных сетях сложные вычисления временных рядов становились возможны близ границы упорядоченной и хаотической динамики. Это ограниченный результат для моделей сетей. Живой берег в трактате - философский образ способности сохранять след и принимать новое, не измеренное критическое состояние Дживы.',
-    'In the recurrent networks studied, complex time-series computations became possible near the boundary between ordered and chaotic dynamics. This is a limited result for network models. The treatise’s living bank is a philosophical image of retaining traces while receiving novelty, not a measured critical state of the jiva.',
+    'В исследованных рекуррентных сетях сложные вычисления временных рядов становились возможны близ границы упорядоченной и хаотической динамики. Это ограниченный результат для моделей сетей. Связь с трактатом - способность сохранять след и принимать новое. Это философское сопоставление, не измеренное критическое состояние Дживы.',
+    'In the recurrent networks studied, complex time-series computations became possible near the boundary between ordered and chaotic dynamics. This is a limited result for network models. The connection is the capacity to retain traces while receiving novelty. This is a philosophical comparison, not a measured critical state of the jiva.',
     'https://doi.org/10.1162/089976604323057443')
-
 
 reading('aurobindo-own-nature', [5, 28],
     'Sri Aurobindo. Essays on the Gita, Second Series, ch. XX: Swabhava and Swadharma (1928; CWSA 19)', 'parallel',
-    'Собственная природа выражается собственным законом действия; чужая, даже безупречно исполненная форма не заменяет этого закона. Близкое чтение к Свабхаве и дхарме как выражению своего движения.',
+    'Собственная природа выражается собственным законом действия; чужая, даже безупречно исполненная форма не заменяет этого закона. Связь со Свабхавой и дхармой как выражением своего движения.',
     'One’s own nature expresses itself through its own law of action; even a perfectly performed borrowed form cannot replace it. Close to Svabhava and dharma as the expression of one’s movement.',
     'https://www.sriaurobindoashram.org/sriaurobindo/downloadpdf.php?id=34#page=518')
 reading('aurobindo-free-action', [31, 34],
