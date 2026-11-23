@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>404 · Quadrobic</title>
+<link rel="icon" type="image/svg+xml" href="/logo/favicon.svg">
+<script>
+// Select before the first paint; a failed storage read leaves the Russian fallback.
+try {
+  const saved = localStorage.getItem("iqj-lang");
+  document.documentElement.lang = saved === "ru" || saved === "en" ? saved
+    : navigator.language.startsWith("ru") ? "ru" : "en";
+} catch (_) {}
+</script>
+<style>
+  :root { color-scheme: dark; --gold: #e8c88a; --paper: #f4ead4; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(24px, 6vw, 80px);
+    display: grid;
+    place-items: center;
+    background: radial-gradient(ellipse at 30% 40%, #241a12, #0e0906 75%);
+    color: var(--paper);
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  main { width: 100%; max-width: 960px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .status { font: 12px/1.5 system-ui, sans-serif; letter-spacing: .06em; color: #c9a86a; }
+  nav { display: flex; gap: 8px; }
+  button {
+    padding: 7px 10px; border: 1px solid #7b663f; border-radius: 20px;
+    color: var(--gold); background: transparent; cursor: pointer;
+    font: 12px/1 system-ui, sans-serif;
+  }
+  html[lang="ru"] [data-language="en"],
+  html[lang="en"] [data-language="ru"] { display: none; }
+  html[lang="ru"] button[data-lang="ru"],
+  html[lang="en"] button[data-lang="en"] { background: var(--gold); color: #0e0906; }
+  h1 {
+    max-width: 32ch; margin: clamp(40px, 6vh, 64px) 0 28px;
+    color: var(--paper); font-family: 'Times New Roman', serif;
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 400; line-height: 1.25; text-wrap: balance;
+  }
+  p { max-width: 55ch; margin: 0; font-size: clamp(23px, 2.3vw, 28px); line-height: 1.5; }
+  .read {
+    display: inline-block; margin-top: 40px; padding: 12px 0;
+    color: var(--gold); font-size: 20px; text-underline-offset: 6px;
+  }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <span class="status" data-language="ru">404 · Страница не найдена</span>
+    <span class="status" data-language="en">404 · Page not found</span>
+    <nav aria-label="Язык / Language">
+      <button type="button" data-lang="ru" lang="ru">RU</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </nav>
+  </header>
+  <section data-language="ru" lang="ru">
+    <h1>Жить своим движением и не отнимать эту возможность у других.</h1>
+    <p>Поступок рождается во встрече прошлого опыта, настоящего момента и собственного движения. Это движение не сводится к опыту или обстоятельствам.</p>
+    <a class="read" href="/index.html">Читать трактат →</a>
+  </section>
+  <section data-language="en" lang="en">
+    <h1>Live your own movement, and leave others free to live theirs.</h1>
+    <p>An action arises where past experience, the present moment, and a person's own movement meet. This movement cannot be reduced to experience or circumstances.</p>
+    <a class="read" href="/index.en.html">Read the treatise →</a>
+  </section>
+</main>
+<script>
+function selectLanguage(language) {
+  document.documentElement.lang = language;
+  document.title = language === "ru" ? "404 · Страница не найдена · Quadrobic"
+    : "404 · Page not found · Quadrobic";
+  document.querySelectorAll("button[data-lang]").forEach(button => {
+    button.setAttribute("aria-pressed", String(button.dataset.lang === language));
+  });
+}
+document.querySelectorAll("button[data-lang]").forEach(button => {
+  button.addEventListener("click", () => {
+    selectLanguage(button.dataset.lang);
+    try { localStorage.setItem("iqj-lang", button.dataset.lang); } catch (_) {}
+  });
+});
+selectLanguage(document.documentElement.lang);
+</script>
+</body>
+</html>

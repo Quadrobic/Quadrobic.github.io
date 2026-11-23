@@ -58,7 +58,7 @@ def check():
             raise ValueError(f'Runtime/Android dependency mismatch: {name}')
     paths = [ROOT / n for n in ('index.html', 'index.en.html', 'index.th.html',
              'bird.html', 'bird.en.html', 'formalization.html', 'formalization.en.html',
-             'model-map.html', 'model-map.en.html')]
+             'model-map.html', 'model-map.en.html', '404.html')]
     paths += sorted((ROOT / 'formalization/code').glob('*.html'))
     pages = {p: Page(p) for p in paths}
     for path, page in pages.items():
@@ -66,7 +66,9 @@ def check():
             url = urlsplit(link)
             if url.scheme or url.netloc:
                 continue
-            target = (path.parent / unquote(url.path)).resolve() if url.path else path
+            decoded = unquote(url.path)
+            base = ROOT if decoded.startswith('/') else path.parent
+            target = (base / decoded.lstrip('/')).resolve() if decoded else path
             if ROOT not in target.parents or not target.is_file():
                 raise ValueError(f'Missing or escaping asset: {path.name}: {link}')
             if target in pages and url.fragment and unquote(url.fragment) not in pages[target].ids:

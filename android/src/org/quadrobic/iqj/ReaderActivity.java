@@ -36,6 +36,7 @@ public final class ReaderActivity extends Activity {
     private String pendingAsset;
     private boolean restoreReading;
     private UpdateChecker updates;
+    private PageTransition transition;
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -52,6 +53,7 @@ public final class ReaderActivity extends Activity {
         reader = new WebView(this);
         reader.setBackgroundColor(Color.rgb(16, 13, 10));
         frame.addView(reader, new FrameLayout.LayoutParams(-1, -1));
+        transition = new PageTransition(reader, frame);
         // Android 15 enforces edge-to-edge for target 35. Keep controls clear
         // of system bars and display cutouts without changing the site's CSS.
         frame.setOnApplyWindowInsetsListener((view, insets) -> {
@@ -99,6 +101,12 @@ public final class ReaderActivity extends Activity {
         return path != null && path.endsWith(".html") && !path.startsWith("/site/agda/");
     }
 
+    private static boolean sameDocument(String first, String second) {
+        return first != null && second != null
+            && Uri.parse(first).buildUpon().fragment(null).build()
+                .equals(Uri.parse(second).buildUpon().fragment(null).build());
+    }
+
     /** Uri.getPath decodes once; reject separators and traversal before AssetManager. */
     private static String localPath(Uri uri) {
         if (!"https".equals(uri.getScheme()) || !HOST.equals(uri.getHost())
@@ -135,6 +143,10 @@ public final class ReaderActivity extends Activity {
     }
 
     private final class LocalClient extends WebViewClient {
+        @Override public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
+            transition.started();
+        }
+
         @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
             String path = localPath(request.getUrl());
             if (path == null || !"GET".equals(request.getMethod())) return empty(403, "Offline");
@@ -154,7 +166,11 @@ public final class ReaderActivity extends Activity {
         @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             Uri uri = request.getUrl();
             String path = localPath(uri);
-            if (path != null && isPage(uri.toString())) return false;
+            if (path != null && isPage(uri.toString())) {
+                // Same-document anchors must not wait for a page-load callback.
+                if (request.isForMainFrame() && !sameDocument(view.getUrl(), uri.toString())) transition.capture();
+                return false;
+            }
             if (path != null) {
                 if (request.hasGesture()) export(uri);
                 return true;
@@ -178,6 +194,7 @@ public final class ReaderActivity extends Activity {
                     view.evaluateJavascript("window.dispatchEvent(new Event('iqj:resume'));", null);
                     restoreReading = false;
                 }
+                transition.ready();
             }
         }
     }
@@ -227,7 +244,13 @@ public final class ReaderActivity extends Activity {
             + "if(overlay){document.dispatchEvent(new KeyboardEvent('keydown',"
             + "{key:'Escape',code:'Escape',bubbles:true}));return true;}return false;})()", handled -> {
                 if (!"true".equals(handled)) {
-                    if (reader.canGoBack()) reader.goBack(); else finish();
+                    if (reader.canGoBack()) {
+                        // History may contain anchors: capture only document changes.
+                        android.webkit.WebBackForwardList history = reader.copyBackForwardList();
+                        android.webkit.WebHistoryItem previous = history.getItemAtIndex(history.getCurrentIndex() - 1);
+                        if (previous != null && !sameDocument(previous.getUrl(), reader.getUrl())) transition.capture();
+                        reader.goBack();
+                    } else finish();
                 }
             });
     }
@@ -255,6 +278,7 @@ public final class ReaderActivity extends Activity {
         updates.resume();
     }
     @Override protected void onDestroy() {
+        if (transition != null) transition.destroy();
         if (reader != null) { reader.stopLoading(); reader.destroy(); }
         super.onDestroy();
     }

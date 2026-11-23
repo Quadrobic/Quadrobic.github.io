@@ -187,6 +187,11 @@ def rewrite_page(path, site, version):
               f'<script src="{prefix}/bootstrap.js"></script>')
     text = text.replace('<head>', '<head>' + inject, 1)
     lang = re.search(r'<html lang="([^"]+)"', text).group(1)
+    # The bundled runtime starts afresh on each WebView navigation. Paint the
+    # selected language immediately, rather than animate it in after JS loads.
+    text = re.sub(
+        r'<a\b([^>]*\bdata-lang="' + re.escape(lang) + r'"[^>]*)>',
+        r'<a class="active" aria-current="page"\1>', text)
     label = {'ru': 'Об этом приложении', 'en': 'About this app', 'th': 'เกี่ยวกับแอป'}[lang]
     note = f'<p class="offline-version"><a class="offline-about" href="{prefix}/about.{lang}.html">{label}</a> · {html.escape(version)}</p>'
     text = text.replace('</footer>', note + '</footer>')

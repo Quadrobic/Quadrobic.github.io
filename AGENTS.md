@@ -10,6 +10,7 @@ contain hundreds of kilobytes of embedded or exported proofs.
 | Treatise | `README.md`, `README.en.md` | `python3 build.py --lang ru --lang en` |
 | Thai translation | `README.th.md`, only when explicitly requested | `python3 build.py --lang th` |
 | Bonus story | `bird.md`, `bird.en.md` | `python3 build_bird.py` |
+| Missing-page introduction | `404.html` (maintained directly, RU/EN) | `python3 tools/check_web.py`; no build |
 | Page markup / translations of controls | `template.html`, `build.py`; bonus: `bird_template.html`, `build_bird.py` | Web builders above |
 | Layout | `css/style.css`; proof/map/note CSS have separate files | No build for CSS/JS |
 | Browser library versions | `tools/runtime_libraries.py`; Android hashes: `android/vendor-lock.json` | Web build, offline preview and browser checks |

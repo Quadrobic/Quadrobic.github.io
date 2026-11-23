@@ -5,6 +5,8 @@
   const language = document.documentElement.lang || "ru";
   const progressKey = "iqj-offline-progress:" + location.pathname;
   let interacted = false, restoring = true, saveTimer;
+  // The native host retains the old frame until this document is ready to paint.
+  window.iqjOfflineReady = false;
   if (isTreatise) document.documentElement.classList.add("star-sealed");
   try {
     // The Activity remembers the last document. Honor explicit URLs (and Back)
@@ -39,7 +41,7 @@
       await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
       window.__lenis?.resize();
       window.ScrollTrigger?.refresh();
-      if ((interacted || location.hash) && !force) { restoring = false; return; }
+      if ((interacted || location.hash) && !force) return;
       const saved = JSON.parse(localStorage.getItem(progressKey) || "null");
       if (saved) {
         const anchor = saved.anchor && document.getElementById(saved.anchor);
@@ -48,8 +50,12 @@
         if (window.__lenis) window.__lenis.scrollTo(Math.max(0, y), { immediate: true });
         else scrollTo(0, Math.max(0, y));
       }
-    } catch (_) {}
-    restoring = false;
+    } catch (_) {
+      // A missing saved position must not prevent the new page becoming visible.
+    } finally {
+      restoring = false;
+      window.iqjOfflineReady = true;
+    }
   }
   for (const type of ["pointerdown", "touchstart", "wheel", "keydown"]) {
     addEventListener(type, () => { interacted = true; }, { passive: true, once: true });

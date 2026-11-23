@@ -61,6 +61,14 @@ preferences, and the completed return from the Death Star survive app updates.
 Reading progress stays on the device. No account or background update service
 is used. Existing explicit section links take precedence over stored positions.
 
+Page changes retain the previous viewport in memory until local fonts and the
+saved reading position are ready, then wait for WebView's visual-state callback
+before revealing the new page. A short crossfade hides intermediate control
+states; reduced motion disables the fade. Same-page anchors remain immediate.
+The temporary frame is released after navigation and is never written to disk.
+This uses [WebView's visual-state callback](https://developer.android.com/reference/android/webkit/WebView#postVisualStateCallback(long,android.webkit.WebView.VisualStateCallback)),
+since completion of a page load does not itself guarantee a completed paint.
+
 ## In-app release checks
 
 While the reader is open and Android reports an Internet connection, a native
