@@ -75,7 +75,8 @@ def build():
                             + reading_art.render(number, 'after'))
         books.append(f'<section class="yard-book" id="{anchor}"{sealed}><h2>{title}</h2>{"".join(sections)}</section>')
     preamble = ''.join(f'<p>{p}</p>' for p in doc['preamble'])
-    values = {'TITLE': html.escape(doc['title']), 'PREAMBLE': preamble,
+    intro = f'<article class="passage yard-intro" id="intro">{preamble}</article>' if preamble else ''
+    values = {'TITLE': html.escape(doc['title']), 'INTRO': intro,
               'NAV': '\n'.join(navigation), 'BOOKS': '\n'.join(books)}
     page = (ROOT / 'yard_template.html').read_text()
     for key, value in values.items():

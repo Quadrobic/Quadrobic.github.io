@@ -1,4 +1,4 @@
-/* Offline-only Easter egg. Public HTML has no inbound link to the yard edition. */
+/* Extra offline menu entry; the bonus also links directly to the story. */
 (function () {
   "use strict";
   const destination = new URL("../yard.html", document.currentScript.src).href;
@@ -12,14 +12,14 @@
     entry.className = "offline-yard-entry";
     entry.lang = "ru";
     entry.href = destination;
-    entry.setAttribute("aria-label", "Дворовая редакция · RU");
-    entry.title = "Дворовая редакция · RU";
+    entry.setAttribute("aria-label", "Человек, которого не видно · RU");
+    entry.title = "Человек, которого не видно · RU";
     const icon = document.createElement("span");
     icon.textContent = "✦";
     icon.setAttribute("aria-hidden", "true");
     const label = document.createElement("span");
     label.className = "offline-yard-label";
-    label.textContent = "У проходной · RU";
+    label.textContent = "Человек, которого не видно · RU";
     entry.append(icon, label);
     entry.hidden = true;
     try { entry.hidden = sessionStorage.getItem("iqj-yard-menu") !== "yes"; } catch (_) {}
