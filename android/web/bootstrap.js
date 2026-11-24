@@ -2,12 +2,15 @@
 (function () {
   "use strict";
   const isTreatise = /\/index(?:\.(?:en|th))?\.html$/.test(location.pathname);
+  const isYard = /\/yard\.html$/.test(location.pathname);
+  const hasStar = isTreatise || isYard;
+  const returnKey = isYard ? "iqj-offline-returned:yard" : "iqj-offline-returned";
   const language = document.documentElement.lang || "ru";
   const progressKey = "iqj-offline-progress:" + location.pathname;
   let interacted = false, restoring = true, saveTimer;
   // The native host retains the old frame until this document is ready to paint.
   window.iqjOfflineReady = false;
-  if (isTreatise) document.documentElement.classList.add("star-sealed");
+  if (hasStar) document.documentElement.classList.add("star-sealed");
   try {
     // The Activity remembers the last document. Honor explicit URLs (and Back)
     // instead of redirecting a Russian history entry to the saved language.
@@ -34,7 +37,7 @@
   }
   async function restore(force = false) {
     try {
-      if (isTreatise && localStorage.getItem("iqj-offline-returned") === "yes") {
+      if (hasStar && localStorage.getItem(returnKey) === "yes") {
         document.documentElement.classList.remove("star-sealed");
       }
       await document.fonts.ready;
@@ -67,7 +70,7 @@
   addEventListener("pagehide", save);
   document.addEventListener("visibilitychange", () => { if (document.hidden) save(); });
   addEventListener("reading:return", () => {
-    try { localStorage.setItem("iqj-offline-returned", "yes"); } catch (_) {}
+    try { if (hasStar) localStorage.setItem(returnKey, "yes"); } catch (_) {}
     setTimeout(save, 1800);
   });
 })();

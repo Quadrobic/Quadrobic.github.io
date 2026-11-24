@@ -96,6 +96,13 @@ else
   echo "→ bird.html / bird.en.html (up to date, skipped)"
 fi
 
+if needs_rebuild yard.html yard.md yard_template.html build_yard.py build.py README.md tools/manifesto.py tools/reading_art.py tools/build_io.py; then
+  echo "→ yard.html (unlisted satire)"
+  python3 build_yard.py
+else
+  echo "→ yard.html (up to date, skipped)"
+fi
+
 if needs_rebuild bird.pdf bird.md bird_build.py tools/manifesto.py; then
   echo "→ bird.pdf"
   python3 bird_build.py

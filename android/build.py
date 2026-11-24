@@ -31,9 +31,10 @@ from reading_art import ASSETS as READING_ART_ASSETS
 
 RUNTIME_URLS = offline_resources()
 
-PUBLIC_FILES = ('index.html', 'index.en.html', 'index.th.html', 'bird.html', 'bird.en.html',
+PUBLIC_FILES = ('index.html', 'index.en.html', 'index.th.html', 'bird.html', 'bird.en.html', 'yard.html',
                 'formalization.html', 'formalization.en.html', 'model-map.html', 'model-map.en.html') + READING_ART_ASSETS
 INPUT_FILES = ('README.md', 'README.en.md', 'README.th.md', 'bird.md', 'bird.en.md',
+               'yard.md', 'build_yard.py', 'yard_template.html',
                'build.py', 'build_bird.py', 'template.html', 'bird_template.html')
 PUBLIC_DIRS = ('css', 'js', 'audio', 'logo', 'formalization')
 CSP = ("default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; "
@@ -132,6 +133,7 @@ def source_snapshot(work):
     shutil.copytree(ROOT / 'tools', work / 'tools', ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
     run([sys.executable, work / 'build.py'], cwd=work)
     run([sys.executable, work / 'build_bird.py'], cwd=work)
+    run([sys.executable, work / 'build_yard.py'], cwd=work)
     return manifest
 
 
@@ -161,7 +163,7 @@ def about_page(lang, version):
     return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{title}</title>
 <link rel="stylesheet" href="../css/style.css"><style>main{{max-width:680px;margin:3rem auto;padding:24px;color:#e7dfd0;font:18px/1.8 var(--serif-body)}}a{{color:#d4b17a}}nav{{display:flex;gap:20px;flex-wrap:wrap}}h1{{font-size:32px}}small{{opacity:.7}}</style></head>
-<body><main><h1>{heading}</h1><p>{body}</p><small>Quadrobic · {html.escape(version)}</small>
+<body><main><h1>{heading}</h1><p>{body}</p><small data-offline-version>Quadrobic · {html.escape(version)}</small>
 <p><a href="https://github.com/Quadrobic/Quadrobic.github.io/releases/latest">{updates}</a></p>
 <nav><a href="../index{suffix}.html">{treatise}</a><a href="../bird{other}.html">{bonus}</a><a href="../formalization{other}.html">{formal}</a></nav>
 <details><summary>{licenses}</summary><ul>{license_links}</ul><p><a href="vendor/p5.js">p5.js source</a> · <a href="vendor/gsap.js">GSAP source</a> · <a href="vendor/ScrollTrigger.js">ScrollTrigger source</a></p></details>
@@ -186,7 +188,8 @@ def rewrite_page(path, site, version):
     inject = (f'<meta http-equiv="Content-Security-Policy" content="{html.escape(CSP, quote=True)}">'
               f'<link rel="stylesheet" href="{prefix}/fonts.css">'
               f'<link rel="stylesheet" href="{prefix}/offline.css">'
-              f'<script src="{prefix}/bootstrap.js"></script>')
+              f'<script src="{prefix}/bootstrap.js"></script>'
+              f'<script defer src="{prefix}/menu.js"></script>')
     text = text.replace('<head>', '<head>' + inject, 1)
     lang = re.search(r'<html lang="([^"]+)"', text).group(1)
     # The bundled runtime starts afresh on each WebView navigation. Paint the
@@ -195,7 +198,7 @@ def rewrite_page(path, site, version):
         r'<a\b([^>]*\bdata-lang="' + re.escape(lang) + r'"[^>]*)>',
         r'<a class="active" aria-current="page"\1>', text)
     label = {'ru': 'Об этом приложении', 'en': 'About this app', 'th': 'เกี่ยวกับแอป'}[lang]
-    note = f'<p class="offline-version"><a class="offline-about" href="{prefix}/about.{lang}.html">{label}</a> · {html.escape(version)}</p>'
+    note = f'<p class="offline-version"><a class="offline-about" href="{prefix}/about.{lang}.html">{label}</a> · <span data-offline-version>{html.escape(version)}</span></p>'
     text = text.replace('</footer>', note + '</footer>')
     path.write_text(text)
 
@@ -262,7 +265,7 @@ def prepare_site(destination, cache, offline, version):
         app.mkdir()
         for item in dependencies: copy_file(cache / item['file'], app / item['file'])
         copy_file(HERE / 'fonts.css', app / 'fonts.css')
-        for name in ('bootstrap.js', 'offline.css'): copy_file(HERE / 'web' / name, app / name)
+        for name in ('bootstrap.js', 'menu.js', 'offline.css'): copy_file(HERE / 'web' / name, app / name)
         for lang in ('ru', 'en', 'th'):
             (app / f'about.{lang}.html').write_text(about_page(lang, version))
         for path in site.rglob('*.html'):

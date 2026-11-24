@@ -143,6 +143,14 @@ Decorative reading plates share the web selection in `../tools/reading_art.py`.
 Only selected originals from `pics/` enter the offline asset snapshot; unused
 art is not bundled. The pictures stay between passages and load locally.
 
+The unlisted Russian yard edition is bundled as `yard.html`, with the same art
+and §38 Return effect. Five quick activations of the menu button within four
+seconds reveal **У проходной · RU** inside the menu. The entry stays revealed
+for the WebView session. On tablets, or with a keyboard, five activations of the
+build number in the footer or About page provide the same entry. Public pages
+gain no inbound link. Each edition keeps its own reading place and Return state;
+returning from the yard's Death Star does not unlock the canonical conclusion.
+
 `ReaderActivity` maps only the app's HTTPS asset origin to `AssetManager`; it
 has no JavaScript-to-Java bridge and enables no `file://` or content-provider
 access in WebView. Other runtime requests receive an offline response. A content

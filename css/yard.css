@@ -1,0 +1,46 @@
+/* Unlisted literary edition; §38 shares the main reader's Return effect. */
+.yard-page {
+  background: radial-gradient(ellipse at top, #241a12, var(--ink-void) 850px);
+}
+.yard-header, .yard-main, .yard-footer {
+  width: min(100%, 820px);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.yard-header { padding-top: clamp(36px, 8vh, 90px); padding-bottom: 40px; color: var(--parchment-dim); }
+.yard-kicker { font: 11px/1.7 system-ui, sans-serif; color: var(--gold); letter-spacing: .06em; }
+.yard-header h1 { font: 400 clamp(30px, 5vw, 48px)/1.2 'Times New Roman', serif; margin: 24px 0 16px; }
+.yard-subtitle { font-size: 20px; line-height: 1.5; }
+.yard-header a, .yard-index, .yard-index a, .yard-footer a { color: var(--gold-bright); text-underline-offset: 4px; }
+.yard-index { padding: 4px 0 22px; font-size: 18px; }
+.yard-index summary { cursor: pointer; padding: 12px 0; }
+.yard-index nav { display: grid; gap: 14px; padding: 14px 0 20px; }
+.yard-index a { line-height: 1.5; }
+.yard-book { padding-top: 30px; scroll-margin-top: 24px; }
+.yard-book h2 { color: var(--gold-bright); font: 400 clamp(24px, 3.4vw, 32px)/1.4 'Times New Roman', serif; margin: 15px 0 30px; }
+.yard-page .passage { padding: clamp(22px, 5vw, 45px); scroll-margin-top: 20px; }
+.yard-page .passage h3 { font: 400 clamp(23px, 3vw, 28px)/1.35 'Times New Roman', serif; }
+.yard-page .passage p, .yard-page .passage li, .yard-page dd {
+  font: 18px/1.85 Georgia, serif;
+  text-align: left;
+  overflow-wrap: break-word;
+  text-shadow: none;
+}
+.yard-page .passage li { margin-bottom: 20px; }
+.yard-page .passage ol { padding-left: 24px; }
+.yard-page .passage h4 { font: italic 400 21px/1.5 Georgia, serif; color: var(--brown-accent); }
+.yard-page .passage .yard-axiom { padding: 8px 0; }
+.yard-term + .yard-term { margin-top: 24px; }
+.yard-term dt { color: var(--brown-accent); font: 600 19px/1.6 Georgia, serif; }
+.yard-term dd { margin: 6px 0 0; }
+.yard-footer { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 20px; padding-bottom: 60px; }
+.yard-page a:focus-visible, .yard-page summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+.yard-page #sound-toggle { left: auto; right: 18px; bottom: 18px; }
+.yard-page #p38 .star-voice { line-height: inherit; }
+/* Shared §38 markup uses .reveal; this edition has no GSAP reveal controller. */
+.yard-page [data-star-reading] .reveal { opacity: 1; transform: none; }
+/* A direct jump to Return must not tween dark ink over the black card. */
+.death-star-mode .yard-page #p38 p { transition: none; }
+@media screen {
+  .star-sealed [data-yard-after-star] { display: none !important; }
+}
