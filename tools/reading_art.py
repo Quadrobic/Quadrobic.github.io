@@ -4,7 +4,8 @@ Keep artwork outside passage cards. Source JPGs remain unchanged; presentation
 belongs to .reading-plate in css/style.css. Section IDs are language-independent.
 """
 
-BEFORE = {
+BEFORE = {}
+AFTER_RETURN = {
     "38": "eye.jpg",
 }
 AFTER = {
@@ -21,7 +22,7 @@ AFTER = {
     "35": "hands-and-eyes.jpg",
     "37": "hang.jpg",
 }
-ASSETS = tuple(f"pics/{name}" for name in dict.fromkeys([*BEFORE.values(), *AFTER.values()]))
+ASSETS = tuple(f"pics/{name}" for name in dict.fromkeys([*BEFORE.values(), *AFTER.values(), *AFTER_RETURN.values()]))
 
 # Reserve the actual aspect ratio before loading, including the tall portrait.
 DIMENSIONS = {
@@ -30,7 +31,7 @@ DIMENSIONS = {
 
 
 def render(number, position):
-    name = {"before": BEFORE, "after": AFTER}[position].get(number)
+    name = {"before": BEFORE, "after": AFTER, "return": AFTER_RETURN}[position].get(number)
     if not name:
         return ""
     width, height = DIMENSIONS.get(name, (1024, 1024))

@@ -275,6 +275,7 @@ def render_book(book, book_index, lang, snapshot=None):
         context_class = ' model-context model-annotated' if note else ''
         return f"""
 <section class="conclusion" id="conclusion" data-mood="calm">
+  {reading_art.render("38", "return")}
   <div class="book-divider">
     <span class="glyph-line" aria-hidden="true">△</span>
     <h2 class="book-title reveal-title">{book_title}</h2>

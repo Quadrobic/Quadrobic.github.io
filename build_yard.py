@@ -77,7 +77,8 @@ def build():
     preamble = ''.join(f'<p>{p}</p>' for p in doc['preamble'])
     intro = f'<article class="passage yard-intro" id="intro">{preamble}</article>' if preamble else ''
     values = {'TITLE': html.escape(doc['title']), 'INTRO': intro,
-              'NAV': '\n'.join(navigation), 'BOOKS': '\n'.join(books)}
+              'NAV': '\n'.join(navigation), 'BOOKS': '\n'.join(books),
+              'RETURN_ART': reading_art.render('38', 'return')}
     page = (ROOT / 'yard_template.html').read_text()
     for key, value in values.items():
         page = page.replace(f'<!--{key}-->', value)
