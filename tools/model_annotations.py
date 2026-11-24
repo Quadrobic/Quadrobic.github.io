@@ -9,6 +9,7 @@ import json
 import math
 from pathlib import Path
 import re
+from manifesto import SECTION_REFERENCE_RE, section_id
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -167,11 +168,13 @@ def entries(doc):
             if not sec['num']:
                 continue
             chunks = [str(payload) for _, payload in sec['blocks']]
-            refs = sorted({int(n) for n in re.findall(r'§(\d+)', ' '.join(chunks)) if int(n) != int(sec['num'])})
-            result.append({'number': int(sec['num']), 'title': html.unescape(re.sub('<[^>]+>', '', sec['title'])), 'refs': refs})
-    valid = {s['number'] for s in result}
+            refs = {section_id(n) for n in SECTION_REFERENCE_RE.findall(' '.join(chunks))} - {sec['num']}
+            result.append({'number': sec['num'], 'title': html.unescape(re.sub('<[^>]+>', '', sec['title'])), 'refs': refs})
+    order = {s['number']: i for i, s in enumerate(result)}
+    if len(order) != len(result):
+        raise ValueError('Duplicate numbered treatise section')
     for sec in result:
-        sec['refs'] = [n for n in sec['refs'] if n in valid]
+        sec['refs'] = sorted((n for n in sec['refs'] if n in order), key=order.__getitem__)
     return result
 
 
@@ -252,8 +255,9 @@ def render_map(snapshot, doc, lang):
         incoming = [s['number'] for s in sections if n in s['refs']]
         def refs(nums):
             return ' '.join(f'<a href="#map-p{v}" data-map-select="{v}">§{v}</a>' for v in nums) or ui['none']
-        details.append(f'<section class="map-detail" id="map-p{n}" data-map-detail="{n}"><div class="map-detail-number">§{n:02d}</div><h2 tabindex="-1">{esc(sec["title"])}</h2><a class="map-read" href="{index}#p{n}">{ui["read"]} ↗</a><div class="map-references"><div><b>{ui["out"]}</b>{refs(sec["refs"])}</div><div><b>{ui["in"]}</b>{refs(incoming)}</div></div>{cards(snapshot, claims, lang, n)}</section>')
-        navigation.append(f'<a href="#map-p{n}" data-map-select="{n}"><span>§{n:02d}</span>{esc(sec["title"])}</a>')
+        label = n.zfill(2)
+        details.append(f'<section class="map-detail" id="map-p{n}" data-map-detail="{n}"><div class="map-detail-number">§{label}</div><h2 tabindex="-1">{esc(sec["title"])}</h2><a class="map-read" href="{index}#p{n}">{ui["read"]} ↗</a><div class="map-references"><div><b>{ui["out"]}</b>{refs(sec["refs"])}</div><div><b>{ui["in"]}</b>{refs(incoming)}</div></div>{cards(snapshot, claims, lang, n)}</section>')
+        navigation.append(f'<a href="#map-p{n}" data-map-select="{n}"><span>§{label}</span>{esc(sec["title"])}</a>')
     edges = sum(len(s['refs']) for s in sections)
     return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{ui['map']} · Agda</title><link rel="icon" href="logo/favicon.svg"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/model-notes.css"><link rel="stylesheet" href="css/model-map.css"></head>
 <body class="model-map-page"><header class="map-nav"><a href="{index}">△ {ui['back']}</a><a href="{formal}">⊢ {ui['formal']}</a><nav aria-label="Language"><a href="model-map.html" lang="ru" data-map-lang="ru" {'aria-current="page"' if lang == 'ru' else ''}>RU</a><a href="model-map.en.html" lang="en" data-map-lang="en" {'aria-current="page"' if lang == 'en' else ''}>EN</a></nav></header>

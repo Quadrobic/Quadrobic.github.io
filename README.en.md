@@ -106,15 +106,21 @@ But why is this water not foreign? The present is not a fourth force entering a 
 
 So neither the former bend nor Svabhava's constancy performs the act in its place. It hears what has risen or closes the door again. Ice narrows the available step to a barely perceptible movement; it does not make the familiar bend the last truth about the jiva.
 
-These threads are known differently, and each admits a different kind of error.
-
 The jiva recognizes its own movement from within, through Hridaya: before words, without another's permission. The immediacy of this presence does not make hearing infallible. Discernment is learned throughout life: fear, habit, and grasping too can speak from within and pass themselves off as “mine” (§14, §16).
 
-Svabhava is not changed by encounter; the Riverbed is cut by it (§7). Its form cannot be read in full from within. What movement has done to another, whether it left them room or made them shrink back or fall silent, is learned from their response. The response is no verdict: it reveals its own side of the encounter, not the whole jiva, and does not appoint Svabhava.
+Knowing movement as one's own does not yet mean knowing the form in which it has entered the world (§8a). Neither recognition nor reading form becomes final: each encounter calls for both kinds of work anew.
 
-Recognizing movement and reading the response need each other. Recognition that admits no response closes in on itself: “this is how I feel” becomes a justification, and an error in hearing goes unnoticed. A response that takes the place of recognition becomes conformity: the jiva adjusts its movement to another's reaction. Neither becomes final: each encounter calls for both kinds of work anew.
+### §8a. On Form
 
-A ciliate moves without drawing its own portrait. Consciousness builds a self-image (§9) and can settle inside it in place of its own life. It needs others not for permission to be itself, but to discern what it has become.
+Movement is not exhausted by how it is heard from within. It enters the world as an act, a voice, the space a body occupies when another enters. This is how the jiva is present in the world. Its form is real regardless of what the jiva thinks of it; others encounter it from a side the jiva cannot see from within. Svabhava is not changed by encounter; the Riverbed is cut by it (§7).
+
+A ciliate moves without drawing its own portrait. Consciousness builds a self-image (§9): how the jiva wants to be and how it sees itself. But the portrait does not occupy its place in the world. Form is how it actually enters an encounter. To know form is to look at what it does, how it sounds, what trace it leaves, how others respond, without substituting a familiar face for what is seen.
+
+To know form is to acknowledge that the jiva exists beyond its own inward life. It has a place, weight, and voice, and intention cannot occupy them in its stead. How another sees it in this encounter is its own form. Here it recognizes itself; approval makes this presence neither more nor less its own. Another's response does not appoint Svabhava.
+
+To correct the form one has recognized is to know beforehand what it ought to be. The portrait returns as judge: it admits only what matches the model and obscures the rest. “That is not me” then means: “I do not want to recognize myself as this.” Encountering oneself gives way to fitting an ideal (§9).
+
+The more clearly form is seen, the more clearly movement is heard: the portrait ceases to obscure either. The work of the path is to recognize without reshaping what is recognized. The jiva learns to say “this is me” to what it sees, without demanding approval or making this appearance final (§16, §22).
 
 ---
 

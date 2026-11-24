@@ -22,6 +22,14 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 README = ROOT / "README.md"
 
+# Inserted sections keep existing links stable. Russian а and Latin a share an ID.
+SECTION_LABEL = r"\d+[a-zа]?"
+SECTION_REFERENCE_RE = re.compile(rf"§({SECTION_LABEL})")
+
+
+def section_id(label: str) -> str:
+    return label.replace("а", "a")
+
 # Russian book headings spell the ordinal out ("Книга Девятая"), so they need
 # a word -> roman numeral lookup. English/Thai headings embed the roman
 # numeral directly ("Book IX." / "เล่ม IX.") and so need no lookup table —
@@ -103,7 +111,7 @@ def inline(text: str) -> str:
     text = html.escape(text, quote=False)
     text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"\*(.+?)\*", r"<em>\1</em>", text)
-    text = re.sub(r"§(\d+)", r'<span class="ref">§\1</span>', text)
+    text = SECTION_REFERENCE_RE.sub(r'<span class="ref">§\1</span>', text)
     return text
 
 
@@ -117,7 +125,7 @@ def parse(md: str, lang: str = "ru") -> dict:
        "sections": [section, ...]}
 
     Each section is:
-      {"num": "1"|None, "title": str|None,
+      {"num": "1"|"8a"|None, "title": str|None,
        "blocks": [("p", html), ("ol", [html,...]), ("dt", (term_html, def_html)),
                   ("axiom", html), ("invocation", html), ("h4", html), ...]}
 
@@ -211,9 +219,9 @@ def parse(md: str, lang: str = "ru") -> dict:
             flush_para()
             flush_list()
             heading = stripped[4:].strip()
-            m = re.match(r"§(\d+)\.\s*(.+)", heading)
+            m = re.match(rf"§({SECTION_LABEL})\.\s*(.+)", heading)
             current_section = {
-                "num": m.group(1) if m else None,
+                "num": section_id(m.group(1)) if m else None,
                 "title": m.group(2) if m else heading,
                 "blocks": [],
             }

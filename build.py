@@ -198,7 +198,7 @@ def render_sections(sections, lang="ru", snapshot=None, context=None):
         star = sec["num"] == "38"
         mode_attr = ' data-star-reading="true"' if star else ""
         body = render_star_blocks(sec["blocks"], lang) if star else render_blocks(sec["blocks"])
-        note = model_annotations.marker(snapshot, int(sec['num']), lang) if snapshot and sec['num'] and lang in ('ru', 'en') else ''
+        note = model_annotations.marker(snapshot, sec['num'], lang) if snapshot and sec['num'] and lang in ('ru', 'en') else ''
         if snapshot and context:
             note = model_annotations.context_marker(snapshot, context, lang)
             context = None
