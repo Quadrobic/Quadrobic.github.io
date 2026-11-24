@@ -14,6 +14,13 @@ SPEC.loader.exec_module(builder)
 
 
 class OfflineBuildTests(unittest.TestCase):
+    def test_about_pages_offer_a_manual_update_check(self):
+        for lang, label in (('ru', 'Проверить обновления'), ('en', 'Check for updates'),
+                            ('th', 'ตรวจสอบอัปเดต')):
+            page = builder.about_page(lang, '2026.11.24.13')
+            self.assertIn(label, page)
+            self.assertIn('href="https://github.com/Quadrobic/Quadrobic.github.io/releases/latest"', page)
+
     def test_output_cannot_be_inside_checkout(self):
         with self.assertRaises(ValueError):
             builder.outside(builder.ROOT / 'android' / 'output', 'APK output')

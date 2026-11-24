@@ -140,17 +140,17 @@ def about_page(lang, version):
         'ru': ('О приложении', 'Чтение без интернета', 'Трактат, бонус, словарь и формализация находятся внутри приложения. '
                'Внешние источники открываются в браузере. Место чтения и выбранный язык сохраняются на устройстве. '
                'При наличии интернета приложение проверяет новые версии на GitHub; скачивание предлагается отдельно.',
-               'Трактат', 'Бонус', 'Формализация', 'Библиотеки и лицензии'),
+               'Трактат', 'Бонус', 'Формализация', 'Библиотеки и лицензии', 'Проверить обновления'),
         'en': ('About this app', 'Reading offline', 'The treatise, bonus, glossary, and formalization are included in the app. '
                'External sources open in your browser. Reading position and language are kept on this device. '
                'When online, the app checks GitHub for new versions and asks before opening a download.',
-               'Treatise', 'Bonus', 'Formalization', 'Libraries and licenses'),
+               'Treatise', 'Bonus', 'Formalization', 'Libraries and licenses', 'Check for updates'),
         'th': ('เกี่ยวกับแอป', 'อ่านโดยไม่ใช้อินเทอร์เน็ต', 'คัมภีร์ เรื่องเสริม อภิธานศัพท์ และแบบจำลองรวมอยู่ในแอป '
                'แหล่งข้อมูลภายนอกเปิดในเบราว์เซอร์ ตำแหน่งอ่านและภาษาจะเก็บไว้ในอุปกรณ์นี้ '
                'เมื่อเชื่อมต่ออินเทอร์เน็ต แอปจะตรวจสอบเวอร์ชันใหม่บน GitHub และถามก่อนเปิดการดาวน์โหลด',
-               'คัมภีร์', 'เรื่องเสริม', 'แบบจำลอง', 'ไลบรารีและใบอนุญาต'),
+               'คัมภีร์', 'เรื่องเสริม', 'แบบจำลอง', 'ไลบรารีและใบอนุญาต', 'ตรวจสอบอัปเดต'),
     }
-    title, heading, body, treatise, bonus, formal, licenses = strings[lang]
+    title, heading, body, treatise, bonus, formal, licenses, updates = strings[lang]
     suffix = '.en' if lang == 'en' else '.th' if lang == 'th' else ''
     other = '.en' if lang in ('en', 'th') else ''
     license_links = ''.join(f'<li><a href="licenses/{name}">{label}</a></li>' for name, label in (
@@ -162,6 +162,7 @@ def about_page(lang, version):
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{title}</title>
 <link rel="stylesheet" href="../css/style.css"><style>main{{max-width:680px;margin:3rem auto;padding:24px;color:#e7dfd0;font:18px/1.8 var(--serif-body)}}a{{color:#d4b17a}}nav{{display:flex;gap:20px;flex-wrap:wrap}}h1{{font-size:32px}}small{{opacity:.7}}</style></head>
 <body><main><h1>{heading}</h1><p>{body}</p><small>Quadrobic · {html.escape(version)}</small>
+<p><a href="https://github.com/Quadrobic/Quadrobic.github.io/releases/latest">{updates}</a></p>
 <nav><a href="../index{suffix}.html">{treatise}</a><a href="../bird{other}.html">{bonus}</a><a href="../formalization{other}.html">{formal}</a></nav>
 <details><summary>{licenses}</summary><ul>{license_links}</ul><p><a href="vendor/p5.js">p5.js source</a> · <a href="vendor/gsap.js">GSAP source</a> · <a href="vendor/ScrollTrigger.js">ScrollTrigger source</a></p></details>
 </main></body></html>'''

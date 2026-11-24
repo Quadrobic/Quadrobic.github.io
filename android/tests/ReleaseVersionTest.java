@@ -17,6 +17,10 @@ public final class ReleaseVersionTest {
         require(!ReleaseVersion.newer(version, version));
         require(!ReleaseVersion.newer("2026.12.01.8", version));
         require(ReleaseVersion.newer("2026.11.22.11", version));
+        String published = "2026.11.24.13";
+        String apk = "quadrobic-" + published + ".apk";
+        require(published.equals(ReleaseVersion.fromAsset(apk, root + published + "/" + apk)));
+        require(ReleaseVersion.newer(published, "2026.11.24.12"));
         for (String invalid : new String[] {
                 null, "", "preview", "2026.11.23", "2026.11.23.10-beta", "2026.0.23.11",
                 "2026.11.32.11", "2026.11.23.0", "2026.11.23.9999999999" }) {

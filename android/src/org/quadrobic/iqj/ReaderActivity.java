@@ -166,6 +166,13 @@ public final class ReaderActivity extends Activity {
 
         @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             Uri uri = request.getUrl();
+            String current = view.getUrl() == null ? null : localPath(Uri.parse(view.getUrl()));
+            if (request.isForMainFrame() && request.hasGesture()
+                    && UpdateChecker.CHECK_LINK.equals(uri.toString())
+                    && current != null && current.matches("site/app/about\\.(ru|en|th)\\.html")) {
+                updates.checkNow();
+                return true;
+            }
             String path = localPath(uri);
             if (path != null && isPage(uri.toString())) {
                 // Same-document anchors must not wait for a page-load callback.

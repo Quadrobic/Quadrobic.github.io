@@ -73,8 +73,11 @@ since completion of a page load does not itself guarantee a completed paint.
 
 While the reader is open and Android reports an Internet connection, a native
 worker checks this repository's latest stable GitHub release. It checks at most
-once every 12 hours after a successful request, retries failures after 15 minutes,
-and also notices a connection becoming available while the app is open. Offline
+once an hour after a successful request, retries failures after 15 minutes,
+and also notices a connection becoming available while the app is open. A timer
+revisits the schedule every 15 minutes while the Activity is resumed; it stops
+when the reader is paused. A newly installed build ignores the previous build's
+cooldown, and a discovered update is retained across process restarts. Offline
 use and network/API errors remain silent. There is no background service.
 
 Only an uploaded `quadrobic-YYYY.MM.DD.counter.apk` on the exact repository's
@@ -85,6 +88,13 @@ or Later. The same release is offered at most once per day. Download opens the
 APK in the browser; the reader neither downloads it automatically nor launches
 the installer. The user installs it over the existing app, with Android checking
 the package signature. Keep using the same signing state when publishing releases.
+
+The About page also offers **Check for updates**. In the installed reader, this
+user-initiated check bypasses both the cooldown and the daily prompt suppression,
+and reports no connection, a check failure, or an up-to-date installation. In a
+browser preview, the same link opens GitHub's latest release page. Only an actual
+user decision (Download, Later, or cancellation) suppresses the prompt; pausing
+the Activity while it is displayed does not count as declining the update.
 
 The first app version containing this feature must be installed manually;
 previous builds cannot discover updates retroactively. Nothing is sent from the
