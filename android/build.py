@@ -96,6 +96,13 @@ def vendor(cache, offline):
         target = cache / name
         if target.is_file() and sha(target) == item['sha256']:
             continue
+        if 'source' in item:
+            source = (HERE / item['source']).resolve()
+            if HERE.resolve() not in source.parents or not source.is_file() or sha(source) != item['sha256']:
+                raise ValueError(f'Bundled dependency checksum mismatch: {name}')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, target)
+            continue
         if offline:
             raise ValueError(f'Missing or changed cached dependency: {name}; run once without --offline')
         if not item['url'].startswith('https://'):

@@ -33,7 +33,8 @@
     {
       "file": "licenses/GSAP-license.html.txt",
       "url": "https://gsap.com/standard-license/",
-      "sha256": "097c29dda071b2f7ac83bc956ba5053171b5a1ea1a4887036811202a31a32ff2"
+      "sha256": "944943170151da8d430efa7b913f84cdc48ec5d1118d4810db891bece5194bbe",
+      "source": "licenses/GSAP-license.html.txt"
     },
     {
       "file": "licenses/Lenis.txt",

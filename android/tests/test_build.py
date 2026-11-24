@@ -84,6 +84,23 @@ class OfflineBuildTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'Missing or changed cached dependency'):
                     builder.vendor(cache, offline=True)
 
+    def test_bundled_license_is_verified_and_copied_offline(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); cache = root / 'cache'
+            license_file = root / 'license.txt'
+            data = b'Reviewed license snapshot'
+            license_file.write_bytes(data)
+            (root / 'vendor-lock.json').write_text(json.dumps({'assets': [
+                {'file': 'licenses/license.txt', 'source': 'license.txt',
+                 'sha256': hashlib.sha256(data).hexdigest()}]}))
+            with patch.object(builder, 'HERE', root):
+                builder.vendor(cache, offline=True)
+                self.assertEqual((cache / 'licenses/license.txt').read_bytes(), data)
+                (cache / 'licenses/license.txt').unlink()
+                license_file.write_bytes(b'changed')
+                with self.assertRaisesRegex(ValueError, 'Bundled dependency checksum mismatch'):
+                    builder.vendor(cache, offline=True)
+
     def test_package_cannot_drop_hidden_source_assets(self):
         with tempfile.TemporaryDirectory() as temp:
             apk = Path(temp) / 'test.apk'

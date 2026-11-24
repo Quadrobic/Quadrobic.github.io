@@ -129,7 +129,9 @@ can fetch those exact files; later builds use the verified cache. `--offline`
 rejects a missing or changed dependency instead of silently fetching it. Updating
 the pins in `../tools/runtime_libraries.py` requires an explicit lock-file review.
 That module supplies the same URLs and versions to the web templates, offline
-rewriter and app notices. The pinned Lenis CSS is bundled as well. Fonts are local
+rewriter and app notices. The pinned Lenis CSS is bundled as well. The GSAP license HTML is a reviewed repository snapshot in `licenses/`, verified
+against the lock-file hash; builds do not hash a changing live web page.
+Fonts are local
 WOFF2 subsets, including Cyrillic and Thai. Original p5.js and GSAP source files,
 license texts/notices, and the Lenis license ship inside the app.
 
