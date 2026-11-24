@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Build the unlisted Russian satire. Never add an inbound navigation link.
+"""Build the unlisted continuation of the bird story. Never add an inbound navigation link.
 
-yard.md is an independent literary adaptation, not an input to the canonical
+yard.md is an independent story, not an input to the canonical
 treatise, translations, PDF or Agda. Artwork and §38 effects share the main reader.
 """
 import html
@@ -42,14 +42,7 @@ def blocks(items):
 
 def build():
     doc = manifesto.load(ROOT / 'yard.md', lang='ru')
-    # Preserve every numbered section so readers can compare the two editions.
-    canonical = manifesto.load(ROOT / 'README.md', lang='ru')
     numbers = lambda d: [s['num'] for b in d['books'] for s in b['sections'] if s['num']]
-    if numbers(doc) != numbers(canonical):
-        raise ValueError('Satire and canonical treatise have different section sequences')
-    story_books = [book for book in doc['books'] if book['kind'] == 'book']
-    if manifesto.book_name(story_books[5], 'ru') != 'Проект Комплементации Квадроберов':
-        raise ValueError('Keep the requested Book VI title: Проект Комплементации Квадроберов')
     navigation, books = [], []
     index = 0
     after_star = False
@@ -70,10 +63,10 @@ def build():
                 continue
             number, heading = section['num'], section['title']
             ident = f' id="p{number}"' if number else ''
-            label = f'§{number}. ' if number else ''
+            label = ''
             header = f'<h3>{label}{html.escape(heading)}</h3>' if heading else ''
             star = number == '38'
-            body = render_star_blocks(section['blocks'], 'ru') if star else blocks(section['blocks'])
+            body = render_star_blocks(section['blocks'], 'ru').replace('>Вернуться</button>', '>Нарисовать</button>') if star else blocks(section['blocks'])
             if book['kind'] == 'glossary':
                 body = f'<dl>{body}</dl>'
             mode = ' data-star-reading="true"' if star else ''

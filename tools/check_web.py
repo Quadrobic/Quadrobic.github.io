@@ -71,7 +71,7 @@ def check():
             target = (base / decoded.lstrip('/')).resolve() if decoded else path
             if ROOT not in target.parents or not target.is_file():
                 raise ValueError(f'Missing or escaping asset: {path.name}: {link}')
-            if target == ROOT / 'yard.html' and path != target:
+            if target == ROOT / 'yard.html' and path.name not in ('yard.html', 'bird.html', 'bird.en.html'):
                 raise ValueError(f'Unlisted satire has an inbound link: {path.name}: {link}')
             if target in pages and url.fragment and unquote(url.fragment) not in pages[target].ids:
                 raise ValueError(f'Broken anchor: {path.name}: {link}')
