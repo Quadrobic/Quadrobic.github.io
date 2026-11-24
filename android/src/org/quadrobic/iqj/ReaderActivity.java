@@ -130,6 +130,7 @@ public final class ReaderActivity extends Activity {
         if (p.endsWith(".json")) return "application/json";
         if (p.endsWith(".svg")) return "image/svg+xml";
         if (p.endsWith(".png")) return "image/png";
+        if (p.endsWith(".jpg") || p.endsWith(".jpeg")) return "image/jpeg";
         if (p.endsWith(".mp3")) return "audio/mpeg";
         if (p.endsWith(".woff2")) return "font/woff2";
         if (p.endsWith(".pdf")) return "application/pdf";

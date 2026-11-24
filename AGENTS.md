@@ -13,6 +13,7 @@ contain hundreds of kilobytes of embedded or exported proofs.
 | Missing-page introduction | `404.html` (maintained directly, RU/EN) | `python3 tools/check_web.py`; no build |
 | Page markup / translations of controls | `template.html`, `build.py`; bonus: `bird_template.html`, `build_bird.py` | Web builders above |
 | Layout | `css/style.css`; proof/map/note CSS have separate files | No build for CSS/JS |
+| Reading artwork | `tools/reading_art.py` selection, `.reading-plate` in `css/style.css`; originals in `pics/` | Web build; Android bundles selected files on its next explicit build |
 | Browser library versions | `tools/runtime_libraries.py`; Android hashes: `android/vendor-lock.json` | Web build, offline preview and browser checks |
 | Scroll, reveals, navigation | `js/main.js` | Browser check |
 | Audio and font size / speech | `js/reader-controls.js` / `js/speech.js` | Browser check |

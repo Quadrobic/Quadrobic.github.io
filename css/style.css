@@ -798,6 +798,28 @@ body {
 
 /* ---------- passages ---------- */
 
+/* Static impressions in the dark pauses, never behind words or UI controls. */
+.reading-plate {
+  width: clamp(180px, 47vw, 260px);
+  max-width: 100%;
+  margin: 0 auto 2.6rem;
+  pointer-events: none;
+  user-select: none;
+}
+.reading-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: .28;
+  filter: grayscale(1) sepia(.7) saturate(.7);
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 70%);
+  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 70%);
+}
+@media print {
+  .reading-plate { display: none; }
+}
+
 .book-body {
   max-width: var(--max-w);
   margin: 0 auto;

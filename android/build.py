@@ -27,11 +27,12 @@ MIN_API = 26
 PACKAGE = 'org.quadrobic.iqj'
 sys.path.insert(0, str(ROOT / 'tools'))
 from runtime_libraries import VERSIONS, offline_resources
+from reading_art import ASSETS as READING_ART_ASSETS
 
 RUNTIME_URLS = offline_resources()
 
 PUBLIC_FILES = ('index.html', 'index.en.html', 'index.th.html', 'bird.html', 'bird.en.html',
-                'formalization.html', 'formalization.en.html', 'model-map.html', 'model-map.en.html')
+                'formalization.html', 'formalization.en.html', 'model-map.html', 'model-map.en.html') + READING_ART_ASSETS
 INPUT_FILES = ('README.md', 'README.en.md', 'README.th.md', 'bird.md', 'bird.en.md',
                'build.py', 'build_bird.py', 'template.html', 'bird_template.html')
 PUBLIC_DIRS = ('css', 'js', 'audio', 'logo', 'formalization')

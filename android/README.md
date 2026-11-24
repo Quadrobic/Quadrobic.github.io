@@ -129,6 +129,10 @@ this application reads current HTML and does not depend on a PDF renderer or an
 online voice. Bundled MP3/Web Audio, normal reading, glossary, and model notes
 remain available. Source/archive downloads use Android's document picker.
 
+Decorative reading plates share the web selection in `../tools/reading_art.py`.
+Only selected originals from `pics/` enter the offline asset snapshot; unused
+art is not bundled. The pictures stay between passages and load locally.
+
 `ReaderActivity` maps only the app's HTTPS asset origin to `AssetManager`; it
 has no JavaScript-to-Java bridge and enables no `file://` or content-provider
 access in WebView. Other runtime requests receive an offline response. A content

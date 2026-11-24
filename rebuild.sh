@@ -59,7 +59,7 @@ else
 fi
 
 
-SITE_DEPS=(build.py template.html tools/manifesto.py tools/web_glossary.py tools/model_annotations.py tools/build_io.py tools/runtime_libraries.py formalization/annotations.json)
+SITE_DEPS=(build.py template.html tools/manifesto.py tools/web_glossary.py tools/model_annotations.py tools/reading_art.py tools/build_io.py tools/runtime_libraries.py formalization/annotations.json)
 for lang in ru en th; do
   case "$lang" in
     ru) source_md=README.md; page=index.html; map=model-map.html ;;

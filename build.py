@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import manifesto  # noqa: E402
 from web_glossary import glossary_json  # noqa: E402
 import model_annotations  # noqa: E402
+import reading_art  # noqa: E402
 from build_io import write_text_if_changed  # noqa: E402
 from runtime_libraries import VERSIONS, script_tags, style_links  # noqa: E402
 
@@ -204,7 +205,9 @@ def render_sections(sections, lang="ru", snapshot=None, context=None):
             context = None
         note_class = ' model-annotated' if note else ''
         sections_html.append(
-            f'<article class="passage{note_class}"{id_attr}{mode_attr}>{header}{note}{body}</article>'
+            reading_art.render(sec['num'], 'before')
+            + f'<article class="passage{note_class}"{id_attr}{mode_attr}>{header}{note}{body}</article>'
+            + reading_art.render(sec['num'], 'after')
         )
     return "".join(sections_html)
 

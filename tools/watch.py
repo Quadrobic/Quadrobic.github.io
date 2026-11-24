@@ -34,6 +34,7 @@ WATCHED = [
     ROOT / "tools" / "runtime_libraries.py",
     ROOT / "tools" / "web_glossary.py",
     ROOT / "tools" / "model_annotations.py",
+    ROOT / "tools" / "reading_art.py",
     ROOT / "build.py",
 ]
 
