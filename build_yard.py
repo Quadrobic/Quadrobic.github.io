@@ -66,7 +66,15 @@ def build():
             label = ''
             header = f'<h3>{label}{html.escape(heading)}</h3>' if heading else ''
             star = number == '38'
-            body = render_star_blocks(section['blocks'], 'ru').replace('>Вернуться</button>', '>Нарисовать</button>') if star else blocks(section['blocks'])
+            if star:
+                # The treatise's scene renderer handles paragraphs, not the
+                # dash-led dialogue entries produced by the shared parser.
+                scene = [('p', f'- {value[0]}') if kind == 'dt' and not value[1]
+                         else (kind, value) for kind, value in section['blocks']]
+                body = render_star_blocks(scene, 'ru').replace(
+                    '>Вернуться</button>', '>Нарисовать</button>')
+            else:
+                body = blocks(section['blocks'])
             if book['kind'] == 'glossary':
                 body = f'<dl>{body}</dl>'
             mode = ' data-star-reading="true"' if star else ''
