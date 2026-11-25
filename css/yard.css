@@ -33,7 +33,15 @@
 .yard-term + .yard-term { margin-top: 24px; }
 .yard-term dt { color: var(--brown-accent); font: 600 19px/1.6 Georgia, serif; }
 .yard-term dd { margin: 6px 0 0; }
-.yard-footer { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 20px; padding-bottom: 60px; }
+.yard-footer {
+  display: flex; justify-content: center;
+  padding-top: 20px; padding-bottom: 60px;
+  text-align: center;
+}
+.yard-footer a {
+  font: 400 clamp(24px, 3vw, 30px)/1.5 'Times New Roman', serif;
+  padding: 8px 12px;
+}
 .yard-page a:focus-visible, .yard-page summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
 .yard-page #sound-toggle { left: auto; right: 18px; bottom: 18px; }
 .yard-page #p38 .star-voice { line-height: inherit; }
