@@ -651,6 +651,23 @@ body {
   gap: 8px;
 }
 .corner-links .corner-link { position: static; white-space: nowrap; }
+
+/* The continuation stays clear of the bonus page's upper navigation. */
+#yard-link {
+  top: auto;
+  left: auto;
+  right: 18px;
+  bottom: 18px;
+  max-width: calc(100vw - 36px);
+  height: auto;
+  min-height: 32px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+@media (max-width: 720px) {
+  #yard-link { bottom: 76px; }
+}
+
 @media (min-width: 1024px) {
   #formalization-link, #bonus-link,
   .formalization-page .corner-link[href^="bird"] { font-size: 18px; }
