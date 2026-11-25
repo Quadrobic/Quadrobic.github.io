@@ -96,11 +96,13 @@ else
   echo "→ bird.html / bird.en.html (up to date, skipped)"
 fi
 
-if needs_rebuild yard.html yard.md yard_template.html build_yard.py build.py README.md tools/manifesto.py tools/reading_art.py tools/build_io.py; then
-  echo "→ yard.html (unlisted satire)"
+YARD_DEPS=(yard.md yard.en.md yard_template.html build_yard.py build.py tools/manifesto.py tools/reading_art.py tools/build_io.py)
+if needs_rebuild yard.html "${YARD_DEPS[@]}" \
+  || needs_rebuild yard.en.html "${YARD_DEPS[@]}"; then
+  echo "→ yard.html / yard.en.html (story continuation)"
   python3 build_yard.py
 else
-  echo "→ yard.html (up to date, skipped)"
+  echo "→ yard.html / yard.en.html (up to date, skipped)"
 fi
 
 if needs_rebuild bird.pdf bird.md bird_build.py tools/manifesto.py; then

@@ -16,6 +16,13 @@
     target.focus({ preventScroll: true });
     return true;
   }
+  function updateLanguageLinks() {
+    document.querySelectorAll("[data-yard-language]").forEach(link => {
+      link.hash = location.hash;
+    });
+  }
+  updateLanguageLinks();
+  addEventListener("hashchange", updateLanguageLinks);
   document.querySelector(".yard-index").addEventListener("click", event => {
     const link = event.target.closest('a[href^="#"]');
     if (!link) return;

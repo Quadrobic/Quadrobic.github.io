@@ -26,6 +26,7 @@ WATCHED = [
     ROOT / "bird.md",
     ROOT / "bird.en.md",
     ROOT / "yard.md",
+    ROOT / "yard.en.md",
     ROOT / "yard_template.html",
     ROOT / "build_yard.py",
     ROOT / "build_bird.py",

@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   const isTreatise = /\/index(?:\.(?:en|th))?\.html$/.test(location.pathname);
-  const isYard = /\/yard\.html$/.test(location.pathname);
+  const isYard = /\/yard(?:\.en)?\.html$/.test(location.pathname);
   const hasStar = isTreatise || isYard;
   const returnKey = isYard ? "iqj-offline-returned:yard" : "iqj-offline-returned";
   const language = document.documentElement.lang || "ru";

@@ -31,10 +31,10 @@ from reading_art import ASSETS as READING_ART_ASSETS
 
 RUNTIME_URLS = offline_resources()
 
-PUBLIC_FILES = ('index.html', 'index.en.html', 'index.th.html', 'bird.html', 'bird.en.html', 'yard.html',
+PUBLIC_FILES = ('index.html', 'index.en.html', 'index.th.html', 'bird.html', 'bird.en.html', 'yard.html', 'yard.en.html',
                 'formalization.html', 'formalization.en.html', 'model-map.html', 'model-map.en.html') + READING_ART_ASSETS
 INPUT_FILES = ('README.md', 'README.en.md', 'README.th.md', 'bird.md', 'bird.en.md',
-               'yard.md', 'build_yard.py', 'yard_template.html',
+               'yard.md', 'yard.en.md', 'build_yard.py', 'yard_template.html',
                'build.py', 'build_bird.py', 'template.html', 'bird_template.html')
 PUBLIC_DIRS = ('css', 'js', 'audio', 'logo', 'formalization')
 CSP = ("default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; "

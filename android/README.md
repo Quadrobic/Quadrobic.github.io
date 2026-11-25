@@ -145,14 +145,17 @@ Decorative reading plates share the web selection in `../tools/reading_art.py`.
 Only selected originals from `pics/` enter the offline asset snapshot; unused
 art is not bundled. The pictures stay between passages and load locally.
 
-The Russian story «Человек, которого не видно» is bundled as `yard.html`,
-with the same art and final Draw button. Both bonus pages link to it in their
-chapter menu and after the story; the web's floating shortcut is moved into
-the menu before reading. On other pages, five quick activations of the menu button within four
-seconds reveal **Человек, которого не видно · RU** inside the menu. The entry stays revealed
-for the WebView session. On tablets, or with a keyboard, five activations of the
-build number in the footer or About page provide the same entry. The bonus links are available without the secret gesture. Each edition keeps its own reading place and Return state;
-returning from the yard's Death Star does not unlock the canonical conclusion.
+The continuation *The Person Who Cannot Be Seen* is bundled in Russian and
+English as `yard.html` and `yard.en.html`, with matching artwork and the final
+**Да / Yes** answer. Its language switch preserves the current section anchor.
+Both bonus pages link to their matching edition in the chapter menu and after
+the story; the web's floating shortcut is moved into the menu before reading.
+On other pages, five quick activations of the menu button within four seconds
+reveal the matching continuation inside the menu. The entry stays revealed for
+the WebView session. On tablets, or with a keyboard, five activations of the build
+number in the footer or About page provide the same entry. The bonus links need
+no secret gesture. Each page keeps its own reading position; the two translations
+share the continuation's Return state, separate from the canonical treatise.
 
 `ReaderActivity` maps only the app's HTTPS asset origin to `AssetManager`; it
 has no JavaScript-to-Java bridge and enables no `file://` or content-provider
