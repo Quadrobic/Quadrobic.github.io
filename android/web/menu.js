@@ -4,6 +4,28 @@
   const destination = new URL("../yard.html", document.currentScript.src).href;
   document.addEventListener("DOMContentLoaded", () => {
     if (/\/yard\.html$/.test(location.pathname)) return;
+    const continuation = document.getElementById("yard-link");
+    const navigation = document.getElementById("side-nav");
+    if (continuation && navigation) {
+      // Move the bonus page's floating shortcut into its chapter menu. The
+      // footer link remains available, and this page needs no secret duplicate.
+      const title = continuation.textContent.trim();
+      continuation.removeAttribute("id");
+      continuation.className = "nav-dot offline-continuation";
+      continuation.title = title;
+      continuation.setAttribute("aria-label", title);
+      continuation.lang = "ru";
+      const glyph = document.createElement("span");
+      glyph.className = "nav-glyph";
+      glyph.textContent = "✦";
+      glyph.setAttribute("aria-hidden", "true");
+      const label = document.createElement("span");
+      label.className = "nav-label";
+      label.textContent = title;
+      continuation.replaceChildren(glyph, label);
+      navigation.append(continuation);
+      return;
+    }
     const button = document.getElementById("mobile-menu-btn");
     const container = document.getElementById("controls-row")
       || document.querySelector("footer") || document.querySelector("main nav");

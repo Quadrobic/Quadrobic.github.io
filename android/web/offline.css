@@ -6,6 +6,9 @@
 /* The installed reader does not need its own website download link. */
 #download-controls { display: none !important; }
 
+/* Hide the bonus shortcut before menu.js moves it, avoiding a floating flash. */
+#yard-link { display: none !important; }
+
 .offline-yard-entry[hidden] { display: none !important; }
 .offline-yard-entry {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;

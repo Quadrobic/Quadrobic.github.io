@@ -72,7 +72,7 @@ def build():
                 scene = [('p', f'- {value[0]}') if kind == 'dt' and not value[1]
                          else (kind, value) for kind, value in section['blocks']]
                 body = render_star_blocks(scene, 'ru').replace(
-                    '>Вернуться</button>', '>Нарисовать</button>')
+                    '>Вернуться</button>', '>Да</button>')
             else:
                 body = blocks(section['blocks'])
             if book['kind'] == 'glossary':
