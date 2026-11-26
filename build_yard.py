@@ -25,6 +25,7 @@ LANGS = {
         'subtitle': 'История Михаила и Поликарпыча.',
         'chapters': 'Главы', 'nav_label': 'Главы рассказа', 'language_label': 'Язык',
         'sound_label': 'Переключить звук', 'sound_title': 'Звук',
+        'back_top': 'Вернуться к трактату',
         'back_label': 'К трактату ↗', 'answer': 'Да', 'return_label': 'Вернуться',
     },
     'en': {
@@ -34,6 +35,7 @@ LANGS = {
         'subtitle': 'The story of Misha and Polikarpich.',
         'chapters': 'Chapters', 'nav_label': 'Story chapters', 'language_label': 'Language',
         'sound_label': 'Toggle sound', 'sound_title': 'Sound',
+        'back_top': 'Back to the treatise',
         'back_label': 'To the treatise ↗', 'answer': 'Yes', 'return_label': 'Return',
     },
 }

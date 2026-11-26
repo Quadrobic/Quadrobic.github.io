@@ -7,7 +7,8 @@
   margin: 0 auto;
   padding: 0 20px;
 }
-.yard-header { padding-top: clamp(36px, 8vh, 90px); padding-bottom: 40px; color: var(--parchment-dim); }
+.yard-header { padding-top: clamp(84px, 12vh, 110px); padding-bottom: 40px; color: var(--parchment-dim); }
+.yard-page #back-link { height: auto; min-height: 40px; padding: 8px 13px; max-width: calc(100vw - 36px); }
 .yard-kicker { font: 11px/1.7 system-ui, sans-serif; color: var(--gold); letter-spacing: .06em; }
 .yard-header h1 { font: 400 clamp(30px, 5vw, 48px)/1.2 'Times New Roman', serif; margin: 24px 0 16px; }
 .yard-languages { display: flex; gap: 14px; margin-top: 20px; font: 14px/1.5 system-ui, sans-serif; }
