@@ -77,7 +77,8 @@ public final class ReaderActivity extends Activity {
         settings.setAllowContentAccess(false);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-        settings.setMediaPlaybackRequiresUserGesture(true);
+        // Local scripts start music only on Return or a consumed final-link request.
+        settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setSupportMultipleWindows(false);
         reader.setWebViewClient(new LocalClient());
         reader.setDownloadListener((url, agent, disposition, mime, length) -> export(Uri.parse(url)));

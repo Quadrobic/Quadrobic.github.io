@@ -5,7 +5,7 @@
   /* ---------------- ambient sound toggle ---------------- */
   /* A generated drone + filtered noise for the riverbed. After §38's
      Return button, the same sound control pauses/resumes alquadro.mp3.
-     Both sources start only inside a click, never on page load. */
+     Music starts on Return or a one-time request from the final story link. */
 
   (function setupSound() {
     const btn = document.getElementById("sound-toggle");
@@ -52,12 +52,29 @@
         setSoundState(false);
       });
       window.addEventListener("reading:return", () => {
+        if (music.getAttribute("src") !== "audio/alquadro.mp3") music.src = "audio/alquadro.mp3";
         musicMode = true;
         on = false;
         fadeAmbient(0);
         // Repeated returns use this same player; no overlapping copies.
         playMusic();
       });
+    }
+
+    // Consume a short-lived, per-tab request from the story's final link.
+    if (music && /\/index(?:\.(?:en|th))?\.html$/.test(location.pathname)) {
+      let request;
+      try {
+        request = JSON.parse(sessionStorage.getItem('iqj-yard-music') || 'null');
+        sessionStorage.removeItem('iqj-yard-music');
+      } catch (_) {}
+      if (request && request.path === location.pathname &&
+          Date.now() >= request.at && Date.now() - request.at < 30000) {
+        music.src = 'audio/sap.mp3';
+        musicMode = true;
+        playMusic();
+      }
+
     }
 
     function build() {

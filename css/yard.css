@@ -56,3 +56,29 @@
 @media screen {
   .star-sealed [data-yard-after-star] { display: none !important; }
 }
+
+/* Final invitation, revealed with the last illustration. */
+.yard-footer .yard-treatise-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 76px;
+  width: min(100%, 560px);
+  padding: 20px 28px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #382719, #18120e);
+  box-shadow: 0 8px 32px #0006, inset 0 1px 0 #e8c88a33;
+  color: var(--gold-bright);
+  font-size: clamp(27px, 4vw, 38px);
+  text-decoration: none;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+.yard-footer .yard-treatise-button:hover {
+  border-color: var(--gold-bright);
+  background: linear-gradient(135deg, #493322, #241a12);
+  box-shadow: 0 10px 36px #0008, inset 0 1px 0 #e8c88a55;
+}
+@media (prefers-reduced-motion: reduce) {
+  .yard-footer .yard-treatise-button { transition: none; }
+}

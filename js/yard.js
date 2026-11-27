@@ -1,6 +1,14 @@
 /* Native scrolling and sealed targets for the unlisted edition; no runtime library. */
 (function () {
   "use strict";
+  // Only the final link requests music on the next document.
+  document.querySelector('.yard-treatise-button')?.addEventListener('click', event => {
+    if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const target = new URL(event.currentTarget.href);
+    try {
+      sessionStorage.setItem('iqj-yard-music', JSON.stringify({ path: target.pathname, at: Date.now() }));
+    } catch (_) {}
+  });
   function sealedTarget(hash) {
     if (!document.documentElement.classList.contains("star-sealed")) return null;
     let target;
