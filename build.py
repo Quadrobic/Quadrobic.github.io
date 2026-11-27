@@ -50,10 +50,10 @@ LANGS = {
         "inc_aria": "Увеличить размер текста", "inc_title": "Больше текста",
         "font_links": "",
         # The bonus story has Russian and English editions.
-        "bonus_html": '<p class="footer-bonus"><a href="bird.html">△ Бонус: «Сухая грусть на дне очей»</a></p>',
+        "bonus_html": '<p class="footer-bonus"><a href="bird.html">△ Пролог: «Сухая грусть на дне очей»</a></p>',
         "bonus_control_html": (
             '<a id="bonus-link" class="corner-link" href="bird.html" '
-            'title="Бонус: «Сухая грусть на дне очей»">✦ Бонус</a>'
+            'title="Пролог: «Сухая грусть на дне очей»">✦ Пролог</a>'
         ),
     },
     "en": {
@@ -75,10 +75,10 @@ LANGS = {
         "dec_aria": "Decrease text size", "dec_title": "Smaller text",
         "inc_aria": "Increase text size", "inc_title": "Larger text",
         "font_links": "",
-        "bonus_html": '<p class="footer-bonus"><a href="bird.en.html">△ Bonus: “Dry Sorrow in the Depths of the Eyes”</a></p>',
+        "bonus_html": '<p class="footer-bonus"><a href="bird.en.html">△ Prologue: “Dry Sorrow in the Depths of the Eyes”</a></p>',
         "bonus_control_html": (
             '<a id="bonus-link" class="corner-link" href="bird.en.html" '
-            'title="Bonus: Dry Sorrow in the Depths of the Eyes">✦ Bonus</a>'
+            'title="Prologue: Dry Sorrow in the Depths of the Eyes">✦ Prologue</a>'
         ),
     },
     "th": {
@@ -104,8 +104,8 @@ LANGS = {
             'family=Noto+Serif+Thai:ital,wght@0,400;0,500;0,600;0,700;1,500'
             '&display=swap" rel="stylesheet">'
         ),
-        "bonus_html": "",
-        "bonus_control_html": "",
+        "bonus_html": '<p class="footer-bonus"><a href="bird.en.html">△ บทนำ · EN</a></p>',
+        "bonus_control_html": '<a id="bonus-link" class="corner-link" href="bird.en.html" title="บทนำ · EN">✦ บทนำ · EN</a>',
     },
 }
 

@@ -149,15 +149,15 @@ def about_page(lang, version):
         'ru': ('О приложении', 'Чтение без интернета', 'Трактат, бонус, словарь и формализация находятся внутри приложения. '
                'Внешние источники открываются в браузере. Место чтения и выбранный язык сохраняются на устройстве. '
                'При наличии интернета приложение проверяет новые версии на GitHub; скачивание предлагается отдельно.',
-               'Трактат', 'Бонус', 'Формализация', 'Библиотеки и лицензии', 'Проверить обновления'),
+               'Трактат', 'Пролог', 'Формализация', 'Библиотеки и лицензии', 'Проверить обновления'),
         'en': ('About this app', 'Reading offline', 'The treatise, bonus, glossary, and formalization are included in the app. '
                'External sources open in your browser. Reading position and language are kept on this device. '
                'When online, the app checks GitHub for new versions and asks before opening a download.',
-               'Treatise', 'Bonus', 'Formalization', 'Libraries and licenses', 'Check for updates'),
+               'Treatise', 'Prologue', 'Formalization', 'Libraries and licenses', 'Check for updates'),
         'th': ('เกี่ยวกับแอป', 'อ่านโดยไม่ใช้อินเทอร์เน็ต', 'คัมภีร์ เรื่องเสริม อภิธานศัพท์ และแบบจำลองรวมอยู่ในแอป '
                'แหล่งข้อมูลภายนอกเปิดในเบราว์เซอร์ ตำแหน่งอ่านและภาษาจะเก็บไว้ในอุปกรณ์นี้ '
                'เมื่อเชื่อมต่ออินเทอร์เน็ต แอปจะตรวจสอบเวอร์ชันใหม่บน GitHub และถามก่อนเปิดการดาวน์โหลด',
-               'คัมภีร์', 'เรื่องเสริม', 'แบบจำลอง', 'ไลบรารีและใบอนุญาต', 'ตรวจสอบอัปเดต'),
+               'คัมภีร์', 'บทนำ', 'แบบจำลอง', 'ไลบรารีและใบอนุญาต', 'ตรวจสอบอัปเดต'),
     }
     title, heading, body, treatise, bonus, formal, licenses, updates = strings[lang]
     suffix = '.en' if lang == 'en' else '.th' if lang == 'th' else ''
