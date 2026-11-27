@@ -1,4 +1,4 @@
-# Imperial Quadrobic Jainism: A Treatise on Svabhava, Hridaya, and the Path of Service
+# Imperial Quadrobic Neo-Jainism: A Treatise on Svabhava, Hridaya, and the Path of Service
 
 Half a breath before every decision, something in you strains to break out - and almost always it is stopped in time.
 
